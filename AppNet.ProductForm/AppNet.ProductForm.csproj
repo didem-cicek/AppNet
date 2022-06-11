@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AppNet.AddCategoryForm\AppNet.AddCategoryForm.csproj" />
+    <ProjectReference Include="..\AppNet.AddProductForm\AppNet.AddProductForm.csproj" />
+    <ProjectReference Include="..\AppNet.DeleteCategoryForm\AppNet.DeleteCategoryForm.csproj" />
+    <ProjectReference Include="..\AppNet.DeletedProductForm\AppNet.DeleteProductForm.csproj" />
+    <ProjectReference Include="..\AppNet.UpdateCategoryForm\AppNet.UpdateCategoryForm.csproj" />
+    <ProjectReference Include="..\AppNet.UpdatedProductForm\AppNet.UpdateProductForm.csproj" />
+  </ItemGroup>
+
+</Project>

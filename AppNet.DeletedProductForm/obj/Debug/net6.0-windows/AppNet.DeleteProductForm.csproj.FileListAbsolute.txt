@@ -1,0 +1,17 @@
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\bin\Debug\net6.0-windows\AppNet.DeleteProductForm.exe
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\bin\Debug\net6.0-windows\AppNet.DeleteProductForm.deps.json
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\bin\Debug\net6.0-windows\AppNet.DeleteProductForm.runtimeconfig.json
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\bin\Debug\net6.0-windows\AppNet.DeleteProductForm.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\bin\Debug\net6.0-windows\AppNet.DeleteProductForm.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\obj\Debug\net6.0-windows\AppNet.DeleteProductForm.csproj.AssemblyReference.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\obj\Debug\net6.0-windows\AppNet.DeletedProductForm.DeleteProduct.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\obj\Debug\net6.0-windows\AppNet.DeleteProductForm.csproj.GenerateResource.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\obj\Debug\net6.0-windows\AppNet.DeleteProductForm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\obj\Debug\net6.0-windows\AppNet.DeleteProductForm.AssemblyInfoInputs.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\obj\Debug\net6.0-windows\AppNet.DeleteProductForm.AssemblyInfo.cs
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\obj\Debug\net6.0-windows\AppNet.DeleteProductForm.csproj.CoreCompileInputs.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\obj\Debug\net6.0-windows\AppNet.DeleteProductForm.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\obj\Debug\net6.0-windows\refint\AppNet.DeleteProductForm.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\obj\Debug\net6.0-windows\AppNet.DeleteProductForm.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\obj\Debug\net6.0-windows\AppNet.DeleteProductForm.genruntimeconfig.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeletedProductForm\obj\Debug\net6.0-windows\ref\AppNet.DeleteProductForm.dll

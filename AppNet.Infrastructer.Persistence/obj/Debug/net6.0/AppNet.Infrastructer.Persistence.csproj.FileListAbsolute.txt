@@ -1,0 +1,12 @@
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\bin\Debug\net6.0\AppNet.Infrastructer.Persistence.deps.json
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\bin\Debug\net6.0\AppNet.Infrastructer.Persistence.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\bin\Debug\net6.0\AppNet.Infrastructer.Persistence.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\obj\Debug\net6.0\AppNet.Infrastructer.Persistence.csproj.AssemblyReference.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\obj\Debug\net6.0\AppNet.Infrastructer.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\obj\Debug\net6.0\AppNet.Infrastructer.Persistence.AssemblyInfoInputs.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\obj\Debug\net6.0\AppNet.Infrastructer.Persistence.AssemblyInfo.cs
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\obj\Debug\net6.0\AppNet.Infrastructer.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\obj\Debug\net6.0\AppNet.Infrastructer.Persistence.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\obj\Debug\net6.0\refint\AppNet.Infrastructer.Persistence.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\obj\Debug\net6.0\AppNet.Infrastructer.Persistence.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\obj\Debug\net6.0\ref\AppNet.Infrastructer.Persistence.dll

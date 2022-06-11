@@ -1,0 +1,12 @@
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Application\bin\Debug\net6.0\AppNet.Application.deps.json
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Application\bin\Debug\net6.0\AppNet.Application.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Application\bin\Debug\net6.0\AppNet.Application.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Application\obj\Debug\net6.0\AppNet.Application.csproj.AssemblyReference.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Application\obj\Debug\net6.0\AppNet.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Application\obj\Debug\net6.0\AppNet.Application.AssemblyInfoInputs.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Application\obj\Debug\net6.0\AppNet.Application.AssemblyInfo.cs
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Application\obj\Debug\net6.0\AppNet.Application.csproj.CoreCompileInputs.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Application\obj\Debug\net6.0\AppNet.Application.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Application\obj\Debug\net6.0\refint\AppNet.Application.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Application\obj\Debug\net6.0\AppNet.Application.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Application\obj\Debug\net6.0\ref\AppNet.Application.dll

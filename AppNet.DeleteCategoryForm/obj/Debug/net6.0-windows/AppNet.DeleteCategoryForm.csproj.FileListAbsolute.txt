@@ -1,0 +1,17 @@
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\bin\Debug\net6.0-windows\AppNet.DeleteCategoryForm.exe
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\bin\Debug\net6.0-windows\AppNet.DeleteCategoryForm.deps.json
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\bin\Debug\net6.0-windows\AppNet.DeleteCategoryForm.runtimeconfig.json
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\bin\Debug\net6.0-windows\AppNet.DeleteCategoryForm.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\bin\Debug\net6.0-windows\AppNet.DeleteCategoryForm.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\obj\Debug\net6.0-windows\AppNet.DeleteCategoryForm.csproj.AssemblyReference.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\obj\Debug\net6.0-windows\AppNet.DeleteCategoryForm.DeleteCategory.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\obj\Debug\net6.0-windows\AppNet.DeleteCategoryForm.csproj.GenerateResource.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\obj\Debug\net6.0-windows\AppNet.DeleteCategoryForm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\obj\Debug\net6.0-windows\AppNet.DeleteCategoryForm.AssemblyInfoInputs.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\obj\Debug\net6.0-windows\AppNet.DeleteCategoryForm.AssemblyInfo.cs
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\obj\Debug\net6.0-windows\AppNet.DeleteCategoryForm.csproj.CoreCompileInputs.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\obj\Debug\net6.0-windows\AppNet.DeleteCategoryForm.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\obj\Debug\net6.0-windows\refint\AppNet.DeleteCategoryForm.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\obj\Debug\net6.0-windows\AppNet.DeleteCategoryForm.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\obj\Debug\net6.0-windows\AppNet.DeleteCategoryForm.genruntimeconfig.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.DeleteCategoryForm\obj\Debug\net6.0-windows\ref\AppNet.DeleteCategoryForm.dll

@@ -1,11 +1,149 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {}
+    "net6.0-windows7.0": {
+      "AppNet.AddCategoryForm/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/AppNet.AddCategoryForm.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AppNet.AddCategoryForm.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
+      "AppNet.AddProductForm/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/AppNet.AddProductForm.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AppNet.AddProductForm.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
+      "AppNet.DeleteCategoryForm/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/AppNet.DeleteCategoryForm.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AppNet.DeleteCategoryForm.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
+      "AppNet.DeleteProductForm/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/AppNet.DeleteProductForm.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AppNet.DeleteProductForm.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
+      "AppNet.ProductForm/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AppNet.AddCategoryForm": "1.0.0",
+          "AppNet.AddProductForm": "1.0.0",
+          "AppNet.DeleteCategoryForm": "1.0.0",
+          "AppNet.DeleteProductForm": "1.0.0",
+          "AppNet.UpdateCategoryForm": "1.0.0",
+          "AppNet.UpdateProductForm": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AppNet.ProductForm.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AppNet.ProductForm.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
+      "AppNet.UpdateCategoryForm/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/AppNet.UpdateCategoryForm.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AppNet.UpdateCategoryForm.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
+      "AppNet.UpdateProductForm/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/AppNet.UpdateProductForm.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AppNet.UpdateProductForm.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "AppNet.AddCategoryForm/1.0.0": {
+      "type": "project",
+      "path": "../AppNet.AddCategoryForm/AppNet.AddCategoryForm.csproj",
+      "msbuildProject": "../AppNet.AddCategoryForm/AppNet.AddCategoryForm.csproj"
+    },
+    "AppNet.AddProductForm/1.0.0": {
+      "type": "project",
+      "path": "../AppNet.AddProductForm/AppNet.AddProductForm.csproj",
+      "msbuildProject": "../AppNet.AddProductForm/AppNet.AddProductForm.csproj"
+    },
+    "AppNet.DeleteCategoryForm/1.0.0": {
+      "type": "project",
+      "path": "../AppNet.DeleteCategoryForm/AppNet.DeleteCategoryForm.csproj",
+      "msbuildProject": "../AppNet.DeleteCategoryForm/AppNet.DeleteCategoryForm.csproj"
+    },
+    "AppNet.DeleteProductForm/1.0.0": {
+      "type": "project",
+      "path": "../AppNet.DeletedProductForm/AppNet.DeleteProductForm.csproj",
+      "msbuildProject": "../AppNet.DeletedProductForm/AppNet.DeleteProductForm.csproj"
+    },
+    "AppNet.ProductForm/1.0.0": {
+      "type": "project",
+      "path": "../AppNet.ProductForm/AppNet.ProductForm.csproj",
+      "msbuildProject": "../AppNet.ProductForm/AppNet.ProductForm.csproj"
+    },
+    "AppNet.UpdateCategoryForm/1.0.0": {
+      "type": "project",
+      "path": "../AppNet.UpdateCategoryForm/AppNet.UpdateCategoryForm.csproj",
+      "msbuildProject": "../AppNet.UpdateCategoryForm/AppNet.UpdateCategoryForm.csproj"
+    },
+    "AppNet.UpdateProductForm/1.0.0": {
+      "type": "project",
+      "path": "../AppNet.UpdatedProductForm/AppNet.UpdateProductForm.csproj",
+      "msbuildProject": "../AppNet.UpdatedProductForm/AppNet.UpdateProductForm.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": []
+    "net6.0-windows7.0": [
+      "AppNet.ProductForm >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\didemcicek\\.nuget\\packages\\": {},
@@ -38,7 +176,11 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.ProductForm\\AppNet.ProductForm.csproj": {
+              "projectPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.ProductForm\\AppNet.ProductForm.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

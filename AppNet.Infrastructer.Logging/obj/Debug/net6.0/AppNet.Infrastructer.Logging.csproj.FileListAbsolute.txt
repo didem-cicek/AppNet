@@ -1,0 +1,12 @@
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Logging\bin\Debug\net6.0\AppNet.Infrastructer.Logging.deps.json
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Logging\bin\Debug\net6.0\AppNet.Infrastructer.Logging.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Logging\bin\Debug\net6.0\AppNet.Infrastructer.Logging.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Logging\obj\Debug\net6.0\AppNet.Infrastructer.Logging.csproj.AssemblyReference.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Logging\obj\Debug\net6.0\AppNet.Infrastructer.Logging.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Logging\obj\Debug\net6.0\AppNet.Infrastructer.Logging.AssemblyInfoInputs.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Logging\obj\Debug\net6.0\AppNet.Infrastructer.Logging.AssemblyInfo.cs
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Logging\obj\Debug\net6.0\AppNet.Infrastructer.Logging.csproj.CoreCompileInputs.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Logging\obj\Debug\net6.0\AppNet.Infrastructer.Logging.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Logging\obj\Debug\net6.0\refint\AppNet.Infrastructer.Logging.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Logging\obj\Debug\net6.0\AppNet.Infrastructer.Logging.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Logging\obj\Debug\net6.0\ref\AppNet.Infrastructer.Logging.dll

@@ -1,0 +1,12 @@
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Domain\bin\Debug\net6.0\AppNet.Domain.deps.json
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Domain\bin\Debug\net6.0\AppNet.Domain.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Domain\bin\Debug\net6.0\AppNet.Domain.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Domain\obj\Debug\net6.0\AppNet.Domain.csproj.AssemblyReference.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Domain\obj\Debug\net6.0\AppNet.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Domain\obj\Debug\net6.0\AppNet.Domain.AssemblyInfoInputs.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Domain\obj\Debug\net6.0\AppNet.Domain.AssemblyInfo.cs
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Domain\obj\Debug\net6.0\AppNet.Domain.csproj.CoreCompileInputs.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Domain\obj\Debug\net6.0\AppNet.Domain.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Domain\obj\Debug\net6.0\refint\AppNet.Domain.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Domain\obj\Debug\net6.0\AppNet.Domain.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Domain\obj\Debug\net6.0\ref\AppNet.Domain.dll

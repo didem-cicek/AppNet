@@ -1,0 +1,17 @@
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\bin\Debug\net6.0-windows\AppNet.UpdateProductForm.exe
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\bin\Debug\net6.0-windows\AppNet.UpdateProductForm.deps.json
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\bin\Debug\net6.0-windows\AppNet.UpdateProductForm.runtimeconfig.json
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\bin\Debug\net6.0-windows\AppNet.UpdateProductForm.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\bin\Debug\net6.0-windows\AppNet.UpdateProductForm.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\obj\Debug\net6.0-windows\AppNet.UpdateProductForm.csproj.AssemblyReference.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\obj\Debug\net6.0-windows\AppNet.UpdatedProductForm.UpdateProduct.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\obj\Debug\net6.0-windows\AppNet.UpdateProductForm.csproj.GenerateResource.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\obj\Debug\net6.0-windows\AppNet.UpdateProductForm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\obj\Debug\net6.0-windows\AppNet.UpdateProductForm.AssemblyInfoInputs.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\obj\Debug\net6.0-windows\AppNet.UpdateProductForm.AssemblyInfo.cs
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\obj\Debug\net6.0-windows\AppNet.UpdateProductForm.csproj.CoreCompileInputs.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\obj\Debug\net6.0-windows\AppNet.UpdateProductForm.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\obj\Debug\net6.0-windows\refint\AppNet.UpdateProductForm.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\obj\Debug\net6.0-windows\AppNet.UpdateProductForm.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\obj\Debug\net6.0-windows\AppNet.UpdateProductForm.genruntimeconfig.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.UpdatedProductForm\obj\Debug\net6.0-windows\ref\AppNet.UpdateProductForm.dll
