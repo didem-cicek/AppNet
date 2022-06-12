@@ -7,95 +7,14 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "AppNet.WinFormUI/1.0.0": {
-        "dependencies": {
-          "AppNet.ProductForm": "1.0.0"
-        },
         "runtime": {
           "AppNet.WinFormUI.dll": {}
-        }
-      },
-      "AppNet.AddCategoryForm/1.0.0": {
-        "runtime": {
-          "AppNet.AddCategoryForm.dll": {}
-        }
-      },
-      "AppNet.AddProductForm/1.0.0": {
-        "runtime": {
-          "AppNet.AddProductForm.dll": {}
-        }
-      },
-      "AppNet.DeleteCategoryForm/1.0.0": {
-        "runtime": {
-          "AppNet.DeleteCategoryForm.dll": {}
-        }
-      },
-      "AppNet.DeleteProductForm/1.0.0": {
-        "runtime": {
-          "AppNet.DeleteProductForm.dll": {}
-        }
-      },
-      "AppNet.ProductForm/1.0.0": {
-        "dependencies": {
-          "AppNet.AddCategoryForm": "1.0.0",
-          "AppNet.AddProductForm": "1.0.0",
-          "AppNet.DeleteCategoryForm": "1.0.0",
-          "AppNet.DeleteProductForm": "1.0.0",
-          "AppNet.UpdateCategoryForm": "1.0.0",
-          "AppNet.UpdateProductForm": "1.0.0"
-        },
-        "runtime": {
-          "AppNet.ProductForm.dll": {}
-        }
-      },
-      "AppNet.UpdateCategoryForm/1.0.0": {
-        "runtime": {
-          "AppNet.UpdateCategoryForm.dll": {}
-        }
-      },
-      "AppNet.UpdateProductForm/1.0.0": {
-        "runtime": {
-          "AppNet.UpdateProductForm.dll": {}
         }
       }
     }
   },
   "libraries": {
     "AppNet.WinFormUI/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "AppNet.AddCategoryForm/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "AppNet.AddProductForm/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "AppNet.DeleteCategoryForm/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "AppNet.DeleteProductForm/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "AppNet.ProductForm/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "AppNet.UpdateCategoryForm/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "AppNet.UpdateProductForm/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

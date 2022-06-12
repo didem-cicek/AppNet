@@ -1,4 +1,3 @@
-using AppNet.ProductForm;
 
 namespace AppNet.WinFormUI
 {
@@ -18,6 +17,12 @@ namespace AppNet.WinFormUI
         {
             ProductFrm productFrm = new ProductFrm();
             productFrm.ShowDialog();
+        }
+
+        private void btnSuppliers_Click(object sender, EventArgs e)
+        {
+            SuppliersFrm supplierFrm = new SuppliersFrm();
+            supplierFrm.ShowDialog();
         }
     }
 }

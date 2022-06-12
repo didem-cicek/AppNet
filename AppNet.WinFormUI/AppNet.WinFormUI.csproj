@@ -9,14 +9,37 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AppNet.ProductForm\AppNet.ProductForm.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <Compile Update="AddCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AddSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DeleteProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ProductFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="SuppliersFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UpdateCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UpdateProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UpdateSupplier.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
 

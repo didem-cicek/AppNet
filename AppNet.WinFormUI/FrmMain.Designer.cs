@@ -103,6 +103,7 @@
             this.btnSuppliers.Text = "TEDARİKÇİLER";
             this.btnSuppliers.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSuppliers.UseVisualStyleBackColor = false;
+            this.btnSuppliers.Click += new System.EventHandler(this.btnSuppliers_Click);
             // 
             // btnStockManagement
             // 
