@@ -44,8 +44,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtUpdateProductSearch = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.grdUpdateProductList = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.grdUpdateProductList)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -55,9 +55,9 @@
             this.label1.Location = new System.Drawing.Point(576, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 21);
+            this.label1.Size = new System.Drawing.Size(83, 21);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Yeni Kategori :";
+            this.label1.Text = "Kategori :";
             // 
             // cbbUpdatedCategory
             // 
@@ -74,9 +74,9 @@
             this.label2.Location = new System.Drawing.Point(576, 84);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 21);
+            this.label2.Size = new System.Drawing.Size(86, 21);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Yeni Ürün Adı :";
+            this.label2.Text = "Ürün Adı :";
             // 
             // textBox1
             // 
@@ -92,9 +92,9 @@
             this.label3.Location = new System.Drawing.Point(576, 136);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 21);
+            this.label3.Size = new System.Drawing.Size(87, 21);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Yeni Tedarikçi :";
+            this.label3.Text = "Tedarikçi :";
             // 
             // cbbUpdatedSupplier
             // 
@@ -111,9 +111,9 @@
             this.label4.Location = new System.Drawing.Point(577, 188);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 21);
+            this.label4.Size = new System.Drawing.Size(55, 21);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Yeni Fiyat :";
+            this.label4.Text = "Fiyat :";
             // 
             // txtUpdatedPrice
             // 
@@ -129,9 +129,9 @@
             this.label5.Location = new System.Drawing.Point(577, 236);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 21);
+            this.label5.Size = new System.Drawing.Size(89, 21);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Yeni Açıklama :";
+            this.label5.Text = "Açıklama :";
             // 
             // txtUpdatedDescription
             // 
@@ -202,20 +202,20 @@
             this.label8.Location = new System.Drawing.Point(23, 136);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(128, 21);
+            this.label8.Size = new System.Drawing.Size(176, 21);
             this.label8.TabIndex = 0;
-            this.label8.Text = "Bulunan Ürün : ";
+            this.label8.Text = "Güncellenecek Ürün : ";
             this.label8.Click += new System.EventHandler(this.label6_Click);
             // 
-            // dataGridView1
+            // grdUpdateProductList
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 176);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(420, 160);
-            this.dataGridView1.TabIndex = 3;
+            this.grdUpdateProductList.BackgroundColor = System.Drawing.Color.White;
+            this.grdUpdateProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdUpdateProductList.Location = new System.Drawing.Point(27, 176);
+            this.grdUpdateProductList.Name = "grdUpdateProductList";
+            this.grdUpdateProductList.RowTemplate.Height = 25;
+            this.grdUpdateProductList.Size = new System.Drawing.Size(420, 160);
+            this.grdUpdateProductList.TabIndex = 3;
             // 
             // UpdateProduct
             // 
@@ -223,7 +223,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 368);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grdUpdateProductList);
             this.Controls.Add(this.txtUpdateProductSearch);
             this.Controls.Add(this.btnUpdatedProduct);
             this.Controls.Add(this.txtUpdatedDescription);
@@ -246,7 +246,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ÜRÜN GÜNCELLE";
             this.Load += new System.EventHandler(this.UpdateProduct_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdUpdateProductList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,6 +270,6 @@
         private Label label7;
         private TextBox txtUpdateProductSearch;
         private Label label8;
-        private DataGridView dataGridView1;
+        private DataGridView grdUpdateProductList;
     }
 }

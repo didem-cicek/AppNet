@@ -26,7 +26,8 @@ namespace AppNet.WinFormUI
 
         private void btnDeletedSupplier_Click(object sender, EventArgs e)
         {
-            
+            DeleteSupplier deleteFrm = new DeleteSupplier();
+            deleteFrm.ShowDialog();
         }
     }
 }

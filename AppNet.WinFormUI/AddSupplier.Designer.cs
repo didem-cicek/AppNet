@@ -35,6 +35,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtSupplierAddress = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtShippingAddress = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -97,22 +99,41 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(283, 168);
+            this.button1.Location = new System.Drawing.Point(283, 219);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 40);
             this.button1.TabIndex = 2;
             this.button1.Text = "TEDARİKÇİ EKLE";
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(23, 170);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(114, 21);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Sevk Adresi  : ";
+            // 
+            // txtShippingAddress
+            // 
+            this.txtShippingAddress.Location = new System.Drawing.Point(191, 164);
+            this.txtShippingAddress.Name = "txtShippingAddress";
+            this.txtShippingAddress.Size = new System.Drawing.Size(242, 29);
+            this.txtShippingAddress.TabIndex = 3;
+            // 
             // AddSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(468, 233);
+            this.ClientSize = new System.Drawing.Size(468, 287);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtShippingAddress);
             this.Controls.Add(this.txtSupplierAddress);
             this.Controls.Add(this.txtSupplierPhone);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtSupplierName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -137,5 +158,7 @@
         private Label label3;
         private TextBox txtSupplierAddress;
         private Button button1;
+        private Label label4;
+        private TextBox txtShippingAddress;
     }
 }

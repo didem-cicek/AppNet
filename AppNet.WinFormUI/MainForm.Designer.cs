@@ -1,6 +1,6 @@
 ﻿namespace AppNet.WinFormUI
 {
-    partial class FrmMain
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnProductManagement = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnSuppliers = new System.Windows.Forms.Button();
@@ -45,8 +45,11 @@
             this.grdTotal = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.grdInfo = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.grdUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTotal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnProductManagement
@@ -61,7 +64,7 @@
             this.btnProductManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnProductManagement.ImageIndex = 0;
             this.btnProductManagement.ImageList = this.imageList1;
-            this.btnProductManagement.Location = new System.Drawing.Point(22, 21);
+            this.btnProductManagement.Location = new System.Drawing.Point(22, 25);
             this.btnProductManagement.Name = "btnProductManagement";
             this.btnProductManagement.Size = new System.Drawing.Size(168, 109);
             this.btnProductManagement.TabIndex = 0;
@@ -96,7 +99,7 @@
             this.btnSuppliers.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSuppliers.ImageIndex = 1;
             this.btnSuppliers.ImageList = this.imageList1;
-            this.btnSuppliers.Location = new System.Drawing.Point(198, 21);
+            this.btnSuppliers.Location = new System.Drawing.Point(198, 25);
             this.btnSuppliers.Name = "btnSuppliers";
             this.btnSuppliers.Size = new System.Drawing.Size(168, 109);
             this.btnSuppliers.TabIndex = 1;
@@ -117,13 +120,14 @@
             this.btnStockManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnStockManagement.ImageIndex = 2;
             this.btnStockManagement.ImageList = this.imageList1;
-            this.btnStockManagement.Location = new System.Drawing.Point(373, 22);
+            this.btnStockManagement.Location = new System.Drawing.Point(373, 26);
             this.btnStockManagement.Name = "btnStockManagement";
             this.btnStockManagement.Size = new System.Drawing.Size(168, 109);
             this.btnStockManagement.TabIndex = 2;
             this.btnStockManagement.Text = "STOK YÖNETİMİ";
             this.btnStockManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnStockManagement.UseVisualStyleBackColor = false;
+            this.btnStockManagement.Click += new System.EventHandler(this.btnStockManagement_Click);
             // 
             // btnCustomers
             // 
@@ -137,13 +141,14 @@
             this.btnCustomers.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCustomers.ImageIndex = 3;
             this.btnCustomers.ImageList = this.imageList1;
-            this.btnCustomers.Location = new System.Drawing.Point(22, 137);
+            this.btnCustomers.Location = new System.Drawing.Point(22, 141);
             this.btnCustomers.Name = "btnCustomers";
             this.btnCustomers.Size = new System.Drawing.Size(169, 109);
             this.btnCustomers.TabIndex = 3;
             this.btnCustomers.Text = "MÜŞTERİLER";
             this.btnCustomers.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCustomers.UseVisualStyleBackColor = false;
+            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
             // 
             // btnSales
             // 
@@ -157,13 +162,14 @@
             this.btnSales.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSales.ImageKey = "sales.png";
             this.btnSales.ImageList = this.imageList1;
-            this.btnSales.Location = new System.Drawing.Point(197, 137);
+            this.btnSales.Location = new System.Drawing.Point(197, 141);
             this.btnSales.Name = "btnSales";
             this.btnSales.Size = new System.Drawing.Size(169, 109);
             this.btnSales.TabIndex = 4;
             this.btnSales.Text = "SATIŞ";
             this.btnSales.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSales.UseVisualStyleBackColor = false;
+            this.btnSales.Click += new System.EventHandler(this.btnSales_Click);
             // 
             // btnCash
             // 
@@ -177,7 +183,7 @@
             this.btnCash.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCash.ImageKey = "cash.png";
             this.btnCash.ImageList = this.imageList1;
-            this.btnCash.Location = new System.Drawing.Point(372, 138);
+            this.btnCash.Location = new System.Drawing.Point(372, 142);
             this.btnCash.Name = "btnCash";
             this.btnCash.Size = new System.Drawing.Size(169, 109);
             this.btnCash.TabIndex = 5;
@@ -196,13 +202,14 @@
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSettings.ImageIndex = 6;
             this.btnSettings.ImageList = this.imageList1;
-            this.btnSettings.Location = new System.Drawing.Point(743, 21);
+            this.btnSettings.Location = new System.Drawing.Point(636, 25);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(242, 109);
+            this.btnSettings.Size = new System.Drawing.Size(170, 70);
             this.btnSettings.TabIndex = 6;
-            this.btnSettings.Text = "GENEL AYARLAR";
+            this.btnSettings.Text = "AYARLAR";
             this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnReports
             // 
@@ -216,9 +223,9 @@
             this.btnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReports.ImageKey = "reports.png";
             this.btnReports.ImageList = this.imageList1;
-            this.btnReports.Location = new System.Drawing.Point(743, 136);
+            this.btnReports.Location = new System.Drawing.Point(812, 25);
             this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(242, 109);
+            this.btnReports.Size = new System.Drawing.Size(170, 70);
             this.btnReports.TabIndex = 7;
             this.btnReports.Text = "RAPORLAR";
             this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -228,7 +235,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(29, 316);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(219, 33);
@@ -254,7 +261,7 @@
             this.grdUpdate.Name = "grdUpdate";
             this.grdUpdate.RowTemplate.Height = 25;
             this.grdUpdate.Size = new System.Drawing.Size(436, 150);
-            this.grdUpdate.TabIndex = 10;
+            this.grdUpdate.TabIndex = 9;
             // 
             // grdTotal
             // 
@@ -264,13 +271,13 @@
             this.grdTotal.Name = "grdTotal";
             this.grdTotal.RowTemplate.Height = 25;
             this.grdTotal.Size = new System.Drawing.Size(436, 150);
-            this.grdTotal.TabIndex = 11;
+            this.grdTotal.TabIndex = 10;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(545, 316);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(223, 33);
@@ -288,17 +295,40 @@
             this.label4.Text = "---------------------------------------------------------------------------------" +
     "-----";
             // 
-            // FrmMain
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(873, 115);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(112, 23);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "BİLDİRİMLER";
+            // 
+            // grdInfo
+            // 
+            this.grdInfo.BackgroundColor = System.Drawing.Color.White;
+            this.grdInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdInfo.Location = new System.Drawing.Point(636, 148);
+            this.grdInfo.Name = "grdInfo";
+            this.grdInfo.RowTemplate.Height = 25;
+            this.grdInfo.Size = new System.Drawing.Size(346, 103);
+            this.grdInfo.TabIndex = 8;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 561);
+            this.Controls.Add(this.grdInfo);
             this.Controls.Add(this.grdTotal);
             this.Controls.Add(this.grdUpdate);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReports);
             this.Controls.Add(this.btnSettings);
@@ -308,12 +338,13 @@
             this.Controls.Add(this.btnStockManagement);
             this.Controls.Add(this.btnSuppliers);
             this.Controls.Add(this.btnProductManagement);
-            this.Name = "FrmMain";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AppNet - ERP";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTotal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdInfo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,5 +367,7 @@
         public DataGridView grdTotal;
         private Label label3;
         private Label label4;
+        private Label label5;
+        public DataGridView grdInfo;
     }
 }

@@ -4,7 +4,52 @@
     <Compile Update="DeleteCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmMain.cs">
+    <Compile Update="DeleteSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AddStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DeleteStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CustomerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DeleteCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AddSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DeleteSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SettingsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UpdateSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SalesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UpdateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UpdateStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StockFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

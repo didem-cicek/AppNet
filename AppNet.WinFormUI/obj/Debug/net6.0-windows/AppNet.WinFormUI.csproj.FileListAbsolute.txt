@@ -4,7 +4,6 @@ C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-wi
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.AddSupplier.resources
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.DeleteCategory.resources
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.DeleteProduct.resources
-C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.FrmMain.resources
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.Properties.Resources.resources
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.SuppliersFrm.resources
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.UpdateCategory.resources
@@ -26,3 +25,19 @@ C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-wi
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.pdb
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.genruntimeconfig.cache
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\ref\AppNet.WinFormUI.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.Login.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.MainForm.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.DeleteSupplier.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.StockFrm.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.AddStock.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.UpdateStock.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.DeleteStock.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.CustomerFrm.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.AddCustomer.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.UpdateCustomer.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.DeleteCustomer.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.AddSale.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.SalesFrm.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.UpdateSale.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.DeleteSale.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.SettingsFrm.resources

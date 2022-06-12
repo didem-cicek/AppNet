@@ -54,7 +54,7 @@
             this.grdSupplierList.Name = "grdSupplierList";
             this.grdSupplierList.RowTemplate.Height = 25;
             this.grdSupplierList.Size = new System.Drawing.Size(965, 197);
-            this.grdSupplierList.TabIndex = 21;
+            this.grdSupplierList.TabIndex = 7;
             // 
             // label5
             // 
@@ -82,7 +82,7 @@
             this.cbbProductSearch.Location = new System.Drawing.Point(747, 107);
             this.cbbProductSearch.Name = "cbbProductSearch";
             this.cbbProductSearch.Size = new System.Drawing.Size(214, 29);
-            this.cbbProductSearch.TabIndex = 18;
+            this.cbbProductSearch.TabIndex = 4;
             // 
             // btnSupplierSearch
             // 
@@ -95,7 +95,7 @@
             this.btnSupplierSearch.Location = new System.Drawing.Point(861, 207);
             this.btnSupplierSearch.Name = "btnSupplierSearch";
             this.btnSupplierSearch.Size = new System.Drawing.Size(100, 40);
-            this.btnSupplierSearch.TabIndex = 17;
+            this.btnSupplierSearch.TabIndex = 6;
             this.btnSupplierSearch.Text = "ARA";
             this.btnSupplierSearch.UseVisualStyleBackColor = false;
             // 
@@ -105,7 +105,7 @@
             this.txtProductSearch.Location = new System.Drawing.Point(747, 158);
             this.txtProductSearch.Name = "txtProductSearch";
             this.txtProductSearch.Size = new System.Drawing.Size(214, 29);
-            this.txtProductSearch.TabIndex = 16;
+            this.txtProductSearch.TabIndex = 5;
             // 
             // label3
             // 
@@ -151,7 +151,7 @@
             this.btnDeletedSupplier.Location = new System.Drawing.Point(408, 21);
             this.btnDeletedSupplier.Name = "btnDeletedSupplier";
             this.btnDeletedSupplier.Size = new System.Drawing.Size(167, 109);
-            this.btnDeletedSupplier.TabIndex = 12;
+            this.btnDeletedSupplier.TabIndex = 3;
             this.btnDeletedSupplier.Text = "TEDARİKÇİ SİL";
             this.btnDeletedSupplier.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDeletedSupplier.UseVisualStyleBackColor = false;
@@ -181,7 +181,7 @@
             this.btnUpdatedSupplier.Location = new System.Drawing.Point(200, 21);
             this.btnUpdatedSupplier.Name = "btnUpdatedSupplier";
             this.btnUpdatedSupplier.Size = new System.Drawing.Size(200, 109);
-            this.btnUpdatedSupplier.TabIndex = 11;
+            this.btnUpdatedSupplier.TabIndex = 2;
             this.btnUpdatedSupplier.Text = "TEDARİKÇİ GÜNCELLE";
             this.btnUpdatedSupplier.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnUpdatedSupplier.UseVisualStyleBackColor = false;
@@ -201,7 +201,7 @@
             this.btnAddSupplier.Location = new System.Drawing.Point(24, 21);
             this.btnAddSupplier.Name = "btnAddSupplier";
             this.btnAddSupplier.Size = new System.Drawing.Size(168, 109);
-            this.btnAddSupplier.TabIndex = 10;
+            this.btnAddSupplier.TabIndex = 1;
             this.btnAddSupplier.Text = "TEDARİKÇİ EKLE";
             this.btnAddSupplier.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAddSupplier.UseVisualStyleBackColor = false;
