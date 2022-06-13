@@ -32,15 +32,15 @@
             this.txtAddStockPiece = new System.Windows.Forms.TextBox();
             this.cbbAddProductType = new System.Windows.Forms.ComboBox();
             this.cbbSelectedSuppliers = new System.Windows.Forms.ComboBox();
-            this.txtAddStockPrice = new System.Windows.Forms.TextBox();
-            this.txtAddStockName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtAddCriticalStock = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtAddStockPrice = new System.Windows.Forms.TextBox();
+            this.cbbAddStockProductName = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnAddStock
@@ -84,20 +84,6 @@
             this.cbbSelectedSuppliers.Size = new System.Drawing.Size(242, 29);
             this.cbbSelectedSuppliers.TabIndex = 14;
             // 
-            // txtAddStockPrice
-            // 
-            this.txtAddStockPrice.Location = new System.Drawing.Point(145, 165);
-            this.txtAddStockPrice.Name = "txtAddStockPrice";
-            this.txtAddStockPrice.Size = new System.Drawing.Size(242, 29);
-            this.txtAddStockPrice.TabIndex = 4;
-            // 
-            // txtAddStockName
-            // 
-            this.txtAddStockName.Location = new System.Drawing.Point(144, 32);
-            this.txtAddStockName.Name = "txtAddStockName";
-            this.txtAddStockName.Size = new System.Drawing.Size(242, 29);
-            this.txtAddStockName.TabIndex = 1;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -108,17 +94,6 @@
             this.label5.Size = new System.Drawing.Size(109, 21);
             this.label5.TabIndex = 7;
             this.label5.Text = "Ürün Adedi : ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(26, 171);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 21);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Alış Fiyatı : ";
             // 
             // label3
             // 
@@ -171,6 +146,33 @@
             this.txtAddCriticalStock.Size = new System.Drawing.Size(243, 29);
             this.txtAddCriticalStock.TabIndex = 6;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(26, 171);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 21);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Alış Fiyatı : ";
+            // 
+            // txtAddStockPrice
+            // 
+            this.txtAddStockPrice.Location = new System.Drawing.Point(145, 165);
+            this.txtAddStockPrice.Name = "txtAddStockPrice";
+            this.txtAddStockPrice.Size = new System.Drawing.Size(242, 29);
+            this.txtAddStockPrice.TabIndex = 4;
+            // 
+            // cbbAddStockProductName
+            // 
+            this.cbbAddStockProductName.FormattingEnabled = true;
+            this.cbbAddStockProductName.ItemHeight = 21;
+            this.cbbAddStockProductName.Location = new System.Drawing.Point(144, 33);
+            this.cbbAddStockProductName.Name = "cbbAddStockProductName";
+            this.cbbAddStockProductName.Size = new System.Drawing.Size(242, 29);
+            this.cbbAddStockProductName.TabIndex = 12;
+            // 
             // AddStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -180,11 +182,11 @@
             this.Controls.Add(this.btnAddStock);
             this.Controls.Add(this.txtAddCriticalStock);
             this.Controls.Add(this.txtAddStockPiece);
+            this.Controls.Add(this.cbbAddStockProductName);
             this.Controls.Add(this.cbbAddProductType);
             this.Controls.Add(this.cbbSelectedSuppliers);
             this.Controls.Add(this.txtAddStockPrice);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtAddStockName);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -206,14 +208,14 @@
         public TextBox txtAddStockPiece;
         public ComboBox cbbAddProductType;
         public ComboBox cbbSelectedSuppliers;
-        public TextBox txtAddStockPrice;
-        public TextBox txtAddStockName;
         private Label label5;
-        private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
         private Label label6;
         public TextBox txtAddCriticalStock;
+        private Label label4;
+        public TextBox txtAddStockPrice;
+        public ComboBox cbbAddStockProductName;
     }
 }

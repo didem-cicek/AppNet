@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AppNet.Infrastructer.Persistence;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,6 +56,13 @@ namespace AppNet.WinFormUI
 
         private void btnAddStock_Click(object sender, EventArgs e)
         {
+            ErpDbContext database = new ErpDbContext();
+            database.dbName = txtAddDatabaseName.Text;
+            database.userName = txtAddDataBaseUser.Text;
+            database.userPassword = txtAddPassword.Text;
+            database.Database.EnsureCreated();
+            database.Database.Migrate();
+            MessageBox.Show("Database Oluşturuldu!");
 
         }
     }

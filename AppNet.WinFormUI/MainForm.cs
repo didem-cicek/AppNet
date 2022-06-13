@@ -27,7 +27,7 @@ namespace AppNet.WinFormUI
 
         private void btnStockManagement_Click(object sender, EventArgs e)
         {
-            StockFrm stockFrm = new StockFrm();
+            PurchasingFrm stockFrm = new PurchasingFrm();
             stockFrm.ShowDialog();
         }
 
@@ -47,6 +47,11 @@ namespace AppNet.WinFormUI
         {
             SettingsFrm settingFrm = new SettingsFrm();
             settingFrm.ShowDialog();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

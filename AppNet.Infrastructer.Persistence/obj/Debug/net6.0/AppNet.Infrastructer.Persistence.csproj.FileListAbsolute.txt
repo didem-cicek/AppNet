@@ -10,3 +10,8 @@ C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\obj
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\obj\Debug\net6.0\refint\AppNet.Infrastructer.Persistence.dll
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\obj\Debug\net6.0\AppNet.Infrastructer.Persistence.pdb
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\obj\Debug\net6.0\ref\AppNet.Infrastructer.Persistence.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\bin\Debug\net6.0\AppNet.Infrastructer.Persistence.runtimeconfig.json
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\obj\Debug\net6.0\AppNet.Infrastructer.Persistence.genruntimeconfig.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\bin\Debug\net6.0\AppNet.Domain.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\bin\Debug\net6.0\AppNet.Domain.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Persistence\obj\Debug\net6.0\AppNet.Infrastructer.Persistence.csproj.CopyComplete

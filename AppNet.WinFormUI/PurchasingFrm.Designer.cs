@@ -1,6 +1,6 @@
 ﻿namespace AppNet.WinFormUI
 {
-    partial class StockFrm
+    partial class PurchasingFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockFrm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchasingFrm));
             this.grdStockList = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -208,7 +208,7 @@
             this.btnSupplierSearch.Text = "ARA";
             this.btnSupplierSearch.UseVisualStyleBackColor = false;
             // 
-            // StockFrm
+            // PurchasingFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -226,9 +226,10 @@
             this.Controls.Add(this.btnDeletedStock);
             this.Controls.Add(this.btnUpdatedStock);
             this.Controls.Add(this.btnAddStock);
-            this.Name = "StockFrm";
+            this.Name = "PurchasingFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "STOK YÖNETİMİ";
+            this.Text = "SATIN ALMA YÖNETİMİ";
+            this.Load += new System.EventHandler(this.PurchasingFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdStockList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

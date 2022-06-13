@@ -5,7 +5,7 @@
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        public System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAddDataBaseUser = new System.Windows.Forms.TextBox();
-            this.txtAddDatabasePassword = new System.Windows.Forms.TextBox();
+            this.txtAddPassword = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnAddStock
@@ -106,13 +106,13 @@
             this.txtAddDataBaseUser.TabIndex = 2;
             this.txtAddDataBaseUser.TextChanged += new System.EventHandler(this.txtAddDataBaseUser_TextChanged);
             // 
-            // txtAddDatabasePassword
+            // txtAddPassword
             // 
-            this.txtAddDatabasePassword.Location = new System.Drawing.Point(174, 130);
-            this.txtAddDatabasePassword.Name = "txtAddDatabasePassword";
-            this.txtAddDatabasePassword.Size = new System.Drawing.Size(242, 29);
-            this.txtAddDatabasePassword.TabIndex = 3;
-            this.txtAddDatabasePassword.TextChanged += new System.EventHandler(this.txtAddDatabasePassword_TextChanged);
+            this.txtAddPassword.Location = new System.Drawing.Point(174, 130);
+            this.txtAddPassword.Name = "txtAddPassword";
+            this.txtAddPassword.Size = new System.Drawing.Size(242, 29);
+            this.txtAddPassword.TabIndex = 3;
+            this.txtAddPassword.TextChanged += new System.EventHandler(this.txtAddDatabasePassword_TextChanged);
             // 
             // SettingsFrm
             // 
@@ -121,14 +121,14 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(447, 257);
             this.Controls.Add(this.btnAddStock);
-            this.Controls.Add(this.txtAddDatabasePassword);
+            this.Controls.Add(this.txtAddPassword);
             this.Controls.Add(this.txtAddDataBaseUser);
             this.Controls.Add(this.txtAddDatabaseName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SettingsFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AYARLAR";
@@ -146,6 +146,6 @@
         private Label label2;
         private Label label1;
         public TextBox txtAddDataBaseUser;
-        public TextBox txtAddDatabasePassword;
+        public TextBox txtAddPassword;
     }
 }

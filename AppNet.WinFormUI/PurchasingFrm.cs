@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AppNet.WinFormUI
 {
-    public partial class StockFrm : Form
+    public partial class PurchasingFrm : Form
     {
-        public StockFrm()
+        public PurchasingFrm()
         {
             InitializeComponent();
         }
@@ -33,6 +33,11 @@ namespace AppNet.WinFormUI
         {
             DeleteStock deleteStockFrm = new DeleteStock();
             deleteStockFrm.ShowDialog();
+        }
+
+        private void PurchasingFrm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

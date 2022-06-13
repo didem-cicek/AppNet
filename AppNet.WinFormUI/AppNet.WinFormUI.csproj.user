@@ -43,7 +43,7 @@
     <Compile Update="UpdateStock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="StockFrm.cs">
+    <Compile Update="PurchasingFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Login.cs">
