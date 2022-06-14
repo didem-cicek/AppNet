@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj": {}
+    "D:\\dersler\\appnet\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj": {
+    "D:\\dersler\\appnet\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj",
+        "projectUniqueName": "D:\\dersler\\appnet\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj",
         "projectName": "AppNet.Domain",
-        "projectPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj",
+        "projectPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj",
         "packagesPath": "C:\\Users\\didemcicek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Domain\\obj\\",
+        "outputPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

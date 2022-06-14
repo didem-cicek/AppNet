@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AppNet.Domain.Entities;
+using AppNet.Infrastructer.Persistence;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +28,23 @@ namespace AppNet.WinFormUI
         {
             MainForm mainFrm = new MainForm();
             mainFrm.ShowDialog();
+        }
+
+        private void btnNewUser_Click(object sender, EventArgs e)
+        {
+            User user = new User();
+            user.Name = txtNewName.Text.ToString();
+            user.UserName = txtNewUserName.Text.ToString();
+            user.Password = txtNewPassword.Text.ToString();
+            user.UserAuthorization = txtNewDepartment.Text.ToString();
+            
+            using (var context = new ErpDbContext())
+            {
+                context.Users.Add(user);
+                context.SaveChanges();
+                MessageBox.Show("Kaydınızı başarıyla oluşturdunuz. Bu bilgiler ile giriş yapınız.");
+            }
+
         }
     }
 }

@@ -632,6 +632,21 @@
           }
         }
       },
+      "AppNet.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AppNet.Domain": "1.0.0",
+          "AppNet.Infrastructer.Logging": "1.0.0",
+          "AppNet.Infrastructer.Persistence": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AppNet.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AppNet.Application.dll": {}
+        }
+      },
       "AppNet.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -642,11 +657,25 @@
           "bin/placeholder/AppNet.Domain.dll": {}
         }
       },
+      "AppNet.Infrastructer.Logging/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AppNet.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AppNet.Infrastructer.Logging.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AppNet.Infrastructer.Logging.dll": {}
+        }
+      },
       "AppNet.Infrastructer.Persistence/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "AppNet.Domain": "1.0.0",
+          "AppNet.Infrastructer.Logging": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.5"
         },
@@ -1876,10 +1905,20 @@
         "version.txt"
       ]
     },
+    "AppNet.Application/1.0.0": {
+      "type": "project",
+      "path": "../AppNet.Application/AppNet.Application.csproj",
+      "msbuildProject": "../AppNet.Application/AppNet.Application.csproj"
+    },
     "AppNet.Domain/1.0.0": {
       "type": "project",
       "path": "../AppNet.Domain/AppNet.Domain.csproj",
       "msbuildProject": "../AppNet.Domain/AppNet.Domain.csproj"
+    },
+    "AppNet.Infrastructer.Logging/1.0.0": {
+      "type": "project",
+      "path": "../AppNet.Infrastructer.Logging/AppNet.Infrastructer.Logging.csproj",
+      "msbuildProject": "../AppNet.Infrastructer.Logging/AppNet.Infrastructer.Logging.csproj"
     },
     "AppNet.Infrastructer.Persistence/1.0.0": {
       "type": "project",
@@ -1889,6 +1928,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "AppNet.Application >= 1.0.0",
       "AppNet.Infrastructer.Persistence >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.5",
@@ -1902,11 +1942,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.WinFormUI\\AppNet.WinFormUI.csproj",
+      "projectUniqueName": "D:\\dersler\\appnet\\AppNet\\AppNet.WinFormUI\\AppNet.WinFormUI.csproj",
       "projectName": "AppNet.WinFormUI",
-      "projectPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.WinFormUI\\AppNet.WinFormUI.csproj",
+      "projectPath": "D:\\dersler\\appnet\\AppNet\\AppNet.WinFormUI\\AppNet.WinFormUI.csproj",
       "packagesPath": "C:\\Users\\didemcicek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.WinFormUI\\obj\\",
+      "outputPath": "D:\\dersler\\appnet\\AppNet\\AppNet.WinFormUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1927,8 +1967,11 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Persistence\\AppNet.Infrastructer.Persistence.csproj": {
-              "projectPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Persistence\\AppNet.Infrastructer.Persistence.csproj"
+            "D:\\dersler\\appnet\\AppNet\\AppNet.Application\\AppNet.Application.csproj": {
+              "projectPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Application\\AppNet.Application.csproj"
+            },
+            "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Persistence\\AppNet.Infrastructer.Persistence.csproj": {
+              "projectPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Persistence\\AppNet.Infrastructer.Persistence.csproj"
             }
           }
         }

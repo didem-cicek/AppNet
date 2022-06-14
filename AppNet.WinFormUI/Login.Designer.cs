@@ -187,6 +187,7 @@
             this.btnNewUser.TabIndex = 9;
             this.btnNewUser.Text = "KAYIT OL";
             this.btnNewUser.UseVisualStyleBackColor = false;
+            this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
             // 
             // txtUserName
             // 

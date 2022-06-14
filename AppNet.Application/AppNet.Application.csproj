@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AppNet.Domain\AppNet.Domain.csproj" />
+    <ProjectReference Include="..\AppNet.Infrastructer.Logging\AppNet.Infrastructer.Logging.csproj" />
+    <ProjectReference Include="..\AppNet.Infrastructer.Persistence\AppNet.Infrastructer.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>

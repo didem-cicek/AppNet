@@ -641,6 +641,19 @@
         "runtime": {
           "bin/placeholder/AppNet.Domain.dll": {}
         }
+      },
+      "AppNet.Infrastructer.Logging/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AppNet.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AppNet.Infrastructer.Logging.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AppNet.Infrastructer.Logging.dll": {}
+        }
       }
     }
   },
@@ -1865,11 +1878,17 @@
       "type": "project",
       "path": "../AppNet.Domain/AppNet.Domain.csproj",
       "msbuildProject": "../AppNet.Domain/AppNet.Domain.csproj"
+    },
+    "AppNet.Infrastructer.Logging/1.0.0": {
+      "type": "project",
+      "path": "../AppNet.Infrastructer.Logging/AppNet.Infrastructer.Logging.csproj",
+      "msbuildProject": "../AppNet.Infrastructer.Logging/AppNet.Infrastructer.Logging.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "AppNet.Domain >= 1.0.0",
+      "AppNet.Infrastructer.Logging >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.5"
@@ -1882,11 +1901,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Persistence\\AppNet.Infrastructer.Persistence.csproj",
+      "projectUniqueName": "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Persistence\\AppNet.Infrastructer.Persistence.csproj",
       "projectName": "AppNet.Infrastructer.Persistence",
-      "projectPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Persistence\\AppNet.Infrastructer.Persistence.csproj",
+      "projectPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Persistence\\AppNet.Infrastructer.Persistence.csproj",
       "packagesPath": "C:\\Users\\didemcicek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Persistence\\obj\\",
+      "outputPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1907,8 +1926,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj": {
-              "projectPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj"
+            "D:\\dersler\\appnet\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj": {
+              "projectPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj"
+            },
+            "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Logging\\AppNet.Infrastructer.Logging.csproj": {
+              "projectPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Logging\\AppNet.Infrastructer.Logging.csproj"
             }
           }
         }

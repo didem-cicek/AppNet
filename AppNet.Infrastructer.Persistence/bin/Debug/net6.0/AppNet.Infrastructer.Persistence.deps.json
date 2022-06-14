@@ -9,6 +9,7 @@
       "AppNet.Infrastructer.Persistence/1.0.0": {
         "dependencies": {
           "AppNet.Domain": "1.0.0",
+          "AppNet.Infrastructer.Logging": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.5",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.5"
@@ -488,6 +489,14 @@
         "runtime": {
           "AppNet.Domain.dll": {}
         }
+      },
+      "AppNet.Infrastructer.Logging/1.0.0": {
+        "dependencies": {
+          "AppNet.Domain": "1.0.0"
+        },
+        "runtime": {
+          "AppNet.Infrastructer.Logging.dll": {}
+        }
       }
     }
   },
@@ -799,6 +808,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "AppNet.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AppNet.Infrastructer.Logging/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

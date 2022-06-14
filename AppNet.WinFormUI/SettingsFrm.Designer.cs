@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAddStock = new System.Windows.Forms.Button();
+            this.btnAddDatabase = new System.Windows.Forms.Button();
             this.txtAddDatabaseName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,22 +37,22 @@
             this.txtAddPassword = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // btnAddStock
+            // btnAddDatabase
             // 
-            this.btnAddStock.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnAddStock.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddStock.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
-            this.btnAddStock.FlatAppearance.BorderSize = 3;
-            this.btnAddStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAddStock.ForeColor = System.Drawing.Color.White;
-            this.btnAddStock.Location = new System.Drawing.Point(216, 182);
-            this.btnAddStock.Name = "btnAddStock";
-            this.btnAddStock.Size = new System.Drawing.Size(200, 40);
-            this.btnAddStock.TabIndex = 4;
-            this.btnAddStock.Text = "VERİ TABANI OLUŞTUR";
-            this.btnAddStock.UseVisualStyleBackColor = false;
-            this.btnAddStock.Click += new System.EventHandler(this.btnAddStock_Click);
+            this.btnAddDatabase.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnAddDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddDatabase.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnAddDatabase.FlatAppearance.BorderSize = 3;
+            this.btnAddDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddDatabase.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAddDatabase.ForeColor = System.Drawing.Color.White;
+            this.btnAddDatabase.Location = new System.Drawing.Point(216, 182);
+            this.btnAddDatabase.Name = "btnAddDatabase";
+            this.btnAddDatabase.Size = new System.Drawing.Size(200, 40);
+            this.btnAddDatabase.TabIndex = 4;
+            this.btnAddDatabase.Text = "VERİ TABANI OLUŞTUR";
+            this.btnAddDatabase.UseVisualStyleBackColor = false;
+            this.btnAddDatabase.Click += new System.EventHandler(this.btnAddDatabase_Click);
             // 
             // txtAddDatabaseName
             // 
@@ -120,7 +120,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(447, 257);
-            this.Controls.Add(this.btnAddStock);
+            this.Controls.Add(this.btnAddDatabase);
             this.Controls.Add(this.txtAddPassword);
             this.Controls.Add(this.txtAddDataBaseUser);
             this.Controls.Add(this.txtAddDatabaseName);
@@ -140,7 +140,7 @@
 
         #endregion
 
-        public Button btnAddStock;
+        public Button btnAddDatabase;
         public TextBox txtAddDatabaseName;
         private Label label3;
         private Label label2;

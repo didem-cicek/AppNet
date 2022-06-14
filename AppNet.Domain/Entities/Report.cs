@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppNet.Domain.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppNet.Domain.Entities
 {
-    public class Report
+    public class Report: BaseEntity
     {
         public int ReportID { get; set; }
         public string ReportName { get; set; }
@@ -22,6 +23,5 @@ namespace AppNet.Domain.Entities
         public Cash Cash { get; set; }
         public DateTime ReportDate { get; set; }
         public DateTime ReportModifitedDate { get; set; }
-        public ICollection<Report> Reports { get; set; }
     }
 }

@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AppNet.Application\AppNet.Application.csproj" />
     <ProjectReference Include="..\AppNet.Infrastructer.Persistence\AppNet.Infrastructer.Persistence.csproj" />
   </ItemGroup>
 

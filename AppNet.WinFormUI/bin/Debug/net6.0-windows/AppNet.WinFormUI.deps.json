@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "AppNet.WinFormUI/1.0.0": {
         "dependencies": {
+          "AppNet.Application": "1.0.0",
           "AppNet.Infrastructer.Persistence": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.5",
@@ -409,14 +410,33 @@
           "System.Drawing.Common": "4.7.0"
         }
       },
+      "AppNet.Application/1.0.0": {
+        "dependencies": {
+          "AppNet.Domain": "1.0.0",
+          "AppNet.Infrastructer.Logging": "1.0.0",
+          "AppNet.Infrastructer.Persistence": "1.0.0"
+        },
+        "runtime": {
+          "AppNet.Application.dll": {}
+        }
+      },
       "AppNet.Domain/1.0.0": {
         "runtime": {
           "AppNet.Domain.dll": {}
         }
       },
+      "AppNet.Infrastructer.Logging/1.0.0": {
+        "dependencies": {
+          "AppNet.Domain": "1.0.0"
+        },
+        "runtime": {
+          "AppNet.Infrastructer.Logging.dll": {}
+        }
+      },
       "AppNet.Infrastructer.Persistence/1.0.0": {
         "dependencies": {
           "AppNet.Domain": "1.0.0",
+          "AppNet.Infrastructer.Logging": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.5"
         },
@@ -733,7 +753,17 @@
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
+    "AppNet.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "AppNet.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AppNet.Infrastructer.Logging/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

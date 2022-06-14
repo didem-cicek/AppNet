@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "AppNet.Infrastructer.Logging/1.0.0": {
+        "dependencies": {
+          "AppNet.Domain": "1.0.0"
+        },
         "runtime": {
           "AppNet.Infrastructer.Logging.dll": {}
+        }
+      },
+      "AppNet.Domain/1.0.0": {
+        "runtime": {
+          "AppNet.Domain.dll": {}
         }
       }
     }
   },
   "libraries": {
     "AppNet.Infrastructer.Logging/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AppNet.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
