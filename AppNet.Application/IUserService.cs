@@ -1,4 +1,5 @@
 ﻿using AppNet.Domain.Entities;
+using AppNet.Domain.InterFaces;
 using AppNet.Infrastructer.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System;
