@@ -21,8 +21,8 @@ namespace AppNet.AppServices
             IOCContainer.Register<ILogService>(() => new LogService());
             IOCContainer.Register<IRepository<DataBase>>(() => new TextFileRepository<DataBase>());
             IOCContainer.Register<IRepository<Log>>(() => new TextFileRepository<Log>());
-            IOCContainer.Register<IRepository<User>>(() => new EFRepository<User>(ErpContext));
-            IOCContainer.Register<ErpContext>(() => new ErpContext());
+            IOCContainer.Register<IRepository<User>>(() => new EFRepository<User>(IErpContext));
+            IOCContainer.Register<IErpContext>(() => new ErpContext());
 
 
 

@@ -8,8 +8,21 @@ using System.Threading.Tasks;
 
 namespace AppNet.Application
 {
-    public class ErpContext:DbContext
+    public class ErpContext : IErpContext
     {
-        public ErpDbContext context;
+        public Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<TEntity> Add(TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<TEntity> Delete(TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<TEntity> Update(TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
