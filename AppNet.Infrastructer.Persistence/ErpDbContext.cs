@@ -1,4 +1,5 @@
-﻿using AppNet.Domain.Entities;
+﻿using AppNet.Domain.Core;
+using AppNet.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

@@ -91,5 +91,33 @@ namespace AppNet.Infrastructer.Logging
             WriteListToTxt();
             return entity;
         }
+
+        Task<TEntity> IRepository<TEntity>.Add(TEntity entity)
+        {
+            LoadListFromFile();
+            list.Add(entity);
+            WriteListToTxt();
+            return entity;
+        }
+
+        Task<bool> IRepository<TEntity>.Remove(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IRepository<TEntity>.GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<ICollection<TEntity>> IRepository<TEntity>.GetList(Func<TEntity, bool> expression)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IRepository<TEntity>.Update(int id, TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

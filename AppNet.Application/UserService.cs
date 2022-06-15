@@ -18,28 +18,40 @@ namespace AppNet.AppServices
         }
         public void Create(int ID, string Name, string UserName, string Password, string UserAuthorization)
         {
-            User u = new User();
-            u.UserID = ID;
-            u.Name = Name;
-            u.UserName = UserName;
-            u.Password = Password;
-            u.UserAuthorization = UserAuthorization;
-            userRepository.Add(u);
+            using (var context = new ErpDbContext())
+            {
+                User u = new User();
+                u.UserID = ID;
+                u.Name = Name;
+                u.UserName = UserName;
+                u.Password = Password;
+                u.UserAuthorization = UserAuthorization;
+                userRepository.Add(u);
+            }
         }
 
         public bool Delete(int ID)
         {
-            throw new NotImplementedException();
+            using (var context = new ErpDbContext())
+            {
+                throw new NotImplementedException();
+            }
         }
 
         public IReadOnlyCollection<User> GetAll()
         {
-            throw new NotImplementedException();
+            using (var context = new ErpDbContext())
+            {
+                throw new NotImplementedException();
+            }
         }
 
-        public DataBase Update(int ID, string newPassword)
+        public User Update(int ID, string newPassword)
         {
-            throw new NotImplementedException();
+            using (var context = new ErpDbContext())
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

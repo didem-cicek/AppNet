@@ -598,6 +598,9 @@
       "AppNet.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.5"
+        },
         "compile": {
           "bin/placeholder/AppNet.Domain.dll": {}
         },
@@ -1828,11 +1831,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\dersler\\appnet\\AppNet\\AppNet.Application\\AppNet.Application.csproj",
+      "projectUniqueName": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Application\\AppNet.Application.csproj",
       "projectName": "AppNet.Application",
-      "projectPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Application\\AppNet.Application.csproj",
+      "projectPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Application\\AppNet.Application.csproj",
       "packagesPath": "C:\\Users\\didemcicek\\.nuget\\packages\\",
-      "outputPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Application\\obj\\",
+      "outputPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1853,14 +1856,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\dersler\\appnet\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj": {
-              "projectPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj"
+            "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj": {
+              "projectPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj"
             },
-            "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Logging\\AppNet.Infrastructer.Logging.csproj": {
-              "projectPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Logging\\AppNet.Infrastructer.Logging.csproj"
+            "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Logging\\AppNet.Infrastructer.Logging.csproj": {
+              "projectPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Logging\\AppNet.Infrastructer.Logging.csproj"
             },
-            "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Persistence\\AppNet.Infrastructer.Persistence.csproj": {
-              "projectPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Persistence\\AppNet.Infrastructer.Persistence.csproj"
+            "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Persistence\\AppNet.Infrastructer.Persistence.csproj": {
+              "projectPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Persistence\\AppNet.Infrastructer.Persistence.csproj"
             }
           }
         }

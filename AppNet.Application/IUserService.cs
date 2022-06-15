@@ -1,4 +1,5 @@
 ﻿using AppNet.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace AppNet.AppServices
     {
         void Create(int ID, string Name, string UserName, string Password, string UserAuthorization );
         bool Delete(int ID);
-        DataBase Update(int ID, string newPassword);
+        User Update(int ID, string newPassword);
         IReadOnlyCollection<User> GetAll();
     }
 }

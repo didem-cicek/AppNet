@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Logging\\AppNet.Infrastructer.Logging.csproj": {}
+    "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Logging\\AppNet.Infrastructer.Logging.csproj": {}
   },
   "projects": {
-    "D:\\dersler\\appnet\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj": {
+    "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dersler\\appnet\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj",
         "projectName": "AppNet.Domain",
-        "projectPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj",
+        "projectPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj",
         "packagesPath": "C:\\Users\\didemcicek\\.nuget\\packages\\",
-        "outputPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Domain\\obj\\",
+        "outputPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,6 +43,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -62,14 +68,14 @@
         }
       }
     },
-    "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Logging\\AppNet.Infrastructer.Logging.csproj": {
+    "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Logging\\AppNet.Infrastructer.Logging.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Logging\\AppNet.Infrastructer.Logging.csproj",
+        "projectUniqueName": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Logging\\AppNet.Infrastructer.Logging.csproj",
         "projectName": "AppNet.Infrastructer.Logging",
-        "projectPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Logging\\AppNet.Infrastructer.Logging.csproj",
+        "projectPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Logging\\AppNet.Infrastructer.Logging.csproj",
         "packagesPath": "C:\\Users\\didemcicek\\.nuget\\packages\\",
-        "outputPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Logging\\obj\\",
+        "outputPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Logging\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -90,8 +96,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\dersler\\appnet\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj": {
-                "projectPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj"
+              "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj": {
+                "projectPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj"
               }
             }
           }

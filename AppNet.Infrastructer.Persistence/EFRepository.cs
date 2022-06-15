@@ -1,5 +1,6 @@
 ﻿using AppNet.Domain.Core;
 using AppNet.Domain.InterFaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,36 +11,51 @@ namespace AppNet.Infrastructer.Persistence
 {
     public class EFRepository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
-        private readonly ErpDbContext dbContext;
-        public EFRepository(ErpDbContext dbContext)
+        public ErpDbContext context;
+        public DbSet<TEntity> dbSet;
+        public EFRepository(ErpDbContext context)
         {
-            dbContext = dbContext;
-        }
-        public async TEntity Add(TEntity entity)
-        {
-            await dbContext.AddAsync(entity);
-            await dbContext.SaveChangesAsync();
-            return entity;
+            this.context = context;
+            this.dbSet = context.Set<TEntity>();
         }
 
-        public TEntity GetById(int id)
+        async Task<TEntity> IRepository<TEntity>.Add(TEntity entity)
         {
-            throw new NotImplementedException();
+                await context.AddAsync(entity);
+                await context.SaveChangesAsync();
+                return entity;
         }
 
-        public ICollection<TEntity> GetList(Func<TEntity, bool> expression = null)
+        Task<TEntity> IRepository<TEntity>.GetById(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new ErpDbContext())
+            {
+                throw new NotImplementedException();
+            }
         }
 
-        public bool Remove(int id)
+        Task<ICollection<TEntity>> IRepository<TEntity>.GetList(Func<TEntity, bool> expression)
         {
-            throw new NotImplementedException();
+            using (var context = new ErpDbContext())
+            {
+                throw new NotImplementedException();
+            }
         }
 
-        public TEntity Update(int id, TEntity entity)
+        Task<bool> IRepository<TEntity>.Remove(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new ErpDbContext())
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        Task<TEntity> IRepository<TEntity>.Update(int id, TEntity entity)
+        {
+            using (var context = new ErpDbContext())
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

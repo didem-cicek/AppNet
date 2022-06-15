@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Notification\\AppNet.Infrastructer.Notification.csproj": {}
+    "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Notification\\AppNet.Infrastructer.Notification.csproj": {}
   },
   "projects": {
-    "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Notification\\AppNet.Infrastructer.Notification.csproj": {
+    "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Notification\\AppNet.Infrastructer.Notification.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Notification\\AppNet.Infrastructer.Notification.csproj",
+        "projectUniqueName": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Notification\\AppNet.Infrastructer.Notification.csproj",
         "projectName": "AppNet.Infrastructer.Notification",
-        "projectPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Notification\\AppNet.Infrastructer.Notification.csproj",
+        "projectPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Notification\\AppNet.Infrastructer.Notification.csproj",
         "packagesPath": "C:\\Users\\didemcicek\\.nuget\\packages\\",
-        "outputPath": "D:\\dersler\\appnet\\AppNet\\AppNet.Infrastructer.Notification\\obj\\",
+        "outputPath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Notification\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
