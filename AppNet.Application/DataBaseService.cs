@@ -26,25 +26,9 @@ namespace AppNet.AppServices
             databaseRepository.Add(dataBase);
         }
 
-        public bool Delete(int databaseID)
+        public Task<ICollection<DataBase>> GetList()
         {
-            return databaseRepository.Remove(databaseID);
+            throw new NotImplementedException();
         }
-
-        public IReadOnlyCollection<DataBase> GetAll()
-        {
-            return databaseRepository.GetList().ToList().AsReadOnly();
-        }
-
-        public DataBase Update(int databaseID, string newDataBaseName, string newUserName, string newPassword)
-        {
-            DataBase dataBase = new DataBase();
-            dataBase.DataBaseID = databaseID;
-            dataBase.DataBaseName = newDataBaseName;
-            dataBase.DataBaseUserName = newUserName;
-            dataBase.DataBasePassword = newPassword;
-            return databaseRepository.Update(databaseID, dataBase);
-        }
-
     }
 }

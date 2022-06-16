@@ -34,7 +34,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDeletedCategory = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdDeleteList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,11 +57,14 @@
             // 
             // cbbDeleteCategory
             // 
+            this.cbbDeleteCategory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbbDeleteCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbDeleteCategory.FormattingEnabled = true;
             this.cbbDeleteCategory.Location = new System.Drawing.Point(213, 27);
             this.cbbDeleteCategory.Name = "cbbDeleteCategory";
             this.cbbDeleteCategory.Size = new System.Drawing.Size(243, 29);
             this.cbbDeleteCategory.TabIndex = 7;
+            this.cbbDeleteCategory.SelectedIndexChanged += new System.EventHandler(this.cbbDeleteCategory_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -93,20 +96,21 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Kriter Seçiniz : ";
             // 
-            // button1
+            // btnDeletedCategory
             // 
-            this.button1.BackColor = System.Drawing.Color.Firebrick;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
-            this.button1.FlatAppearance.BorderSize = 3;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(306, 333);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 40);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "KATEGORİYİ SİL";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnDeletedCategory.BackColor = System.Drawing.Color.Firebrick;
+            this.btnDeletedCategory.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnDeletedCategory.FlatAppearance.BorderSize = 3;
+            this.btnDeletedCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeletedCategory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDeletedCategory.ForeColor = System.Drawing.Color.White;
+            this.btnDeletedCategory.Location = new System.Drawing.Point(306, 333);
+            this.btnDeletedCategory.Name = "btnDeletedCategory";
+            this.btnDeletedCategory.Size = new System.Drawing.Size(150, 40);
+            this.btnDeletedCategory.TabIndex = 10;
+            this.btnDeletedCategory.Text = "KATEGORİYİ SİL";
+            this.btnDeletedCategory.UseVisualStyleBackColor = false;
+            this.btnDeletedCategory.Click += new System.EventHandler(this.btnDeletedCategory_Click);
             // 
             // DeleteCategory
             // 
@@ -114,7 +118,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(479, 391);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDeletedCategory);
             this.Controls.Add(this.grdDeleteList);
             this.Controls.Add(this.txtDeleteCategory);
             this.Controls.Add(this.cbbDeleteCategory);
@@ -141,6 +145,6 @@
         private Label label4;
         private Label label3;
         private Label label1;
-        private Button button1;
+        private Button btnDeletedCategory;
     }
 }

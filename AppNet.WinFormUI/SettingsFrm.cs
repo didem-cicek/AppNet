@@ -60,7 +60,7 @@ namespace AppNet.WinFormUI
             var filePath = "AppNet-Domain-Entities-DataBase" + ".txt";
             if(!File.Exists(filePath)){
             var service = IOCContainer.Resolve<IDatabaseService>();
-             service.Create(Convert.ToInt32(1), txtAddDatabaseName.Text, txtAddDataBaseUser.Text, txtAddPassword.Text);
+            service.Create(Convert.ToInt32(1), txtAddDatabaseName.Text, txtAddDataBaseUser.Text, txtAddPassword.Text);
             MessageBox.Show("Veri Loglandı.");
             ErpDbContext database = new ErpDbContext();
             database.dbName = txtAddDatabaseName.Text;

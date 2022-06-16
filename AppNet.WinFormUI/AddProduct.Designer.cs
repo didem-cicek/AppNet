@@ -99,6 +99,7 @@
             this.btnAddProduct.TabIndex = 4;
             this.btnAddProduct.Text = "ÜRÜN EKLE";
             this.btnAddProduct.UseVisualStyleBackColor = false;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // cbbAddCategory
             // 

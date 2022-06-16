@@ -459,6 +459,9 @@
         }
       },
       "AppNet.Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.5"
+        },
         "runtime": {
           "AppNet.Domain.dll": {}
         }

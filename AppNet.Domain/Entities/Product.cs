@@ -9,7 +9,7 @@ namespace AppNet.Domain.Entities
 {
     public class Product: BaseEntity
     {
-        public int ProductId { get; set; }
+        public int ProductID { get; set; }
         public string ProductName { get; set; }
         public string ProductDesriciption { get; set; }
         public int CategoryID { get; set; }

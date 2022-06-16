@@ -19,34 +19,35 @@ namespace AppNet.Infrastructer.Persistence
         private const string filePath = "AppNet-Domain-Entities-DataBase" + ".txt";
         FileStream fileStream = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
         public void LoadDataBase()
-        {if(File.Exists(filePath))
-            
-            {using (StreamReader reader = new StreamReader(fileStream))
-            {
-                while (true)
-                { string satir = reader.ReadLine();
-                    dbName = satir;
-                    if(satir== "DataBaseName")
-                        {
-                            dbName = satir.Remove(3,0);
-                        }
-                    if(satir=="DataBaseUserName")
-                        {
-                            userName = satir.Remove(3,0);
-                        }
-                    if(satir== "DataBasePassword")
-                        {
-                            userPassword = satir.Remove(3,0);
-                        }
-                    if (satir == null) break; }
-                    reader.Close(); }
+        {if (File.Exists(filePath))
+
+            { using (StreamReader reader = new StreamReader(fileStream))
+                {
+                    while (true)
+                    { string satir = reader.ReadLine();
+                        string d = satir.Remove(0, 33);
+                        int pos = d.IndexOf(",");
+                        dbName = d.Substring(0, pos-1);
+                        userName = d.Remove(0, dbName.Length + 22);
+                        int us = userName.IndexOf(",");
+                        userName = userName.Substring(0, us - 1);
+                        userPassword = d.Remove(0, dbName.Length + 46);
+                        int p = userPassword.IndexOf(",");
+                        userPassword = userPassword.Substring(0, p - 1);
+
+                        //userPassword = satir.Trim('","DataBasePassword":"');
+                        break;
+
+                        reader.Close(); }
                     fileStream.Close();
-        
-                 }
+
+                }
+            }
         }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionbuilder)
         {
+            LoadDataBase();
             optionbuilder.EnableDetailedErrors();
             if (!optionbuilder.IsConfigured)
             {
@@ -58,7 +59,27 @@ namespace AppNet.Infrastructer.Persistence
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);            
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Product>()
+                        .HasKey(p => p.ProductID);
+            modelBuilder.Entity<Category>()
+                        .HasKey(p => p.CategoryId);
+            modelBuilder.Entity<Customer>()
+                        .HasKey(p => p.CustomerID);
+            modelBuilder.Entity<Cash>()
+                        .HasKey(p => p.CashID);
+            modelBuilder.Entity<Log>()
+                        .HasKey(p => p.LogID);
+            modelBuilder.Entity<Report>()
+                        .HasKey(p => p.ReportID);
+            modelBuilder.Entity<Sale>()
+                        .HasKey(p => p.SaleID);
+            modelBuilder.Entity<Stock>()
+                        .HasKey(p => p.StockID);
+            modelBuilder.Entity<Supplier>()
+                        .HasKey(p => p.SupplierID);
+            modelBuilder.Entity<User>()
+                        .HasKey(p => p.UserID);
             var entityTypes = modelBuilder.Model
             .GetEntityTypes()
             .ToList();
@@ -68,6 +89,7 @@ namespace AppNet.Infrastructer.Persistence
             {
                 foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
             }
+
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }

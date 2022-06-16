@@ -33,8 +33,8 @@ namespace AppNet.WinFormUI
                 settingsFrm.ShowDialog();
                 service.Create(Convert.ToInt32(2), "Ýlk Veri Tabani Olusturuldu!", "Bilgilendirme");
             }
-            else { Application.Run(new Login()); }
+            else { Application.Run(new Login());}
 
+                }
+            }
         }
-    }
-}

@@ -1,4 +1,5 @@
 ﻿using AppNet.Domain.Core;
+using AppNet.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace AppNet.Domain.InterFaces
         Task<TEntity> Add(TEntity entity);
         Task<bool> Remove(int id);
         Task<TEntity> GetById(int id);
-        Task<ICollection<TEntity>> GetList(Func<TEntity, bool> expression = null);
+        ICollection<TEntity> GetList(Func<TEntity, bool> expression = null);
+        //IQueryable<TEntity> GetList();
         Task<TEntity> Update(int id, TEntity entity);
     }
 }

@@ -1,4 +1,6 @@
-﻿using AppNet.Domain.Entities;
+﻿using System.Linq;
+using AppNet.Domain.Entities;
+using AppNet.AppService;
 using AppNet.Infrastructer.Persistence;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AppNet.AppServices;
 
 namespace AppNet.WinFormUI
 {
@@ -18,11 +21,13 @@ namespace AppNet.WinFormUI
         {
             InitializeComponent();
         }
-
         private void Login_Load(object sender, EventArgs e)
         {
+            
 
         }
+        
+      
 
         private void btnLogin_Click(object sender, EventArgs e)
         {

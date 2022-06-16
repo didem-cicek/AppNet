@@ -1,9 +1,11 @@
 ﻿using AppNet.Domain.Core;
+using AppNet.Domain.Entities;
 using AppNet.Domain.InterFaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,14 +13,11 @@ namespace AppNet.Infrastructer.Persistence
 {
     public class EFRepository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
-        public ErpDbContext context;
-        public DbSet<TEntity> dbSet;
-        public EFRepository(ErpDbContext context)
+        private readonly ErpDbContext context;
+        public EFRepository(ErpDbContext context) : base()
         {
             this.context = context;
-            this.dbSet = context.Set<TEntity>();
         }
-
         async Task<TEntity> IRepository<TEntity>.Add(TEntity entity)
         {
                 await context.AddAsync(entity);
@@ -26,36 +25,33 @@ namespace AppNet.Infrastructer.Persistence
                 return entity;
         }
 
-        Task<TEntity> IRepository<TEntity>.GetById(int id)
+        public async Task<TEntity> GetById(int id)
         {
-            using (var context = new ErpDbContext())
-            {
-                throw new NotImplementedException();
-            }
+            return await context.Set<TEntity>()
+                        .AsNoTracking()
+                        .FirstOrDefaultAsync(e => e.Id == id);
+        }
+        async public Task Remove(int id)
+        {
+            var entity = await GetById(id);
+            context.Set<TEntity>().Remove(entity);
+            await context.SaveChangesAsync();
         }
 
-        Task<ICollection<TEntity>> IRepository<TEntity>.GetList(Func<TEntity, bool> expression)
+        public IQueryable<TEntity> GetList()
         {
-            using (var context = new ErpDbContext())
-            {
-                throw new NotImplementedException();
-            }
+            return context.Set<TEntity>().AsNoTracking();
+        }
+        public IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> where)
+        {
+            return context.Set<TEntity>().AsNoTracking().Where(where);
         }
 
-        Task<bool> IRepository<TEntity>.Remove(int id)
+        async Task<TEntity> IRepository<TEntity>.Update(int id, TEntity entity)
         {
-            using (var context = new ErpDbContext())
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        Task<TEntity> IRepository<TEntity>.Update(int id, TEntity entity)
-        {
-            using (var context = new ErpDbContext())
-            {
-                throw new NotImplementedException();
-            }
+            context.Set<TEntity>().Update(entity);
+            await context.SaveChangesAsync();
+            return entity;
         }
     }
 }
