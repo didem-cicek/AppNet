@@ -43,10 +43,9 @@ namespace AppNet.AppService
            await categoryRepository.Remove(id);
            return true;
         }
-
-        public IQueryable<Category> FilteredList(string filter)
+        async Task<ICollection<Category>> ICategoryService.FilteredList(string filter)
         {
-            return categoryRepository.GetList(c => c.CategoryName.ToLower().Contains(filter.ToLower())).ToList();
+            return  (categoryRepository.GetList(c => c.CategoryName.ToLower().Contains(filter.ToLower()))).ToList();
         }
     }
 }

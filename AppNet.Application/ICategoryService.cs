@@ -13,6 +13,6 @@ namespace AppNet.AppService
         Task<Category> Update(int CategoryID, string NewCategoryName);
         Task<bool> Remove(int id);
         Task<ICollection<Category>> GetAll();
-        IQueryable<Category> FilteredList(string filter);
+        Task<ICollection<Category>> FilteredList(string filter);
     }
 }

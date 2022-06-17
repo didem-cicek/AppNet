@@ -1,5 +1,8 @@
 using AppNet.AppServices;
 using AppNet.Infrastructer.Persistence;
+using Microsoft.Data.SqlClient;
+using System.Data;
+using System.Drawing;
 
 namespace AppNet.WinFormUI
 {
@@ -24,10 +27,16 @@ namespace AppNet.WinFormUI
             //    //{ Application.Run(new SettingsFrm());}
             //}
             ApplicationServiceSettings.RegisterAllService();
-            var service = IOCContainer.Resolve<ILogService>();
-            if (!File.Exists(filePath))
+            var service = IOCContainer.Resolve<IDatabaseService>().GetList();
+            list<service>
+            foreach (var item in service)
             {
-                service.Create(Convert.ToInt32(1),"Veri Tabani Bulunamadi!", "Kritik Hata");
+                item.
+            }
+            SqlConnection sql = new SqlConnection("server=(local)\\SQLEXPRESS;Trusted_Connection=yes");
+            if (sql.State == ConnectionState.Open)
+            {
+                //service.Create(Convert.ToInt32(1),"Veri Tabani Bulunamadi!", "Kritik Hata");
                 MessageBox.Show("Veri Tabanýnýz mevcut deðil, lütfen önce veri tabanýnýzý oluþturunuz!","Bilgilendirme Mesajý",MessageBoxButtons.OK,MessageBoxIcon.Warning );
                 SettingsFrm settingsFrm = new SettingsFrm();
                 settingsFrm.ShowDialog();

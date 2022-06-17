@@ -31,17 +31,6 @@ namespace AppNet.Infrastructer.Persistence
                         .AsNoTracking()
                         .FirstOrDefaultAsync(e => e.Id == id);
         }
-        async public Task Remove(int id)
-        {
-            var entity = await GetById(id);
-            context.Set<TEntity>().Remove(entity);
-            await context.SaveChangesAsync();
-        }
-
-        public IQueryable<TEntity> GetList()
-        {
-            return context.Set<TEntity>().AsNoTracking();
-        }
         public IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> where)
         {
             return context.Set<TEntity>().AsNoTracking().Where(where);
@@ -52,6 +41,19 @@ namespace AppNet.Infrastructer.Persistence
             context.Set<TEntity>().Update(entity);
             await context.SaveChangesAsync();
             return entity;
+        }
+
+        async Task<bool> IRepository<TEntity>.Remove(int id)
+        {
+            var entity = await GetById(id);
+            context.Set<TEntity>().Remove(entity);
+            await context.SaveChangesAsync();
+            return true;
+        }
+
+        IQueryable<TEntity> IRepository<TEntity>.GetList(Func<TEntity, bool> expression)
+        {
+            return context.Set<TEntity>().AsNoTracking();
         }
     }
 }

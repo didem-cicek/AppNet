@@ -22,7 +22,6 @@ namespace AppNet.WinFormUI
             DialogResult dialogResult = MessageBox.Show("Kategoriniz baþarýyla eklenmiþtir. Bir kategori daha eklemek ister misiniz?", "Bilgilendirme Mesajý", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.Yes)
             {
-                txtCategoryID.Text = "";
                 txtCategoryName.Text = "";
             }
             else

@@ -57,11 +57,8 @@ namespace AppNet.WinFormUI
 
         private void btnAddDatabase_Click(object sender, EventArgs e)
         {
-            var filePath = "AppNet-Domain-Entities-DataBase" + ".txt";
-            if(!File.Exists(filePath)){
             var service = IOCContainer.Resolve<IDatabaseService>();
-            service.Create(Convert.ToInt32(1), txtAddDatabaseName.Text, txtAddDataBaseUser.Text, txtAddPassword.Text);
-            MessageBox.Show("Veri Loglandı.");
+            service.Create(txtAddDatabaseName.Text, txtAddDataBaseUser.Text, txtAddPassword.Text);
             ErpDbContext database = new ErpDbContext();
             database.dbName = txtAddDatabaseName.Text;
             database.userName = txtAddDataBaseUser.Text;
@@ -71,11 +68,6 @@ namespace AppNet.WinFormUI
             MessageBox.Show("Database Oluşturuldu! İlk giriş için YENİ KAYIT alanından sisteme kayıt olunuz.","Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Login login = new Login();
             login.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Zaten Oluşturduğunuz Bir Database Var!");
-            }
             this.Close();
 
         }

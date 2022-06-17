@@ -16,19 +16,18 @@ namespace AppNet.AppServices
         {
             databaseRepository = IOCContainer.Resolve<IRepository<DataBase>>();
         }
-        public void Create(int ID, string databaseName, string userName, string password)
+        public void Create(string databaseName, string userName, string password)
         {
             DataBase dataBase = new DataBase();
-            dataBase.DataBaseID = ID;
             dataBase.DataBaseName = databaseName;
             dataBase.DataBaseUserName = userName;
             dataBase.DataBasePassword = password;
             databaseRepository.Add(dataBase);
         }
 
-        public Task<ICollection<DataBase>> GetList()
+        async public Task<ICollection<DataBase>> GetList()
         {
-            throw new NotImplementedException();
+            return databaseRepository.GetList().ToList();
         }
     }
 }

@@ -23,7 +23,6 @@ namespace AppNet.WinFormUI
         }
         private void Login_Load(object sender, EventArgs e)
         {
-            
 
         }
         

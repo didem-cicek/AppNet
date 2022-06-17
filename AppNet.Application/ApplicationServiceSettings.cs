@@ -1,7 +1,6 @@
 ﻿using AppNet.AppService;
 using AppNet.Domain.Entities;
 using AppNet.Domain.InterFaces;
-using AppNet.Infrastructer.Logging;
 using AppNet.Infrastructer.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,10 +21,9 @@ namespace AppNet.AppServices
             IOCContainer.Register<IUserService>(() => new UserService());
             IOCContainer.Register<ICategoryService>(() => new CategoryService());
             IOCContainer.Register<IProductService>(() => new ProductService());
-            IOCContainer.Register<IRepository<DataBase>>(() => new TextFileRepository<DataBase>());
-            IOCContainer.Register<IRepository<Log>>(() => new TextFileRepository<Log>());
+            IOCContainer.Register<IRepository<DataBase>>(() => new EFRepository<DataBase>(new AppNet.Infrastructer.Persistence.ErpDbContext()));
+            IOCContainer.Register<IRepository<Log>>(() => new EFRepository<Log>(new AppNet.Infrastructer.Persistence.ErpDbContext()));
             IOCContainer.Register<IRepository<User>>(() => new EFRepository<User>(new AppNet.Infrastructer.Persistence.ErpDbContext()));
-            IOCContainer.Register<IRepository<User>>(() => new TextFileRepository<DataBase>());
             IOCContainer.Register<IRepository<Category>>(() => new EFRepository<Category>(new AppNet.Infrastructer.Persistence.ErpDbContext()));
             IOCContainer.Register<IRepository<Product>>(() => new EFRepository<Product>(new AppNet.Infrastructer.Persistence.ErpDbContext()));
         }
