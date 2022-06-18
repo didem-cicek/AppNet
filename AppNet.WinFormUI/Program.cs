@@ -14,36 +14,23 @@ namespace AppNet.WinFormUI
         [STAThread]
         static void Main()
         {
-            var filePath = "AppNet-Domain-Entities-DataBase" + ".txt";
             
                 // To customize application configuration such as set high DPI settings or default font,
                 // see https://aka.ms/applicationconfiguration.
-                ApplicationConfiguration.Initialize();
-            //using (ErpDbContext dbContext = new ErpDbContext())
-            //{
-            //    //if (!dbContext.dbName.Equals(null))
-            //    //{ Application.Run(new Login());}
-            //    //else 
-            //    //{ Application.Run(new SettingsFrm());}
-            //}
+            ApplicationConfiguration.Initialize();
             ApplicationServiceSettings.RegisterAllService();
-            var service = IOCContainer.Resolve<IDatabaseService>().GetList();
-            list<service>
-            foreach (var item in service)
+
+            ErpDbContext database = new ErpDbContext();
+
+            if (database.Database.EnsureCreated()==false)
             {
-                item.
-            }
-            SqlConnection sql = new SqlConnection("server=(local)\\SQLEXPRESS;Trusted_Connection=yes");
-            if (sql.State == ConnectionState.Open)
-            {
-                //service.Create(Convert.ToInt32(1),"Veri Tabani Bulunamadi!", "Kritik Hata");
-                MessageBox.Show("Veri Tabanýnýz mevcut deðil, lütfen önce veri tabanýnýzý oluþturunuz!","Bilgilendirme Mesajý",MessageBoxButtons.OK,MessageBoxIcon.Warning );
+                MessageBox.Show("Veri Tabanýnýz mevcut deðil, lütfen önce veri tabanýnýzý oluþturunuz!", "Bilgilendirme Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 SettingsFrm settingsFrm = new SettingsFrm();
                 settingsFrm.ShowDialog();
-                service.Create(Convert.ToInt32(2), "Ýlk Veri Tabani Olusturuldu!", "Bilgilendirme");
             }
-            else { Application.Run(new Login());}
-
-                }
+            else {
+                Application.Run(new Login());
             }
-        }
+}
+}
+}

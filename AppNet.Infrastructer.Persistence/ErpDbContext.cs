@@ -45,15 +45,27 @@ namespace AppNet.Infrastructer.Persistence
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionbuilder)
         {
+            
             optionbuilder.EnableDetailedErrors();
             if (!optionbuilder.IsConfigured)
             {
+                if (!string.IsNullOrEmpty(dbName)) { 
                 var DbConnection = "Server =.; Initial Catalog = " + dbName + "; User ID = " + userName + "; Password = " + userPassword + ";";
                 optionbuilder.UseSqlServer(DbConnection.ToString());
-
+}
+            }
+            else
+            {
+                control();
             }
            
         }
+
+        public bool control()
+        {
+            return false;
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
