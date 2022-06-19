@@ -19,9 +19,11 @@ namespace AppNet.Domain.Entities
         public DateTime StockModifitedDate { get; set; }
 
         public int SupplierID;
+        public string SupplierName { get; set; }
         public Supplier Supplier { get; set; }
 
         public int ProductID;
+        public string ProductName { get; set; }
         public Product Product { get; set; }
         public ICollection<Sale> Sales { get; set; }
         public ICollection<Cash> Cashes { get; set; }

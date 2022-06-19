@@ -9,9 +9,10 @@ namespace AppNet.AppService
 {
     public interface IProductService
     {
-        void Create(int CategoryID, string ProductName, string ProductDesriciption);
+        Product Add(int CategoryID, string ProductName, string ProductDesriciption);
+        Task<Product> Update(int ProductID, string ProductName, string ProductDesriciption);
         Task<bool> Remove(int id);
-        Product Update(int ProductID, string ProductName, string ProductDesriciption);
-        IReadOnlyCollection<Product> GetAll();
+        Task<ICollection<Product>> GetAll();
+        
     }
 }

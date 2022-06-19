@@ -11,35 +11,46 @@ namespace AppNet.AppService
 {
     public class ProductService : IProductService
     {
-        IRepository<Product> productRepository;
-        public ProductService()
+        private readonly IRepository<Product> repository;
+        public ProductService(IRepository<Product> repository)
         {
-            productRepository = IOCContainer.Resolve<IRepository<Product>>();
+            this.repository = repository;
         }
-
-        public void Create(int CategoryID, string ProductName, string ProductDesriciption)
+        public Product Add(int CategoryID, string ProductName, string ProductDesriciption)
         {
-            Product p = new Product();
-            p.CategoryID = CategoryID;
-            p.ProductName = ProductName;
-            p.ProductDesriciption = ProductDesriciption;
-            productRepository.Add(p);
-        }
-
-        public IReadOnlyCollection<Product> GetAll()
-        {
-            throw new NotImplementedException();
+            Product product = new Product()
+            {
+                CategoryID = CategoryID,
+                ProductName = ProductName,
+                ProductDesriciption = ProductDesriciption,
+                ProductDate = DateTime.Now,
+            };
+            repository.Add(product);
+            return product;
         }
 
         async public Task<bool> Remove(int id)
         {
-            await productRepository.Remove(id);
+            await repository.Remove(id);
             return true;
         }
 
-        public Product Update(int ProductID, string ProductName, string ProductDesriciption)
+        async Task<ICollection<Product>> IProductService.GetAll()
         {
-            throw new NotImplementedException();
+            return repository.GetAll().ToList();
+        }
+
+        async Task<Product> IProductService.Update(int ProductID, string ProductName, string ProductDesriciption)
+        {
+            Product product = new Product()
+            {
+                ProductID = ProductID,
+                ProductName = ProductName,
+                ProductDesriciption = ProductDesriciption,
+                ProductModifitedDate = DateTime.Now,
+            };
+            repository.Add(product);
+            return product;
         }
     }
 }

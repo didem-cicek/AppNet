@@ -11,41 +11,45 @@ namespace AppNet.AppService
 {
     public class CategoryService : ICategoryService
     {
-        IRepository<Category> categoryRepository;
-        public CategoryService()
+        private readonly IRepository<Category> repository;
+        public CategoryService(IRepository<Category> repository)
         {
-            categoryRepository = IOCContainer.Resolve<IRepository<Category>>();
+            this.repository = repository;
         }
 
-        public void Create(string CategoryName)
-        {
-            Category c = new Category();
-            c.CategoryName = CategoryName;
-            categoryRepository.Add(c);
-        }
 
         async public Task<ICollection<Category>> GetAll()
         {
-            return categoryRepository.GetList().ToList();
+            return repository.GetAll().ToList();
         }
 
         async Task<Category> ICategoryService.Update(int CategoryID, string NewCategoryName)
         {
-            Category c = new Category();
-            c.CategoryId = CategoryID;
-            c.CategoryName = NewCategoryName;
-
-            return await categoryRepository.Update(CategoryID, c);
+            Category category = new Category()
+            {
+                CategoryId = CategoryID,
+                CategoryName = NewCategoryName,
+                CategoryModifitedDate = DateTime.Now,
+            };
+            repository.Update(category.CategoryId,category);
+            return category;
         }
 
         async public Task<bool> Remove(int id)
         {
-           await categoryRepository.Remove(id);
+           await repository.Remove(id);
            return true;
         }
-        async Task<ICollection<Category>> ICategoryService.FilteredList(string filter)
+
+        public Category Add(string name)
         {
-            return  (categoryRepository.GetList(c => c.CategoryName.ToLower().Contains(filter.ToLower()))).ToList();
+            Category category = new Category()
+            {
+                CategoryName = name,
+                CategoryDate= DateTime.Now,
+            };
+            repository.Add(category);
+            return category;
         }
     }
 }

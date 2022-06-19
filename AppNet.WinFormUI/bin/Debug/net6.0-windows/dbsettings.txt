@@ -1,0 +1,1 @@
+{"Server":"SqlServer","Database":"test","Username":"sa","Password":"123456!a","ConStr":"Server=SqlServer;Database=test;User Id=sa;Password=123456!a"}

@@ -13,7 +13,8 @@ namespace AppNet.Domain.InterFaces
         Task<TEntity> Add(TEntity entity);
         Task<bool> Remove(int id);
         Task<TEntity> GetById(int id);
-        IQueryable<TEntity> GetList(Func<TEntity, bool> expression = null);
+        IQueryable<TEntity> GetAll();
+        //IQueryable<TEntity> GetList(Func<TEntity, bool> expression = null);
         Task<TEntity> Update(int id, TEntity entity);
     }
 }

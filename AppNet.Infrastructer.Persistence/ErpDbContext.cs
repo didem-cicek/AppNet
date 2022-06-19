@@ -13,57 +13,25 @@ namespace AppNet.Infrastructer.Persistence
 {
     public class ErpDbContext : DbContext
     {
-        public string dbName { get; set; }
-        public string userName { get; set; }
-        public string userPassword { get; set; }
-        //private const string filePath = "AppNet-Domain-Entities-DataBase" + ".txt";
-        //FileStream fileStream = new FileStream(filePath, FileMode.Open, FileShare.ReadWrite);
-        //public void LoadDataBase()
-        //{if (File.Exists(filePath))
+        public ErpDbContext(DbContextOptions opt) : base(opt)
+        {
 
-        //    { using (StreamReader reader = new StreamReader(fileStream))
-        //        {
-        //            while (true)
-        //            { string satir = reader.ReadLine();
-        //                string d = satir.Remove(0, 33);
-        //                int pos = d.IndexOf(",");
-        //                dbName = d.Substring(0, pos-1);
-        //                userName = d.Remove(0, dbName.Length + 22);
-        //                int us = userName.IndexOf(",");
-        //                userName = userName.Substring(0, us - 1);
-        //                userPassword = d.Remove(0, dbName.Length + 46);
-        //                int p = userPassword.IndexOf(",");
-        //                userPassword = userPassword.Substring(0, p - 1);
-        //                break;
-
-        //                reader.Close(); }
-        //            fileStream.Close();
-
-        //        }
-        //    }
-        //}
-
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionbuilder)
         {
             
-            optionbuilder.EnableDetailedErrors();
-            if (!optionbuilder.IsConfigured)
-            {
-                if (!string.IsNullOrEmpty(dbName)) { 
-                var DbConnection = "Server =.; Initial Catalog = " + dbName + "; User ID = " + userName + "; Password = " + userPassword + ";";
-                optionbuilder.UseSqlServer(DbConnection.ToString());
-}
-            }
-            else
-            {
-                control();
-            }
-           
-        }
+            //optionbuilder.EnableDetailedErrors();
+            //if (!optionbuilder.IsConfigured)
+            //{
+            //    //if (!string.IsNullOrEmpty(dbName)) { 
+            //    //var DbConnection = "Server =.; Initial Catalog = " + dbName + "; User ID = " + userName + "; Password = " + userPassword + ";";
+            //    //optionbuilder.UseSqlServer(DbConnection.ToString());
 
-        public bool control()
-        {
-            return false;
+
+            //    //}
+            //    //optionbuilder.UseSqlServer(DbSettings.Load().ConStr);
+            //}
+           
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

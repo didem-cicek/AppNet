@@ -12,43 +12,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AppNet.AppServices;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AppNet.WinFormUI
 {
     public partial class Login : Form
     {
-        public Login()
+        private readonly IUserService UserService;
+        public Login(IUserService UserService)
         {
             InitializeComponent();
+            this.UserService = UserService;
+            
         }
         private void Login_Load(object sender, EventArgs e)
         {
-
+           
         }
-        
-      
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            MainForm mainFrm = new MainForm();
-            mainFrm.ShowDialog();
+
+            MainForm mainForm = new MainForm();
+            mainForm.ShowDialog();
         }
 
         private void btnNewUser_Click(object sender, EventArgs e)
         {
-            User user = new User();
-            user.Name = txtNewName.Text.ToString();
-            user.UserName = txtNewUserName.Text.ToString();
-            user.Password = txtNewPassword.Text.ToString();
-            user.UserAuthorization = txtNewDepartment.Text.ToString();
-            
-            using (var context = new ErpDbContext())
-            {
-                context.Users.Add(user);
-                context.SaveChanges();
-                MessageBox.Show("Kaydınızı başarıyla oluşturdunuz. Bu bilgiler ile giriş yapınız.");
-            }
-
+            UserService.Add(txtNewName.Text, txtNewUserName.Text, txtNewPassword.Text, txtNewDepartment.Text);
+            DialogResult dialogResult = MessageBox.Show("Üye kaydınız başarıyla oluşturulmuştur. Şimdi kullanıcı adınız ve şifreniz ile giriş yapabilirsiniz.", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

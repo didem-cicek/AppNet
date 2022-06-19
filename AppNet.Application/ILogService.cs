@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppNet.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace AppNet.AppServices
 {
     public interface ILogService
     {
-        void Create(int ID, string LogName, string LogType);
-        IReadOnlyCollection<LogService> GetAll();
+        Log Add(int ID, string LogName, string LogType);
+        Task<ICollection<Log>> GetAll();
     }
 }

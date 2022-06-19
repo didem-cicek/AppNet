@@ -12,7 +12,7 @@ namespace AppNet.Domain.Entities
         public int LogID { get; set; }
         public string LogName { get; set; }
 
-        public DateTime LogDate = DateTime.Now;
+        public DateTime LogDate { get; set; }
         public string LogType { get; set; }
     }
 }

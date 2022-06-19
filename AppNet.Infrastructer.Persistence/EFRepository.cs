@@ -51,7 +51,7 @@ namespace AppNet.Infrastructer.Persistence
             return true;
         }
 
-        IQueryable<TEntity> IRepository<TEntity>.GetList(Func<TEntity, bool> expression)
+        IQueryable<TEntity> IRepository<TEntity>.GetAll()
         {
             return context.Set<TEntity>().AsNoTracking();
         }

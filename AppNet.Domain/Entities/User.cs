@@ -15,7 +15,7 @@ namespace AppNet.Domain.Entities
         public string UserName { get; set; }
         public string Password { get; set; }
         public string UserAuthorization { get; set; }
-        public DateTime UserDate { get; set; } = DateTime.Now;
+        public DateTime UserDate { get; set; }
         public DateTime UserModifitedDate { get; set; }
     }
 }

@@ -1,6 +1,8 @@
-﻿using AppNet.AppServices;
+﻿using AppNet.AppService;
+using AppNet.AppServices;
 using AppNet.Infrastructer.Persistence;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,14 +17,42 @@ namespace AppNet.WinFormUI
 {
     public partial class SettingsFrm : Form
     {
-        public SettingsFrm()
+        private readonly IDatabaseService databaseService;
+        private readonly ErpDbContext db;
+        private readonly ServiceCollection serviceCollection;
+        public SettingsFrm(IDatabaseService databaseService, ErpDbContext db, ServiceCollection serviceCollection)
         {
             InitializeComponent();
+            this.databaseService = databaseService;
+            this.db = db;
+            this.serviceCollection = serviceCollection;
+
         }
+
 
         private void SettingsFrm_Load(object sender, EventArgs e)
         {
+            var settings = DbSettings.Load();
 
+            if (settings != null)
+            {
+                serviceCollection.AddScoped<Login>();
+                using (ServiceProvider sp = serviceCollection.BuildServiceProvider())
+                {
+                    var frm = sp.GetRequiredService<Login>();
+                    frm.ShowDialog();
+                }
+
+
+                //txtServer.Text = settings.Server;
+                //txtAddDatabaseName.Text = settings.Database;
+                //txtAddDataBaseUser.Text = settings.Username;
+                //txtAddPassword.Text = settings.Password;
+            }
+            else
+            {
+                
+            }
         }
 
         private void txtAddDatabasePassword_TextChanged(object sender, EventArgs e)
@@ -57,17 +87,27 @@ namespace AppNet.WinFormUI
 
         private void btnAddDatabase_Click(object sender, EventArgs e)
         {
-            var service = IOCContainer.Resolve<IDatabaseService>();
-            service.Create(txtAddDatabaseName.Text, txtAddDataBaseUser.Text, txtAddPassword.Text);
-            ErpDbContext database = new ErpDbContext();
-            database.dbName = txtAddDatabaseName.Text;
-            database.userName = txtAddDataBaseUser.Text;
-            database.userPassword = txtAddPassword.Text;
-            database.Database.EnsureCreated();
-            database.Database.Migrate();
+            DbSettings dbsettings = new DbSettings();
+            dbsettings.Server = txtServer.Text;
+            dbsettings.Database = txtAddDatabaseName.Text;
+            dbsettings.Username = txtAddDataBaseUser.Text;
+            dbsettings.Password = txtAddPassword.Text;
+            dbsettings.Save();
+            serviceCollection.RegisterPersistenceService();
+            db.Database.EnsureCreated();
+            db.Database.Migrate();
+            databaseService.Add(txtAddDatabaseName.Text, txtAddDataBaseUser.Text, txtAddPassword.Text);
+
             MessageBox.Show("Database Oluşturuldu! İlk giriş için YENİ KAYIT alanından sisteme kayıt olunuz.","Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Login login = new Login();
-            login.ShowDialog();
+
+            serviceCollection.AddScoped<Login>();
+            using (ServiceProvider sp = serviceCollection.BuildServiceProvider())
+            {
+                var frm = sp.GetRequiredService<Login>();
+                frm.ShowDialog();
+            }
+
+
             this.Close();
 
         }

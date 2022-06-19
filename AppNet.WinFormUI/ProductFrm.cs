@@ -1,7 +1,11 @@
+using AppNet.AppService;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace AppNet.WinFormUI
 {
     public partial class ProductFrm : Form
     {
+        private readonly ICategoryService categoryService;
         public ProductFrm()
         {
             InitializeComponent();
@@ -19,38 +23,38 @@ namespace AppNet.WinFormUI
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            AddProduct addProductFrm = new AddProduct();
-            addProductFrm.ShowDialog();
+            //AddProduct addProduct = new AddProduct();
+            //addProduct.ShowDialog();
         }
 
         private void btnUpdatedProduct_Click(object sender, EventArgs e)
         {
-            UpdateProduct updateProductFrm = new UpdateProduct();
-            updateProductFrm.ShowDialog();
+            //UpdateProduct updateProduct = new UpdateProduct(services);
+            //updateProduct.ShowDialog();
         }
 
         private void btnDeletedProduct_Click(object sender, EventArgs e)
         {
-            DeleteProduct deleteProductFrm = new DeleteProduct();
-            deleteProductFrm.ShowDialog();
+            //DeleteProduct deleteProduct = new DeleteProduct(services);
+            //deleteProduct.ShowDialog();
         }
 
         private void btnAddCategory_Click_1(object sender, EventArgs e)
         {
-            AddCategory addCategoryFrm = new AddCategory();
-            addCategoryFrm.ShowDialog();
+            AddCategory addCategory = new AddCategory(categoryService);
+            addCategory.ShowDialog();
         }
 
         private void btnUpdatedCategory_Click(object sender, EventArgs e)
         {
-            UpdateCategory updateCategoryFrm = new UpdateCategory();
-            updateCategoryFrm.ShowDialog();
+            //UpdateCategory updateCategory = new UpdateCategory(services);
+            //updateCategory.ShowDialog();
         }
 
         private void btnDeletedCategory_Click(object sender, EventArgs e)
         {
-            DeleteCategory deleteCategoryFrm = new DeleteCategory();
-            deleteCategoryFrm.ShowDialog();
+            //DeleteProduct deleteProduct = new DeleteProduct(services);
+            //deleteProduct.ShowDialog();
         }
     }
 }

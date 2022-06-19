@@ -1,6 +1,9 @@
+using AppNet.AppService;
 using AppNet.AppServices;
 using AppNet.Infrastructer.Persistence;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.Data;
 using System.Drawing;
 
@@ -14,23 +17,32 @@ namespace AppNet.WinFormUI
         [STAThread]
         static void Main()
         {
-            
-                // To customize application configuration such as set high DPI settings or default font,
-                // see https://aka.ms/applicationconfiguration.
+            var service = new ServiceCollection();
+            ConfigureServices(service);
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
+            var settings = DbSettings.Load();
             ApplicationConfiguration.Initialize();
-            ApplicationServiceSettings.RegisterAllService();
+            service.AddScoped<SettingsFrm>();
+            service.AddScoped<Login>();
 
-            ErpDbContext database = new ErpDbContext();
 
-            if (database.Database.EnsureCreated()==false)
-            {
-                MessageBox.Show("Veri Tabanýnýz mevcut deðil, lütfen önce veri tabanýnýzý oluþturunuz!", "Bilgilendirme Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                SettingsFrm settingsFrm = new SettingsFrm();
-                settingsFrm.ShowDialog();
+            using (ServiceProvider sp = service.BuildServiceProvider()) { 
+
+                if (!File.Exists("dbsettings.txt"))
+                { MessageBox.Show("Veri Tabanýnýz mevcut deðil, lütfen önce veri tabanýnýzý oluþturunuz!", "Bilgilendirme Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    var settingFrm = sp.GetRequiredService<SettingsFrm>();
+                    Application.Run(settingFrm);
+                } else {
+                    var loginFrm = sp.GetRequiredService<Login>();
+                    Application.Run(loginFrm);
+                }
             }
-            else {
-                Application.Run(new Login());
-            }
-}
-}
+        }
+        public static void ConfigureServices(IServiceCollection service)
+        {
+            service.RegisterBusinessServices();
+            service.AddScoped<ICategoryService, CategoryService>();
+        }
+    }
 }

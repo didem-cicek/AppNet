@@ -11,23 +11,27 @@ namespace AppNet.AppServices
 {
     public class LogService : ILogService
     {
-        IRepository<Log> logRepository;
-        public LogService()
+        private readonly IRepository<Log> repository;
+        public LogService(IRepository<Log> repository)
         {
-            logRepository = IOCContainer.Resolve<IRepository<Log>>();
+            this.repository = repository;
         }
-        public void Create(int ID, string LogName, string LogType)
+        public Log Add(int ID, string LogName, string LogType)
         {
-            Log log = new Log();
-            log.LogID = ID;
-            log.LogName = LogName;
-            log.LogType = LogType;
-            logRepository.Add(log);
+            Log log = new Log()
+            {
+                LogID = ID,
+                LogName = LogName,
+                LogType = LogType,
+                LogDate = DateTime.Now,
+            };
+            repository.Add(log);
+            return log;
         }
 
-        public IReadOnlyCollection<LogService> GetAll()
+        async Task<ICollection<Log>> ILogService.GetAll()
         {
-            throw new NotImplementedException();
+            return repository.GetAll().ToList();
         }
     }
 }

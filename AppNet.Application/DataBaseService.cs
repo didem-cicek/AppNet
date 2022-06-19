@@ -11,23 +11,27 @@ namespace AppNet.AppServices
 {
     public class DataBaseService : IDatabaseService
     {
-        IRepository<DataBase> databaseRepository;
-        public DataBaseService()
+        private readonly IRepository<DataBase> repository;
+        public DataBaseService(IRepository<DataBase> repository)
         {
-            databaseRepository = IOCContainer.Resolve<IRepository<DataBase>>();
+            this.repository = repository;
         }
-        public void Create(string databaseName, string userName, string password)
+
+        public DataBase Add(string databaseName, string userName, string password)
         {
-            DataBase dataBase = new DataBase();
-            dataBase.DataBaseName = databaseName;
-            dataBase.DataBaseUserName = userName;
-            dataBase.DataBasePassword = password;
-            databaseRepository.Add(dataBase);
+            DataBase db = new DataBase()
+            {
+                DataBaseName = databaseName,
+                DataBaseUserName = userName,
+                DataBasePassword = password
+            };
+            repository.Add(db);
+            return db;
         }
 
         async public Task<ICollection<DataBase>> GetList()
         {
-            return databaseRepository.GetList().ToList();
+            return repository.GetAll().ToList();
         }
     }
 }

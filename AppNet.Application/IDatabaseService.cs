@@ -9,7 +9,7 @@ namespace AppNet.AppServices
 {
     public interface IDatabaseService
     {
-        void Create(string databaseName, string userName, string password);
+        DataBase Add(string databaseName, string userName, string password);
         Task<ICollection<DataBase>> GetList();
     }
 }

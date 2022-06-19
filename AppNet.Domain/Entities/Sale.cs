@@ -13,6 +13,7 @@ namespace AppNet.Domain.Entities
         public int StockID { get; set; }
         public Stock Stock { get; set; }
         public int CustomerID { get; set; }
+        public string CustomerName { get; set; }
         public Customer Customer { get; set; }
         public short ProductPiece { get; set; }
         public decimal SalePrice { get; set; }

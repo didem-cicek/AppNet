@@ -12,9 +12,9 @@ namespace AppNet.AppServices
 {
     public interface IUserService
     {
-        void Create(int ID, string Name, string UserName, string Password, string UserAuthorization );
-        bool Delete(int ID);
-        User Update(int ID, string newPassword);
-        IReadOnlyCollection<User> GetAll();
+        User Add(string Name, string UserName, string Password, string UserAuthorization);
+        Task<User> Update(int ID, string Name, string UserName, string Password, string UserAuthorization);
+        Task<bool> Remove(int id);
+        Task<ICollection<User>> GetAll();
     }
 }

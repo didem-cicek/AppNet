@@ -11,47 +11,51 @@ namespace AppNet.AppServices
 {
     public class UserService : IUserService
     {
-        IRepository<User> userRepository;
-        public UserService()
+        private readonly IRepository<User> repository;
+        public UserService(IRepository<User> repository)
         {
-            userRepository = IOCContainer.Resolve<IRepository<User>>();
-        }
-        public void Create(int ID, string Name, string UserName, string Password, string UserAuthorization)
-        {
-            using (var context = new ErpDbContext())
-            {
-                User u = new User();
-                u.UserID = ID;
-                u.Name = Name;
-                u.UserName = UserName;
-                u.Password = Password;
-                u.UserAuthorization = UserAuthorization;
-                userRepository.Add(u);
-            }
+            this.repository = repository;
         }
 
-        public bool Delete(int ID)
+        public User Add(string Name, string UserName, string Password, string UserAuthorization)
         {
-            using (var context = new ErpDbContext())
+            User user = new User()
             {
-                throw new NotImplementedException();
-            }
+                Name = Name,
+                UserName = UserName,
+                Password = Password,
+                UserAuthorization = UserAuthorization,
+                UserDate = DateTime.Now,
+            };
+            repository.Add(user);
+            return user;
         }
 
-        public IReadOnlyCollection<User> GetAll()
+
+        public async Task<bool> Remove(int id)
         {
-            using (var context = new ErpDbContext())
-            {
-                throw new NotImplementedException();
-            }
+            await repository.Remove(id);
+            return true;
         }
 
-        public User Update(int ID, string newPassword)
+        public async Task<User> Update(int ID, string Name, string UserName, string Password, string UserAuthorization)
         {
-            using (var context = new ErpDbContext())
+            User user = new User()
             {
-                throw new NotImplementedException();
-            }
+                UserID = ID,
+                Name = Name,
+                UserName = UserName,
+                Password = Password,
+                UserAuthorization = UserAuthorization,
+                UserModifitedDate = DateTime.Now
+            };
+            repository.Update(user.UserID,user);
+            return user;
+        }
+
+        async Task<ICollection<User>> IUserService.GetAll()
+        {
+            return repository.GetAll().ToList();
         }
     }
 }
