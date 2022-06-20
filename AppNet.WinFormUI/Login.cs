@@ -19,10 +19,12 @@ namespace AppNet.WinFormUI
     public partial class Login : Form
     {
         private readonly IUserService UserService;
-        public Login(IUserService UserService)
+        private readonly IServiceProvider sp;
+        public Login(IUserService UserService, IServiceProvider sp)
         {
             InitializeComponent();
             this.UserService = UserService;
+            this.sp = sp;
             
         }
         private void Login_Load(object sender, EventArgs e)
@@ -33,7 +35,7 @@ namespace AppNet.WinFormUI
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
-            MainForm mainForm = new MainForm();
+            var mainForm = sp.GetRequiredService<MainForm>();
             mainForm.ShowDialog();
         }
 

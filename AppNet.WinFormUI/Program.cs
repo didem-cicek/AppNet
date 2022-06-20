@@ -25,6 +25,14 @@ namespace AppNet.WinFormUI
             ApplicationConfiguration.Initialize();
             service.AddScoped<SettingsFrm>();
             service.AddScoped<Login>();
+            service.AddScoped<SettingsFrm>();
+            service.AddScoped<MainForm>();
+            service.AddScoped<SuppliersFrm>();
+            service.AddScoped<ProductFrm>();
+            service.AddScoped<SuppliersFrm>();
+            service.AddScoped<PurchasingFrm>();
+            service.AddScoped<CustomerFrm>();
+            service.AddScoped<SalesFrm>();
 
 
             using (ServiceProvider sp = service.BuildServiceProvider()) { 
@@ -42,7 +50,6 @@ namespace AppNet.WinFormUI
         public static void ConfigureServices(IServiceCollection service)
         {
             service.RegisterBusinessServices();
-            service.AddScoped<ICategoryService, CategoryService>();
         }
     }
 }

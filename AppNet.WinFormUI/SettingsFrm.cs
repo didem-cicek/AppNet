@@ -19,13 +19,14 @@ namespace AppNet.WinFormUI
     {
         private readonly IDatabaseService databaseService;
         private readonly ErpDbContext db;
-        private readonly ServiceCollection serviceCollection;
-        public SettingsFrm(IDatabaseService databaseService, ErpDbContext db, ServiceCollection serviceCollection)
+        private readonly IServiceProvider sp;
+        private readonly ServiceCollection services;
+        public SettingsFrm(IDatabaseService databaseService, ErpDbContext db, IServiceProvider sp)
         {
             InitializeComponent();
             this.databaseService = databaseService;
             this.db = db;
-            this.serviceCollection = serviceCollection;
+            this.sp = sp;
 
         }
 
@@ -36,12 +37,8 @@ namespace AppNet.WinFormUI
 
             if (settings != null)
             {
-                serviceCollection.AddScoped<Login>();
-                using (ServiceProvider sp = serviceCollection.BuildServiceProvider())
-                {
-                    var frm = sp.GetRequiredService<Login>();
-                    frm.ShowDialog();
-                }
+                var frm = sp.GetRequiredService<Login>();
+                frm.ShowDialog();
 
 
                 //txtServer.Text = settings.Server;
@@ -93,19 +90,15 @@ namespace AppNet.WinFormUI
             dbsettings.Username = txtAddDataBaseUser.Text;
             dbsettings.Password = txtAddPassword.Text;
             dbsettings.Save();
-            serviceCollection.RegisterPersistenceService();
+            services.RegisterPersistenceService();
             db.Database.EnsureCreated();
             db.Database.Migrate();
             databaseService.Add(txtAddDatabaseName.Text, txtAddDataBaseUser.Text, txtAddPassword.Text);
 
             MessageBox.Show("Database Oluşturuldu! İlk giriş için YENİ KAYIT alanından sisteme kayıt olunuz.","Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            serviceCollection.AddScoped<Login>();
-            using (ServiceProvider sp = serviceCollection.BuildServiceProvider())
-            {
-                var frm = sp.GetRequiredService<Login>();
-                frm.ShowDialog();
-            }
+            var frm = sp.GetRequiredService<Login>();
+            frm.ShowDialog();
 
 
             this.Close();
