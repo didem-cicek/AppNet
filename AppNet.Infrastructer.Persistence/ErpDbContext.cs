@@ -37,37 +37,37 @@ namespace AppNet.Infrastructer.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Product>()
-                        .HasKey(p => p.ProductID);
-            modelBuilder.Entity<Category>()
-                        .HasKey(p => p.CategoryId);
-            modelBuilder.Entity<Customer>()
-                        .HasKey(p => p.CustomerID);
-            modelBuilder.Entity<Cash>()
-                        .HasKey(p => p.CashID);
-            modelBuilder.Entity<Log>()
-                        .HasKey(p => p.LogID);
-            modelBuilder.Entity<Report>()
-                        .HasKey(p => p.ReportID);
-            modelBuilder.Entity<Sale>()
-                        .HasKey(p => p.SaleID);
-            modelBuilder.Entity<Stock>()
-                        .HasKey(p => p.StockID);
-            modelBuilder.Entity<Supplier>()
-                        .HasKey(p => p.SupplierID);
-            modelBuilder.Entity<User>()
-                        .HasKey(p => p.UserID);
-            modelBuilder.Entity<DataBase>()
-                        .HasKey(p => p.DataBaseID);
-            var entityTypes = modelBuilder.Model
-            .GetEntityTypes()
-            .ToList();
-            var foreignKeys = entityTypes
-            .SelectMany(e => e.GetForeignKeys().Where(f => f.DeleteBehavior == DeleteBehavior.Cascade));
-            foreach (var foreignKey in foreignKeys)
-            {
-                foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
-            }
+            //modelBuilder.Entity<Product>()
+            //            .HasKey(p => p.ProductID);
+            //modelBuilder.Entity<Category>()
+            //            .HasKey(p => p.CategoryId);
+            //modelBuilder.Entity<Customer>()
+            //            .HasKey(p => p.CustomerID);
+            //modelBuilder.Entity<Cash>()
+            //            .HasKey(p => p.CashID);
+            //modelBuilder.Entity<Log>()
+            //            .HasKey(p => p.LogID);
+            //modelBuilder.Entity<Report>()
+            //            .HasKey(p => p.ReportID);
+            //modelBuilder.Entity<Sale>()
+            //            .HasKey(p => p.SaleID);
+            //modelBuilder.Entity<Stock>()
+            //            .HasKey(p => p.StockID);
+            //modelBuilder.Entity<Supplier>()
+            //            .HasKey(p => p.SupplierID);
+            //modelBuilder.Entity<User>()
+            //            .HasKey(p => p.UserID);
+            //modelBuilder.Entity<DataBase>()
+            //            .HasKey(p => p.DataBaseID);
+            //var entityTypes = modelBuilder.Model
+            //.GetEntityTypes()
+            //.ToList();
+            //var foreignKeys = entityTypes
+            //.SelectMany(e => e.GetForeignKeys().Where(f => f.DeleteBehavior == DeleteBehavior.Cascade));
+            //foreach (var foreignKey in foreignKeys)
+            //{
+            //    foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
+            //}
 
         }
         public DbSet<Category> Categories { get; set; }

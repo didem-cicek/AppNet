@@ -31,13 +31,40 @@ namespace AppNet.WinFormUI
         {
            
         }
-
-        private void btnLogin_Click(object sender, EventArgs e)
+        int i = 4;
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
-
-            var mainForm = sp.GetRequiredService<MainForm>();
-            mainForm.ShowDialog();
-        }
+            i--;
+            var list = (await UserService.GetAll()).ToList();
+            if (i == 0)
+            {
+                DialogResult dialog = MessageBox.Show("3 hakkınızda kullandınız!", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+            foreach (var item in list)
+            {
+                var userName = list.FirstOrDefault(u => u.UserName == txtUserName.Text);
+                var password = list.FirstOrDefault(u => u.Password == txtPassword.Text);
+                if (userName!=null && password!=null)
+                    {
+                        var mainForm = sp.GetRequiredService<MainForm>();
+                        mainForm.ShowDialog();
+                        break;
+                    }
+                    else if (userName == null && password == null)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Kullanıcı adınız veya şifreniz yanlış, lütfen doğru bilgilerinizi giriniz!", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        if (dialogResult == DialogResult.OK)
+                        {
+                            txtUserName.Text = "";
+                            txtPassword.Text = "";
+                            break;
+                        }
+                    }else{
+                        DialogResult dialog = MessageBox.Show("Bilinmeyen bir hata oluştu, sistem yöneticiniz ile iletişime geçiniz!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+              }
+         }
 
         private void btnNewUser_Click(object sender, EventArgs e)
         {

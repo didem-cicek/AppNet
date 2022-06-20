@@ -271,6 +271,7 @@
             this.grdProductList.RowTemplate.Height = 25;
             this.grdProductList.Size = new System.Drawing.Size(965, 197);
             this.grdProductList.TabIndex = 9;
+            this.grdProductList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProductList_CellContentClick);
             // 
             // ProductFrm
             // 
@@ -296,6 +297,7 @@
             this.Name = "ProductFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ÜRÜN YÖNETİMİ";
+            this.Load += new System.EventHandler(this.ProductFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdProductList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

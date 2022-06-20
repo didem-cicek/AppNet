@@ -18,9 +18,8 @@ namespace AppNet.WinFormUI
     public partial class SettingsFrm : Form
     {
         private readonly IDatabaseService databaseService;
-        private readonly ErpDbContext db;
         private readonly IServiceProvider sp;
-        private readonly ServiceCollection services;
+        private readonly ErpDbContext db;
         public SettingsFrm(IDatabaseService databaseService, ErpDbContext db, IServiceProvider sp)
         {
             InitializeComponent();
@@ -37,18 +36,19 @@ namespace AppNet.WinFormUI
 
             if (settings != null)
             {
-                var frm = sp.GetRequiredService<Login>();
-                frm.ShowDialog();
+                //var frm = sp.GetRequiredService<Login>();
+                //frm.ShowDialog();
 
 
-                //txtServer.Text = settings.Server;
-                //txtAddDatabaseName.Text = settings.Database;
-                //txtAddDataBaseUser.Text = settings.Username;
-                //txtAddPassword.Text = settings.Password;
+                txtServer.Text = settings.Server;
+                txtAddDatabaseName.Text = settings.Database;
+                txtAddDataBaseUser.Text = settings.Username;
+                txtAddPassword.Text = settings.Password;
             }
             else
             {
-                
+
+                //}
             }
         }
 
@@ -90,12 +90,11 @@ namespace AppNet.WinFormUI
             dbsettings.Username = txtAddDataBaseUser.Text;
             dbsettings.Password = txtAddPassword.Text;
             dbsettings.Save();
-            services.RegisterPersistenceService();
             db.Database.EnsureCreated();
             db.Database.Migrate();
             databaseService.Add(txtAddDatabaseName.Text, txtAddDataBaseUser.Text, txtAddPassword.Text);
 
-            MessageBox.Show("Database Oluşturuldu! İlk giriş için YENİ KAYIT alanından sisteme kayıt olunuz.","Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Database Oluşturuldu! İlk giriş için YENİ KAYIT alanından sisteme kayıt olunuz.", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             var frm = sp.GetRequiredService<Login>();
             frm.ShowDialog();

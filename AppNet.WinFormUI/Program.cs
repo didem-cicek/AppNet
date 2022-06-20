@@ -17,28 +17,35 @@ namespace AppNet.WinFormUI
         [STAThread]
         static void Main()
         {
-            var service = new ServiceCollection();
-            ConfigureServices(service);
+            var settings = DbSettings.Load();
+            var services = new ServiceCollection();
+            ConfigureServices(services);
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            var settings = DbSettings.Load();
+            
             ApplicationConfiguration.Initialize();
-            service.AddScoped<SettingsFrm>();
-            service.AddScoped<Login>();
-            service.AddScoped<SettingsFrm>();
-            service.AddScoped<MainForm>();
-            service.AddScoped<SuppliersFrm>();
-            service.AddScoped<ProductFrm>();
-            service.AddScoped<SuppliersFrm>();
-            service.AddScoped<PurchasingFrm>();
-            service.AddScoped<CustomerFrm>();
-            service.AddScoped<SalesFrm>();
+            services.AddScoped<SettingsFrm>();
+            services.AddScoped<Login>();
+            services.AddScoped<SettingsFrm>();
+            services.AddScoped<MainForm>();
+            services.AddScoped<SuppliersFrm>();
+            services.AddScoped<ProductFrm>();
+            services.AddScoped<SuppliersFrm>();
+            services.AddScoped<PurchasingFrm>();
+            services.AddScoped<CustomerFrm>();
+            services.AddScoped<SalesFrm>();
+            services.AddScoped<AddCategory>();
+            services.AddScoped<AddProduct>();
+            services.AddScoped<DeleteProduct>();
+            services.AddScoped<DeleteCategory>();
+            services.AddScoped<UpdateCategory>();
+            services.AddScoped<UpdateProduct>();
 
 
-            using (ServiceProvider sp = service.BuildServiceProvider()) { 
-
-                if (!File.Exists("dbsettings.txt"))
-                { MessageBox.Show("Veri Tabanýnýz mevcut deðil, lütfen önce veri tabanýnýzý oluþturunuz!", "Bilgilendirme Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            using (ServiceProvider sp = services.BuildServiceProvider()) {
+                if (settings.Server==null )
+                {
+                    MessageBox.Show("Veri Tabanýnýz mevcut deðil, lütfen önce veri tabanýnýzý oluþturunuz!", "Bilgilendirme Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     var settingFrm = sp.GetRequiredService<SettingsFrm>();
                     Application.Run(settingFrm);
                 } else {

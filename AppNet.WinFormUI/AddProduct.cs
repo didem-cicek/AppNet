@@ -6,19 +6,26 @@ namespace AppNet.WinFormUI
 {
     public partial class AddProduct : Form
     {
+        private readonly IServiceProvider sp;
         private readonly IProductService productService;
         private readonly ICategoryService categoryService;
-        public AddProduct(IProductService productService, ICategoryService categoryService)
+        public AddProduct(IProductService productService, ICategoryService categoryService, IServiceProvider sp)
         {
             InitializeComponent();
             this.productService = productService;
             this.categoryService = categoryService;
-
+            this.sp = sp;
         }
 
-        private void AddProduct_Load(object sender, EventArgs e)
+        private async void AddProduct_Load(object sender, EventArgs e)
         {
-            cbbAddCategory.DataSource = categoryService.GetAll();
+            var list = (await categoryService.GetAll()).ToList();
+            foreach (var item in list)
+            {
+                cbbAddCategory.DataSource = list;
+                cbbAddCategory.DisplayMember = nameof(item.CategoryName);
+                cbbAddCategory.ValueMember = nameof(item.CategoryId);
+            }
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
