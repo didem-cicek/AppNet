@@ -31,6 +31,8 @@ namespace AppNet.WinFormUI
         {
             var frm = sp.GetRequiredService<AddProduct>();
             frm.ShowDialog();
+            grdProductList.Rows.Clear();
+            LoadGridData();
 
         }
 
@@ -38,6 +40,8 @@ namespace AppNet.WinFormUI
         {
             var frm = sp.GetRequiredService<UpdateCategory>();
             frm.ShowDialog();
+            grdProductList.Rows.Clear();
+            LoadGridData();
 
         }
 
@@ -45,6 +49,8 @@ namespace AppNet.WinFormUI
         {
             var frm = sp.GetRequiredService<DeleteProduct>();
             frm.ShowDialog();
+            grdProductList.Rows.Clear();
+            LoadGridData();
 
         }
 
@@ -74,15 +80,30 @@ namespace AppNet.WinFormUI
 
         }
 
-        private async void ProductFrm_Load(object sender, EventArgs e)
+        private void ProductFrm_Load(object sender, EventArgs e)
         {
-            var list = (await productService.GetAll()).ToList();
-            var data = from p in list
+            grdProductList.Columns.Add("Product ID", "Ürün ID");
+            grdProductList.Columns.Add("ProductName", "Ürün Adý");
+            grdProductList.Columns.Add("CategoryName", "Kategori Adý");
+            grdProductList.Columns.Add("ProductDesriciption", "Ürün Açýklamasý");
+            grdProductList.Columns.Add("ProductDate", "Eklenme Tarihi");
+            grdProductList.Columns.Add("ModifitedDate", "Düzenlenme Tarihi");
+            LoadGridData();
+            grdProductList.Columns[0].Visible = false;
+        }
+        private async void LoadGridData()
+        {
+            var product = (await productService.GetAll()).ToList();
+            var category = (await categoryService.GetAll()).ToList();
+            var data = from p in product
+                       join c in category
+                       on p.CategoryID equals c.CategoryId
                        select new ProductViewModel
                        {
                            ProductId = p.ProductID,
                            ProductName = p.ProductName,
-                           CategorName = p.Category.CategoryName,
+                           CategorName = c.CategoryName,
+                           Description = p.ProductDesriciption,
                            Time = p.ProductDate,
                            ModifitedDate = p.ProductModifitedDate
                        };
@@ -90,15 +111,16 @@ namespace AppNet.WinFormUI
             {
                 AddRowToGrid(item);
             }
-    }
-        private void AddRowToGrid(ProductViewModel model)
+        }
+            private void AddRowToGrid(ProductViewModel model)
         {
             DataGridViewRow row = (DataGridViewRow)grdProductList.Rows[0].Clone();
             row.Cells[0].Value = model.ProductId;
             row.Cells[1].Value = model.ProductName;
             row.Cells[2].Value = model.CategorName;
-            row.Cells[3].Value = model.Time;
-            row.Cells[4].Value = model.ModifitedDate;
+            row.Cells[3].Value = model.Description;
+            row.Cells[4].Value = model.Time;
+            row.Cells[5].Value = model.ModifitedDate;
 
             grdProductList.Rows.Add(row);
         }

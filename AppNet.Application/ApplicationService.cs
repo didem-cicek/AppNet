@@ -19,6 +19,13 @@ namespace AppNet.AppService
             service.AddScoped<IUserService, UserService>();
             service.AddScoped<ILogService, LogService>();
             service.AddScoped<IDatabaseService, DataBaseService>();
+            service.AddScoped<ICustomerService, CustomerService>();
+            service.AddScoped<ISalesService, SalesService>();
+            service.AddScoped<IReportService, ReportService>();
+            service.AddScoped<ICashService, CashService>();
+            service.AddScoped<IStockService, StockService>();
+            service.AddScoped<ISupplierService, SupplierService>();
+            service.AddScoped<ILogService, LogService>();
         }
     }
 }

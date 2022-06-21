@@ -48,13 +48,18 @@
             // 
             // grdCustomerList
             // 
+            this.grdCustomerList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdCustomerList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.grdCustomerList.BackgroundColor = System.Drawing.Color.White;
             this.grdCustomerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdCustomerList.Location = new System.Drawing.Point(24, 343);
+            this.grdCustomerList.MultiSelect = false;
             this.grdCustomerList.Name = "grdCustomerList";
             this.grdCustomerList.RowTemplate.Height = 25;
+            this.grdCustomerList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grdCustomerList.Size = new System.Drawing.Size(965, 197);
             this.grdCustomerList.TabIndex = 7;
+            this.grdCustomerList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCustomerList_CellContentClick);
             // 
             // label5
             // 
@@ -228,6 +233,7 @@
             this.Name = "CustomerFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MÜŞTERİ YÖNETİMİ";
+            this.Load += new System.EventHandler(this.CustomerFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdCustomerList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

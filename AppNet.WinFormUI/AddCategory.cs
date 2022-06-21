@@ -32,6 +32,7 @@ namespace AppNet.WinFormUI
             {
                 this.Close();
             }
+            txtCategoryName.Text = "";
         }
     }
 }

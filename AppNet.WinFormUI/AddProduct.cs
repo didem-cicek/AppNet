@@ -41,6 +41,8 @@ namespace AppNet.WinFormUI
             {
                 this.Close();
             }
+            txtAddProduct.Text = "";
+            txtAddDescription.Text = "";
         }
     }
 }

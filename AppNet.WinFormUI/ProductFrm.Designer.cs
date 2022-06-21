@@ -264,11 +264,17 @@
             // 
             // grdProductList
             // 
+            this.grdProductList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdProductList.BackgroundColor = System.Drawing.Color.White;
-            this.grdProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdProductList.ColumnHeadersVisible = false;
             this.grdProductList.Location = new System.Drawing.Point(22, 352);
+            this.grdProductList.MultiSelect = false;
             this.grdProductList.Name = "grdProductList";
+            this.grdProductList.RowHeadersVisible = false;
+            this.grdProductList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.grdProductList.RowTemplate.Height = 25;
+            this.grdProductList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grdProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdProductList.Size = new System.Drawing.Size(965, 197);
             this.grdProductList.TabIndex = 9;
             this.grdProductList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProductList_CellContentClick);

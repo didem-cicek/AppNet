@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AppNet.AppService;
+using AppNet.Infrastructer.Persistence.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,27 +15,96 @@ namespace AppNet.WinFormUI
 {
     public partial class CustomerFrm : Form
     {
-        public CustomerFrm()
+        private readonly ICustomerService cs;
+        private readonly IServiceProvider sp;
+        public CustomerFrm(IServiceProvider sp, ICustomerService cs)
         {
             InitializeComponent();
+            this.sp = sp;
+            this.cs = cs;
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            AddCustomer addCustomerFrm = new AddCustomer();
-            addCustomerFrm.ShowDialog();
+            var frm = sp.GetRequiredService<AddCustomer>();
+            frm.ShowDialog();
+            grdCustomerList.Rows.Clear();
+            LoadGridData();
         }
 
         private void btnUpdatedCustomer_Click(object sender, EventArgs e)
         {
-            UpdateCustomer updateCustomerFrm = new UpdateCustomer();
-            updateCustomerFrm.ShowDialog();
+            var frm = sp.GetRequiredService<UpdateCustomer>();
+            frm.ShowDialog();
         }
 
         private void btnDeletedCustomer_Click(object sender, EventArgs e)
         {
-            DeleteCustomer deleteCustomerFrm = new DeleteCustomer();
-            deleteCustomerFrm.ShowDialog();
+            var frm = sp.GetRequiredService<DeleteCustomer>();
+            frm.ShowDialog();
+        }
+
+        private void CustomerFrm_Load(object sender, EventArgs e)
+        {
+            grdCustomerList.Columns.Add("CustomerID", "Müşteri ID");
+            grdCustomerList.Columns.Add("CustomerName", "Müşteri Adı");
+            grdCustomerList.Columns.Add("CustomerPhone", "Telefon Numarası");
+            grdCustomerList.Columns.Add("CustomerEmail", "E-Posta Adresi");
+            grdCustomerList.Columns.Add("CustomerAddress", "Fatura Adresi");
+            grdCustomerList.Columns.Add("CustomerShippingAddress", "Sevk Adresi");
+            grdCustomerList.Columns.Add("CustomerTaxNumber", "Vergi Numarası");
+            grdCustomerList.Columns.Add("CustomerTaxOffice", "Vergi Dairesi");
+            grdCustomerList.Columns.Add("CustomerDesription", "Açıklama");
+            grdCustomerList.Columns.Add("CustomerDate", "Ekleme Tarihi");
+            grdCustomerList.Columns.Add("CustomerModifitedDate", "Düzenleme Tarihi");
+            LoadGridData();
+            grdCustomerList.Columns[0].Visible = false;
+        }
+        private async void LoadGridData()
+        {
+            var customer = (await cs.GetAll()).ToList();
+            var data = from p in customer
+                       select new CustomerViewModel
+                       {
+                           CustomerID = p.CustomerID,
+                           CustomerName = p.CustomerName,
+                           CustomerPhone = p.CustomerPhone,
+                           CustomerEmail = p.CustomerEmail,
+                           CustomerAddress = p.CustomerAddress,
+                           CustomerShippingAddress = p.CustomerShippingAddress,
+                           CustomerTaxNumber = p.CustomerTaxNumber,
+                           CustomerTaxOffice = p.CustomerTaxOffice,
+                           CustomerDesription= p.CustomerDesription,
+                           CustomerDate = p.CustomerDate,
+                           CustomerModifitedDate = p.CustomerModifitedDate,
+                       };
+            foreach (var item in data)
+            {
+                AddRowToGrid(item);
+            }
+        }
+        private void AddRowToGrid(CustomerViewModel model)
+        {
+            DataGridViewRow row = (DataGridViewRow)grdCustomerList.Rows[0].Clone();
+            row.Cells[0].Value = model.CustomerID;
+            row.Cells[1].Value = model.CustomerName;
+            row.Cells[2].Value = model.CustomerPhone;
+            row.Cells[3].Value = model.CustomerEmail;
+            row.Cells[4].Value = model.CustomerAddress;
+            row.Cells[5].Value = model.CustomerShippingAddress;
+            row.Cells[6].Value = model.CustomerTaxNumber;
+            row.Cells[7].Value = model.CustomerTaxOffice;
+            row.Cells[8].Value = model.CustomerDesription;
+            row.Cells[9].Value = model.CustomerDate;
+            row.Cells[10].Value = model.CustomerModifitedDate;
+
+
+            grdCustomerList.Rows.Add(row);
+        }
+
+        private void grdCustomerList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

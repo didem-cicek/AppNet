@@ -11,6 +11,7 @@ namespace AppNet.Infrastructer.Persistence.ViewModels
         public int ProductId { get; set; }
         public string ProductName { get; set; }
         public string CategorName { get; set; }
+        public string Description { get; set; }
         public DateTime Time { get; set; }
         public DateTime ModifitedDate { get; set; }
     }

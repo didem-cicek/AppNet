@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAddStock = new System.Windows.Forms.Button();
+            this.btnAddCustomer = new System.Windows.Forms.Button();
             this.txtAddCustomerTaxNo = new System.Windows.Forms.TextBox();
             this.txtAddCustomerShippingAddress = new System.Windows.Forms.TextBox();
             this.txtAddCustomerAddress = new System.Windows.Forms.TextBox();
@@ -47,21 +47,22 @@
             this.txtAddCustomerDesriciption = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // btnAddStock
+            // btnAddCustomer
             // 
-            this.btnAddStock.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnAddStock.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddStock.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
-            this.btnAddStock.FlatAppearance.BorderSize = 3;
-            this.btnAddStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAddStock.ForeColor = System.Drawing.Color.White;
-            this.btnAddStock.Location = new System.Drawing.Point(283, 402);
-            this.btnAddStock.Name = "btnAddStock";
-            this.btnAddStock.Size = new System.Drawing.Size(150, 40);
-            this.btnAddStock.TabIndex = 9;
-            this.btnAddStock.Text = "MÜŞTERİ EKLE";
-            this.btnAddStock.UseVisualStyleBackColor = false;
+            this.btnAddCustomer.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnAddCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddCustomer.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnAddCustomer.FlatAppearance.BorderSize = 3;
+            this.btnAddCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddCustomer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAddCustomer.ForeColor = System.Drawing.Color.White;
+            this.btnAddCustomer.Location = new System.Drawing.Point(283, 402);
+            this.btnAddCustomer.Name = "btnAddCustomer";
+            this.btnAddCustomer.Size = new System.Drawing.Size(150, 40);
+            this.btnAddCustomer.TabIndex = 9;
+            this.btnAddCustomer.Text = "MÜŞTERİ EKLE";
+            this.btnAddCustomer.UseVisualStyleBackColor = false;
+            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
             // txtAddCustomerTaxNo
             // 
@@ -214,7 +215,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(459, 461);
-            this.Controls.Add(this.btnAddStock);
+            this.Controls.Add(this.btnAddCustomer);
             this.Controls.Add(this.txtAddCustomerDesriciption);
             this.Controls.Add(this.txtAddCustomerTaxOffice);
             this.Controls.Add(this.txtAddCustomerTaxNo);
@@ -243,7 +244,7 @@
 
         #endregion
 
-        public Button btnAddStock;
+        public Button btnAddCustomer;
         public TextBox txtAddCustomerTaxNo;
         public TextBox txtAddCustomerShippingAddress;
         public TextBox txtAddCustomerAddress;

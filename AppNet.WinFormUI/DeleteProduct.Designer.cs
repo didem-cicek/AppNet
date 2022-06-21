@@ -51,11 +51,13 @@
             // 
             // cbbDeletedSearch
             // 
+            this.cbbDeletedSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbDeletedSearch.FormattingEnabled = true;
             this.cbbDeletedSearch.Location = new System.Drawing.Point(206, 26);
             this.cbbDeletedSearch.Name = "cbbDeletedSearch";
             this.cbbDeletedSearch.Size = new System.Drawing.Size(244, 29);
             this.cbbDeletedSearch.TabIndex = 1;
+            this.cbbDeletedSearch.SelectedIndexChanged += new System.EventHandler(this.cbbDeletedSearch_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -77,6 +79,8 @@
             // 
             // grdDeletedList
             // 
+            this.grdDeletedList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdDeletedList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.grdDeletedList.BackgroundColor = System.Drawing.Color.White;
             this.grdDeletedList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdDeletedList.Location = new System.Drawing.Point(22, 166);
@@ -111,6 +115,7 @@
             this.btnDeleted.TabIndex = 4;
             this.btnDeleted.Text = "ÜRÜNÜ SİL";
             this.btnDeleted.UseVisualStyleBackColor = false;
+            this.btnDeleted.Click += new System.EventHandler(this.btnDeleted_Click);
             // 
             // DeleteProduct
             // 

@@ -40,17 +40,20 @@ namespace AppNet.WinFormUI
             services.AddScoped<DeleteCategory>();
             services.AddScoped<UpdateCategory>();
             services.AddScoped<UpdateProduct>();
+            services.AddScoped<AddCustomer>();
+            services.AddScoped<UpdateCustomer>();
+            services.AddScoped<DeleteCustomer>();
+            services.AddScoped<CustomerFrm>();
 
 
             using (ServiceProvider sp = services.BuildServiceProvider()) {
-                if (settings.Server==null )
-                {
+                if (settings != null && settings.Server !=null)
+                {  var loginFrm = sp.GetRequiredService<Login>();
+                    Application.Run(loginFrm);
+                } else {
                     MessageBox.Show("Veri Tabanýnýz mevcut deðil, lütfen önce veri tabanýnýzý oluþturunuz!", "Bilgilendirme Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     var settingFrm = sp.GetRequiredService<SettingsFrm>();
                     Application.Run(settingFrm);
-                } else {
-                    var loginFrm = sp.GetRequiredService<Login>();
-                    Application.Run(loginFrm);
                 }
             }
         }

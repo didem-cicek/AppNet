@@ -103,6 +103,7 @@
             // 
             // cbbAddCategory
             // 
+            this.cbbAddCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbAddCategory.FormattingEnabled = true;
             this.cbbAddCategory.Location = new System.Drawing.Point(144, 33);
             this.cbbAddCategory.Name = "cbbAddCategory";
