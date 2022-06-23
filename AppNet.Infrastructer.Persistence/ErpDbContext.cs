@@ -62,41 +62,41 @@ namespace AppNet.Infrastructer.Persistence
            .HasForeignKey(c => c.CustomerID)
            .OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<Sale>()
-           .HasMany(c => c.Reports)
-           .WithOne(s => s.Sale)
-           .HasForeignKey(c => c.SalesID)
-           .OnDelete(DeleteBehavior.Cascade);
+           // modelBuilder.Entity<Sale>()
+           //.HasMany(c => c.Reports)
+           //.WithOne(s => s.Sale)
+           //.HasForeignKey(c => c.SalesID)
+           //.OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Report>()
-           .HasOne(c => c.Sale)
-           .WithMany(s => s.Reports)
-           .HasForeignKey(c => c.SalesID)
-           .OnDelete(DeleteBehavior.NoAction);
+           // modelBuilder.Entity<Report>()
+           //.HasOne(c => c.Sale)
+           //.WithMany(s => s.Reports)
+           //.HasForeignKey(c => c.SalesID)
+           //.OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<Stock>()
-           .HasMany(c => c.Reports)
-           .WithOne(s => s.Stock)
-           .HasForeignKey(c => c.StockID)
-           .OnDelete(DeleteBehavior.Cascade);
+           // modelBuilder.Entity<Stock>()
+           //.HasMany(c => c.Reports)
+           //.WithOne(s => s.Stock)
+           //.HasForeignKey(c => c.StockID)
+           //.OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Report>()
-           .HasOne(c => c.Stock)
-           .WithMany(s => s.Reports)
-           .HasForeignKey(c => c.StockID)
-           .OnDelete(DeleteBehavior.NoAction);
+           // modelBuilder.Entity<Report>()
+           //.HasOne(c => c.Stock)
+           //.WithMany(s => s.Reports)
+           //.HasForeignKey(c => c.StockID)
+           //.OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<Supplier>()
-           .HasMany(c => c.Reports)
-           .WithOne(s => s.Supplier)
-           .HasForeignKey(c => c.SupplierID)
-           .OnDelete(DeleteBehavior.Cascade);
+           // modelBuilder.Entity<Supplier>()
+           //.HasMany(c => c.Reports)
+           //.WithOne(s => s.Supplier)
+           //.HasForeignKey(c => c.SupplierID)
+           //.OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Report>()
-           .HasOne(c => c.Supplier)
-           .WithMany(s => s.Reports)
-           .HasForeignKey(c => c.SupplierID)
-           .OnDelete(DeleteBehavior.NoAction);
+           // modelBuilder.Entity<Report>()
+           //.HasOne(c => c.Supplier)
+           //.WithMany(s => s.Reports)
+           //.HasForeignKey(c => c.SupplierID)
+           //.OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Product>()
                         .HasKey(p => p.ProductID);

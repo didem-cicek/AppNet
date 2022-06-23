@@ -20,11 +20,13 @@ namespace AppNet.WinFormUI
     {
         private readonly IUserService UserService;
         private readonly IServiceProvider sp;
-        public Login(IUserService UserService, IServiceProvider sp)
+        private readonly ILogService ls;
+        public Login(IUserService UserService, IServiceProvider sp, ILogService ls)
         {
             InitializeComponent();
             this.UserService = UserService;
             this.sp = sp;
+            this.ls = ls;
             
         }
         private void Login_Load(object sender, EventArgs e)
@@ -39,6 +41,7 @@ namespace AppNet.WinFormUI
             if (i == 0)
             {
                 DialogResult dialog = MessageBox.Show("3 hakkınızda kullandınız!", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ls.Add("3 defa yanlış şifre denemesi yapıldı", "Kritik Hata");
                 this.Close();
             }
             foreach (var item in list)
@@ -58,6 +61,7 @@ namespace AppNet.WinFormUI
                         {
                             txtUserName.Text = "";
                             txtPassword.Text = "";
+                            ls.Add("Sisteme giriş yapıldı.", "Bilgilenirme");
                             break;
                         }
                     }else{

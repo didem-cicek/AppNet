@@ -9,8 +9,8 @@ namespace AppNet.AppService
 {
     public interface IReportService
     {
-        Report Add(string ReportName, int CustomerID, string CustomerName, int StockID, int SalesID, int SupplierID, string SupplierName, int CashID);
-        Task<Report> Update(int ReportID, string ReportName, int CustomerID, string CustomerName, int StockID, int SalesID, int SupplierID, string SupplierName, int CashID);
+        Report Add(decimal TotalSales, int TotalStock, int TotalCustomer, decimal TotalCash, string CritialStockName, int CritialStok);
+        Task<Report> Update(int ReportID, decimal TotalSales, int TotalStock, int TotalCustomer, decimal TotalCash, string CritialStockName, int CritialStok);
         Task<bool> Remove(int id);
         Task<ICollection<Report>> GetAll();
     }

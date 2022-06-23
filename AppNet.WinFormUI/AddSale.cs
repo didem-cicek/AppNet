@@ -17,6 +17,7 @@ namespace AppNet.WinFormUI
         private readonly ICustomerService cs;
         private readonly IStockService sts;
         private readonly ISalesService ss;
+        
         public AddSale(IProductService ps, ICustomerService cs, IStockService sts, ISalesService ss)
         {
             InitializeComponent();
@@ -72,10 +73,12 @@ namespace AppNet.WinFormUI
             cbbStatus.SelectedIndex = 0;
         }
 
-        private void btnAddProduct_Click(object sender, EventArgs e)
+        private async void btnAddProduct_Click(object sender, EventArgs e)
         {
             decimal TotalPrice = Convert.ToDecimal(cbbAddSalePrice.Text) * Convert.ToInt16(txtAddSalePiece);
             ss.Add(Convert.ToInt32(cbbAddSaleProduct.SelectedValue), Convert.ToInt32(cbbAddSaleName.SelectedValue), Convert.ToInt16(txtAddSalePiece.Text), Convert.ToDecimal(cbbAddSalePrice), TotalPrice, txtAddSaleDescription.Text, cbbStatus.SelectedText,cbbAddSalePay.SelectedText);
+           
+
         }
     }
 }

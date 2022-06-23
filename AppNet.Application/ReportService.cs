@@ -15,17 +15,17 @@ namespace AppNet.AppService
         {
             this.repository = repository;
         }
-        public Report Add(string ReportName, int CustomerID, string CustomerName, int StockID, int SalesID, int SupplierID, string SupplierName, int CashID)
+
+        public Report Add(decimal TotalSales, int TotalStock, int TotalCustomer, decimal TotalCash, string CritialStockName, int CritialStok)
         {
-            Report report= new Report()
+            Report report = new Report()
             {
-                ReportName = ReportName,
-                CustomerID = CustomerID,
-                CustomerName = CustomerName,
-                StockID = StockID,
-                SupplierID = SupplierID,
-                SupplierName = SupplierName,
-                CashID = CashID,
+                TotalSales = TotalSales,
+                TotalStock = TotalStock,
+                TotalCustomer = TotalCustomer,
+                TotalCash = TotalCash,
+                CritialStockName = CritialStockName,
+                CritialStok = CritialStok,
                 ReportDate = DateTime.Now,
             };
             repository.Add(report);
@@ -37,23 +37,23 @@ namespace AppNet.AppService
             return repository.GetAll().ToList();
         }
 
-        public Task<bool> Remove(int id)
+        public async Task<bool> Remove(int id)
         {
-            throw new NotImplementedException();
+            await repository.Remove(id);
+            return true;
         }
 
-        public async Task<Report> Update(int ReportID, string ReportName, int CustomerID, string CustomerName, int StockID, int SalesID, int SupplierID, string SupplierName, int CashID)
+        public async Task<Report> Update(int ReportID, decimal TotalSales, int TotalStock, int TotalCustomer, decimal TotalCash, string CritialStockName, int CritialStok)
         {
             Report report = new Report()
             {
                 ReportID = ReportID,
-                ReportName = ReportName,
-                CustomerID = CustomerID,
-                CustomerName = CustomerName,
-                StockID = StockID,
-                SupplierID = SupplierID,
-                SupplierName = SupplierName,
-                CashID = CashID,
+                TotalSales = TotalSales,
+                TotalStock = TotalStock,
+                TotalCustomer = TotalCustomer,
+                TotalCash = TotalCash,
+                CritialStockName = CritialStockName,
+                CritialStok = CritialStok,
                 ReportModifitedDate = DateTime.Now,
             };
             repository.Update(ReportID, report);

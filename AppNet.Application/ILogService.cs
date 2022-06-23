@@ -9,7 +9,7 @@ namespace AppNet.AppServices
 {
     public interface ILogService
     {
-        Log Add(int ID, string LogName, string LogType);
+        Log Add(string LogName, string LogType);
         Task<ICollection<Log>> GetAll();
     }
 }
