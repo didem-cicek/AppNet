@@ -35,6 +35,7 @@
             this.grdDeletedList = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.btnDeleted = new System.Windows.Forms.Button();
+            this.btnselectdel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdDeletedList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +58,6 @@
             this.cbbDeletedSearch.Name = "cbbDeletedSearch";
             this.cbbDeletedSearch.Size = new System.Drawing.Size(244, 29);
             this.cbbDeletedSearch.TabIndex = 1;
-            this.cbbDeletedSearch.SelectedIndexChanged += new System.EventHandler(this.cbbDeletedSearch_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -80,12 +80,13 @@
             // grdDeletedList
             // 
             this.grdDeletedList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grdDeletedList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.grdDeletedList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grdDeletedList.BackgroundColor = System.Drawing.Color.White;
             this.grdDeletedList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdDeletedList.Location = new System.Drawing.Point(22, 166);
             this.grdDeletedList.Name = "grdDeletedList";
             this.grdDeletedList.RowTemplate.Height = 25;
+            this.grdDeletedList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdDeletedList.Size = new System.Drawing.Size(428, 128);
             this.grdDeletedList.TabIndex = 3;
             // 
@@ -113,9 +114,26 @@
             this.btnDeleted.Name = "btnDeleted";
             this.btnDeleted.Size = new System.Drawing.Size(150, 40);
             this.btnDeleted.TabIndex = 4;
-            this.btnDeleted.Text = "ÜRÜNÜ SİL";
+            this.btnDeleted.Text = "ÜRÜNÜ BUL";
             this.btnDeleted.UseVisualStyleBackColor = false;
             this.btnDeleted.Click += new System.EventHandler(this.btnDeleted_Click);
+            // 
+            // btnselectdel
+            // 
+            this.btnselectdel.BackColor = System.Drawing.Color.Firebrick;
+            this.btnselectdel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnselectdel.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnselectdel.FlatAppearance.BorderSize = 3;
+            this.btnselectdel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnselectdel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnselectdel.ForeColor = System.Drawing.Color.White;
+            this.btnselectdel.Location = new System.Drawing.Point(22, 324);
+            this.btnselectdel.Name = "btnselectdel";
+            this.btnselectdel.Size = new System.Drawing.Size(256, 40);
+            this.btnselectdel.TabIndex = 4;
+            this.btnselectdel.Text = "BULUNAN ÜRÜNÜ SİL";
+            this.btnselectdel.UseVisualStyleBackColor = false;
+            this.btnselectdel.Click += new System.EventHandler(this.btnselectdel_Click);
             // 
             // DeleteProduct
             // 
@@ -123,6 +141,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(479, 392);
+            this.Controls.Add(this.btnselectdel);
             this.Controls.Add(this.btnDeleted);
             this.Controls.Add(this.grdDeletedList);
             this.Controls.Add(this.txtDeletedSearch);
@@ -151,5 +170,6 @@
         private DataGridView grdDeletedList;
         private Label label3;
         private Button btnDeleted;
+        private Button btnselectdel;
     }
 }

@@ -51,6 +51,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnSearchUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdUpdateCustomerList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,6 +87,7 @@
             this.btnUpdatedCustomer.TabIndex = 13;
             this.btnUpdatedCustomer.Text = "MÜŞTERİ GÜNCELLE";
             this.btnUpdatedCustomer.UseVisualStyleBackColor = false;
+            this.btnUpdatedCustomer.Click += new System.EventHandler(this.btnUpdatedCustomer_Click);
             // 
             // cbbUpdateCustomer
             // 
@@ -272,6 +274,23 @@
             this.label11.TabIndex = 41;
             this.label11.Text = "Müşteri Adı : ";
             // 
+            // btnSearchUpdate
+            // 
+            this.btnSearchUpdate.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnSearchUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearchUpdate.FlatAppearance.BorderColor = System.Drawing.Color.SaddleBrown;
+            this.btnSearchUpdate.FlatAppearance.BorderSize = 3;
+            this.btnSearchUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearchUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnSearchUpdate.Location = new System.Drawing.Point(264, 399);
+            this.btnSearchUpdate.Name = "btnSearchUpdate";
+            this.btnSearchUpdate.Size = new System.Drawing.Size(180, 40);
+            this.btnSearchUpdate.TabIndex = 13;
+            this.btnSearchUpdate.Text = "MÜŞTERİ BUL";
+            this.btnSearchUpdate.UseVisualStyleBackColor = false;
+            this.btnSearchUpdate.Click += new System.EventHandler(this.btnSearchUpdate_Click);
+            // 
             // UpdateCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -296,16 +315,18 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.grdUpdateCustomerList);
             this.Controls.Add(this.txtUpdateCustomerSearch);
+            this.Controls.Add(this.btnSearchUpdate);
             this.Controls.Add(this.btnUpdatedCustomer);
             this.Controls.Add(this.cbbUpdateCustomer);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UpdateCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MÜŞTERİ GÜNCELLE";
+            this.Load += new System.EventHandler(this.UpdateCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdUpdateCustomerList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -337,5 +358,6 @@
         private Label label9;
         private Label label10;
         private Label label11;
+        private Button btnSearchUpdate;
     }
 }

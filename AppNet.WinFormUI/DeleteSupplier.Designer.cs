@@ -35,6 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSearchDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdDeletedList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,12 +48,13 @@
             this.btnDeleted.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleted.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnDeleted.ForeColor = System.Drawing.Color.White;
-            this.btnDeleted.Location = new System.Drawing.Point(303, 325);
+            this.btnDeleted.Location = new System.Drawing.Point(304, 325);
             this.btnDeleted.Name = "btnDeleted";
-            this.btnDeleted.Size = new System.Drawing.Size(150, 40);
+            this.btnDeleted.Size = new System.Drawing.Size(149, 40);
             this.btnDeleted.TabIndex = 11;
-            this.btnDeleted.Text = "TEDARİKÇİYİ SİL";
+            this.btnDeleted.Text = "TEDARİKÇİ BUL";
             this.btnDeleted.UseVisualStyleBackColor = false;
+            this.btnDeleted.Click += new System.EventHandler(this.btnDeleted_Click);
             // 
             // grdDeletedList
             // 
@@ -112,12 +114,30 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Kriter Seçiniz : ";
             // 
+            // btnSearchDelete
+            // 
+            this.btnSearchDelete.BackColor = System.Drawing.Color.Firebrick;
+            this.btnSearchDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearchDelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnSearchDelete.FlatAppearance.BorderSize = 3;
+            this.btnSearchDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearchDelete.ForeColor = System.Drawing.Color.White;
+            this.btnSearchDelete.Location = new System.Drawing.Point(25, 325);
+            this.btnSearchDelete.Name = "btnSearchDelete";
+            this.btnSearchDelete.Size = new System.Drawing.Size(249, 40);
+            this.btnSearchDelete.TabIndex = 11;
+            this.btnSearchDelete.Text = "BULUNAN TEDARİKÇİYİ SİL";
+            this.btnSearchDelete.UseVisualStyleBackColor = false;
+            this.btnSearchDelete.Click += new System.EventHandler(this.btnSearchDelete_Click);
+            // 
             // DeleteSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(479, 392);
+            this.Controls.Add(this.btnSearchDelete);
             this.Controls.Add(this.btnDeleted);
             this.Controls.Add(this.grdDeletedList);
             this.Controls.Add(this.txtDeletedSearch);
@@ -128,6 +148,7 @@
             this.Name = "DeleteSupplier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TEDARİKÇİ SİL";
+            this.Load += new System.EventHandler(this.DeleteSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdDeletedList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -143,5 +164,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private Button btnSearchDelete;
     }
 }

@@ -35,11 +35,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDeletedCategory = new System.Windows.Forms.Button();
+            this.btnSearchDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdDeleteList)).BeginInit();
             this.SuspendLayout();
             // 
             // grdDeleteList
             // 
+            this.grdDeleteList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdDeleteList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grdDeleteList.BackgroundColor = System.Drawing.Color.White;
             this.grdDeleteList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdDeleteList.Location = new System.Drawing.Point(22, 154);
@@ -64,7 +67,6 @@
             this.cbbDeleteCategory.Name = "cbbDeleteCategory";
             this.cbbDeleteCategory.Size = new System.Drawing.Size(243, 29);
             this.cbbDeleteCategory.TabIndex = 7;
-            this.cbbDeleteCategory.SelectedIndexChanged += new System.EventHandler(this.cbbDeleteCategory_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -108,9 +110,25 @@
             this.btnDeletedCategory.Name = "btnDeletedCategory";
             this.btnDeletedCategory.Size = new System.Drawing.Size(150, 40);
             this.btnDeletedCategory.TabIndex = 10;
-            this.btnDeletedCategory.Text = "KATEGORİYİ SİL";
+            this.btnDeletedCategory.Text = "KATEGORİ BUL";
             this.btnDeletedCategory.UseVisualStyleBackColor = false;
             this.btnDeletedCategory.Click += new System.EventHandler(this.btnDeletedCategory_Click);
+            // 
+            // btnSearchDelete
+            // 
+            this.btnSearchDelete.BackColor = System.Drawing.Color.Firebrick;
+            this.btnSearchDelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnSearchDelete.FlatAppearance.BorderSize = 3;
+            this.btnSearchDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearchDelete.ForeColor = System.Drawing.Color.White;
+            this.btnSearchDelete.Location = new System.Drawing.Point(27, 333);
+            this.btnSearchDelete.Name = "btnSearchDelete";
+            this.btnSearchDelete.Size = new System.Drawing.Size(260, 40);
+            this.btnSearchDelete.TabIndex = 10;
+            this.btnSearchDelete.Text = "BULUNAN KATEGORİYİ SİL";
+            this.btnSearchDelete.UseVisualStyleBackColor = false;
+            this.btnSearchDelete.Click += new System.EventHandler(this.btnSearchDelete_Click);
             // 
             // DeleteCategory
             // 
@@ -118,6 +136,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(479, 391);
+            this.Controls.Add(this.btnSearchDelete);
             this.Controls.Add(this.btnDeletedCategory);
             this.Controls.Add(this.grdDeleteList);
             this.Controls.Add(this.txtDeleteCategory);
@@ -146,5 +165,6 @@
         private Label label3;
         private Label label1;
         private Button btnDeletedCategory;
+        private Button btnSearchDelete;
     }
 }

@@ -29,6 +29,7 @@ namespace AppNet.WinFormUI
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
+            try { 
             cs.Add(txtAddCustomerName.Text, txtAddCustomerPhone.Text, txtAddCustomerEmail.Text, txtAddCustomerAddress.Text, txtAddCustomerShippingAddress.Text, Convert.ToInt32(txtAddCustomerTaxNo.Text), txtAddCustomerTaxOffice.Text, txtAddCustomerDesriciption.Text);
             DialogResult dialogResult = MessageBox.Show("Müşteri başarıyla eklenmiştir. Bir müşteri daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.Yes)
@@ -54,7 +55,11 @@ namespace AppNet.WinFormUI
             txtAddCustomerTaxNo.Text = "";
             txtAddCustomerTaxOffice.Text = "";
             txtAddCustomerDesriciption.Text = "";
-            
+            }
+            catch
+            {
+                MessageBox.Show("Müşteri eklenemedi, lütfen girdiğiniz değerlerin doğru olduğuna emin olunuz!", "Uyarı Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            }
 
         }
     }

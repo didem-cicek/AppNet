@@ -31,11 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbbUpdatedCategory = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbbUpdatedSupplier = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtUpdatedPrice = new System.Windows.Forms.TextBox();
+            this.updatedProductName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtUpdatedDescription = new System.Windows.Forms.TextBox();
             this.btnUpdatedProduct = new System.Windows.Forms.Button();
@@ -45,6 +41,7 @@
             this.txtUpdateProductSearch = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.grdUpdateProductList = new System.Windows.Forms.DataGridView();
+            this.btnUpdateSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdUpdateProductList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,55 +75,18 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Ürün Adı :";
             // 
-            // textBox1
+            // updatedProductName
             // 
-            this.textBox1.Location = new System.Drawing.Point(734, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(242, 29);
-            this.textBox1.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(576, 136);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 21);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Tedarikçi :";
-            // 
-            // cbbUpdatedSupplier
-            // 
-            this.cbbUpdatedSupplier.FormattingEnabled = true;
-            this.cbbUpdatedSupplier.Location = new System.Drawing.Point(734, 133);
-            this.cbbUpdatedSupplier.Name = "cbbUpdatedSupplier";
-            this.cbbUpdatedSupplier.Size = new System.Drawing.Size(242, 29);
-            this.cbbUpdatedSupplier.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(577, 188);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 21);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Fiyat :";
-            // 
-            // txtUpdatedPrice
-            // 
-            this.txtUpdatedPrice.Location = new System.Drawing.Point(734, 184);
-            this.txtUpdatedPrice.Name = "txtUpdatedPrice";
-            this.txtUpdatedPrice.Size = new System.Drawing.Size(242, 29);
-            this.txtUpdatedPrice.TabIndex = 7;
+            this.updatedProductName.Location = new System.Drawing.Point(734, 81);
+            this.updatedProductName.Name = "updatedProductName";
+            this.updatedProductName.Size = new System.Drawing.Size(242, 29);
+            this.updatedProductName.TabIndex = 5;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(577, 236);
+            this.label5.Location = new System.Drawing.Point(577, 131);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 21);
@@ -135,7 +95,7 @@
             // 
             // txtUpdatedDescription
             // 
-            this.txtUpdatedDescription.Location = new System.Drawing.Point(734, 233);
+            this.txtUpdatedDescription.Location = new System.Drawing.Point(734, 128);
             this.txtUpdatedDescription.Name = "txtUpdatedDescription";
             this.txtUpdatedDescription.Size = new System.Drawing.Size(242, 29);
             this.txtUpdatedDescription.TabIndex = 8;
@@ -149,12 +109,13 @@
             this.btnUpdatedProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdatedProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnUpdatedProduct.ForeColor = System.Drawing.Color.White;
-            this.btnUpdatedProduct.Location = new System.Drawing.Point(796, 296);
+            this.btnUpdatedProduct.Location = new System.Drawing.Point(796, 186);
             this.btnUpdatedProduct.Name = "btnUpdatedProduct";
             this.btnUpdatedProduct.Size = new System.Drawing.Size(180, 40);
             this.btnUpdatedProduct.TabIndex = 9;
             this.btnUpdatedProduct.Text = "ÜRÜNÜ GÜNCELLE";
             this.btnUpdatedProduct.UseVisualStyleBackColor = false;
+            this.btnUpdatedProduct.Click += new System.EventHandler(this.btnUpdatedProduct_Click);
             // 
             // label6
             // 
@@ -170,6 +131,7 @@
             // 
             // cbbUpdateProduct
             // 
+            this.cbbUpdateProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbUpdateProduct.FormattingEnabled = true;
             this.cbbUpdateProduct.Location = new System.Drawing.Point(201, 29);
             this.cbbUpdateProduct.Name = "cbbUpdateProduct";
@@ -209,32 +171,48 @@
             // 
             // grdUpdateProductList
             // 
+            this.grdUpdateProductList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdUpdateProductList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grdUpdateProductList.BackgroundColor = System.Drawing.Color.White;
             this.grdUpdateProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdUpdateProductList.Location = new System.Drawing.Point(27, 176);
             this.grdUpdateProductList.Name = "grdUpdateProductList";
             this.grdUpdateProductList.RowTemplate.Height = 25;
-            this.grdUpdateProductList.Size = new System.Drawing.Size(420, 160);
+            this.grdUpdateProductList.Size = new System.Drawing.Size(420, 86);
             this.grdUpdateProductList.TabIndex = 3;
+            // 
+            // btnUpdateSearch
+            // 
+            this.btnUpdateSearch.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnUpdateSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateSearch.FlatAppearance.BorderColor = System.Drawing.Color.SaddleBrown;
+            this.btnUpdateSearch.FlatAppearance.BorderSize = 3;
+            this.btnUpdateSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnUpdateSearch.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateSearch.Location = new System.Drawing.Point(267, 296);
+            this.btnUpdateSearch.Name = "btnUpdateSearch";
+            this.btnUpdateSearch.Size = new System.Drawing.Size(180, 40);
+            this.btnUpdateSearch.TabIndex = 9;
+            this.btnUpdateSearch.Text = "ÜRÜNÜ BUL";
+            this.btnUpdateSearch.UseVisualStyleBackColor = false;
+            this.btnUpdateSearch.Click += new System.EventHandler(this.btnUpdateSearch_Click);
             // 
             // UpdateProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1008, 368);
+            this.ClientSize = new System.Drawing.Size(1008, 359);
             this.Controls.Add(this.grdUpdateProductList);
             this.Controls.Add(this.txtUpdateProductSearch);
+            this.Controls.Add(this.btnUpdateSearch);
             this.Controls.Add(this.btnUpdatedProduct);
             this.Controls.Add(this.txtUpdatedDescription);
-            this.Controls.Add(this.txtUpdatedPrice);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.cbbUpdatedSupplier);
+            this.Controls.Add(this.updatedProductName);
             this.Controls.Add(this.cbbUpdateProduct);
             this.Controls.Add(this.cbbUpdatedCategory);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -257,11 +235,7 @@
         private Label label1;
         private ComboBox cbbUpdatedCategory;
         private Label label2;
-        private TextBox textBox1;
-        private Label label3;
-        private ComboBox cbbUpdatedSupplier;
-        private Label label4;
-        private TextBox txtUpdatedPrice;
+        private TextBox updatedProductName;
         private Label label5;
         private TextBox txtUpdatedDescription;
         private Button btnUpdatedProduct;
@@ -271,5 +245,6 @@
         private TextBox txtUpdateProductSearch;
         private Label label8;
         private DataGridView grdUpdateProductList;
+        private Button btnUpdateSearch;
     }
 }

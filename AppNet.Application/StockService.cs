@@ -15,16 +15,14 @@ namespace AppNet.AppService
         {
             this.repository = repository;
         }
-        public Stock Add(string ProductName, string ProductType, decimal PurchaseUnitPrice, decimal StockTotalPrice, int StockPiece, short StockCritical, string SupplierName, int SupplierID, int ProductID)
+        public Stock Add(string ProductType, decimal PurchaseUnitPrice, decimal StockTotalPrice, int StockPiece, short StockCritical, int SupplierID, int ProductID)
         {
             Stock stock = new Stock()
             {
-                ProductName = ProductName,
                 ProductType = ProductType,
                 PurchaseUnitPrice = PurchaseUnitPrice,
                 StockTotalPrice = StockTotalPrice,
                 StockPiece = StockPiece,
-                SupplierName = SupplierName,
                 SupplierID = SupplierID,
                 ProductID = ProductID,
                 StockDate = DateTime.Now,
@@ -44,17 +42,15 @@ namespace AppNet.AppService
             return true;
         }
 
-        public async Task<Stock> Update(int StockID, string ProductName, string ProductType, decimal PurchaseUnitPrice, decimal StockTotalPrice, int StockPiece, short StockCritical, string SupplierName, int SupplierID, int ProductID)
+        public async Task<Stock> Update(int StockID, string ProductType, decimal PurchaseUnitPrice, decimal StockTotalPrice, int StockPiece, short StockCritical, int SupplierID, int ProductID)
         {
             Stock stock = new Stock()
             {
                 StockID = StockID,
-                ProductName = ProductName,
                 ProductType = ProductType,
                 PurchaseUnitPrice = PurchaseUnitPrice,
                 StockTotalPrice = StockTotalPrice,
                 StockPiece = StockPiece,
-                SupplierName = SupplierName,
                 SupplierID = SupplierID,
                 ProductID = ProductID,
                 StockModifitedDate = DateTime.Now,

@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesFrm));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.grdSupplierList = new System.Windows.Forms.DataGridView();
+            this.grdSaleList = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cbbProductSearch = new System.Windows.Forms.ComboBox();
@@ -43,7 +43,7 @@
             this.btnDeleteSale = new System.Windows.Forms.Button();
             this.btnUpdateSale = new System.Windows.Forms.Button();
             this.btnAddSale = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.grdSupplierList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSaleList)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -55,15 +55,15 @@
             this.imageList1.Images.SetKeyName(1, "deleted.png");
             this.imageList1.Images.SetKeyName(2, "edit.png");
             // 
-            // grdSupplierList
+            // grdSaleList
             // 
-            this.grdSupplierList.BackgroundColor = System.Drawing.Color.White;
-            this.grdSupplierList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdSupplierList.Location = new System.Drawing.Point(24, 343);
-            this.grdSupplierList.Name = "grdSupplierList";
-            this.grdSupplierList.RowTemplate.Height = 25;
-            this.grdSupplierList.Size = new System.Drawing.Size(965, 197);
-            this.grdSupplierList.TabIndex = 6;
+            this.grdSaleList.BackgroundColor = System.Drawing.Color.White;
+            this.grdSaleList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdSaleList.Location = new System.Drawing.Point(24, 343);
+            this.grdSaleList.Name = "grdSaleList";
+            this.grdSaleList.RowTemplate.Height = 25;
+            this.grdSaleList.Size = new System.Drawing.Size(965, 197);
+            this.grdSaleList.TabIndex = 6;
             // 
             // label5
             // 
@@ -213,7 +213,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 561);
-            this.Controls.Add(this.grdSupplierList);
+            this.Controls.Add(this.grdSaleList);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbbProductSearch);
@@ -229,7 +229,8 @@
             this.Name = "SalesFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SATIŞ YÖNETİMİ";
-            ((System.ComponentModel.ISupportInitialize)(this.grdSupplierList)).EndInit();
+            this.Load += new System.EventHandler(this.SalesFrm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grdSaleList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,7 +239,7 @@
         #endregion
 
         private ImageList imageList1;
-        private DataGridView grdSupplierList;
+        private DataGridView grdSaleList;
         private Label label5;
         private Label label4;
         public ComboBox cbbProductSearch;

@@ -35,6 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnsearchdelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdDeletedList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,11 +52,14 @@
             this.btnDeleted.Name = "btnDeleted";
             this.btnDeleted.Size = new System.Drawing.Size(150, 40);
             this.btnDeleted.TabIndex = 4;
-            this.btnDeleted.Text = "SİPARİŞ SİL";
+            this.btnDeleted.Text = "SİPARİŞ BUL";
             this.btnDeleted.UseVisualStyleBackColor = false;
+            this.btnDeleted.Click += new System.EventHandler(this.btnDeleted_Click);
             // 
             // grdDeletedList
             // 
+            this.grdDeletedList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdDeletedList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grdDeletedList.BackgroundColor = System.Drawing.Color.White;
             this.grdDeletedList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdDeletedList.Location = new System.Drawing.Point(25, 167);
@@ -73,6 +77,7 @@
             // 
             // cbbDeletedSearch
             // 
+            this.cbbDeletedSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbDeletedSearch.FormattingEnabled = true;
             this.cbbDeletedSearch.Location = new System.Drawing.Point(209, 27);
             this.cbbDeletedSearch.Name = "cbbDeletedSearch";
@@ -112,12 +117,30 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Kriter Seçiniz : ";
             // 
+            // btnsearchdelete
+            // 
+            this.btnsearchdelete.BackColor = System.Drawing.Color.Firebrick;
+            this.btnsearchdelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnsearchdelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnsearchdelete.FlatAppearance.BorderSize = 3;
+            this.btnsearchdelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnsearchdelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsearchdelete.ForeColor = System.Drawing.Color.White;
+            this.btnsearchdelete.Location = new System.Drawing.Point(25, 325);
+            this.btnsearchdelete.Name = "btnsearchdelete";
+            this.btnsearchdelete.Size = new System.Drawing.Size(246, 40);
+            this.btnsearchdelete.TabIndex = 4;
+            this.btnsearchdelete.Text = "BULUNAN SİPARİŞİ SİL";
+            this.btnsearchdelete.UseVisualStyleBackColor = false;
+            this.btnsearchdelete.Click += new System.EventHandler(this.btnsearchdelete_Click);
+            // 
             // DeleteSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(479, 392);
+            this.Controls.Add(this.btnsearchdelete);
             this.Controls.Add(this.btnDeleted);
             this.Controls.Add(this.grdDeletedList);
             this.Controls.Add(this.txtDeletedSearch);
@@ -126,10 +149,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DeleteSale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SİPARİŞ SİL";
+            this.Load += new System.EventHandler(this.DeleteSale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdDeletedList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -145,5 +169,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private Button btnsearchdelete;
     }
 }

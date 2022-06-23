@@ -48,11 +48,17 @@
             // 
             // grdSupplierList
             // 
+            this.grdSupplierList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdSupplierList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grdSupplierList.BackgroundColor = System.Drawing.Color.White;
             this.grdSupplierList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdSupplierList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.grdSupplierList.Location = new System.Drawing.Point(24, 343);
+            this.grdSupplierList.MultiSelect = false;
             this.grdSupplierList.Name = "grdSupplierList";
             this.grdSupplierList.RowTemplate.Height = 25;
+            this.grdSupplierList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grdSupplierList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdSupplierList.Size = new System.Drawing.Size(965, 197);
             this.grdSupplierList.TabIndex = 7;
             // 

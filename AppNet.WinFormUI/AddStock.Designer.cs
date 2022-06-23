@@ -58,6 +58,7 @@
             this.btnAddStock.TabIndex = 7;
             this.btnAddStock.Text = "STOK EKLE";
             this.btnAddStock.UseVisualStyleBackColor = false;
+            this.btnAddStock.Click += new System.EventHandler(this.btnAddStock_Click);
             // 
             // txtAddStockPiece
             // 
@@ -73,7 +74,7 @@
             this.cbbAddProductType.Location = new System.Drawing.Point(145, 76);
             this.cbbAddProductType.Name = "cbbAddProductType";
             this.cbbAddProductType.Size = new System.Drawing.Size(242, 29);
-            this.cbbAddProductType.TabIndex = 12;
+            this.cbbAddProductType.TabIndex = 2;
             // 
             // cbbSelectedSuppliers
             // 
@@ -82,7 +83,7 @@
             this.cbbSelectedSuppliers.Location = new System.Drawing.Point(145, 119);
             this.cbbSelectedSuppliers.Name = "cbbSelectedSuppliers";
             this.cbbSelectedSuppliers.Size = new System.Drawing.Size(242, 29);
-            this.cbbSelectedSuppliers.TabIndex = 14;
+            this.cbbSelectedSuppliers.TabIndex = 3;
             // 
             // label5
             // 
@@ -171,7 +172,7 @@
             this.cbbAddStockProductName.Location = new System.Drawing.Point(144, 33);
             this.cbbAddStockProductName.Name = "cbbAddStockProductName";
             this.cbbAddStockProductName.Size = new System.Drawing.Size(242, 29);
-            this.cbbAddStockProductName.TabIndex = 12;
+            this.cbbAddStockProductName.TabIndex = 1;
             // 
             // AddStock
             // 
@@ -197,6 +198,7 @@
             this.Name = "AddStock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "STOK EKLE";
+            this.Load += new System.EventHandler(this.AddStock_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

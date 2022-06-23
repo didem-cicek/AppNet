@@ -47,6 +47,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnSearchUpdate = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cbbStatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdUpdateSaleList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +60,7 @@
             this.grdUpdateSaleList.Location = new System.Drawing.Point(26, 172);
             this.grdUpdateSaleList.Name = "grdUpdateSaleList";
             this.grdUpdateSaleList.RowTemplate.Height = 25;
-            this.grdUpdateSaleList.Size = new System.Drawing.Size(420, 160);
+            this.grdUpdateSaleList.Size = new System.Drawing.Size(420, 148);
             this.grdUpdateSaleList.TabIndex = 3;
             // 
             // txtUpdateSaleSearch
@@ -76,7 +79,7 @@
             this.btnUpdatedSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdatedSale.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnUpdatedSale.ForeColor = System.Drawing.Color.White;
-            this.btnUpdatedSale.Location = new System.Drawing.Point(795, 297);
+            this.btnUpdatedSale.Location = new System.Drawing.Point(795, 343);
             this.btnUpdatedSale.Name = "btnUpdatedSale";
             this.btnUpdatedSale.Size = new System.Drawing.Size(180, 40);
             this.btnUpdatedSale.TabIndex = 10;
@@ -126,7 +129,7 @@
             // 
             // txtAUpdateSaleDescription
             // 
-            this.txtAUpdateSaleDescription.Location = new System.Drawing.Point(732, 245);
+            this.txtAUpdateSaleDescription.Location = new System.Drawing.Point(732, 291);
             this.txtAUpdateSaleDescription.Name = "txtAUpdateSaleDescription";
             this.txtAUpdateSaleDescription.Size = new System.Drawing.Size(243, 29);
             this.txtAUpdateSaleDescription.TabIndex = 9;
@@ -174,7 +177,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(602, 249);
+            this.label5.Location = new System.Drawing.Point(602, 295);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 21);
@@ -236,18 +239,56 @@
             this.label9.TabIndex = 29;
             this.label9.Text = "Ürün Adı : ";
             // 
+            // btnSearchUpdate
+            // 
+            this.btnSearchUpdate.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnSearchUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearchUpdate.FlatAppearance.BorderColor = System.Drawing.Color.SaddleBrown;
+            this.btnSearchUpdate.FlatAppearance.BorderSize = 3;
+            this.btnSearchUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearchUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnSearchUpdate.Location = new System.Drawing.Point(262, 343);
+            this.btnSearchUpdate.Name = "btnSearchUpdate";
+            this.btnSearchUpdate.Size = new System.Drawing.Size(180, 40);
+            this.btnSearchUpdate.TabIndex = 10;
+            this.btnSearchUpdate.Text = "SİPARİŞ BUL";
+            this.btnSearchUpdate.UseVisualStyleBackColor = false;
+            this.btnSearchUpdate.Click += new System.EventHandler(this.btnSearchUpdate_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(602, 248);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(75, 21);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Durum : ";
+            // 
+            // cbbStatus
+            // 
+            this.cbbStatus.FormattingEnabled = true;
+            this.cbbStatus.Location = new System.Drawing.Point(733, 244);
+            this.cbbStatus.Name = "cbbStatus";
+            this.cbbStatus.Size = new System.Drawing.Size(242, 29);
+            this.cbbStatus.TabIndex = 8;
+            // 
             // UpdateSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1008, 361);
+            this.ClientSize = new System.Drawing.Size(1008, 403);
             this.Controls.Add(this.txtAUpdateSaleDescription);
             this.Controls.Add(this.cbbUpdateSaleProduct);
             this.Controls.Add(this.cbbUpdateSaleName);
+            this.Controls.Add(this.cbbStatus);
             this.Controls.Add(this.cbbUpdateSalePay);
             this.Controls.Add(this.cbbUpdateSalePrice);
             this.Controls.Add(this.txtUpdateSalePiece);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
@@ -256,13 +297,14 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.grdUpdateSaleList);
             this.Controls.Add(this.txtUpdateSaleSearch);
+            this.Controls.Add(this.btnSearchUpdate);
             this.Controls.Add(this.btnUpdatedSale);
             this.Controls.Add(this.cbbUpdateSale);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UpdateSale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SİPARİŞ GÜNCELLE";
@@ -294,5 +336,8 @@
         private Label label3;
         private Label label2;
         private Label label9;
+        private Button btnSearchUpdate;
+        private Label label10;
+        public ComboBox cbbStatus;
     }
 }

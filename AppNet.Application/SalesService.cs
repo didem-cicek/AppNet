@@ -15,13 +15,13 @@ namespace AppNet.AppService
         {
             this.repository = repository;
         }
-        public Sale Add(int StockID, int CustomerID, string CustomerName, short ProductPiece, decimal SalePrice, decimal TotalPrice, string SaleDesription, string SaleStatus, string SalePaymentMethod)
+
+        public Sale Add(int StockID, int CustomerID, short ProductPiece, decimal SalePrice, decimal TotalPrice, string SaleDesription, string SaleStatus, string SalePaymentMethod)
         {
             Sale sale = new Sale()
             {
                 StockID = StockID,
                 CustomerID = CustomerID,
-                CustomerName = CustomerName,
                 ProductPiece = ProductPiece,
                 SalePrice = SalePrice,
                 SaleDesription = SaleDesription,

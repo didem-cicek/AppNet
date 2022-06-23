@@ -143,6 +143,5 @@ namespace AppNet.Infrastructer.Persistence
         public DbSet<Report> Reports { get; set; }
         public DbSet<DataBase> DataBases { get; set; }
 
-
     }
 }

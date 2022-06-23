@@ -41,6 +41,8 @@
             this.cbbAddSaleProduct = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cbbAddSalePay = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbbStatus = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnAddProduct
@@ -52,16 +54,17 @@
             this.btnAddProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAddProduct.ForeColor = System.Drawing.Color.White;
-            this.btnAddProduct.Location = new System.Drawing.Point(241, 303);
+            this.btnAddProduct.Location = new System.Drawing.Point(241, 353);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(150, 40);
             this.btnAddProduct.TabIndex = 7;
             this.btnAddProduct.Text = "SİPARİŞ EKLE";
             this.btnAddProduct.UseVisualStyleBackColor = false;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // txtAddSaleDescription
             // 
-            this.txtAddSaleDescription.Location = new System.Drawing.Point(148, 245);
+            this.txtAddSaleDescription.Location = new System.Drawing.Point(148, 295);
             this.txtAddSaleDescription.Name = "txtAddSaleDescription";
             this.txtAddSaleDescription.Size = new System.Drawing.Size(243, 29);
             this.txtAddSaleDescription.TabIndex = 6;
@@ -85,7 +88,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(19, 249);
+            this.label5.Location = new System.Drawing.Point(19, 299);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 21);
@@ -171,19 +174,40 @@
             this.cbbAddSalePay.Size = new System.Drawing.Size(242, 29);
             this.cbbAddSalePay.TabIndex = 5;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(19, 251);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 21);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Durum : ";
+            // 
+            // cbbStatus
+            // 
+            this.cbbStatus.FormattingEnabled = true;
+            this.cbbStatus.Location = new System.Drawing.Point(148, 247);
+            this.cbbStatus.Name = "cbbStatus";
+            this.cbbStatus.Size = new System.Drawing.Size(242, 29);
+            this.cbbStatus.TabIndex = 5;
+            // 
             // AddSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(419, 362);
+            this.ClientSize = new System.Drawing.Size(419, 413);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.txtAddSaleDescription);
             this.Controls.Add(this.cbbAddSaleProduct);
             this.Controls.Add(this.cbbAddSaleName);
+            this.Controls.Add(this.cbbStatus);
             this.Controls.Add(this.cbbAddSalePay);
             this.Controls.Add(this.cbbAddSalePrice);
             this.Controls.Add(this.txtAddSalePiece);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
@@ -195,6 +219,7 @@
             this.Name = "AddSale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SİPARİŞ EKLE";
+            this.Load += new System.EventHandler(this.AddSale_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,5 +240,7 @@
         public ComboBox cbbAddSaleProduct;
         private Label label6;
         public ComboBox cbbAddSalePay;
+        private Label label7;
+        public ComboBox cbbStatus;
     }
 }

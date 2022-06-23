@@ -34,7 +34,7 @@
             this.txtSupplierPhone = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSupplierAddress = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddSupplier = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtShippingAddress = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -90,21 +90,22 @@
             this.txtSupplierAddress.Size = new System.Drawing.Size(242, 29);
             this.txtSupplierAddress.TabIndex = 3;
             // 
-            // button1
+            // btnAddSupplier
             // 
-            this.button1.BackColor = System.Drawing.Color.SeaGreen;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
-            this.button1.FlatAppearance.BorderSize = 3;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(283, 219);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 40);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "TEDARİKÇİ EKLE";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAddSupplier.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnAddSupplier.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddSupplier.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnAddSupplier.FlatAppearance.BorderSize = 3;
+            this.btnAddSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddSupplier.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAddSupplier.ForeColor = System.Drawing.Color.White;
+            this.btnAddSupplier.Location = new System.Drawing.Point(283, 219);
+            this.btnAddSupplier.Name = "btnAddSupplier";
+            this.btnAddSupplier.Size = new System.Drawing.Size(150, 40);
+            this.btnAddSupplier.TabIndex = 2;
+            this.btnAddSupplier.Text = "TEDARİKÇİ EKLE";
+            this.btnAddSupplier.UseVisualStyleBackColor = false;
+            this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
             // 
             // label4
             // 
@@ -129,7 +130,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(468, 287);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAddSupplier);
             this.Controls.Add(this.txtShippingAddress);
             this.Controls.Add(this.txtSupplierAddress);
             this.Controls.Add(this.txtSupplierPhone);
@@ -157,7 +158,7 @@
         private TextBox txtSupplierPhone;
         private Label label3;
         private TextBox txtSupplierAddress;
-        private Button button1;
+        private Button btnAddSupplier;
         private Label label4;
         private TextBox txtShippingAddress;
     }

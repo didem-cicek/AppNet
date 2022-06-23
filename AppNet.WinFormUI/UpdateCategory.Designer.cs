@@ -36,8 +36,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtUpdateCategory = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnUpdateCategory = new System.Windows.Forms.Button();
+            this.btnUpdateSearch = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdUpdateCategory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,11 +54,13 @@
             // 
             // cbbCategorySearch
             // 
+            this.cbbCategorySearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCategorySearch.FormattingEnabled = true;
             this.cbbCategorySearch.Location = new System.Drawing.Point(212, 30);
             this.cbbCategorySearch.Name = "cbbCategorySearch";
             this.cbbCategorySearch.Size = new System.Drawing.Size(243, 29);
             this.cbbCategorySearch.TabIndex = 1;
+            this.cbbCategorySearch.SelectedIndexChanged += new System.EventHandler(this.cbbCategorySearch_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -103,20 +106,21 @@
             this.txtUpdateCategory.Size = new System.Drawing.Size(243, 29);
             this.txtUpdateCategory.TabIndex = 2;
             // 
-            // btnUpdateCategory
+            // btnUpdateSearch
             // 
-            this.btnUpdateCategory.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnUpdateCategory.FlatAppearance.BorderColor = System.Drawing.Color.SaddleBrown;
-            this.btnUpdateCategory.FlatAppearance.BorderSize = 3;
-            this.btnUpdateCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateCategory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnUpdateCategory.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateCategory.Location = new System.Drawing.Point(255, 397);
-            this.btnUpdateCategory.Name = "btnUpdateCategory";
-            this.btnUpdateCategory.Size = new System.Drawing.Size(200, 40);
-            this.btnUpdateCategory.TabIndex = 4;
-            this.btnUpdateCategory.Text = "KATEGORİYİ GÜNCELLE";
-            this.btnUpdateCategory.UseVisualStyleBackColor = false;
+            this.btnUpdateSearch.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnUpdateSearch.FlatAppearance.BorderColor = System.Drawing.Color.SaddleBrown;
+            this.btnUpdateSearch.FlatAppearance.BorderSize = 3;
+            this.btnUpdateSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnUpdateSearch.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateSearch.Location = new System.Drawing.Point(255, 397);
+            this.btnUpdateSearch.Name = "btnUpdateSearch";
+            this.btnUpdateSearch.Size = new System.Drawing.Size(200, 40);
+            this.btnUpdateSearch.TabIndex = 4;
+            this.btnUpdateSearch.Text = "KATEGORİYİ BUL";
+            this.btnUpdateSearch.UseVisualStyleBackColor = false;
+            this.btnUpdateSearch.Click += new System.EventHandler(this.btnUpdateSearch_Click);
             // 
             // label4
             // 
@@ -128,13 +132,30 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Kategori Adı : ";
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.SaddleBrown;
+            this.btnUpdate.FlatAppearance.BorderSize = 3;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Location = new System.Drawing.Point(21, 397);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(215, 40);
+            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.Text = "KATEGORİYİ GÜNCELLE";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // UpdateCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(479, 466);
-            this.Controls.Add(this.btnUpdateCategory);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnUpdateSearch);
             this.Controls.Add(this.grdUpdateCategory);
             this.Controls.Add(this.txtUpdateCategory);
             this.Controls.Add(this.txtCategorySearch);
@@ -165,7 +186,8 @@
         private Label label3;
         private TextBox txtUpdateCategory;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private Button btnUpdateCategory;
+        private Button btnUpdateSearch;
         private Label label4;
+        private Button btnUpdate;
     }
 }

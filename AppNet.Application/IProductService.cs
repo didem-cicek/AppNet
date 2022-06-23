@@ -10,7 +10,7 @@ namespace AppNet.AppService
     public interface IProductService
     {
         Product Add(int CategoryID, string ProductName, string ProductDesriciption);
-        Task<Product> Update(int ProductID, string ProductName, string ProductDesriciption);
+        Task<Product> Update(int ProductID, string NewProductName, int NewCategoryID, string NewProductDesriciption);
         Task<bool> Remove(int id);
         Task<ICollection<Product>> GetAll();
         

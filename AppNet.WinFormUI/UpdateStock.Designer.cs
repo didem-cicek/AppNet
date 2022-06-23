@@ -47,6 +47,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnSearchUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdStockList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@
             this.grdStockList.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.grdStockList.Name = "grdStockList";
             this.grdStockList.RowTemplate.Height = 25;
-            this.grdStockList.Size = new System.Drawing.Size(420, 176);
+            this.grdStockList.Size = new System.Drawing.Size(420, 112);
             this.grdStockList.TabIndex = 3;
             // 
             // txtUpdateStockSearch
@@ -133,7 +134,7 @@
             // txtUpdateCriticalStock
             // 
             this.txtUpdateCriticalStock.Location = new System.Drawing.Point(723, 273);
-            this.txtUpdateCriticalStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUpdateCriticalStock.Margin = new System.Windows.Forms.Padding(4);
             this.txtUpdateCriticalStock.Name = "txtUpdateCriticalStock";
             this.txtUpdateCriticalStock.Size = new System.Drawing.Size(242, 29);
             this.txtUpdateCriticalStock.TabIndex = 9;
@@ -142,7 +143,7 @@
             // txtUpdateStockPiece
             // 
             this.txtUpdateStockPiece.Location = new System.Drawing.Point(723, 226);
-            this.txtUpdateStockPiece.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUpdateStockPiece.Margin = new System.Windows.Forms.Padding(4);
             this.txtUpdateStockPiece.Name = "txtUpdateStockPiece";
             this.txtUpdateStockPiece.Size = new System.Drawing.Size(242, 29);
             this.txtUpdateStockPiece.TabIndex = 8;
@@ -152,7 +153,7 @@
             // 
             this.cbbUpdateProductType.FormattingEnabled = true;
             this.cbbUpdateProductType.Location = new System.Drawing.Point(723, 90);
-            this.cbbUpdateProductType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbUpdateProductType.Margin = new System.Windows.Forms.Padding(4);
             this.cbbUpdateProductType.Name = "cbbUpdateProductType";
             this.cbbUpdateProductType.Size = new System.Drawing.Size(242, 29);
             this.cbbUpdateProductType.TabIndex = 5;
@@ -162,7 +163,7 @@
             // 
             this.cbbUpdateSuppliers.FormattingEnabled = true;
             this.cbbUpdateSuppliers.Location = new System.Drawing.Point(723, 138);
-            this.cbbUpdateSuppliers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbUpdateSuppliers.Margin = new System.Windows.Forms.Padding(4);
             this.cbbUpdateSuppliers.Name = "cbbUpdateSuppliers";
             this.cbbUpdateSuppliers.Size = new System.Drawing.Size(242, 29);
             this.cbbUpdateSuppliers.TabIndex = 6;
@@ -171,7 +172,7 @@
             // txtUpdateStockPrice
             // 
             this.txtUpdateStockPrice.Location = new System.Drawing.Point(723, 183);
-            this.txtUpdateStockPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUpdateStockPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtUpdateStockPrice.Name = "txtUpdateStockPrice";
             this.txtUpdateStockPrice.Size = new System.Drawing.Size(242, 29);
             this.txtUpdateStockPrice.TabIndex = 7;
@@ -192,7 +193,7 @@
             // txtUpdateStockName
             // 
             this.txtUpdateStockName.Location = new System.Drawing.Point(723, 42);
-            this.txtUpdateStockName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUpdateStockName.Margin = new System.Windows.Forms.Padding(4);
             this.txtUpdateStockName.Name = "txtUpdateStockName";
             this.txtUpdateStockName.Size = new System.Drawing.Size(242, 29);
             this.txtUpdateStockName.TabIndex = 4;
@@ -257,6 +258,24 @@
             this.label9.TabIndex = 35;
             this.label9.Text = "Ürün Adı : ";
             // 
+            // btnSearchUpdate
+            // 
+            this.btnSearchUpdate.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnSearchUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearchUpdate.FlatAppearance.BorderColor = System.Drawing.Color.SaddleBrown;
+            this.btnSearchUpdate.FlatAppearance.BorderSize = 3;
+            this.btnSearchUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearchUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnSearchUpdate.Location = new System.Drawing.Point(255, 341);
+            this.btnSearchUpdate.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnSearchUpdate.Name = "btnSearchUpdate";
+            this.btnSearchUpdate.Size = new System.Drawing.Size(200, 56);
+            this.btnSearchUpdate.TabIndex = 10;
+            this.btnSearchUpdate.Text = "STOK BUL";
+            this.btnSearchUpdate.UseVisualStyleBackColor = false;
+            this.btnSearchUpdate.Click += new System.EventHandler(this.btnSearchUpdate_Click);
+            // 
             // UpdateStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -277,16 +296,18 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.grdStockList);
             this.Controls.Add(this.txtUpdateStockSearch);
+            this.Controls.Add(this.btnSearchUpdate);
             this.Controls.Add(this.btnUpdatedSupplier);
             this.Controls.Add(this.cbbUpdateStockSearch);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UpdateStock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "STOK GÜNCELLE";
+            this.Load += new System.EventHandler(this.UpdateStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdStockList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -314,5 +335,6 @@
         private Label label3;
         private Label label2;
         private Label label9;
+        private Button btnSearchUpdate;
     }
 }

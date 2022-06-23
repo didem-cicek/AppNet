@@ -40,16 +40,17 @@ namespace AppNet.AppService
             return repository.GetAll().ToList();
         }
 
-        async Task<Product> IProductService.Update(int ProductID, string ProductName, string ProductDesriciption)
+        async Task<Product> IProductService.Update(int ProductID, string NewProductName, int NewCategoryID, string NewProductDesriciption)
         {
             Product product = new Product()
             {
                 ProductID = ProductID,
-                ProductName = ProductName,
-                ProductDesriciption = ProductDesriciption,
+                ProductName = NewProductName,
+                ProductDesriciption = NewProductDesriciption,
+                CategoryID = NewCategoryID,
                 ProductModifitedDate = DateTime.Now,
             };
-            repository.Add(product);
+            repository.Update(product.ProductID,product);
             return product;
         }
     }

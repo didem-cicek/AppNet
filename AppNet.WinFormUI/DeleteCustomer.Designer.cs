@@ -35,6 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btncustomerDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdDeleteCustomerList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,11 +52,14 @@
             this.btnDeleted.Name = "btnDeleted";
             this.btnDeleted.Size = new System.Drawing.Size(150, 40);
             this.btnDeleted.TabIndex = 11;
-            this.btnDeleted.Text = "MÜŞTERİ SİL";
+            this.btnDeleted.Text = "MÜŞTERİ BUL";
             this.btnDeleted.UseVisualStyleBackColor = false;
+            this.btnDeleted.Click += new System.EventHandler(this.btnDeleted_Click);
             // 
             // grdDeleteCustomerList
             // 
+            this.grdDeleteCustomerList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdDeleteCustomerList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grdDeleteCustomerList.BackgroundColor = System.Drawing.Color.White;
             this.grdDeleteCustomerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdDeleteCustomerList.Location = new System.Drawing.Point(25, 169);
@@ -73,6 +77,7 @@
             // 
             // cbbDeleteCustomerSearch
             // 
+            this.cbbDeleteCustomerSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbDeleteCustomerSearch.FormattingEnabled = true;
             this.cbbDeleteCustomerSearch.Location = new System.Drawing.Point(209, 29);
             this.cbbDeleteCustomerSearch.Name = "cbbDeleteCustomerSearch";
@@ -112,12 +117,31 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Kriter Seçiniz : ";
             // 
+            // btncustomerDelete
+            // 
+            this.btncustomerDelete.BackColor = System.Drawing.Color.Firebrick;
+            this.btncustomerDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btncustomerDelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btncustomerDelete.FlatAppearance.BorderSize = 3;
+            this.btncustomerDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncustomerDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btncustomerDelete.ForeColor = System.Drawing.Color.White;
+            this.btncustomerDelete.Location = new System.Drawing.Point(25, 327);
+            this.btncustomerDelete.Name = "btncustomerDelete";
+            this.btncustomerDelete.Size = new System.Drawing.Size(262, 40);
+            this.btncustomerDelete.TabIndex = 11;
+            this.btncustomerDelete.Text = "BULUNAN MÜŞTERİ SİL";
+            this.btncustomerDelete.UseVisualStyleBackColor = false;
+            this.btncustomerDelete.Visible = false;
+            this.btncustomerDelete.Click += new System.EventHandler(this.btncustomerDelete_Click);
+            // 
             // DeleteCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(479, 396);
+            this.Controls.Add(this.btncustomerDelete);
             this.Controls.Add(this.btnDeleted);
             this.Controls.Add(this.grdDeleteCustomerList);
             this.Controls.Add(this.txtDeleteCustomerSearch);
@@ -126,10 +150,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DeleteCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MÜŞTERİ SİL";
+            this.Load += new System.EventHandler(this.DeleteCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdDeleteCustomerList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -145,5 +170,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private Button btncustomerDelete;
     }
 }

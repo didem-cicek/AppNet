@@ -16,12 +16,14 @@ namespace AppNet.WinFormUI
     public partial class CustomerFrm : Form
     {
         private readonly ICustomerService cs;
+        private readonly ISalesService ss;
         private readonly IServiceProvider sp;
-        public CustomerFrm(IServiceProvider sp, ICustomerService cs)
+        public CustomerFrm(IServiceProvider sp, ICustomerService cs, ISalesService ss)
         {
             InitializeComponent();
             this.sp = sp;
             this.cs = cs;
+            this.ss = ss;
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -55,6 +57,8 @@ namespace AppNet.WinFormUI
             grdCustomerList.Columns.Add("CustomerTaxNumber", "Vergi Numarası");
             grdCustomerList.Columns.Add("CustomerTaxOffice", "Vergi Dairesi");
             grdCustomerList.Columns.Add("CustomerDesription", "Açıklama");
+            grdCustomerList.Columns.Add("CustomerDebt", "Borç");
+            grdCustomerList.Columns.Add("CustomerReceivable", "Alacak");
             grdCustomerList.Columns.Add("CustomerDate", "Ekleme Tarihi");
             grdCustomerList.Columns.Add("CustomerModifitedDate", "Düzenleme Tarihi");
             LoadGridData();
@@ -63,7 +67,10 @@ namespace AppNet.WinFormUI
         private async void LoadGridData()
         {
             var customer = (await cs.GetAll()).ToList();
+            var sales = (await ss.GetAll()).ToList();
             var data = from p in customer
+                       join c in sales
+                       on p.CustomerID equals c.CustomerID
                        select new CustomerViewModel
                        {
                            CustomerID = p.CustomerID,
@@ -74,7 +81,9 @@ namespace AppNet.WinFormUI
                            CustomerShippingAddress = p.CustomerShippingAddress,
                            CustomerTaxNumber = p.CustomerTaxNumber,
                            CustomerTaxOffice = p.CustomerTaxOffice,
-                           CustomerDesription= p.CustomerDesription,
+                           CustomerDesription = p.CustomerDesription,
+                           CustomerDebt = c.SalePrice,
+                           CustomerReceivable = c.SalePrice,
                            CustomerDate = p.CustomerDate,
                            CustomerModifitedDate = p.CustomerModifitedDate,
                        };
@@ -95,8 +104,10 @@ namespace AppNet.WinFormUI
             row.Cells[6].Value = model.CustomerTaxNumber;
             row.Cells[7].Value = model.CustomerTaxOffice;
             row.Cells[8].Value = model.CustomerDesription;
-            row.Cells[9].Value = model.CustomerDate;
-            row.Cells[10].Value = model.CustomerModifitedDate;
+            row.Cells[9].Value = model.CustomerDebt;
+            row.Cells[10].Value = model.CustomerReceivable;
+            row.Cells[11].Value = model.CustomerDate;
+            row.Cells[12].Value = model.CustomerModifitedDate;
 
 
             grdCustomerList.Rows.Add(row);

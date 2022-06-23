@@ -38,7 +38,7 @@ namespace AppNet.WinFormUI
 
         private void btnUpdatedProduct_Click(object sender, EventArgs e)
         {
-            var frm = sp.GetRequiredService<UpdateCategory>();
+            var frm = sp.GetRequiredService<UpdateProduct>();
             frm.ShowDialog();
             grdProductList.Rows.Clear();
             LoadGridData();
@@ -58,6 +58,8 @@ namespace AppNet.WinFormUI
         {
             var frm = sp.GetRequiredService<AddCategory>();
             frm.ShowDialog();
+            grdProductList.Rows.Clear();
+            LoadGridData();
 
         }
 
@@ -65,6 +67,8 @@ namespace AppNet.WinFormUI
         {
             var frm = sp.GetRequiredService<UpdateCategory>();
             frm.ShowDialog();
+            grdProductList.Rows.Clear();
+            LoadGridData();
 
         }
 
@@ -72,6 +76,8 @@ namespace AppNet.WinFormUI
         {
             var frm = sp.GetRequiredService<DeleteCategory>();
             frm.ShowDialog();
+            grdProductList.Rows.Clear();
+            LoadGridData();
 
         }
 
@@ -82,6 +88,7 @@ namespace AppNet.WinFormUI
 
         private void ProductFrm_Load(object sender, EventArgs e)
         {
+            grdProductList.Rows.Clear();
             grdProductList.Columns.Add("Product ID", "Ürün ID");
             grdProductList.Columns.Add("ProductName", "Ürün Adý");
             grdProductList.Columns.Add("CategoryName", "Kategori Adý");

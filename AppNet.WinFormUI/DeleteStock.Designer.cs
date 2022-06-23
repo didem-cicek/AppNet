@@ -35,6 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSearchDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdDeleteStockList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,11 +52,14 @@
             this.btnDeleted.Name = "btnDeleted";
             this.btnDeleted.Size = new System.Drawing.Size(150, 40);
             this.btnDeleted.TabIndex = 11;
-            this.btnDeleted.Text = "STOK SİL";
+            this.btnDeleted.Text = "STOK BUL";
             this.btnDeleted.UseVisualStyleBackColor = false;
+            this.btnDeleted.Click += new System.EventHandler(this.btnDeleted_Click);
             // 
             // grdDeleteStockList
             // 
+            this.grdDeleteStockList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdDeleteStockList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grdDeleteStockList.BackgroundColor = System.Drawing.Color.White;
             this.grdDeleteStockList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdDeleteStockList.Location = new System.Drawing.Point(25, 167);
@@ -73,6 +77,7 @@
             // 
             // cbbDeleteStockSearch
             // 
+            this.cbbDeleteStockSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbDeleteStockSearch.FormattingEnabled = true;
             this.cbbDeleteStockSearch.Location = new System.Drawing.Point(209, 27);
             this.cbbDeleteStockSearch.Name = "cbbDeleteStockSearch";
@@ -112,12 +117,30 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Kriter Seçiniz : ";
             // 
+            // btnSearchDelete
+            // 
+            this.btnSearchDelete.BackColor = System.Drawing.Color.Firebrick;
+            this.btnSearchDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearchDelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btnSearchDelete.FlatAppearance.BorderSize = 3;
+            this.btnSearchDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearchDelete.ForeColor = System.Drawing.Color.White;
+            this.btnSearchDelete.Location = new System.Drawing.Point(25, 325);
+            this.btnSearchDelete.Name = "btnSearchDelete";
+            this.btnSearchDelete.Size = new System.Drawing.Size(235, 40);
+            this.btnSearchDelete.TabIndex = 11;
+            this.btnSearchDelete.Text = "BULUNAN STOĞU SİL";
+            this.btnSearchDelete.UseVisualStyleBackColor = false;
+            this.btnSearchDelete.Click += new System.EventHandler(this.btnSearchDelete_Click);
+            // 
             // DeleteStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(479, 392);
+            this.Controls.Add(this.btnSearchDelete);
             this.Controls.Add(this.btnDeleted);
             this.Controls.Add(this.grdDeleteStockList);
             this.Controls.Add(this.txtDeleteStockSearch);
@@ -128,6 +151,7 @@
             this.Name = "DeleteStock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "STOK SİL";
+            this.Load += new System.EventHandler(this.DeleteStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdDeleteStockList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -143,5 +167,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private Button btnSearchDelete;
     }
 }
