@@ -71,6 +71,7 @@
             // 
             // cbbAddSalePrice
             // 
+            this.cbbAddSalePrice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbAddSalePrice.FormattingEnabled = true;
             this.cbbAddSalePrice.Location = new System.Drawing.Point(149, 113);
             this.cbbAddSalePrice.Name = "cbbAddSalePrice";
@@ -141,6 +142,7 @@
             // 
             // cbbAddSaleName
             // 
+            this.cbbAddSaleName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbAddSaleName.FormattingEnabled = true;
             this.cbbAddSaleName.Location = new System.Drawing.Point(149, 71);
             this.cbbAddSaleName.Name = "cbbAddSaleName";
@@ -149,6 +151,7 @@
             // 
             // cbbAddSaleProduct
             // 
+            this.cbbAddSaleProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbAddSaleProduct.FormattingEnabled = true;
             this.cbbAddSaleProduct.Location = new System.Drawing.Point(149, 29);
             this.cbbAddSaleProduct.Name = "cbbAddSaleProduct";
@@ -168,6 +171,7 @@
             // 
             // cbbAddSalePay
             // 
+            this.cbbAddSalePay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbAddSalePay.FormattingEnabled = true;
             this.cbbAddSalePay.Location = new System.Drawing.Point(149, 201);
             this.cbbAddSalePay.Name = "cbbAddSalePay";
@@ -187,6 +191,7 @@
             // 
             // cbbStatus
             // 
+            this.cbbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbStatus.FormattingEnabled = true;
             this.cbbStatus.Location = new System.Drawing.Point(148, 247);
             this.cbbStatus.Name = "cbbStatus";

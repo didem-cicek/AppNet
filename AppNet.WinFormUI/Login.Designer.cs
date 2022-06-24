@@ -317,7 +317,7 @@
 
         private Label label1;
         private Label label2;
-        private TextBox txtNewName;
+        public TextBox txtNewName;
         private TextBox txtPassword;
         private Button btnLogin;
         private Label label3;
@@ -329,7 +329,7 @@
         private Label label7;
         private TextBox txtNewDepartment;
         private Button btnNewUser;
-        private TextBox txtUserName;
+        public TextBox txtUserName;
         private Button btnLoginNewPassword;
         private Label label8;
         private Label label9;

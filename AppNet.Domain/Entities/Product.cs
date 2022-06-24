@@ -17,6 +17,7 @@ namespace AppNet.Domain.Entities
         public DateTime ProductDate { get; set; }
         public DateTime ProductModifitedDate { get; set; }
         public ICollection<Stock> Stocks { get; set; }
+        public ICollection<Sale> Sales { get; set; }
 
     }
 }

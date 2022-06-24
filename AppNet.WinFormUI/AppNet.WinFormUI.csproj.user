@@ -28,6 +28,15 @@
     <Compile Update="DeleteSale.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="CashFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StockFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ReportFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="SettingsFrm.cs">
       <SubType>Form</SubType>
     </Compile>

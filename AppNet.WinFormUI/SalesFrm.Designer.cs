@@ -57,10 +57,12 @@
             // 
             // grdSaleList
             // 
+            this.grdSaleList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdSaleList.BackgroundColor = System.Drawing.Color.White;
             this.grdSaleList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdSaleList.Location = new System.Drawing.Point(24, 343);
             this.grdSaleList.Name = "grdSaleList";
+            this.grdSaleList.RowHeadersVisible = false;
             this.grdSaleList.RowTemplate.Height = 25;
             this.grdSaleList.Size = new System.Drawing.Size(965, 197);
             this.grdSaleList.TabIndex = 6;

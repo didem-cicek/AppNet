@@ -26,6 +26,8 @@ namespace AppNet.AppService
             service.AddScoped<IStockService, StockService>();
             service.AddScoped<ISupplierService, SupplierService>();
             service.AddScoped<ILogService, LogService>();
+            service.AddScoped<ICashService, CashService>();
+            service.AddScoped<INotificationsService, NotificationsService>();
         }
     }
 }

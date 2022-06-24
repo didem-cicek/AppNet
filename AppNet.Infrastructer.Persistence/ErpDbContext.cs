@@ -38,17 +38,17 @@ namespace AppNet.Infrastructer.Persistence
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Stock>()
-            .HasMany(c => c.Cashes)
-            .WithOne(s => s.Stock)
-            .HasForeignKey(c => c.StockID)
-            .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<Stock>()
+            //.HasMany(c => c.Cashes)
+            //.WithOne(s => s.Stock)
+            //.HasForeignKey(c => c.StockID)
+            //.OnDelete(DeleteBehavior.Cascade);
             
-            modelBuilder.Entity<Cash>()
-             .HasOne(c => c.Stock)
-            .WithMany(s => s.Cashes)
-            .HasForeignKey(c => c.StockID)
-            .OnDelete(DeleteBehavior.NoAction);
+            //modelBuilder.Entity<Cash>()
+            // .HasOne(c => c.Stock)
+            //.WithMany(s => s.Cashes)
+            //.HasForeignKey(c => c.StockID)
+            //.OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Sale>()
             .HasOne(c => c.Customer)
@@ -61,6 +61,7 @@ namespace AppNet.Infrastructer.Persistence
            .WithOne(s => s.Customer)
            .HasForeignKey(c => c.CustomerID)
            .OnDelete(DeleteBehavior.NoAction);
+   
 
            // modelBuilder.Entity<Sale>()
            //.HasMany(c => c.Reports)
@@ -120,6 +121,10 @@ namespace AppNet.Infrastructer.Persistence
                         .HasKey(p => p.UserID);
             modelBuilder.Entity<DataBase>()
                         .HasKey(p => p.DataBaseID);
+            modelBuilder.Entity<Log>()
+                        .HasKey(p => p.LogID);
+            modelBuilder.Entity<Notifications>()
+                        .HasKey(p => p.NotificationsID);
             //var entityTypes = modelBuilder.Model
             //.GetEntityTypes()
             //.ToList();
@@ -142,6 +147,8 @@ namespace AppNet.Infrastructer.Persistence
         public DbSet<User> Users { get; set; }
         public DbSet<Report> Reports { get; set; }
         public DbSet<DataBase> DataBases { get; set; }
+        public DbSet<Notifications> Notifications { get; set; }
+        public DbSet<Log> Logs { get; set; }
 
     }
 }

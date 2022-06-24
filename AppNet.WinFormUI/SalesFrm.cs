@@ -17,13 +17,17 @@ namespace AppNet.WinFormUI
     {
         private readonly IServiceProvider sp;
         private readonly ISalesService ss;
-        private ICustomerService cs;
-        public SalesFrm(IServiceProvider sp, ISalesService ss, ICustomerService cs)
+        private readonly ICustomerService cs;
+        private readonly IStockService stc;
+        private readonly IProductService p;
+        public SalesFrm(IServiceProvider sp, ISalesService ss, ICustomerService cs, IStockService stc, IProductService p)
         {
             InitializeComponent();
             this.sp = sp;
             this.ss = ss;
             this.cs = cs;
+            this.stc = stc;
+            this.p = p;
         }
 
         private void btnAddSale_Click(object sender, EventArgs e)
@@ -52,29 +56,38 @@ namespace AppNet.WinFormUI
 
         private void SalesFrm_Load(object sender, EventArgs e)
         {
-            grdSaleList.Rows.Clear();
-            grdSaleList.Columns.Add("SaleID", "Satış ID");
-            grdSaleList.Columns.Add("ProductName", "Ürün Adı");
-            grdSaleList.Columns.Add("CustomerName", "Müşteri Adı");
-            grdSaleList.Columns.Add("Piece", "Adet");
-            grdSaleList.Columns.Add("UnitPrice", "Birim Fiyat");
-            grdSaleList.Columns.Add("TotalPrice", "Toplam Fiyar");
-            grdSaleList.Columns.Add("Date", "Kayıt Tarihi");
-            grdSaleList.Columns.Add("ModifiedDate", "Düzenlenme Tarihi");
-            LoadGridData();
-            grdSaleList.Columns[0].Visible = false;
+            if (grdSaleList.Rows.Count == 0)
+            {
+                grdSaleList.Rows.Clear();
+                grdSaleList.Columns.Add("SaleID", "Satış ID");
+                grdSaleList.Columns.Add("ProductName", "Ürün Adı");
+                grdSaleList.Columns.Add("CustomerName", "Müşteri Adı");
+                grdSaleList.Columns.Add("Piece", "Adet");
+                grdSaleList.Columns.Add("UnitPrice", "Birim Fiyat");
+                grdSaleList.Columns.Add("TotalPrice", "Toplam Fiyat");
+                grdSaleList.Columns.Add("Date", "Kayıt Tarihi");
+                grdSaleList.Columns.Add("ModifiedDate", "Düzenlenme Tarihi");
+                LoadGridData();
+                grdSaleList.Columns[0].Visible = false;
+            }
         }
         private async void LoadGridData()
         {
             var sales = (await ss.GetAll()).ToList();
             var customer = (await cs.GetAll()).ToList();
+            var stock = (await stc.GetAll()).ToList();
+            var product = (await p.GetAll()).ToList();
             var data = from p in sales
                        join c in customer
                        on p.CustomerID equals c.CustomerID
+                       join s in stock
+                       on p.StockID equals s.StockID
+                       join pr in product
+                       on s.ProductID equals pr.ProductID
                        select new SaleViewModel
                        {
                            SaleID = p.SaleID,
-                           ProductName = p.Stock.ProductName,
+                           ProductName = pr.ProductName,
                            CustomerName = c.CustomerName,
                            Piece = p.ProductPiece,
                            UnitPrice = p.SalePrice,

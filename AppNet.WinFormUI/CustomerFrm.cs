@@ -38,12 +38,16 @@ namespace AppNet.WinFormUI
         {
             var frm = sp.GetRequiredService<UpdateCustomer>();
             frm.ShowDialog();
+            grdCustomerList.Rows.Clear();
+            LoadGridData();
         }
 
         private void btnDeletedCustomer_Click(object sender, EventArgs e)
         {
             var frm = sp.GetRequiredService<DeleteCustomer>();
             frm.ShowDialog();
+            grdCustomerList.Rows.Clear();
+            LoadGridData();
         }
 
         private void CustomerFrm_Load(object sender, EventArgs e)

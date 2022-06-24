@@ -41,7 +41,7 @@ namespace AppNet.WinFormUI
                                     select new
                                     {
                                         ID = q.StockID,
-                                        TedarikçiAdı = q.SupplierName
+                                        TedarikçiAdı = q.Supplier.SupplierName,
                                     }).ToList();
                     grdDeleteStockList.DataSource = gridList;
                 }
@@ -57,11 +57,11 @@ namespace AppNet.WinFormUI
                 try
                 {
                     var gridList = (from q in list
-                                    where q.SupplierName == txtDeleteStockSearch.Text
+                                    where q.Supplier.SupplierName == txtDeleteStockSearch.Text
                                     select new
                                     {
                                         ID = q.StockID,
-                                        TedarikçiAdı = q.SupplierName
+                                        TedarikçiAdı = q.Supplier.SupplierName,
                                     }).ToList();
                     grdDeleteStockList.DataSource = gridList;
                 }

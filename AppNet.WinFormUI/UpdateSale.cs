@@ -45,7 +45,7 @@ namespace AppNet.WinFormUI
                                     select new
                                     {
                                         ID = q.SaleID,
-                                        ÜrünAdı = q.Stock.ProductName,
+                                        ÜrünAdı = q,
                                         FirmaAdı = c.CustomerName,
                                         Fiyat = q.ProductPiece,
                                         Adet = q.ProductPiece,
@@ -79,11 +79,11 @@ namespace AppNet.WinFormUI
                     var gridList = (from q in sale
                                     join c in customer
                                     on q.CustomerID equals c.CustomerID
-                                    where q.CustomerName == txtUpdateSaleSearch.Text
+                                    where c.CustomerName == txtUpdateSaleSearch.Text
                                     select new
                                     {
                                         ID = q.SaleID,
-                                        ÜrünAdı = q.Stock.ProductName,
+                                        ÜrünAdı = q.Stock.Product.ProductName,
                                         FirmaAdı = c.CustomerName,
                                         Fiyat = q.ProductPiece,
                                         Adet = q.ProductPiece,

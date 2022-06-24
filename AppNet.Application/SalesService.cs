@@ -44,14 +44,13 @@ namespace AppNet.AppService
             return true;
         }
 
-        public async Task<Sale> Update(int SaleID, int StockID, int CustomerID, string CustomerName, short ProductPiece, decimal SalePrice, decimal TotalPrice, string SaleDesription, string SaleStatus, string SalePaymentMethod)
+        public async Task<Sale> Update(int SaleID, int StockID, int CustomerID, short ProductPiece, decimal SalePrice, decimal TotalPrice, string SaleDesription, string SaleStatus, string SalePaymentMethod)
         {
             Sale sale = new Sale()
             {
                 SaleID = SaleID,
                 StockID = StockID,
                 CustomerID = CustomerID,
-                CustomerName = CustomerName,
                 ProductPiece = ProductPiece,
                 SalePrice = SalePrice,
                 SaleDesription = SaleDesription,

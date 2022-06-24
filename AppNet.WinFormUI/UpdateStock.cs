@@ -109,7 +109,7 @@ namespace AppNet.WinFormUI
                                     where q.SupplierID == Convert.ToInt32(txtUpdateStockSearch.Text)
                                     select new
                                     {
-                                        ÜrünAdı = q.ProductName,
+                                        ÜrünAdı = q.Product.ProductName,
                                         ÜrünTipi = q.ProductType,
                                         Tedarikçi = c.SupplierName,
                                         Fiyat = q.PurchaseUnitPrice,
@@ -138,14 +138,12 @@ namespace AppNet.WinFormUI
                 try
                 {
                     var gridList = (from q in stock
-                                    join c in supplier
-                                    on q.SupplierID equals c.SupplierID
-                                    where q.SupplierName == txtUpdateStockSearch.Text
+                                    where q.Supplier.SupplierName == txtUpdateStockSearch.Text
                                     select new
                                     {
-                                        ÜrünAdı = q.ProductName,
+                                        ÜrünAdı = q.Product.ProductName,
                                         ÜrünTipi = q.ProductType,
-                                        Tedarikçi = c.SupplierName,
+                                        Tedarikçi = q.Supplier.SupplierName,
                                         Fiyat = q.PurchaseUnitPrice,
                                         Adet = q.StockPiece,
                                         KritikStok = q.StockCritical,

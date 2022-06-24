@@ -36,7 +36,7 @@
             this.btnStockManagement = new System.Windows.Forms.Button();
             this.btnCustomers = new System.Windows.Forms.Button();
             this.btnSales = new System.Windows.Forms.Button();
-            this.btnCash = new System.Windows.Forms.Button();
+            this.btnStock = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,11 +46,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.grdInfo = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCash = new System.Windows.Forms.Button();
+            this.grdNot = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.grdUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTotal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdNot)).BeginInit();
             this.SuspendLayout();
             // 
             // btnProductManagement
@@ -173,25 +173,26 @@
             this.btnSales.UseVisualStyleBackColor = false;
             this.btnSales.Click += new System.EventHandler(this.btnSales_Click);
             // 
-            // btnCash
+            // btnStock
             // 
-            this.btnCash.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnCash.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCash.FlatAppearance.BorderColor = System.Drawing.Color.Indigo;
-            this.btnCash.FlatAppearance.BorderSize = 3;
-            this.btnCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCash.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCash.ForeColor = System.Drawing.Color.White;
-            this.btnCash.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCash.ImageKey = "stock-management.png";
-            this.btnCash.ImageList = this.imageList1;
-            this.btnCash.Location = new System.Drawing.Point(372, 142);
-            this.btnCash.Name = "btnCash";
-            this.btnCash.Size = new System.Drawing.Size(169, 109);
-            this.btnCash.TabIndex = 5;
-            this.btnCash.Text = "STOK";
-            this.btnCash.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCash.UseVisualStyleBackColor = false;
+            this.btnStock.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnStock.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStock.FlatAppearance.BorderColor = System.Drawing.Color.Indigo;
+            this.btnStock.FlatAppearance.BorderSize = 3;
+            this.btnStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnStock.ForeColor = System.Drawing.Color.White;
+            this.btnStock.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnStock.ImageKey = "stock-management.png";
+            this.btnStock.ImageList = this.imageList1;
+            this.btnStock.Location = new System.Drawing.Point(372, 142);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.Size = new System.Drawing.Size(169, 109);
+            this.btnStock.TabIndex = 5;
+            this.btnStock.Text = "STOK";
+            this.btnStock.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnStock.UseVisualStyleBackColor = false;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
             // 
             // btnSettings
             // 
@@ -232,6 +233,7 @@
             this.btnReports.Text = "RAPORLAR";
             this.btnReports.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnReports.UseVisualStyleBackColor = false;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // label1
             // 
@@ -257,21 +259,29 @@
             // 
             // grdUpdate
             // 
+            this.grdUpdate.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdUpdate.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grdUpdate.BackgroundColor = System.Drawing.Color.White;
             this.grdUpdate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdUpdate.GridColor = System.Drawing.Color.White;
             this.grdUpdate.Location = new System.Drawing.Point(29, 423);
             this.grdUpdate.Name = "grdUpdate";
             this.grdUpdate.RowTemplate.Height = 25;
+            this.grdUpdate.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grdUpdate.Size = new System.Drawing.Size(436, 126);
             this.grdUpdate.TabIndex = 9;
             // 
             // grdTotal
             // 
+            this.grdTotal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdTotal.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grdTotal.BackgroundColor = System.Drawing.Color.White;
             this.grdTotal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdTotal.GridColor = System.Drawing.Color.White;
             this.grdTotal.Location = new System.Drawing.Point(545, 423);
             this.grdTotal.Name = "grdTotal";
             this.grdTotal.RowTemplate.Height = 25;
+            this.grdTotal.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grdTotal.Size = new System.Drawing.Size(436, 126);
             this.grdTotal.TabIndex = 10;
             // 
@@ -309,35 +319,39 @@
             this.label5.Text = "BİLDİRİMLER";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // grdInfo
+            // btnCash
             // 
-            this.grdInfo.BackgroundColor = System.Drawing.Color.White;
-            this.grdInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdInfo.Location = new System.Drawing.Point(760, 142);
-            this.grdInfo.Name = "grdInfo";
-            this.grdInfo.RowTemplate.Height = 25;
-            this.grdInfo.Size = new System.Drawing.Size(221, 108);
-            this.grdInfo.TabIndex = 8;
+            this.btnCash.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnCash.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCash.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnCash.FlatAppearance.BorderSize = 3;
+            this.btnCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCash.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCash.ForeColor = System.Drawing.Color.White;
+            this.btnCash.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCash.ImageKey = "cash.png";
+            this.btnCash.ImageList = this.imageList1;
+            this.btnCash.Location = new System.Drawing.Point(547, 25);
+            this.btnCash.Name = "btnCash";
+            this.btnCash.Size = new System.Drawing.Size(169, 109);
+            this.btnCash.TabIndex = 5;
+            this.btnCash.Text = "KASA";
+            this.btnCash.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCash.UseVisualStyleBackColor = false;
+            this.btnCash.Click += new System.EventHandler(this.btnCash_Click);
             // 
-            // button1
+            // grdNot
             // 
-            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.button1.FlatAppearance.BorderSize = 3;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.ImageKey = "cash.png";
-            this.button1.ImageList = this.imageList1;
-            this.button1.Location = new System.Drawing.Point(547, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 109);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "KASA";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
+            this.grdNot.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdNot.BackgroundColor = System.Drawing.Color.White;
+            this.grdNot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdNot.GridColor = System.Drawing.Color.White;
+            this.grdNot.Location = new System.Drawing.Point(741, 142);
+            this.grdNot.Name = "grdNot";
+            this.grdNot.RowTemplate.Height = 25;
+            this.grdNot.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grdNot.Size = new System.Drawing.Size(240, 109);
+            this.grdNot.TabIndex = 11;
             // 
             // MainForm
             // 
@@ -345,7 +359,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 561);
-            this.Controls.Add(this.grdInfo);
+            this.Controls.Add(this.grdNot);
             this.Controls.Add(this.grdTotal);
             this.Controls.Add(this.grdUpdate);
             this.Controls.Add(this.label4);
@@ -355,8 +369,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReports);
             this.Controls.Add(this.btnSettings);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCash);
+            this.Controls.Add(this.btnStock);
             this.Controls.Add(this.btnSales);
             this.Controls.Add(this.btnCustomers);
             this.Controls.Add(this.btnStockManagement);
@@ -368,7 +382,7 @@
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTotal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdNot)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,7 +396,7 @@
         public Button btnStockManagement;
         public Button btnCustomers;
         public Button btnSales;
-        public Button btnCash;
+        public Button btnStock;
         public Button btnSettings;
         public Button btnReports;
         private Label label1;
@@ -392,7 +406,7 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        public DataGridView grdInfo;
-        public Button button1;
+        public Button btnCash;
+        private DataGridView grdNot;
     }
 }

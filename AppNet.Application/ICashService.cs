@@ -9,8 +9,8 @@ namespace AppNet.AppService
 {
     public interface ICashService
     {
-        Cash Add(int SaleID, int StockID);
-        Task<Cash> Update(int CashID, int SaleID, int StockID);
+        Cash Add(decimal Debt, decimal Receivable, decimal TotalCash);
+        Task<Cash> Update(int CashID, decimal Debt, decimal Receivable, decimal TotalCash);
         Task<bool> Remove(int id);
         Task<ICollection<Cash>> GetAll();
     }

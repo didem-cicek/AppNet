@@ -112,6 +112,7 @@
             // 
             this.txtAddPassword.Location = new System.Drawing.Point(175, 170);
             this.txtAddPassword.Name = "txtAddPassword";
+            this.txtAddPassword.PasswordChar = '*';
             this.txtAddPassword.Size = new System.Drawing.Size(242, 29);
             this.txtAddPassword.TabIndex = 3;
             this.txtAddPassword.TextChanged += new System.EventHandler(this.txtAddDatabasePassword_TextChanged);

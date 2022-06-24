@@ -1,5 +1,6 @@
 
 using AppNet.AppService;
+using AppNet.Infrastructer.Persistence.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AppNet.WinFormUI
@@ -12,7 +13,8 @@ namespace AppNet.WinFormUI
         private readonly ICustomerService cs;
         private readonly IStockService ss;
         private readonly ICashService css;
-        public MainForm(IServiceProvider sp, IReportService rs, ISalesService sss, ICustomerService cs, IStockService ss, ICashService css)
+        private readonly INotificationsService n;
+        public MainForm(IServiceProvider sp, IReportService rs, ISalesService sss, ICustomerService cs, IStockService ss, ICashService css, INotificationsService n)
         {
             InitializeComponent();
             this.sp = sp;
@@ -21,47 +23,43 @@ namespace AppNet.WinFormUI
             this.cs = cs;
             this.ss = ss;
             this.css = css;
+            this.n = n;
         }
 
         private async void FrmMain_Load(object sender, EventArgs e)
         {
-            grdInfo.Rows.Add("Sisteme giriþ yaptýnýz.");
-            decimal totalsales = 0;
-            int totalCustomer = 0;
-            int totalStock = 0;
-            string CritialStockName = string.Empty; ;
-            int critialStok = 0;
-            int critial = 0;
-            string lastCustomer;
-            string lastProduct;
-            string lastSale;
-            int last;
-            var sales = (await sss.GetAll()).ToList();
-            var customer= (await cs.GetAll()).ToList();
-            var stock = (await ss.GetAll()).ToList();
-            var cash = (await cs.GetAll()).ToList();
-            foreach (var s in sales)
+            if (grdNot.Rows.Count == 0)
             {
-                totalsales = totalsales + s.TotalPrice;
-                //last = sales.LastIndexOf(s.SaleID);
+                grdNot.Rows.Clear();
+                grdNot.Refresh();
+                grdNot.Columns.Add("NotificationID", "ID");
+                grdNot.Columns.Add("NotificationName", "Bildirim");
+                LoadGridData();
+                grdNot.Columns[0].Visible = false;
             }
-            totalCustomer = customer.Count;
-            foreach (var s in stock)
+        }
+        private async void LoadGridData()
+        {
+            var not = (await n.GetAll()).ToList();
+            var data = from q in not
+                       select new NotificationViewModel
+                       {
+                           NotificationID = q.NotificationsID,
+                           NotificationName = q.NotificationsName,
+                       };
+            foreach (var item in data)
             {
-                totalStock = totalStock + s.StockPiece;
-                critial = (Convert.ToInt32(s.StockPiece)) - (Convert.ToInt32(s.StockCritical));
-                if (critial <= s.StockCritical)
-                {
-                    CritialStockName = s.ProductName;
-                    critialStok = s.StockPiece;
-                }
-                
+                AddRowToGrid(item);
             }
-            rs.Add(totalsales, totalStock, totalCustomer, cash.Count, CritialStockName, critialStok);
-            grdTotal.Columns.Add("totalsales", "Toplam Satýþ");
-            grdTotal.Columns.Add("totalStock", "Toplam Stok");
-            grdTotal.Columns.Add("totalCustomer", "Toplam Müþteri");
-            grdTotal.Rows.Add(totalsales, totalStock, totalCustomer);
+
+        }
+
+        private void AddRowToGrid(NotificationViewModel model)
+        {
+            DataGridViewRow row = (DataGridViewRow)grdNot.Rows[0].Clone();
+            row.Cells[0].Value = model.NotificationID;
+            row.Cells[1].Value = model.NotificationName;
+            grdNot.Rows.Add(row);
         }
 
         private void btnProductManagement_Click(object sender, EventArgs e)
@@ -103,6 +101,29 @@ namespace AppNet.WinFormUI
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCash_Click(object sender, EventArgs e)
+        {
+            var frm = sp.GetRequiredService<cashForm>();
+            frm.ShowDialog();
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            var frm = sp.GetRequiredService<ReportFrm>();
+            frm.ShowDialog();
+        }
+
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            var frm = sp.GetRequiredService<StockFrm>();
+            frm.ShowDialog();
+        }
+
+        public void grdInfo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

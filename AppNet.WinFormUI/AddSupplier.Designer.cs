@@ -102,7 +102,7 @@
             this.btnAddSupplier.Location = new System.Drawing.Point(283, 219);
             this.btnAddSupplier.Name = "btnAddSupplier";
             this.btnAddSupplier.Size = new System.Drawing.Size(150, 40);
-            this.btnAddSupplier.TabIndex = 2;
+            this.btnAddSupplier.TabIndex = 5;
             this.btnAddSupplier.Text = "TEDARİKÇİ EKLE";
             this.btnAddSupplier.UseVisualStyleBackColor = false;
             this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);

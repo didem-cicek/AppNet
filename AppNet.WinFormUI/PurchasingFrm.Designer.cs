@@ -48,11 +48,14 @@
             // 
             // grdStockList
             // 
+            this.grdStockList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdStockList.BackgroundColor = System.Drawing.Color.White;
             this.grdStockList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdStockList.Location = new System.Drawing.Point(24, 343);
             this.grdStockList.Name = "grdStockList";
+            this.grdStockList.RowHeadersVisible = false;
             this.grdStockList.RowTemplate.Height = 25;
+            this.grdStockList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grdStockList.Size = new System.Drawing.Size(965, 197);
             this.grdStockList.TabIndex = 7;
             // 

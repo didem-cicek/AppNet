@@ -15,12 +15,13 @@ namespace AppNet.AppService
         {
             this.repository = repository;
         }
-        public Cash Add(int SaleID, int StockID)
+        public Cash Add(decimal Debt, decimal Receivable, decimal TotalCash)
         {
             Cash cash = new Cash()
             {
-                SaleID = SaleID,
-                StockID = StockID,
+                Debt = Debt,
+                Receivable = Receivable,
+                TotalCash = TotalCash,
                 CashDate = DateTime.Now,
 
             };
@@ -39,13 +40,14 @@ namespace AppNet.AppService
             return true;
         }
 
-        public async Task<Cash> Update(int CashID, int SaleID, int StockID)
+        public async Task<Cash> Update(int CashID, decimal Debt, decimal Receivable, decimal TotalCash)
         {
             Cash cash = new Cash()
             {
                 CashID = CashID,
-                SaleID = SaleID,
-                StockID = StockID,
+                Debt = Debt,
+                Receivable = Receivable,
+                TotalCash =TotalCash,
                 CashModifitedDate = DateTime.Now,
 
             };

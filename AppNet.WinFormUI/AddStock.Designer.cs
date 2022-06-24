@@ -69,6 +69,7 @@
             // 
             // cbbAddProductType
             // 
+            this.cbbAddProductType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbAddProductType.FormattingEnabled = true;
             this.cbbAddProductType.ItemHeight = 21;
             this.cbbAddProductType.Location = new System.Drawing.Point(145, 76);
@@ -78,6 +79,7 @@
             // 
             // cbbSelectedSuppliers
             // 
+            this.cbbSelectedSuppliers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbSelectedSuppliers.FormattingEnabled = true;
             this.cbbSelectedSuppliers.ItemHeight = 21;
             this.cbbSelectedSuppliers.Location = new System.Drawing.Point(145, 119);
@@ -167,6 +169,7 @@
             // 
             // cbbAddStockProductName
             // 
+            this.cbbAddStockProductName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbAddStockProductName.FormattingEnabled = true;
             this.cbbAddStockProductName.ItemHeight = 21;
             this.cbbAddStockProductName.Location = new System.Drawing.Point(144, 33);

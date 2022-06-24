@@ -19,12 +19,13 @@ namespace AppNet.AppService
         {
             Stock stock = new Stock()
             {
+                SupplierID = SupplierID,
+                ProductID = ProductID,
                 ProductType = ProductType,
                 PurchaseUnitPrice = PurchaseUnitPrice,
                 StockTotalPrice = StockTotalPrice,
                 StockPiece = StockPiece,
-                SupplierID = SupplierID,
-                ProductID = ProductID,
+                StockCritical = StockCritical,
                 StockDate = DateTime.Now,
             };
             repository.Add(stock);
@@ -47,12 +48,13 @@ namespace AppNet.AppService
             Stock stock = new Stock()
             {
                 StockID = StockID,
+                SupplierID = SupplierID,
+                ProductID = ProductID,
                 ProductType = ProductType,
                 PurchaseUnitPrice = PurchaseUnitPrice,
                 StockTotalPrice = StockTotalPrice,
                 StockPiece = StockPiece,
-                SupplierID = SupplierID,
-                ProductID = ProductID,
+                StockCritical = StockCritical,
                 StockModifitedDate = DateTime.Now,
             };
             repository.Update(StockID, stock);

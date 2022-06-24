@@ -21,12 +21,14 @@ namespace AppNet.WinFormUI
         private readonly IUserService UserService;
         private readonly IServiceProvider sp;
         private readonly ILogService ls;
-        public Login(IUserService UserService, IServiceProvider sp, ILogService ls)
+        private readonly INotificationsService n;
+        public Login(IUserService UserService, IServiceProvider sp, ILogService ls, INotificationsService n)
         {
             InitializeComponent();
             this.UserService = UserService;
             this.sp = sp;
             this.ls = ls;
+            this.n = n;
             
         }
         private void Login_Load(object sender, EventArgs e)
@@ -50,9 +52,11 @@ namespace AppNet.WinFormUI
                 var password = list.FirstOrDefault(u => u.Password == txtPassword.Text);
                 if (userName!=null && password!=null)
                     {
-                        var mainForm = sp.GetRequiredService<MainForm>();
-                        mainForm.ShowDialog();
-                        break;
+                    n.Add("Hoşgeldiniz " + txtUserName.Text);
+                    ls.Add("Sisteme giriş yapıldı.", "Bilgilenirme");
+                    var mainForm = sp.GetRequiredService<MainForm>();
+                    mainForm.ShowDialog();
+                    break;
                     }
                     else if (userName == null && password == null)
                     {
@@ -61,13 +65,14 @@ namespace AppNet.WinFormUI
                         {
                             txtUserName.Text = "";
                             txtPassword.Text = "";
-                            ls.Add("Sisteme giriş yapıldı.", "Bilgilenirme");
+                            
                             break;
                         }
                     }else{
                         DialogResult dialog = MessageBox.Show("Bilinmeyen bir hata oluştu, sistem yöneticiniz ile iletişime geçiniz!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-              }
+               
+            }
          }
 
         private void btnNewUser_Click(object sender, EventArgs e)

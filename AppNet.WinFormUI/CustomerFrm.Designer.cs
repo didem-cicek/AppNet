@@ -49,12 +49,13 @@
             // grdCustomerList
             // 
             this.grdCustomerList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grdCustomerList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.grdCustomerList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grdCustomerList.BackgroundColor = System.Drawing.Color.White;
             this.grdCustomerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdCustomerList.Location = new System.Drawing.Point(24, 343);
             this.grdCustomerList.MultiSelect = false;
             this.grdCustomerList.Name = "grdCustomerList";
+            this.grdCustomerList.RowHeadersVisible = false;
             this.grdCustomerList.RowTemplate.Height = 25;
             this.grdCustomerList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grdCustomerList.Size = new System.Drawing.Size(965, 197);

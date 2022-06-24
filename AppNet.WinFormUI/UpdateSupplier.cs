@@ -51,7 +51,7 @@ namespace AppNet.WinFormUI
                                         TedarikçiAdý = q.SupplierName,
                                         Telefon = q.SupplierPhone,
                                         Adres = q.SupplierAddress,
-                                        SevkAdresi=q.SupplierShippingAddress
+                                        SevkAdresi=q.SupplierShippingAddress,
                                     }).ToList();
                     grdSupplierList.DataSource = gridList;
                     foreach (var i in gridList)

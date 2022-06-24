@@ -35,6 +35,7 @@ namespace AppNet.WinFormUI
 
         private void SuppliersFrm_Load(object sender, EventArgs e)
         {
+            if (grdSupplierList.Rows.Count == 0) { 
             grdSupplierList.Rows.Clear();
             grdSupplierList.Columns.Add("SupplierID", "Tedarikçi ID");
             grdSupplierList.Columns.Add("SupplierName", "Tedarikçi Adý");
@@ -47,7 +48,7 @@ namespace AppNet.WinFormUI
             grdSupplierList.Columns.Add("ModifiedDate", "Son Düzenleme");
             LoadGridData();
             grdSupplierList.Columns[0].Visible = false;
-        }
+        }}
         private async void LoadGridData()
         {
             var supplier = (await ss.GetAll()).ToList();

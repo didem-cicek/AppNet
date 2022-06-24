@@ -41,7 +41,7 @@ namespace AppNet.WinFormUI
                                     select new
                                     {
                                         ID = q.SaleID,
-                                        MüşteriAdı = q.CustomerName
+                                        MüşteriAdı = q.Customer.CustomerName,
                                     }).ToList();
                     grdDeletedList.DataSource = gridList;
                     btnsearchdelete.Visible = true;
@@ -58,11 +58,11 @@ namespace AppNet.WinFormUI
                 try
                 {
                     var gridList = (from q in list
-                                    where q.CustomerName == txtDeletedSearch.Text
+                                    where q.Customer.CustomerName == txtDeletedSearch.Text
                                     select new
                                     {
                                         ID = q.SaleID,
-                                        MüşteriAdı = q.CustomerName
+                                        MüşteriAdı = q.Customer.CustomerName,
                                     }).ToList();
                     grdDeletedList.DataSource = gridList;
                     btnsearchdelete.Visible = true;

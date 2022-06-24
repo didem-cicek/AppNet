@@ -17,7 +17,7 @@ namespace AppNet.WinFormUI
         private readonly ICustomerService cs;
         private readonly IStockService sts;
         private readonly ISalesService ss;
-        
+
         public AddSale(IProductService ps, ICustomerService cs, IStockService sts, ISalesService ss)
         {
             InitializeComponent();
@@ -48,7 +48,7 @@ namespace AppNet.WinFormUI
             var price = (from q in st
                          join w in p
                          on q.ProductID equals w.ProductID
-                         where q.ProductID == Convert.ToInt32(cbbAddSaleName.SelectedValue)
+                         where q.ProductID == Convert.ToInt32(cbbAddSaleProduct.SelectedValue)
                          select new
                          {
                              ID = q.ProductID,
@@ -75,10 +75,20 @@ namespace AppNet.WinFormUI
 
         private async void btnAddProduct_Click(object sender, EventArgs e)
         {
-            decimal TotalPrice = Convert.ToDecimal(cbbAddSalePrice.Text) * Convert.ToInt16(txtAddSalePiece);
-            ss.Add(Convert.ToInt32(cbbAddSaleProduct.SelectedValue), Convert.ToInt32(cbbAddSaleName.SelectedValue), Convert.ToInt16(txtAddSalePiece.Text), Convert.ToDecimal(cbbAddSalePrice), TotalPrice, txtAddSaleDescription.Text, cbbStatus.SelectedText,cbbAddSalePay.SelectedText);
-           
-
+            decimal TotalPrice = Convert.ToDecimal(cbbAddSalePrice.Text) * Convert.ToInt16(txtAddSalePiece.Text);
+            ss.Add(Convert.ToInt32(cbbAddSaleProduct.SelectedValue), Convert.ToInt32(cbbAddSaleName.SelectedValue), Convert.ToInt16(txtAddSalePiece.Text), Convert.ToDecimal(cbbAddSalePrice.SelectedValue), TotalPrice, txtAddSaleDescription.Text, cbbStatus.Text,cbbAddSalePay.Text);
+            DialogResult dialogResult = MessageBox.Show("Sipariş başarıyla eklenmiştir. Bir sipariş daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
+            {
+                txtAddSaleDescription.Text = "";
+                txtAddSalePiece.Text = "";
+            }
+            else
+            {
+                this.Close();
+            }
+            txtAddSaleDescription.Text = "";
+            txtAddSalePiece.Text = "";
         }
     }
 }

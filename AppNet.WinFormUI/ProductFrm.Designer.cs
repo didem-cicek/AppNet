@@ -266,7 +266,6 @@
             // 
             this.grdProductList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdProductList.BackgroundColor = System.Drawing.Color.White;
-            this.grdProductList.ColumnHeadersVisible = false;
             this.grdProductList.Location = new System.Drawing.Point(22, 352);
             this.grdProductList.MultiSelect = false;
             this.grdProductList.Name = "grdProductList";

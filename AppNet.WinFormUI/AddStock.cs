@@ -16,6 +16,7 @@ namespace AppNet.WinFormUI
         private readonly IStockService ss;
         private readonly IProductService ps;
         private readonly ISupplierService sps;
+        
         public AddStock(IStockService ss, IProductService ps, ISupplierService sps)
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace AppNet.WinFormUI
 
         private void btnAddStock_Click(object sender, EventArgs e)
         {
-            decimal StockTotalPrice = Convert.ToInt32(txtAddStockPiece.Text) * Convert.ToDecimal(txtAddStockPrice.Text);
+            decimal StockTotalPrice = Convert.ToDecimal(txtAddStockPrice.Text) * Convert.ToInt32(txtAddStockPiece.Text);
             ss.Add(cbbAddProductType.Text, Convert.ToDecimal(txtAddStockPrice.Text), StockTotalPrice, Convert.ToInt16(txtAddStockPiece.Text), Convert.ToInt16(txtAddCriticalStock.Text), Convert.ToInt32(cbbSelectedSuppliers.SelectedValue), Convert.ToInt32(cbbAddStockProductName.SelectedValue));
             DialogResult dialogResult = MessageBox.Show("Stok başarıyla eklenmiştir. Bir stok daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.Yes)
@@ -64,6 +65,8 @@ namespace AppNet.WinFormUI
             }
             cbbAddProductType.Items.Clear();
             cbbAddProductType.Items.Add("kg");
+            cbbAddProductType.Items.Add("adet");
+            cbbAddProductType.Items.Add("tane");
             cbbAddProductType.Items.Add("l");
             cbbAddProductType.Items.Add("cm");
             cbbAddProductType.Items.Add("m");

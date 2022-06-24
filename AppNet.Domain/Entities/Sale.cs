@@ -13,17 +13,15 @@ namespace AppNet.Domain.Entities
         public int StockID { get; set; }
         public Stock Stock { get; set; }
         public int CustomerID { get; set; }
-        public string CustomerName { get; set; }
         public Customer Customer { get; set; }
         public short ProductPiece { get; set; }
         public decimal SalePrice { get; set; }
         public decimal TotalPrice { get; set; }
+        public string SalePaymentMethod { get; set; }
         public string SaleDesription { get; set; }
         public string SaleStatus { get; set; }
         public DateTime SaleDate { get; set; }
         public DateTime SaleModifitedDate { get; set; }
-        public string SalePaymentMethod { get; set; }
-        public ICollection<Cash> Cashes { get; set; }
         public ICollection<Report> Reports { get; set; }
 
     }

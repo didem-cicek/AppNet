@@ -88,15 +88,18 @@ namespace AppNet.WinFormUI
 
         private void ProductFrm_Load(object sender, EventArgs e)
         {
-            grdProductList.Rows.Clear();
-            grdProductList.Columns.Add("Product ID", "Ürün ID");
-            grdProductList.Columns.Add("ProductName", "Ürün Adý");
-            grdProductList.Columns.Add("CategoryName", "Kategori Adý");
-            grdProductList.Columns.Add("ProductDesriciption", "Ürün Açýklamasý");
-            grdProductList.Columns.Add("ProductDate", "Eklenme Tarihi");
-            grdProductList.Columns.Add("ModifitedDate", "Düzenlenme Tarihi");
-            LoadGridData();
-            grdProductList.Columns[0].Visible = false;
+            if (grdProductList.Rows.Count == 0)
+            {
+                grdProductList.Rows.Clear();
+                grdProductList.Columns.Add("Product ID", "Ürün ID");
+                grdProductList.Columns.Add("ProductName", "Ürün Adý");
+                grdProductList.Columns.Add("CategoryName", "Kategori Adý");
+                grdProductList.Columns.Add("ProductDesriciption", "Ürün Açýklamasý");
+                grdProductList.Columns.Add("ProductDate", "Eklenme Tarihi");
+                grdProductList.Columns.Add("ModifitedDate", "Düzenlenme Tarihi");
+                LoadGridData();
+                grdProductList.Columns[0].Visible = false;
+            }
         }
         private async void LoadGridData()
         {
