@@ -44,6 +44,7 @@ namespace AppNet.WinFormUI
             {
                 DialogResult dialog = MessageBox.Show("3 hakkınızda kullandınız!", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ls.Add("3 defa yanlış şifre denemesi yapıldı", "Kritik Hata");
+                notifyIcon1.ShowBalloonTip(1000, "Giriş Başarısız!", "Kullanıcınızı veya şifreniz yanlış kontrol ediniz. ", ToolTipIcon.Error);
                 this.Close();
             }
             foreach (var item in list)
@@ -52,7 +53,7 @@ namespace AppNet.WinFormUI
                 var password = list.FirstOrDefault(u => u.Password == txtPassword.Text);
                 if (userName!=null && password!=null)
                     {
-                    n.Add("Hoşgeldiniz " + txtUserName.Text);
+                    notifyIcon1.ShowBalloonTip(1000, "Giriş Başarılı", "Hoşgeldiniz "+ item.UserName, ToolTipIcon.Info);
                     ls.Add("Sisteme giriş yapıldı.", "Bilgilenirme");
                     var mainForm = sp.GetRequiredService<MainForm>();
                     mainForm.ShowDialog();
@@ -61,7 +62,8 @@ namespace AppNet.WinFormUI
                     else if (userName == null && password == null)
                     {
                         DialogResult dialogResult = MessageBox.Show("Kullanıcı adınız veya şifreniz yanlış, lütfen doğru bilgilerinizi giriniz!", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        if (dialogResult == DialogResult.OK)
+                    notifyIcon1.ShowBalloonTip(1000, "Giriş Başarısız!", "Kullanıcınızı veya şifreniz yanlış kontrol ediniz. ", ToolTipIcon.Error);
+                    if (dialogResult == DialogResult.OK)
                         {
                             txtUserName.Text = "";
                             txtPassword.Text = "";

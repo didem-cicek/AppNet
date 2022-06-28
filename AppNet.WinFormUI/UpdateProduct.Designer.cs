@@ -58,6 +58,7 @@
             // 
             // cbbUpdatedCategory
             // 
+            this.cbbUpdatedCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbUpdatedCategory.FormattingEnabled = true;
             this.cbbUpdatedCategory.Location = new System.Drawing.Point(734, 31);
             this.cbbUpdatedCategory.Name = "cbbUpdatedCategory";
@@ -233,7 +234,7 @@
         #endregion
 
         private Label label1;
-        private ComboBox cbbUpdatedCategory;
+        public ComboBox cbbUpdatedCategory;
         private Label label2;
         private TextBox updatedProductName;
         private Label label5;

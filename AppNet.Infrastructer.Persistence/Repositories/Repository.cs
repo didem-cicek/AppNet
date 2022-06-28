@@ -51,5 +51,10 @@ namespace AppNet.Infrastructer.Persistence.Repositories
             context.SaveChanges();
             return entity;
         }
+        //public async Task<TEntity> Filter(int id, TEntity entity)
+        //{
+        //    context.Set<TEntity>().Find(id, entity);
+        //    return entity;
+        //}
     }
 }

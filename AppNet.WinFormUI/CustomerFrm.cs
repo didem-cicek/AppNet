@@ -73,8 +73,6 @@ namespace AppNet.WinFormUI
             var customer = (await cs.GetAll()).ToList();
             var sales = (await ss.GetAll()).ToList();
             var data = from p in customer
-                       join c in sales
-                       on p.CustomerID equals c.CustomerID
                        select new CustomerViewModel
                        {
                            CustomerID = p.CustomerID,
@@ -86,8 +84,8 @@ namespace AppNet.WinFormUI
                            CustomerTaxNumber = p.CustomerTaxNumber,
                            CustomerTaxOffice = p.CustomerTaxOffice,
                            CustomerDesription = p.CustomerDesription,
-                           CustomerDebt = c.SalePrice,
-                           CustomerReceivable = c.SalePrice,
+                           CustomerDebt = p.Sales == null ? 0 : p.Sales.Sum(s=>s.SalePrice),
+                           CustomerReceivable = p.Sales == null ? 0 : p.Sales.Sum(s => s.SalePrice),
                            CustomerDate = p.CustomerDate,
                            CustomerModifitedDate = p.CustomerModifitedDate,
                        };

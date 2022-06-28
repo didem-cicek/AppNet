@@ -376,6 +376,7 @@
             this.Controls.Add(this.btnStockManagement);
             this.Controls.Add(this.btnSuppliers);
             this.Controls.Add(this.btnProductManagement);
+            this.MinimizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AppNet - ERP";

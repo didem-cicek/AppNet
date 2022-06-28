@@ -8,7 +8,7 @@ namespace AppNet.Domain.Core
 {
     public abstract class BaseEntity
     {
-        public int Id { get; set; }
+       
     }
     public interface IAuditEntity
     {

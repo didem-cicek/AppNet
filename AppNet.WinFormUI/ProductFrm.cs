@@ -108,6 +108,7 @@ namespace AppNet.WinFormUI
             var data = from p in product
                        join c in category
                        on p.CategoryID equals c.CategoryId
+                       orderby p.ProductID descending
                        select new ProductViewModel
                        {
                            ProductId = p.ProductID,
@@ -121,6 +122,7 @@ namespace AppNet.WinFormUI
             {
                 AddRowToGrid(item);
             }
+            
         }
             private void AddRowToGrid(ProductViewModel model)
         {

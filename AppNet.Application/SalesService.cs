@@ -24,6 +24,7 @@ namespace AppNet.AppService
                 CustomerID = CustomerID,
                 ProductPiece = ProductPiece,
                 SalePrice = SalePrice,
+                TotalPrice = TotalPrice,
                 SaleDesription = SaleDesription,
                 SaleStatus = SaleStatus,
                 SalePaymentMethod = SalePaymentMethod,

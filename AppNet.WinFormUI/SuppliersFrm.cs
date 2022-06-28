@@ -54,8 +54,6 @@ namespace AppNet.WinFormUI
             var supplier = (await ss.GetAll()).ToList();
             var stok = (await sts.GetAll()).ToList();
             var data = from p in supplier
-                       join c in stok
-                       on p.SupplierID equals c.SupplierID
                        select new SupplierViewModel
                        {
                            SupplierID = p.SupplierID,
@@ -63,8 +61,8 @@ namespace AppNet.WinFormUI
                            SupplierPhone = p.SupplierPhone,
                            SupplierAddress = p.SupplierAddress,
                            SupplierShippingAddress = p.SupplierShippingAddress,
-                           SupplierDebt = c.StockTotalPrice - c.StockPiece,
-                           SupplierReceivable = c.StockTotalPrice,
+                           SupplierDebt = p.Stock == null ? 0 : p.Stock.Sum(s => s.StockTotalPrice),
+                           SupplierReceivable = p.Stock == null ? 0 : p.Stock.Sum(s => s.StockTotalPrice),
                            Date = p.SupplierDate,
                            ModifiedDate =p.SupplierModifitedDate
                        };

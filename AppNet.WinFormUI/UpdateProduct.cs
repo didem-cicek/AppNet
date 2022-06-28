@@ -68,12 +68,14 @@ namespace AppNet.WinFormUI
                                     ID = q.ProductID,
                                     ÜrünAdý = q.ProductName,
                                     KategoriAdý = c.CategoryName,
+                                    KategoriID = c.CategoryId,
                                     Acýklama = q.ProductDesriciption
                                 }).ToList();
                 grdUpdateProductList.DataSource = gridList;
                 foreach (var i in gridList)
                 {
-                    cbbUpdatedCategory.SelectedItem = i.KategoriAdý;
+                    //cbbUpdatedCategory.SelectedItem = i.KategoriAdý;
+                    //cbbUpdatedCategory.SelectedIndex = i.KategoriID;
                     updatedProductName.Text = i.ÜrünAdý;
                     txtUpdatedDescription.Text = i.Acýklama;
                 }

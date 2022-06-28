@@ -15,5 +15,6 @@ namespace AppNet.Domain.InterFaces
         Task<TEntity> GetById(int id);
         IQueryable<TEntity> GetAll();
         Task<TEntity> Update(int id, TEntity entity);
+        //Task<TEntity> Filter(int id, TEntity entity);
     }
 }
