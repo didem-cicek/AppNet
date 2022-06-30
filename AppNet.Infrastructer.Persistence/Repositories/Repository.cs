@@ -46,9 +46,13 @@ namespace AppNet.Infrastructer.Persistence.Repositories
         }
 
         public async Task<TEntity> Update(int id, TEntity entity)
-        {
+        {           
             context.Entry(entity).State = EntityState.Modified;
-            context.SaveChanges();
+            try
+            {
+                context.SaveChanges();
+            }
+            catch { }
             return entity;
         }
         //public async Task<TEntity> Filter(int id, TEntity entity)

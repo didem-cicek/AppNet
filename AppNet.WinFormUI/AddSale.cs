@@ -42,7 +42,7 @@ namespace AppNet.WinFormUI
                 grdcustomer.Columns.Add("CustomerID", "Müşteri ID");
                 grdcustomer.Columns.Add("CustomerName", "Müşteri Adı");
                 LoadGridData();
-                
+
                 grdProduct.Columns[0].Visible = false;
                 grdcustomer.Columns[0].Visible = false;
             }

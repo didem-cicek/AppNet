@@ -30,36 +30,35 @@ namespace AppNet.WinFormUI
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
             try { 
-            cs.Add(txtAddCustomerName.Text, txtAddCustomerPhone.Text, txtAddCustomerEmail.Text, txtAddCustomerAddress.Text, txtAddCustomerShippingAddress.Text, Convert.ToInt32(txtAddCustomerTaxNo.Text), txtAddCustomerTaxOffice.Text, txtAddCustomerDesriciption.Text);
-            DialogResult dialogResult = MessageBox.Show("Müşteri başarıyla eklenmiştir. Bir müşteri daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (dialogResult == DialogResult.Yes)
-            {
-                txtAddCustomerName.Text = "";
-                txtAddCustomerPhone.Text = "";
-                txtAddCustomerEmail.Text = "";
-                txtAddCustomerAddress.Text = "";
-                txtAddCustomerShippingAddress.Text = "";
-                txtAddCustomerTaxNo.Text = "";
-                txtAddCustomerTaxOffice.Text = "";
-                txtAddCustomerDesriciption.Text = "";
-            }
-            else
-            {
-                this.Close();
-            }
-            txtAddCustomerName.Text = "";
-            txtAddCustomerPhone.Text = "";
-            txtAddCustomerEmail.Text = "";
-            txtAddCustomerAddress.Text = "";
-            txtAddCustomerShippingAddress.Text = "";
-            txtAddCustomerTaxNo.Text = "";
-            txtAddCustomerTaxOffice.Text = "";
-            txtAddCustomerDesriciption.Text = "";
-            }
-            catch
-            {
-                MessageBox.Show("Müşteri eklenemedi, lütfen girdiğiniz değerlerin doğru olduğuna emin olunuz!", "Uyarı Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            }
+                cs.Add(txtAddCustomerName.Text, txtAddCustomerPhone.Text, txtAddCustomerEmail.Text, txtAddCustomerAddress.Text, txtAddCustomerShippingAddress.Text, Convert.ToInt32(txtAddCustomerTaxNo.Text), txtAddCustomerTaxOffice.Text, txtAddCustomerDesriciption.Text);
+                DialogResult dialogResult = MessageBox.Show("Müşteri başarıyla eklenmiştir. Bir müşteri daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.Yes)
+                {
+                         txtAddCustomerName.Text = "";
+                         txtAddCustomerPhone.Text = "";
+                         txtAddCustomerEmail.Text = "";
+                         txtAddCustomerAddress.Text = "";
+                         txtAddCustomerShippingAddress.Text = "";
+                         txtAddCustomerTaxNo.Text = "";
+                         txtAddCustomerTaxOffice.Text = "";
+                         txtAddCustomerDesriciption.Text = "";
+                } else {
+                this.Close(); }
+                    txtAddCustomerName.Text = "";
+                    txtAddCustomerPhone.Text = "";
+                    txtAddCustomerEmail.Text = "";
+                    txtAddCustomerAddress.Text = "";
+                    txtAddCustomerShippingAddress.Text = "";
+                    txtAddCustomerTaxNo.Text = "";
+                    txtAddCustomerTaxOffice.Text = "";
+                    txtAddCustomerDesriciption.Text = "";
+                } catch {
+                MessageBox.Show("Müşteri eklenemedi, lütfen girdiğiniz değerlerin doğru olduğuna emin olunuz!", "Uyarı Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);}
+
+        }
+
+        private void AddCustomer_Load(object sender, EventArgs e)
+        {
 
         }
     }

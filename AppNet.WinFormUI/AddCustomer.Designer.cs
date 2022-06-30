@@ -237,6 +237,7 @@
             this.Name = "AddCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MÜŞTERİ EKLE";
+            this.Load += new System.EventHandler(this.AddCustomer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
