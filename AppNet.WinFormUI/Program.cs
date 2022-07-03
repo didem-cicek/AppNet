@@ -58,6 +58,7 @@ namespace AppNet.WinFormUI
             services.AddScoped<AddSale>();
             services.AddScoped<DeleteSale>();
             services.AddScoped<UpdateSale>();
+            services.AddScoped<SelectCustomer>();
 
 
             using (ServiceProvider sp = services.BuildServiceProvider()) {

@@ -1,5 +1,6 @@
 ﻿using AppNet.AppService;
 using AppNet.Infrastructer.Persistence.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,19 +19,21 @@ namespace AppNet.WinFormUI
         private readonly ICustomerService cs;
         private readonly IStockService sts;
         private readonly ISalesService ss;
-
-        public AddSale(IProductService ps, ICustomerService cs, IStockService sts, ISalesService ss)
+        private readonly IServiceProvider sp;
+        public int customerID;
+        public AddSale(IServiceProvider sp, IProductService ps, ICustomerService cs, IStockService sts, ISalesService ss)
         {
             InitializeComponent();
             this.ps = ps;
             this.cs = cs;
             this.sts = sts;
             this.ss = ss;
+            this.sp = sp;
         }
 
         private async void AddSale_Load(object sender, EventArgs e)
         {
-            if (grdProduct.Rows.Count == 0 && grdcustomer.Rows.Count ==0)
+            if (grdProduct.Rows.Count == 0)
             {
                 grdProduct.Rows.Clear();
                 grdProduct.Columns.Add("Product ID", "Ürün ID");
@@ -39,12 +42,9 @@ namespace AppNet.WinFormUI
                 grdProduct.Columns.Add("ProductCount", "Adet");
                 grdProduct.Columns.Add("ProductDescription", "Açıklama");
                 grdProduct.Columns.Add("StockID", "Stok Numarası");
-                grdcustomer.Columns.Add("CustomerID", "Müşteri ID");
-                grdcustomer.Columns.Add("CustomerName", "Müşteri Adı");
                 LoadGridData();
 
                 grdProduct.Columns[0].Visible = false;
-                grdcustomer.Columns[0].Visible = false;
             }
             
             
@@ -95,10 +95,7 @@ namespace AppNet.WinFormUI
                                     CustomerName = q.CustomerName,
 
                                 }).ToList();
-            foreach (var customer in customerList)
-            {
-                AddRowToGridCustomer(customer);
-            }
+            
            
 
         }
@@ -114,31 +111,23 @@ namespace AppNet.WinFormUI
 
             grdProduct.Rows.Add(row);
         }
-        private void AddRowToGridCustomer(SaleCustomerViewModel model)
-        {
-            DataGridViewRow row = (DataGridViewRow)grdcustomer.Rows[0].Clone();
-            row.Cells[0].Value = model.CustomerID;
-            row.Cells[1].Value = model.CustomerName;
-
-            grdcustomer.Rows.Add(row);
-        }
 
         private async void btnAddProduct_Click(object sender, EventArgs e)
         {
-            decimal TotalPrice = Convert.ToDecimal(txtPrice.Text) * Convert.ToInt16(txtAddSalePiece.Text);
-            ss.Add(Convert.ToInt32(grdProduct.CurrentRow.Cells[5].Value), Convert.ToInt32(grdcustomer.CurrentRow.Cells[0].Value), Convert.ToInt16(txtAddSalePiece.Text), Convert.ToDecimal(txtPrice.Text), TotalPrice, txtAddSaleDescription.Text, cbbStatus.Text,cbbAddSalePay.Text);
+            //decimal TotalPrice = Convert.ToDecimal(txtPrice.Text) * Convert.ToInt16(txtAddSalePiece.Text);
+            //ss.Add(Convert.ToInt32(grdProduct.CurrentRow.Cells[5].Value), Convert.ToInt32(customerID), Convert.ToInt16(txtAddSalePiece.Text), Convert.ToDecimal(txtPrice.Text), TotalPrice, txtAddSaleDescription.Text, cbbStatus.Text,cbbAddSalePay.Text);
             DialogResult dialogResult = MessageBox.Show("Sipariş başarıyla eklenmiştir. Bir sipariş daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.Yes)
             {
-                txtAddSaleDescription.Text = "";
-                txtAddSalePiece.Text = "";
+                txtDesciption.Text = "";
+                txtProductFind.Text = "";
             }
             else
             {
                 this.Close();
             }
-            txtAddSaleDescription.Text = "";
-            txtAddSalePiece.Text = "";
+            txtProductFind.Text = "";
+            txtDesciption.Text = "";
         }
 
         private void grdProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -192,35 +181,34 @@ namespace AppNet.WinFormUI
 
         private async void txtCustomerFind_TextChanged(object sender, EventArgs e)
         {
-            grdcustomer.Rows.Clear();
-            grdcustomer.Refresh();
-            var customer = (await cs.GetAll()).ToList();
-            var searchCustomer = (from q in customer
-                                 where q.CustomerName.ToLower().Contains((txtCustomerFind.Text).ToLower())
-                                 orderby q.CustomerName ascending
-                                 select new SaleCustomerViewModel
-                                 {
-                                     CustomerID = q.CustomerID,
-                                     CustomerName = q.CustomerName,
 
-                                 }).ToList();
-
-            foreach (var customerFind in searchCustomer)
-            {
-
-                AddRowToGridCustomer(customerFind);
-            }
+            
+           
            
         }
 
         private void grdProduct_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            txtProductName.Text = grdProduct.CurrentRow.Cells[1].Value.ToString();
+            
         }
 
         private void grdcustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtCustomerName.Text = grdcustomer.CurrentRow.Cells[1].Value.ToString();
+           
+        }
+
+        private void productLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addCustomer_Click(object sender, EventArgs e)
+        {
+            var frm = sp.GetRequiredService<SelectCustomer>();
+            frm.ShowDialog();
+            txtCustomerName.Text = frm.grdCustomer.CurrentRow.Cells[1].Value.ToString();
+            txtCustomer.Text = frm.grdCustomer.CurrentRow.Cells[1].Value.ToString();
+            customerID = Convert.ToInt32(frm.grdCustomer.CurrentRow.Cells[0].Value);
         }
     }
 }

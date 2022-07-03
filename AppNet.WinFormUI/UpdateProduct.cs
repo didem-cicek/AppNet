@@ -65,9 +65,8 @@ namespace AppNet.WinFormUI
         }
 
         private async void btnUpdateSearch_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        {             
+            try{
             ps.Update(Convert.ToInt32(grdUpdateProductList.CurrentRow.Cells[0].Value), updatedProductName.Text, Convert.ToInt32(cbbUpdatedCategory.SelectedValue), txtUpdatedDescription.Text);
             DialogResult result = MessageBox.Show("Ürün baþarýyla güncellenmiþtir.", "Bilgilendirme Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Information);
             updatedProductName.Text = "";
@@ -75,7 +74,7 @@ namespace AppNet.WinFormUI
             grdUpdateProductList.DataSource = null;
             grdUpdateProductList.Refresh();
             this.Close();}
-            catch
+            catch (Exception ex)
             {
 
             }

@@ -84,3 +84,4 @@ C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-wi
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.pdb
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.genruntimeconfig.cache
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\ref\AppNet.WinFormUI.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.SelectCustomer.resources
