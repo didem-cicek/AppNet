@@ -19,6 +19,8 @@ namespace AppNet.Domain.Entities
         public decimal StockTotalPrice { get; set; }
         public int StockPiece { get; set; }
         public short StockCritical { get; set; }
+        public string Color { get; set; }
+        public string Size { get; set; }
         public DateTime StockDate { get; set; }
         public DateTime StockModifitedDate { get; set; }
         public ICollection<Sale> Sales { get; set; }

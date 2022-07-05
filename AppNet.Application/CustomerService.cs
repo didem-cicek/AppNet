@@ -61,7 +61,7 @@ namespace AppNet.AppService
                 CustomerModifitedDate= DateTime.Now,
 
             };
-            repository.Update(CustomerID, customer);
+            repository.Update(customer);
             return customer;
         }
     }

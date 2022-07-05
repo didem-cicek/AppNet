@@ -13,7 +13,8 @@ namespace AppNet.Domain.Entities
         public string SupplierName { get; set; }
         public string SupplierPhone { get; set; }
         public string SupplierAddress { get; set; }
-        public string SupplierShippingAddress { get; set; }
+        public int  SupplierTaxNumber { get; set; }
+        public string SupplierTaxName { get; set; }
         public DateTime SupplierDate { get; set; }
         public DateTime SupplierModifitedDate { get; set; }
         public ICollection<Product> Products { get; set; }

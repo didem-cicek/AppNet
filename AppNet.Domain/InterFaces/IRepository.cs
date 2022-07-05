@@ -14,7 +14,7 @@ namespace AppNet.Domain.InterFaces
         Task<bool> Remove(int id);
         Task<TEntity> GetById(int id);
         IQueryable<TEntity> GetAll();
-        Task<TEntity> Update(int id, TEntity entity);
+        Task<TEntity> Update(TEntity entity);
         //Task<TEntity> Filter(int id, TEntity entity);
     }
 }

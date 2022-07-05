@@ -46,8 +46,19 @@ namespace AppNet.WinFormUI
 
                 grdProduct.Columns[0].Visible = false;
             }
-            
-            
+            if (grdList.Rows.Count == 0)
+            {
+                grdList.Rows.Clear();
+                grdProduct.Columns.Add("Product ID", "Ürün ID");
+                grdProduct.Columns.Add("ProductName", "Ürün Adı");
+                grdProduct.Columns.Add("Color", "Renk");
+                grdProduct.Columns.Add("Size", "Beden");
+                grdProduct.Columns.Add("Piece", "Adet");
+                grdProduct.Columns.Add("Price", "Fiyat");
+                grdProduct.Columns.Add("StockID", "Stok Numarası");
+                grdList.Columns[0].Visible = false;
+            }
+
             cbbAddSalePay.Items.Clear();
             cbbAddSalePay.Items.Add("Kredi Kartı");
             cbbAddSalePay.Items.Add("Peşin");
@@ -114,20 +125,24 @@ namespace AppNet.WinFormUI
 
         private async void btnAddProduct_Click(object sender, EventArgs e)
         {
-            //decimal TotalPrice = Convert.ToDecimal(txtPrice.Text) * Convert.ToInt16(txtAddSalePiece.Text);
-            //ss.Add(Convert.ToInt32(grdProduct.CurrentRow.Cells[5].Value), Convert.ToInt32(customerID), Convert.ToInt16(txtAddSalePiece.Text), Convert.ToDecimal(txtPrice.Text), TotalPrice, txtAddSaleDescription.Text, cbbStatus.Text,cbbAddSalePay.Text);
+            decimal TotalPrice = Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value) * Convert.ToInt16(grdList.CurrentRow.Cells[4].Value);
+            ss.Add(Convert.ToInt32(grdList.CurrentRow.Cells[7].Value), Convert.ToInt32(customerID), Convert.ToInt16(grdList.CurrentRow.Cells[4].Value), Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value), TotalPrice, txtDesciption.Text, cbbStatus.Text, cbbAddSalePay.Text);
             DialogResult dialogResult = MessageBox.Show("Sipariş başarıyla eklenmiştir. Bir sipariş daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.Yes)
             {
                 txtDesciption.Text = "";
                 txtProductFind.Text = "";
+                txtTotalPrice.Text = "";
+                grdList.Rows.Clear();
             }
             else
             {
                 this.Close();
             }
-            txtProductFind.Text = "";
             txtDesciption.Text = "";
+            txtProductFind.Text = "";
+            txtTotalPrice.Text = "";
+            grdList.Rows.Clear();
         }
 
         private void grdProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -174,11 +189,11 @@ namespace AppNet.WinFormUI
 
             foreach (var product in searchProduct)
             {
-                
+
                 AddRowToGridProduct(product);
             }
         }
-
+       
         private async void txtCustomerFind_TextChanged(object sender, EventArgs e)
         {
 
@@ -187,9 +202,48 @@ namespace AppNet.WinFormUI
            
         }
 
-        private void grdProduct_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private async void grdProduct_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            
+            var frm = sp.GetRequiredService<SelectProductFrm>();
+            frm.ShowDialog();
+            var p = (await ps.GetAll()).ToList();
+            var s = (await sts.GetAll()).ToList();
+            var searchProduct = (from q in p
+                                 join st in s
+                                 on q.ProductID equals st.ProductID
+                                 where q.ProductID == Convert.ToInt32(grdProduct.CurrentRow.Cells[0].Value)
+                                 orderby q.ProductName ascending
+                                 select new SaleProductList
+                                 {
+                                     ProductID = q.ProductID,
+                                     ProductName = q.ProductName,
+                                     Color = st.Color,
+                                     Size = st.Size,
+                                     Piece = Convert.ToInt32(frm.txtPiece.Text),
+                                     Price = Convert.ToDecimal(frm.txtPrice.Text),
+                                     stockID = st.StockID,
+                                 }).ToList();
+
+            foreach (var product in searchProduct)
+            {
+
+                AddRowToGridProductSale(product);
+            }
+
+
+        }
+        private void AddRowToGridProductSale(SaleProductList model)
+        {
+            DataGridViewRow row = (DataGridViewRow)grdList.Rows[0].Clone();
+            row.Cells[0].Value = model.ProductID;
+            row.Cells[1].Value = model.ProductName;
+            row.Cells[2].Value = model.Color;
+            row.Cells[3].Value = model.Size;
+            row.Cells[4].Value = model.Piece;
+            row.Cells[5].Value = model.Price;
+            row.Cells[6].Value = model.stockID;
+
+            grdList.Rows.Add(row);
         }
 
         private void grdcustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)

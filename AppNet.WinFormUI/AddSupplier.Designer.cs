@@ -36,7 +36,9 @@
             this.txtSupplierAddress = new System.Windows.Forms.TextBox();
             this.btnAddSupplier = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtShippingAddress = new System.Windows.Forms.TextBox();
+            this.txtTaxNumber = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtTaxName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -99,7 +101,7 @@
             this.btnAddSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddSupplier.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAddSupplier.ForeColor = System.Drawing.Color.White;
-            this.btnAddSupplier.Location = new System.Drawing.Point(283, 219);
+            this.btnAddSupplier.Location = new System.Drawing.Point(283, 264);
             this.btnAddSupplier.Name = "btnAddSupplier";
             this.btnAddSupplier.Size = new System.Drawing.Size(150, 40);
             this.btnAddSupplier.TabIndex = 5;
@@ -113,26 +115,45 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(23, 170);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 21);
+            this.label4.Size = new System.Drawing.Size(140, 21);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Sevk Adresi  : ";
+            this.label4.Text = "Vergi Numarası : ";
             // 
-            // txtShippingAddress
+            // txtTaxNumber
             // 
-            this.txtShippingAddress.Location = new System.Drawing.Point(191, 164);
-            this.txtShippingAddress.Name = "txtShippingAddress";
-            this.txtShippingAddress.Size = new System.Drawing.Size(242, 29);
-            this.txtShippingAddress.TabIndex = 3;
+            this.txtTaxNumber.Location = new System.Drawing.Point(191, 164);
+            this.txtTaxNumber.Name = "txtTaxNumber";
+            this.txtTaxNumber.Size = new System.Drawing.Size(242, 29);
+            this.txtTaxNumber.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(23, 215);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 21);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Vergi Dairesi :";
+            // 
+            // txtTaxName
+            // 
+            this.txtTaxName.Location = new System.Drawing.Point(191, 209);
+            this.txtTaxName.Name = "txtTaxName";
+            this.txtTaxName.Size = new System.Drawing.Size(242, 29);
+            this.txtTaxName.TabIndex = 3;
             // 
             // AddSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(468, 287);
+            this.ClientSize = new System.Drawing.Size(468, 316);
             this.Controls.Add(this.btnAddSupplier);
-            this.Controls.Add(this.txtShippingAddress);
+            this.Controls.Add(this.txtTaxName);
+            this.Controls.Add(this.txtTaxNumber);
             this.Controls.Add(this.txtSupplierAddress);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtSupplierPhone);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtSupplierName);
@@ -160,6 +181,8 @@
         private TextBox txtSupplierAddress;
         private Button btnAddSupplier;
         private Label label4;
-        private TextBox txtShippingAddress;
+        private TextBox txtTaxNumber;
+        private Label label5;
+        private TextBox txtTaxName;
     }
 }

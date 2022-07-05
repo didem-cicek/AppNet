@@ -9,8 +9,8 @@ namespace AppNet.AppService
 {
     public interface IStockService
     {
-        Stock Add(string ProductType, decimal PurchaseUnitPrice, decimal StockTotalPrice, int StockPiece, short StockCritical, int SupplierID, int ProductID);
-        Task<Stock> Update(int StockID, string ProductType, decimal PurchaseUnitPrice, decimal StockTotalPrice, int StockPiece, short StockCritical, int SupplierID, int ProductID);
+        Stock Add(decimal PurchaseUnitPrice, decimal StockTotalPrice, int StockPiece, short StockCritical, string color, string size, int SupplierID, int ProductID);
+        Task<Stock> Update(int StockID, string ProductType, decimal PurchaseUnitPrice, decimal StockTotalPrice, int StockPiece, short StockCritical, string color, string size, int SupplierID, int ProductID);
         Task<bool> Remove(int id);
         Task<ICollection<Stock>> GetAll();
     }

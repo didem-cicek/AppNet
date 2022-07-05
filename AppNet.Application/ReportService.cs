@@ -56,7 +56,7 @@ namespace AppNet.AppService
                 CritialStok = CritialStok,
                 ReportModifitedDate = DateTime.Now,
             };
-            repository.Update(ReportID, report);
+            repository.Update(report);
             return report;
         }
     }

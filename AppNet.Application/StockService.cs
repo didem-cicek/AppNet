@@ -15,17 +15,18 @@ namespace AppNet.AppService
         {
             this.repository = repository;
         }
-        public Stock Add(string ProductType, decimal PurchaseUnitPrice, decimal StockTotalPrice, int StockPiece, short StockCritical, int SupplierID, int ProductID)
+        public Stock Add(decimal PurchaseUnitPrice, decimal StockTotalPrice, int StockPiece, short StockCritical, string color, string size, int SupplierID, int ProductID)
         {
             Stock stock = new Stock()
             {
                 SupplierID = SupplierID,
                 ProductID = ProductID,
-                ProductType = ProductType,
                 PurchaseUnitPrice = PurchaseUnitPrice,
                 StockTotalPrice = StockTotalPrice,
                 StockPiece = StockPiece,
                 StockCritical = StockCritical,
+                Color = color,
+                Size = size,
                 StockDate = DateTime.Now,
             };
             repository.Add(stock);
@@ -43,7 +44,7 @@ namespace AppNet.AppService
             return true;
         }
 
-        public async Task<Stock> Update(int StockID, string ProductType, decimal PurchaseUnitPrice, decimal StockTotalPrice, int StockPiece, short StockCritical, int SupplierID, int ProductID)
+        public async Task<Stock> Update(int StockID, string ProductType, decimal PurchaseUnitPrice, decimal StockTotalPrice, int StockPiece, short StockCritical, string color, string size, int SupplierID, int ProductID)
         {
             Stock stock = new Stock()
             {
@@ -55,9 +56,11 @@ namespace AppNet.AppService
                 StockTotalPrice = StockTotalPrice,
                 StockPiece = StockPiece,
                 StockCritical = StockCritical,
+                Color=color,
+                Size = size,
                 StockModifitedDate = DateTime.Now,
             };
-            repository.Update(StockID, stock);
+            repository.Update(stock);
             return stock;
         }
     }

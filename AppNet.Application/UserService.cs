@@ -49,7 +49,7 @@ namespace AppNet.AppServices
                 UserAuthorization = UserAuthorization,
                 UserModifitedDate = DateTime.Now
             };
-            repository.Update(user.UserID,user);
+            repository.Update(user);
             return user;
         }
 

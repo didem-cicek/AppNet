@@ -12,7 +12,8 @@ namespace AppNet.Infrastructer.Persistence.ViewModels
         public string SupplierName { get; set; }
         public string SupplierPhone { get; set; }
         public string SupplierAddress { get; set; }
-        public string SupplierShippingAddress { get; set; }
+        public int TaxNumber { get; set; }
+        public string TaxName { get; set; }
         public decimal SupplierDebt { get; set; }
         public decimal SupplierReceivable { get; set; }
         public DateTime Date { get; set; }

@@ -1,1 +1,1 @@
-{"Server":"DESKTOP-JTOAQMQ","Database":"erpDB","Username":"sa","Password":"123456!a","ConStr":"Server=DESKTOP-JTOAQMQ;Database=erpDB;User Id=sa;Password=123456!a"}
+{"Server":"DESKTOP-JTOAQMQ","Database":"ERPDb","Username":"sa","Password":"123456!a","ConStr":"Server=DESKTOP-JTOAQMQ;Database=ERPDb;User Id=sa;Password=123456!a"}

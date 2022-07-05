@@ -61,7 +61,6 @@ namespace AppNet.WinFormUI
                            ProductName = pr.ProductName,
                            SupplierName = c.SupplierName,
                            StockPiece = p.StockPiece,
-                           ProductType = p.ProductType,
                            CritialStock = p.StockCritical,
                            StockPrice = p.PurchaseUnitPrice,
                            StockTotalPrice = p.StockTotalPrice,
@@ -80,12 +79,11 @@ namespace AppNet.WinFormUI
             row.Cells[1].Value = model.ProductName;
             row.Cells[2].Value = model.SupplierName;
             row.Cells[3].Value = model.StockPiece;
-            row.Cells[4].Value = model.ProductType;
-            row.Cells[5].Value = model.CritialStock;
-            row.Cells[6].Value = model.StockPrice;
-            row.Cells[7].Value = model.StockTotalPrice;
-            row.Cells[8].Value = model.Date;
-            row.Cells[9].Value = model.ModifiedTime;
+            row.Cells[4].Value = model.CritialStock;
+            row.Cells[5].Value = model.StockPrice;
+            row.Cells[6].Value = model.StockTotalPrice;
+            row.Cells[7].Value = model.Date;
+            row.Cells[8].Value = model.ModifiedTime;
 
 
             grdData.Rows.Add(row);

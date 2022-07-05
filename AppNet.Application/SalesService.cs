@@ -22,8 +22,8 @@ namespace AppNet.AppService
             {
                 StockID = StockID,
                 CustomerID = CustomerID,
-                ProductPiece = ProductPiece,
                 SalePrice = SalePrice,
+                ProductPiece = ProductPiece,
                 TotalPrice = TotalPrice,
                 SaleDesription = SaleDesription,
                 SaleStatus = SaleStatus,
@@ -54,12 +54,13 @@ namespace AppNet.AppService
                 CustomerID = CustomerID,
                 ProductPiece = ProductPiece,
                 SalePrice = SalePrice,
+                TotalPrice = TotalPrice,
                 SaleDesription = SaleDesription,
                 SaleStatus = SaleStatus,
                 SalePaymentMethod = SalePaymentMethod,
                 SaleModifitedDate = DateTime.Now,
             };
-            repository.Update(SaleID, sale);
+            repository.Update(sale);
             return sale;
         }
     }

@@ -12,8 +12,9 @@ namespace AppNet.Infrastructer.Persistence.ViewModels
         public string ProductName { get; set; }
         public string SupplierName { get; set; }
         public int StockPiece { get; set; }
-        public string ProductType { get; set; }
         public short CritialStock { get; set; }
+        public string Color { get; set; }
+        public string Size { get; set; }
         public decimal StockPrice { get; set; }
         public decimal StockTotalPrice { get; set; }
         public DateTime Date { get; set; }

@@ -51,7 +51,7 @@ namespace AppNet.AppService
                 CashModifitedDate = DateTime.Now,
 
             };
-            repository.Update(CashID, cash);
+            repository.Update(cash);
             return cash;
         }
     }

@@ -9,8 +9,8 @@ namespace AppNet.AppService
 {
     public interface ISupplierService
     {
-        Supplier Add(string SupplierName, string SupplierPhone, string SupplierAddress, string SupplierShippingAddress);
-        Task<Supplier> Update(int SupplierID, string SupplierName, string SupplierPhone, string SupplierAddress, string SupplierShippingAddress);
+        Supplier Add(string SupplierName, string SupplierPhone, string SupplierAddress, int SupplierTaxNumber,string SupplierTaxName);
+        Task<Supplier> Update(int SupplierID, string SupplierName, string SupplierPhone, string SupplierAddress, int SupplierTaxNumber, string SupplierTaxName);
         Task<bool> Remove(int id);
         Task<ICollection<Supplier>> GetAll();
     }

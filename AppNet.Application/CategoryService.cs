@@ -31,7 +31,7 @@ namespace AppNet.AppService
                 CategoryName = NewCategoryName,
                 CategoryModifitedDate = DateTime.Now,
             };
-            repository.Update(category.CategoryId,category);
+            repository.Update(category);
             return category;
         }
 

@@ -16,15 +16,17 @@ namespace AppNet.AppService
         {
             this.repository = repository;
         }
-        public Supplier Add(string SupplierName, string SupplierPhone, string SupplierAddress, string SupplierShippingAddress)
+        public Supplier Add(string SupplierName, string SupplierPhone, string SupplierAddress, int SupplierTaxNumber, string SupplierTaxName)
         {
             Supplier supplier = new Supplier()
             {
                 SupplierName = SupplierName,
                 SupplierPhone = SupplierPhone,
                 SupplierAddress = SupplierAddress,
-                SupplierShippingAddress = SupplierShippingAddress,
+                SupplierTaxNumber = SupplierTaxNumber,
+                SupplierTaxName = SupplierTaxName,
                 SupplierDate = DateTime.Now,
+                SupplierModifitedDate = DateTime.Now,
 
             };
             repository.Add(supplier);
@@ -42,7 +44,7 @@ namespace AppNet.AppService
             return true;
         }
 
-        public async Task<Supplier> Update(int SupplierID, string SupplierName, string SupplierPhone, string SupplierAddress, string SupplierShippingAddress)
+        public async Task<Supplier> Update(int SupplierID, string SupplierName, string SupplierPhone, string SupplierAddress, int SupplierTaxNumber, string SupplierTaxName)
         {
             Supplier supplier = new Supplier()
             {
@@ -50,11 +52,12 @@ namespace AppNet.AppService
                 SupplierName = SupplierName,
                 SupplierPhone = SupplierPhone,
                 SupplierAddress = SupplierAddress,
-                SupplierShippingAddress = SupplierShippingAddress,
+                SupplierTaxNumber = SupplierTaxNumber,
+                SupplierTaxName = SupplierTaxName,
                 SupplierModifitedDate = DateTime.Now,
 
             };
-            repository.Update(SupplierID, supplier);
+            repository.Update(supplier);
             return supplier;
         }
     }

@@ -41,7 +41,8 @@ namespace AppNet.WinFormUI
             grdSupplierList.Columns.Add("SupplierName", "Tedarikçi Adý");
             grdSupplierList.Columns.Add("SupplierPhone", "Telefon");
             grdSupplierList.Columns.Add("SupplierAddress", "Adres");
-            grdSupplierList.Columns.Add("SupplierShippingAddress", "Sevk Adresi");
+            grdSupplierList.Columns.Add("TaxNumber", "Vergi Numarasý");
+            grdSupplierList.Columns.Add("TaxName", "Vergi Dairesi");
             grdSupplierList.Columns.Add("SupplierDebt", "Borç");
             grdSupplierList.Columns.Add("SupplierReceivable", "Alacak");
             grdSupplierList.Columns.Add("Date", "Kayýt Tarihi");
@@ -60,11 +61,12 @@ namespace AppNet.WinFormUI
                            SupplierName = p.SupplierName,
                            SupplierPhone = p.SupplierPhone,
                            SupplierAddress = p.SupplierAddress,
-                           SupplierShippingAddress = p.SupplierShippingAddress,
+                           TaxNumber=p.SupplierTaxNumber,
+                           TaxName=p.SupplierTaxName,
                            SupplierDebt = p.Stock == null ? 0 : p.Stock.Sum(s => s.StockTotalPrice),
                            SupplierReceivable = p.Stock == null ? 0 : p.Stock.Sum(s => s.StockTotalPrice),
                            Date = p.SupplierDate,
-                           ModifiedDate =p.SupplierModifitedDate
+                           ModifiedDate = p.SupplierModifitedDate,
                        };
             foreach (var item in data)
             {
@@ -78,11 +80,12 @@ namespace AppNet.WinFormUI
             row.Cells[1].Value = model.SupplierName;
             row.Cells[2].Value = model.SupplierPhone;
             row.Cells[3].Value = model.SupplierAddress;
-            row.Cells[4].Value = model.SupplierShippingAddress;
-            row.Cells[5].Value = model.SupplierDebt;
-            row.Cells[6].Value = model.SupplierReceivable;
-            row.Cells[7].Value = model.Date;
-            row.Cells[8].Value = model.ModifiedDate;
+            row.Cells[4].Value = model.TaxNumber;
+            row.Cells[5].Value = model.TaxName;
+            row.Cells[6].Value = model.SupplierDebt;
+            row.Cells[7].Value = model.SupplierReceivable;
+            row.Cells[8].Value = model.Date;
+            row.Cells[9].Value = model.ModifiedDate;
 
             grdSupplierList.Rows.Add(row);
         }

@@ -45,21 +45,14 @@ namespace AppNet.Infrastructer.Persistence.Repositories
             return true;
         }
 
-        public async Task<TEntity> Update(int id, TEntity entity)
+        public async Task<TEntity> Update(TEntity entity)
         {           
-            
-            try
-            {
-                context.Entry(entity).State = EntityState.Modified;
-                context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                context.Entry(entity).State = EntityState.Added;
-                context.SaveChanges();
-            }
-            return entity;
+             context.Entry(entity).State = EntityState.Modified;
+             context.SaveChanges();
+             return entity;
         }
+
+      
         //public async Task<TEntity> Filter(int id, TEntity entity)
         //{
         //    context.Set<TEntity>().Find(id, entity);

@@ -54,7 +54,7 @@
             this.txtDesciption = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtTotalPrice = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grdList = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,7 +62,7 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdList)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddProduct
@@ -291,7 +291,7 @@
             this.panel3.Controls.Add(this.txtDesciption);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.txtTotalPrice);
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.grdList);
             this.panel3.Controls.Add(this.txtCustomerName);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
@@ -339,17 +339,17 @@
             this.txtTotalPrice.Size = new System.Drawing.Size(213, 29);
             this.txtTotalPrice.TabIndex = 11;
             // 
-            // dataGridView1
+            // grdList
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(137, 159);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(444, 218);
-            this.dataGridView1.TabIndex = 10;
+            this.grdList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdList.BackgroundColor = System.Drawing.Color.White;
+            this.grdList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdList.GridColor = System.Drawing.Color.White;
+            this.grdList.Location = new System.Drawing.Point(137, 159);
+            this.grdList.Name = "grdList";
+            this.grdList.RowTemplate.Height = 25;
+            this.grdList.Size = new System.Drawing.Size(444, 218);
+            this.grdList.TabIndex = 10;
             // 
             // label2
             // 
@@ -385,10 +385,6 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Toplam Tutar";
             // 
-            // sqlCommand1
-            // 
-
-            // 
             // AddSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -411,7 +407,7 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -425,7 +421,7 @@
         private Label label6;
         public ComboBox cbbStatus;
         public ComboBox cbbAddSalePay;
-        private DataGridView grdProduct;
+        public DataGridView grdProduct;
         private Label label1;
         public TextBox txtCustomerName;
         private Label label8;
@@ -440,7 +436,7 @@
         private Panel panel3;
         private TextBox txtDesciption;
         private TextBox txtTotalPrice;
-        private DataGridView dataGridView1;
+        private DataGridView grdList;
         private Label label2;
         private Label label4;
         private Label label3;

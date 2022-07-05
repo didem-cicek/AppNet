@@ -50,7 +50,7 @@ namespace AppNet.AppService
                 CategoryID = NewCategoryID,
                 ProductModifitedDate = DateTime.Now,
             };
-            repository.Update(product.ProductID,product);
+            repository.Update(product);
             return product;
         }
     }
