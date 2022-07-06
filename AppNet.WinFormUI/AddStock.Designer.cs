@@ -220,6 +220,7 @@
             this.grdList.RowTemplate.Height = 25;
             this.grdList.Size = new System.Drawing.Size(444, 252);
             this.grdList.TabIndex = 14;
+            this.grdList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdList_CellContentClick);
             // 
             // label11
             // 

@@ -14,7 +14,6 @@ namespace AppNet.Domain.Entities
         public Supplier Supplier { get; set; }
         public int ProductID { get; set; }
         public Product Product { get; set; }
-        public string ProductType { get; set; }
         public decimal PurchaseUnitPrice { get; set; }
         public decimal StockTotalPrice { get; set; }
         public int StockPiece { get; set; }

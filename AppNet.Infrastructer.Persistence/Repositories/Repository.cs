@@ -19,9 +19,16 @@ namespace AppNet.Infrastructer.Persistence.Repositories
         }
         public async Task<TEntity> Add(TEntity entity)
         {
-            context.Set<TEntity>().Add(entity);
-            context.SaveChanges();
-            return entity;
+            
+            try
+            {
+                context.Set<TEntity>().Add(entity);
+                context.SaveChanges();
+                
+            }
+            catch (Exception ex)
+            {
+            }return entity;
         }
 
         public IQueryable<TEntity> GetAll()

@@ -49,13 +49,13 @@ namespace AppNet.WinFormUI
             if (grdList.Rows.Count == 0)
             {
                 grdList.Rows.Clear();
-                grdProduct.Columns.Add("Product ID", "Ürün ID");
-                grdProduct.Columns.Add("ProductName", "Ürün Adı");
-                grdProduct.Columns.Add("Color", "Renk");
-                grdProduct.Columns.Add("Size", "Beden");
-                grdProduct.Columns.Add("Piece", "Adet");
-                grdProduct.Columns.Add("Price", "Fiyat");
-                grdProduct.Columns.Add("StockID", "Stok Numarası");
+                grdList.Columns.Add("Product ID", "Ürün ID");
+                grdList.Columns.Add("ProductName", "Ürün Adı");
+                grdList.Columns.Add("Color", "Renk");
+                grdList.Columns.Add("Size", "Beden");
+                grdList.Columns.Add("Piece", "Adet");
+                grdList.Columns.Add("Price", "Fiyat");
+                grdList.Columns.Add("StockID", "Stok Numarası");
                 grdList.Columns[0].Visible = false;
             }
 
@@ -126,7 +126,7 @@ namespace AppNet.WinFormUI
         private async void btnAddProduct_Click(object sender, EventArgs e)
         {
             decimal TotalPrice = Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value) * Convert.ToInt16(grdList.CurrentRow.Cells[4].Value);
-            ss.Add(Convert.ToInt32(grdList.CurrentRow.Cells[7].Value), Convert.ToInt32(customerID), Convert.ToInt16(grdList.CurrentRow.Cells[4].Value), Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value), TotalPrice, txtDesciption.Text, cbbStatus.Text, cbbAddSalePay.Text);
+            ss.Add(Convert.ToInt32(grdProduct.CurrentRow.Cells[5].Value), Convert.ToInt32(customerID), Convert.ToInt16(grdList.CurrentRow.Cells[4].Value), Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value), TotalPrice, txtDesciption.Text, cbbStatus.Text, cbbAddSalePay.Text);
             DialogResult dialogResult = MessageBox.Show("Sipariş başarıyla eklenmiştir. Bir sipariş daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.Yes)
             {
@@ -142,6 +142,7 @@ namespace AppNet.WinFormUI
             txtDesciption.Text = "";
             txtProductFind.Text = "";
             txtTotalPrice.Text = "";
+            txtCustomer.Text = "";
             grdList.Rows.Clear();
         }
 
@@ -204,8 +205,10 @@ namespace AppNet.WinFormUI
 
         private async void grdProduct_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            
             var frm = sp.GetRequiredService<SelectProductFrm>();
             frm.ShowDialog();
+            try {
             var p = (await ps.GetAll()).ToList();
             var s = (await sts.GetAll()).ToList();
             var searchProduct = (from q in p
@@ -224,10 +227,14 @@ namespace AppNet.WinFormUI
                                      stockID = st.StockID,
                                  }).ToList();
 
+            txtTotalPrice.Text = Convert.ToString(Convert.ToInt32(frm.txtPiece.Text) * Convert.ToDecimal(frm.txtPrice.Text));
             foreach (var product in searchProduct)
             {
 
                 AddRowToGridProductSale(product);
+            } } catch(Exception ex)
+            {
+
             }
 
 

@@ -37,6 +37,8 @@ namespace AppNet.WinFormUI
 
         private async void SelectProductFrm_Load(object sender, EventArgs e)
         {
+            cbbSize.Items.Clear();
+            cbbColor.Items.Clear();
             var frm = sp.GetRequiredService<AddSale>();
             txtProductName.Text = frm.grdProduct.CurrentRow.Cells[1].Value.ToString();
             var p = (await ps.GetAll()).ToList();
@@ -44,7 +46,7 @@ namespace AppNet.WinFormUI
             var productList = (from q in p
                                join st in s
                                on q.ProductID equals st.ProductID
-                               where ProductName.ToUpper() == (txtProductName.Text).ToUpper()
+                               where q.ProductName.ToUpper() == (txtProductName.Text).ToUpper()
                                select new
                                {
                                    ProductID = q.ProductID,
@@ -53,10 +55,12 @@ namespace AppNet.WinFormUI
                                    size = st.Size,
 
                                }).ToList();
+            
             foreach (var item in productList)
             {
                 cbbColor.Items.Add(item.color);
                 cbbSize.Items.Add(item.size);
+                
             }
         }
 

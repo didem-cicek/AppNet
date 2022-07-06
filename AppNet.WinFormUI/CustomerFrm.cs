@@ -52,6 +52,7 @@ namespace AppNet.WinFormUI
 
         private void CustomerFrm_Load(object sender, EventArgs e)
         {
+            if(grdCustomerList.Rows.Count == 0){ 
             grdCustomerList.Columns.Add("CustomerID", "Müşteri ID");
             grdCustomerList.Columns.Add("CustomerName", "Müşteri Adı");
             grdCustomerList.Columns.Add("CustomerPhone", "Telefon Numarası");
@@ -66,10 +67,12 @@ namespace AppNet.WinFormUI
             grdCustomerList.Columns.Add("CustomerDate", "Ekleme Tarihi");
             grdCustomerList.Columns.Add("CustomerModifitedDate", "Düzenleme Tarihi");
             LoadGridData();
-            grdCustomerList.Columns[0].Visible = false;
+            grdCustomerList.Columns[0].Visible = false;}
         }
         private async void LoadGridData()
         {
+            grdCustomerList.Rows.Clear();
+            grdCustomerList.Refresh();
             var customer = (await cs.GetAll()).ToList();
             var sales = (await ss.GetAll()).ToList();
             var data = from p in customer

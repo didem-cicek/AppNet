@@ -48,6 +48,7 @@
             // txtProductName
             // 
             this.txtProductName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtProductName.ForeColor = System.Drawing.Color.Black;
             this.txtProductName.Location = new System.Drawing.Point(154, 24);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.ReadOnly = true;
@@ -78,6 +79,7 @@
             this.panel2.Controls.Add(this.txtProductName);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.ForeColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(448, 381);
@@ -197,14 +199,13 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(2)))), ((int)(((byte)(34)))));
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimizeBox = false;
             this.Name = "SelectProductFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ÜRÜN SEÇ";
-            this.TransparencyKey = System.Drawing.Color.Black;
             this.Load += new System.EventHandler(this.SelectProductFrm_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

@@ -110,7 +110,6 @@ namespace AppNet.WinFormUI
                                     select new
                                     {
                                         ÜrünAdı = q.Product.ProductName,
-                                        ÜrünTipi = q.ProductType,
                                         Tedarikçi = c.SupplierName,
                                         Fiyat = q.PurchaseUnitPrice,
                                         Adet = q.StockPiece,
@@ -142,7 +141,6 @@ namespace AppNet.WinFormUI
                                     select new
                                     {
                                         ÜrünAdı = q.Product.ProductName,
-                                        ÜrünTipi = q.ProductType,
                                         Tedarikçi = q.Supplier.SupplierName,
                                         Fiyat = q.PurchaseUnitPrice,
                                         Adet = q.StockPiece,

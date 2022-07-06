@@ -1,5 +1,6 @@
 ﻿using AppNet.AppService;
 using AppNet.Infrastructer.Persistence;
+using AppNet.Infrastructer.Persistence.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,58 +29,40 @@ namespace AppNet.WinFormUI
 
         private void DeleteCategory_Load_1(object sender, EventArgs e)
         {
-            cbbDeleteCategory.Items.Clear();
-            cbbDeleteCategory.Items.Add("Kategori ID'sine Göre");
-            cbbDeleteCategory.Items.Add("Kategori Adına Göre");
-            cbbDeleteCategory.SelectedIndex = 0;
-        }
+            if (grdDeleteList.Rows.Count == 0)
+            {
 
+                grdDeleteList.Columns.Add("CategoryID", "Kategori ID");
+                grdDeleteList.Columns.Add("CategoryName", "Kategori Adı");
+                LoadGridData();
+            }
+        }
+        private async void LoadGridData()
+        {
+            var c = (await cs.GetAll()).ToList();
+            var list = (from q in c
+                                select new CategoryList
+                                {
+                                    CategoryID = q.CategoryId,
+                                    CategoryName = q.CategoryName,
+
+                                }).ToList();
+            foreach (var find in list)
+            {
+                AddRowToGrid(find);
+            }
+        }
+        private void AddRowToGrid(CategoryList model)
+        {
+            DataGridViewRow row = (DataGridViewRow)grdDeleteList.Rows[0].Clone();
+            row.Cells[0].Value = model.CategoryID;
+            row.Cells[1].Value = model.CategoryName;
+
+            grdDeleteList.Rows.Add(row);
+        }
         private async void btnDeletedCategory_Click(object sender, EventArgs e)
         {
-            var list = (await cs.GetAll()).ToList();
-            if (cbbDeleteCategory.SelectedItem == "Kategori ID'sine Göre")
-            {
-                try
-                {
-                    var gridList = (from q in list
-                                where q.CategoryId == Convert.ToInt32(txtDeleteCategory.Text)
-                                select new
-                                {
-                                    ID = q.CategoryId,
-                                    KategoriAdı = q.CategoryName
-                                }).ToList();
-                    grdDeleteList.DataSource = gridList;
-                }catch (Exception ex)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Yazdığınız arama kelimesinde sorun bulundu, lütfen kontrol ediniz!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                
-
-            }
-            else if (cbbDeleteCategory.SelectedItem == "Kategori Adına Göre")
-            {
-                try
-                {
-                    var gridList = (from q in list
-                                    where q.CategoryName == txtDeleteCategory.Text
-                                    select new
-                                    {
-                                        ID = q.CategoryId,
-                                        KategoriAdı = q.CategoryName
-                                    }).ToList();
-                    grdDeleteList.DataSource = gridList;
-                }
-                catch (Exception ex)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Yazdığınız arama kelimesinde sorun bulundu, lütfen kontrol ediniz!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-
-            }
-            else
-            {
-                DialogResult dialogResult = MessageBox.Show("Aradığınız kategori bulunamamıştır!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            
         }
         private void btnSearchDelete_Click(object sender, EventArgs e)
         {
@@ -95,7 +78,27 @@ namespace AppNet.WinFormUI
             grdDeleteList.Refresh();
         }
 
-        
+        private async void txtDeleteCategory_TextChanged(object sender, EventArgs e)
+        {
+            grdDeleteList.Rows.Clear();
+            grdDeleteList.Refresh();
+            var customer = (await cs.GetAll()).ToList();
+            var search = (from q in customer
+                          where q.CategoryName.ToLower().Contains((txtDeleteCategory.Text).ToLower())
+                                  orderby q.CategoryName ascending
+                                  select new CategoryList
+                                  {
+                                      CategoryID= q.CategoryId,
+                                      CategoryName = q.CategoryName,
+
+                                  }).ToList();
+
+            foreach (var find in search)
+            {
+
+                AddRowToGrid(find);
+            }
+        }
     }
 
     }

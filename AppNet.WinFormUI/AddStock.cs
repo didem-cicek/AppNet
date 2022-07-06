@@ -38,6 +38,9 @@ namespace AppNet.WinFormUI
 
         private async void AddStock_Load(object sender, EventArgs e)
         {
+            txtTotalPrice.Text = "";
+            grdList.Rows.Clear();
+            grdList.Refresh();
             if (grdList.Rows.Count == 0)
             {
                 grdList.Rows.Clear();
@@ -48,6 +51,7 @@ namespace AppNet.WinFormUI
                 grdList.Columns.Add("Piece", "Adet");
                 grdList.Columns.Add("Price", "Fiyat");
                 grdList.Columns.Add("CritialStok", "Kritik Stok");
+                grdList.Refresh();
                 grdList.Columns[0].Visible = false;
             }
             if (grdProduct.Rows.Count == 0)
@@ -91,6 +95,11 @@ namespace AppNet.WinFormUI
                                 }).ToList();
 
         }
+        private async void LoadGridStockData()
+        {
+
+            
+        }
         private void AddRowToGridProduct(StockProductViewModel model)
         {
             DataGridViewRow row = (DataGridViewRow)grdProduct.Rows[0].Clone();
@@ -108,6 +117,7 @@ namespace AppNet.WinFormUI
             txtSupplierName.Text = frm.grdSupplier.CurrentRow.Cells[1].Value.ToString();
             txtSupplier.Text = frm.grdSupplier.CurrentRow.Cells[1].Value.ToString();
             supllierID = Convert.ToInt32(frm.grdSupplier.CurrentRow.Cells[0].Value);
+
         }
 
         private async void txtProductFind_TextChanged(object sender, EventArgs e)
@@ -140,7 +150,42 @@ namespace AppNet.WinFormUI
         {
             var frm = sp.GetRequiredService<SelectStockProductFrm>();
             frm.ShowDialog();
-            
+           
+            try
+            {
+                var p = (await ps.GetAll()).ToList();
+                var searchProduct = (from q in p
+                                     where q.ProductID == Convert.ToInt32(grdProduct.CurrentRow.Cells[0].Value)
+                                     orderby q.ProductName ascending
+                                     select new StockAddListViewModel
+                                     {
+                                         ProductID = q.ProductID,
+                                         ProductName = q.ProductName,
+                                         Color = frm.txtColor.Text,
+                                         Size = frm.txtSize.Text,
+                                         Piece = Convert.ToInt32(frm.txtPiece.Text),
+                                         Price = Convert.ToDecimal(frm.txtPrice.Text),
+                                         CritialStock = Convert.ToInt16(frm.txtCritialStock.Text),
+                                     }).ToList();
+                txtTotalPrice.Text = Convert.ToString(Convert.ToDecimal(frm.txtPrice.Text) * Convert.ToInt32(frm.txtPiece.Text));
+                foreach (var product in searchProduct)
+                {
+
+                    AddRowToGridProductStock(product);
+                }
+                frm.txtProductName.Text = "";
+                frm.txtPrice.Text = "";
+                frm.txtPiece.Text = "";
+                frm.txtColor.Text = "";
+                frm.txtCritialStock.Text = "";
+                frm.txtSize.Text = "";
+                
+            }
+            catch (Exception ex)
+            {
+
+            } 
+
 
         }
         private void AddRowToGridProductStock(StockAddListViewModel model)
@@ -159,8 +204,8 @@ namespace AppNet.WinFormUI
 
         private void btnStock_Click(object sender, EventArgs e)
         {
-            decimal StockTotalPrice = Convert.ToDecimal(grdProduct.CurrentRow.Cells[5].Value) * Convert.ToInt32(grdProduct.CurrentRow.Cells[4].Value);
-            ss.Add(Convert.ToDecimal(grdProduct.CurrentRow.Cells[5].Value), StockTotalPrice, Convert.ToInt16(grdProduct.CurrentRow.Cells[4].Value), Convert.ToInt16(grdProduct.CurrentRow.Cells[6].Value), Convert.ToString(grdProduct.CurrentRow.Cells[2].Value), Convert.ToString(grdProduct.CurrentRow.Cells[4].Value),supllierID, Convert.ToInt32(grdProduct.CurrentRow.Cells[0].Value));
+            decimal StockTotalPrice = Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value) * Convert.ToInt32(grdList.CurrentRow.Cells[4].Value);
+            ss.Add(Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value), StockTotalPrice, Convert.ToInt16(grdList.CurrentRow.Cells[4].Value), Convert.ToInt16(grdList.CurrentRow.Cells[6].Value), Convert.ToString(grdList.CurrentRow.Cells[2].Value), Convert.ToString(grdList.CurrentRow.Cells[3].Value),supllierID, Convert.ToInt32(grdProduct.CurrentRow.Cells[0].Value));
             DialogResult dialogResult = MessageBox.Show("Stok başarıyla eklenmiştir. Bir stok daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.Yes)
             {
@@ -168,6 +213,8 @@ namespace AppNet.WinFormUI
                 txtSupplierName.Text = "";
                 txtProductFind.Text = "";
                 txtTotalPrice.Text = "";
+                grdList.Rows.Clear();
+                grdList.Refresh();
             }
             else
             {
@@ -177,6 +224,13 @@ namespace AppNet.WinFormUI
             txtSupplierName.Text = "";
             txtProductFind.Text = "";
             txtTotalPrice.Text = "";
+            grdList.Rows.Clear();
+            grdList.Refresh();
+        }
+
+        private void grdList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

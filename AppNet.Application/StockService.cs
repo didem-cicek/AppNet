@@ -44,14 +44,13 @@ namespace AppNet.AppService
             return true;
         }
 
-        public async Task<Stock> Update(int StockID, string ProductType, decimal PurchaseUnitPrice, decimal StockTotalPrice, int StockPiece, short StockCritical, string color, string size, int SupplierID, int ProductID)
+        public async Task<Stock> Update(int StockID, decimal PurchaseUnitPrice, decimal StockTotalPrice, int StockPiece, short StockCritical, string color, string size, int SupplierID, int ProductID)
         {
             Stock stock = new Stock()
             {
                 StockID = StockID,
                 SupplierID = SupplierID,
                 ProductID = ProductID,
-                ProductType = ProductType,
                 PurchaseUnitPrice = PurchaseUnitPrice,
                 StockTotalPrice = StockTotalPrice,
                 StockPiece = StockPiece,
