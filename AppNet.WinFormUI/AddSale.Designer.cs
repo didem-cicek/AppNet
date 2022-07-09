@@ -74,10 +74,14 @@
             this.btnAddProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAddProduct.ForeColor = System.Drawing.Color.White;
-            this.btnAddProduct.Location = new System.Drawing.Point(426, 560);
+            this.btnAddProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddProduct.ImageKey = "add.png";
+            this.btnAddProduct.ImageList = this.imageList1;
+            this.btnAddProduct.Location = new System.Drawing.Point(411, 560);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(150, 40);
-            this.btnAddProduct.TabIndex = 7;
+            this.btnAddProduct.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnAddProduct.Size = new System.Drawing.Size(165, 40);
+            this.btnAddProduct.TabIndex = 11;
             this.btnAddProduct.Text = "SİPARİŞ EKLE";
             this.btnAddProduct.UseVisualStyleBackColor = false;
             this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
@@ -135,7 +139,7 @@
             this.cbbStatus.Location = new System.Drawing.Point(363, 426);
             this.cbbStatus.Name = "cbbStatus";
             this.cbbStatus.Size = new System.Drawing.Size(213, 29);
-            this.cbbStatus.TabIndex = 5;
+            this.cbbStatus.TabIndex = 8;
             // 
             // cbbAddSalePay
             // 
@@ -144,7 +148,7 @@
             this.cbbAddSalePay.Location = new System.Drawing.Point(23, 426);
             this.cbbAddSalePay.Name = "cbbAddSalePay";
             this.cbbAddSalePay.Size = new System.Drawing.Size(301, 29);
-            this.cbbAddSalePay.TabIndex = 5;
+            this.cbbAddSalePay.TabIndex = 7;
             // 
             // grdProduct
             // 
@@ -156,7 +160,7 @@
             this.grdProduct.RowTemplate.Height = 25;
             this.grdProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdProduct.Size = new System.Drawing.Size(615, 431);
-            this.grdProduct.TabIndex = 13;
+            this.grdProduct.TabIndex = 4;
             this.grdProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProduct_CellContentClick_1);
             // 
             // label1
@@ -176,7 +180,7 @@
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.ReadOnly = true;
             this.txtCustomerName.Size = new System.Drawing.Size(444, 29);
-            this.txtCustomerName.TabIndex = 4;
+            this.txtCustomerName.TabIndex = 5;
             // 
             // label8
             // 
@@ -194,7 +198,7 @@
             this.txtProductFind.Location = new System.Drawing.Point(160, 104);
             this.txtProductFind.Name = "txtProductFind";
             this.txtProductFind.Size = new System.Drawing.Size(488, 29);
-            this.txtProductFind.TabIndex = 17;
+            this.txtProductFind.TabIndex = 3;
             this.txtProductFind.TextChanged += new System.EventHandler(this.txtProductFind_TextChanged);
             // 
             // label9
@@ -236,7 +240,7 @@
             this.txtCustomer.Name = "txtCustomer";
             this.txtCustomer.ReadOnly = true;
             this.txtCustomer.Size = new System.Drawing.Size(488, 29);
-            this.txtCustomer.TabIndex = 16;
+            this.txtCustomer.TabIndex = 1;
             // 
             // addCustomer
             // 
@@ -249,7 +253,7 @@
             this.addCustomer.Location = new System.Drawing.Point(668, 24);
             this.addCustomer.Name = "addCustomer";
             this.addCustomer.Size = new System.Drawing.Size(30, 30);
-            this.addCustomer.TabIndex = 15;
+            this.addCustomer.TabIndex = 2;
             this.addCustomer.UseVisualStyleBackColor = false;
             this.addCustomer.Click += new System.EventHandler(this.addCustomer_Click);
             // 
@@ -316,7 +320,7 @@
             this.txtDesciption.Location = new System.Drawing.Point(23, 506);
             this.txtDesciption.Name = "txtDesciption";
             this.txtDesciption.Size = new System.Drawing.Size(301, 29);
-            this.txtDesciption.TabIndex = 12;
+            this.txtDesciption.TabIndex = 9;
             // 
             // label11
             // 
@@ -338,7 +342,7 @@
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(213, 29);
-            this.txtTotalPrice.TabIndex = 11;
+            this.txtTotalPrice.TabIndex = 10;
             // 
             // grdList
             // 
@@ -350,7 +354,7 @@
             this.grdList.Name = "grdList";
             this.grdList.RowTemplate.Height = 25;
             this.grdList.Size = new System.Drawing.Size(444, 218);
-            this.grdList.TabIndex = 10;
+            this.grdList.TabIndex = 6;
             // 
             // label2
             // 

@@ -369,6 +369,15 @@
           }
         }
       },
+      "Newtonsoft.Json/12.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "System.Collections.Immutable/6.0.0": {
         "type": "package",
         "dependencies": {
@@ -595,11 +604,24 @@
           }
         }
       },
+      "Telegram.Bot/18.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Telegram.Bot.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Telegram.Bot.dll": {}
+        }
+      },
       "AppNet.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "6.0.5"
+          "Microsoft.EntityFrameworkCore": "6.0.5",
+          "Telegram.Bot": "18.0.0"
         },
         "compile": {
           "bin/placeholder/AppNet.Domain.dll": {}
@@ -612,7 +634,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "AppNet.Domain": "1.0.0"
+          "AppNet.Domain": "1.0.0",
+          "Telegram.Bot": "18.0.0"
         },
         "compile": {
           "bin/placeholder/AppNet.Infrastructer.Logging.dll": {}
@@ -628,7 +651,8 @@
           "AppNet.Domain": "1.0.0",
           "AppNet.Infrastructer.Logging": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.5",
-          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.5"
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.5",
+          "Telegram.Bot": "18.0.0"
         },
         "compile": {
           "bin/placeholder/AppNet.Infrastructer.Persistence.dll": {}
@@ -1317,6 +1341,36 @@
         "version.txt"
       ]
     },
+    "Newtonsoft.Json/12.0.2": {
+      "sha512": "rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec"
+      ]
+    },
     "System.Collections.Immutable/6.0.0": {
       "sha512": "l4zZJ1WU2hqpQQHXz1rvC3etVZN+2DLmQMO79FhOTZHMn8tDRr+WU287sbomD0BETlmKDn0ygUgVy9k5xkkJdA==",
       "type": "package",
@@ -1801,6 +1855,24 @@
         "version.txt"
       ]
     },
+    "Telegram.Bot/18.0.0": {
+      "sha512": "BD0UchUXINymCGS+1O1tv2enCRyv+VbSJQAgfnueTZs3j7K4XXyJyW0CgyJleTrqB1oq1hS1ux6gBpi3Ajp+ZQ==",
+      "type": "package",
+      "path": "telegram.bot/18.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.1/Telegram.Bot.dll",
+        "lib/netcoreapp3.1/Telegram.Bot.pdb",
+        "lib/netcoreapp3.1/Telegram.Bot.xml",
+        "lib/netstandard2.0/Telegram.Bot.dll",
+        "lib/netstandard2.0/Telegram.Bot.pdb",
+        "lib/netstandard2.0/Telegram.Bot.xml",
+        "package-icon.png",
+        "telegram.bot.18.0.0.nupkg.sha512",
+        "telegram.bot.nuspec"
+      ]
+    },
     "AppNet.Domain/1.0.0": {
       "type": "project",
       "path": "../AppNet.Domain/AppNet.Domain.csproj",
@@ -1821,7 +1893,8 @@
     "net6.0": [
       "AppNet.Domain >= 1.0.0",
       "AppNet.Infrastructer.Logging >= 1.0.0",
-      "AppNet.Infrastructer.Persistence >= 1.0.0"
+      "AppNet.Infrastructer.Persistence >= 1.0.0",
+      "Telegram.Bot >= 18.0.0"
     ]
   },
   "packageFolders": {
@@ -1877,6 +1950,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "Telegram.Bot": {
+            "target": "Package",
+            "version": "[18.0.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

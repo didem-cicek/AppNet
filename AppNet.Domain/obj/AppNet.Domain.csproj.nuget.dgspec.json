@@ -47,6 +47,10 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.5, )"
+            },
+            "Telegram.Bot": {
+              "target": "Package",
+              "version": "[18.0.0, )"
             }
           },
           "imports": [

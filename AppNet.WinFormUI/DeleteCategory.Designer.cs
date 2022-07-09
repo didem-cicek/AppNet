@@ -59,36 +59,36 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(22, 33);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(150, 21);
+            this.label4.Size = new System.Drawing.Size(135, 19);
             this.label4.TabIndex = 4;
             this.label4.Text = "Aranacak Kelime : ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(22, 82);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(155, 21);
+            this.label3.Size = new System.Drawing.Size(140, 19);
             this.label3.TabIndex = 5;
             this.label3.Text = "Bulunan Kategori : ";
             // 
             // btnSearchDelete
             // 
-            this.btnSearchDelete.BackColor = System.Drawing.Color.Firebrick;
+            this.btnSearchDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
             this.btnSearchDelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
-            this.btnSearchDelete.FlatAppearance.BorderSize = 3;
+            this.btnSearchDelete.FlatAppearance.BorderSize = 0;
             this.btnSearchDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearchDelete.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSearchDelete.ForeColor = System.Drawing.Color.White;
-            this.btnSearchDelete.Location = new System.Drawing.Point(196, 300);
+            this.btnSearchDelete.Location = new System.Drawing.Point(286, 300);
             this.btnSearchDelete.Name = "btnSearchDelete";
-            this.btnSearchDelete.Size = new System.Drawing.Size(260, 40);
+            this.btnSearchDelete.Size = new System.Drawing.Size(170, 40);
             this.btnSearchDelete.TabIndex = 10;
-            this.btnSearchDelete.Text = "BULUNAN KATEGORİYİ SİL";
+            this.btnSearchDelete.Text = "SEÇİLENİ SİL";
             this.btnSearchDelete.UseVisualStyleBackColor = false;
             this.btnSearchDelete.Click += new System.EventHandler(this.btnSearchDelete_Click);
             // 

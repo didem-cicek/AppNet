@@ -122,5 +122,38 @@ namespace AppNet.WinFormUI
         {
 
         }
+
+        private async void txtCustomerSearch_TextChanged(object sender, EventArgs e)
+        {
+            grdCustomerList.Rows.Clear();
+            grdCustomerList.Refresh();
+            var customer = (await cs.GetAll()).ToList();
+            var find = (from p in customer
+                                 where p.CustomerName.ToLower().Contains((txtCustomerSearch.Text).ToLower())
+                                 orderby p.CustomerName ascending
+                                 select new CustomerViewModel
+                                 {
+                                     CustomerID = p.CustomerID,
+                                     CustomerName = p.CustomerName,
+                                     CustomerPhone = p.CustomerPhone,
+                                     CustomerEmail = p.CustomerEmail,
+                                     CustomerAddress = p.CustomerAddress,
+                                     CustomerShippingAddress = p.CustomerShippingAddress,
+                                     CustomerTaxNumber = p.CustomerTaxNumber,
+                                     CustomerTaxOffice = p.CustomerTaxOffice,
+                                     CustomerDesription = p.CustomerDesription,
+                                     CustomerDebt = p.Sales == null ? 0 : p.Sales.Sum(s => s.SalePrice),
+                                     CustomerReceivable = p.Sales == null ? 0 : p.Sales.Sum(s => s.SalePrice),
+                                     CustomerDate = p.CustomerDate,
+                                     CustomerModifitedDate = p.CustomerModifitedDate,
+
+                                 }).ToList();
+
+            foreach (var f in find)
+            {
+
+                AddRowToGrid(f);
+            }
+        }
     }
 }

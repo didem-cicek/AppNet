@@ -15,10 +15,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Telegram.Bot" Version="18.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AppNet.Application\AppNet.Application.csproj" />
+    <ProjectReference Include="..\AppNet.Infrastructer.Notification\AppNet.Infrastructer.Notification.csproj" />
     <ProjectReference Include="..\AppNet.Infrastructer.Persistence\AppNet.Infrastructer.Persistence.csproj" />
   </ItemGroup>
 

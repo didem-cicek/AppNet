@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSupplier));
             this.label1 = new System.Windows.Forms.Label();
             this.txtSupplierName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,6 +41,7 @@
             this.txtTaxNumber = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTaxName = new System.Windows.Forms.TextBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -94,17 +97,21 @@
             // 
             // btnAddSupplier
             // 
-            this.btnAddSupplier.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnAddSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
             this.btnAddSupplier.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddSupplier.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
-            this.btnAddSupplier.FlatAppearance.BorderSize = 3;
+            this.btnAddSupplier.FlatAppearance.BorderSize = 0;
             this.btnAddSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddSupplier.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAddSupplier.ForeColor = System.Drawing.Color.White;
-            this.btnAddSupplier.Location = new System.Drawing.Point(283, 264);
+            this.btnAddSupplier.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddSupplier.ImageKey = "add.png";
+            this.btnAddSupplier.ImageList = this.imageList1;
+            this.btnAddSupplier.Location = new System.Drawing.Point(243, 264);
             this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Size = new System.Drawing.Size(150, 40);
-            this.btnAddSupplier.TabIndex = 5;
+            this.btnAddSupplier.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.btnAddSupplier.Size = new System.Drawing.Size(190, 40);
+            this.btnAddSupplier.TabIndex = 6;
             this.btnAddSupplier.Text = "TEDARİKÇİ EKLE";
             this.btnAddSupplier.UseVisualStyleBackColor = false;
             this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
@@ -124,7 +131,7 @@
             this.txtTaxNumber.Location = new System.Drawing.Point(191, 164);
             this.txtTaxNumber.Name = "txtTaxNumber";
             this.txtTaxNumber.Size = new System.Drawing.Size(242, 29);
-            this.txtTaxNumber.TabIndex = 3;
+            this.txtTaxNumber.TabIndex = 4;
             // 
             // label5
             // 
@@ -141,7 +148,14 @@
             this.txtTaxName.Location = new System.Drawing.Point(191, 209);
             this.txtTaxName.Name = "txtTaxName";
             this.txtTaxName.Size = new System.Drawing.Size(242, 29);
-            this.txtTaxName.TabIndex = 3;
+            this.txtTaxName.TabIndex = 5;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "add.png");
             // 
             // AddSupplier
             // 
@@ -184,5 +198,6 @@
         private TextBox txtTaxNumber;
         private Label label5;
         private TextBox txtTaxName;
+        private ImageList imageList1;
     }
 }

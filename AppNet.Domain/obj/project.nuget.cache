@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lDy50uBvYjugSGVNaJ/KwJ4qvMyOSD0j5T6GW112tO9awtrSWqQTJ4PUtTaSLK1HgopRb3y16ZBtgG7VzBl/og==",
+  "dgSpecHash": "e1leK5xxgqu1OOpVEuP0pNm1D6aAHn+H7WUxsLnqgt0X75vCa2/7LzmnXnWDP+rxCZ1LbDAibMqF9F2mh+24QQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Domain\\AppNet.Domain.csproj",
   "expectedPackageFiles": [
@@ -15,9 +15,11 @@
     "C:\\Users\\didemcicek\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\didemcicek\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\didemcicek\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\didemcicek\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\didemcicek\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\didemcicek\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
-    "C:\\Users\\didemcicek\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\didemcicek\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\didemcicek\\.nuget\\packages\\telegram.bot\\18.0.0\\telegram.bot.18.0.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -47,7 +47,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtSupplierName = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnProduct = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.productLabel = new System.Windows.Forms.Label();
@@ -116,7 +115,7 @@
             this.txtSupplier.Name = "txtSupplier";
             this.txtSupplier.ReadOnly = true;
             this.txtSupplier.Size = new System.Drawing.Size(495, 29);
-            this.txtSupplier.TabIndex = 19;
+            this.txtSupplier.TabIndex = 1;
             // 
             // addSupplier
             // 
@@ -129,7 +128,7 @@
             this.addSupplier.Location = new System.Drawing.Point(670, 25);
             this.addSupplier.Name = "addSupplier";
             this.addSupplier.Size = new System.Drawing.Size(30, 30);
-            this.addSupplier.TabIndex = 18;
+            this.addSupplier.TabIndex = 2;
             this.addSupplier.UseVisualStyleBackColor = false;
             this.addSupplier.Click += new System.EventHandler(this.addSupplier_Click);
             // 
@@ -184,7 +183,7 @@
             this.btnStock.Name = "btnStock";
             this.btnStock.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnStock.Size = new System.Drawing.Size(134, 40);
-            this.btnStock.TabIndex = 17;
+            this.btnStock.TabIndex = 8;
             this.btnStock.Text = "STOK EKLE";
             this.btnStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStock.UseVisualStyleBackColor = false;
@@ -196,7 +195,7 @@
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(442, 29);
-            this.txtTotalPrice.TabIndex = 16;
+            this.txtTotalPrice.TabIndex = 7;
             // 
             // label2
             // 
@@ -219,7 +218,7 @@
             this.grdList.Name = "grdList";
             this.grdList.RowTemplate.Height = 25;
             this.grdList.Size = new System.Drawing.Size(444, 252);
-            this.grdList.TabIndex = 14;
+            this.grdList.TabIndex = 6;
             this.grdList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdList_CellContentClick);
             // 
             // label11
@@ -253,11 +252,10 @@
             this.txtSupplierName.Name = "txtSupplierName";
             this.txtSupplierName.ReadOnly = true;
             this.txtSupplierName.Size = new System.Drawing.Size(442, 29);
-            this.txtSupplierName.TabIndex = 4;
+            this.txtSupplierName.TabIndex = 5;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnProduct);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.productLabel);
@@ -268,27 +266,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(673, 615);
             this.panel3.TabIndex = 14;
-            // 
-            // btnProduct
-            // 
-            this.btnProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
-            this.btnProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProduct.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
-            this.btnProduct.FlatAppearance.BorderSize = 0;
-            this.btnProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnProduct.ForeColor = System.Drawing.Color.White;
-            this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnProduct.ImageKey = "add.png";
-            this.btnProduct.ImageList = this.imageList1;
-            this.btnProduct.Location = new System.Drawing.Point(497, 538);
-            this.btnProduct.Name = "btnProduct";
-            this.btnProduct.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnProduct.Size = new System.Drawing.Size(143, 40);
-            this.btnProduct.TabIndex = 17;
-            this.btnProduct.Text = "ÜRÜN EKLE";
-            this.btnProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProduct.UseVisualStyleBackColor = false;
             // 
             // label9
             // 
@@ -330,7 +307,7 @@
             this.txtProductFind.Location = new System.Drawing.Point(152, 98);
             this.txtProductFind.Name = "txtProductFind";
             this.txtProductFind.Size = new System.Drawing.Size(488, 29);
-            this.txtProductFind.TabIndex = 22;
+            this.txtProductFind.TabIndex = 3;
             this.txtProductFind.TextChanged += new System.EventHandler(this.txtProductFind_TextChanged);
             // 
             // grdProduct
@@ -341,8 +318,8 @@
             this.grdProduct.Location = new System.Drawing.Point(25, 153);
             this.grdProduct.Name = "grdProduct";
             this.grdProduct.RowTemplate.Height = 25;
-            this.grdProduct.Size = new System.Drawing.Size(615, 348);
-            this.grdProduct.TabIndex = 20;
+            this.grdProduct.Size = new System.Drawing.Size(615, 425);
+            this.grdProduct.TabIndex = 4;
             this.grdProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProduct_CellContentClick);
             // 
             // AddStock
@@ -397,6 +374,5 @@
         public TextBox txtTotalPrice;
         public Label label2;
         public Button btnStock;
-        public Button btnProduct;
     }
 }

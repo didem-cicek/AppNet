@@ -92,9 +92,9 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
             this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
-            this.btnLogin.FlatAppearance.BorderSize = 3;
+            this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
@@ -180,9 +180,9 @@
             // 
             // btnNewUser
             // 
-            this.btnNewUser.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnNewUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
             this.btnNewUser.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.btnNewUser.FlatAppearance.BorderSize = 3;
+            this.btnNewUser.FlatAppearance.BorderSize = 0;
             this.btnNewUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnNewUser.ForeColor = System.Drawing.Color.White;
@@ -203,9 +203,9 @@
             // 
             // btnLoginNewPassword
             // 
-            this.btnLoginNewPassword.BackColor = System.Drawing.Color.Firebrick;
+            this.btnLoginNewPassword.BackColor = System.Drawing.Color.DimGray;
             this.btnLoginNewPassword.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
-            this.btnLoginNewPassword.FlatAppearance.BorderSize = 3;
+            this.btnLoginNewPassword.FlatAppearance.BorderSize = 0;
             this.btnLoginNewPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoginNewPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLoginNewPassword.ForeColor = System.Drawing.Color.White;
@@ -271,6 +271,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
             this.label13.Location = new System.Drawing.Point(28, 255);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(86, 25);

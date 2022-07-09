@@ -232,5 +232,10 @@ namespace AppNet.WinFormUI
         {
 
         }
+
+        private void btnProduct_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

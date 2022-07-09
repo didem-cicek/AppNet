@@ -1,5 +1,6 @@
 
 using AppNet.AppService;
+using AppNet.Infrastructer.Notification;
 using AppNet.Infrastructer.Persistence.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -28,39 +29,11 @@ namespace AppNet.WinFormUI
 
         private async void FrmMain_Load(object sender, EventArgs e)
         {
-            if (grdNot.Rows.Count == 0)
-            {
-                grdNot.Rows.Clear();
-                grdNot.Refresh();
-                grdNot.Columns.Add("NotificationID", "ID");
-                grdNot.Columns.Add("NotificationName", "Bildirim");
-                LoadGridData();
-                grdNot.Columns[0].Visible = false;
-            }
+            var n = new TelegramNotification();
+            
+            //n.OnMessage("Hoþgeldin");
         }
-        private async void LoadGridData()
-        {
-            var not = (await n.GetAll()).ToList();
-            var data = from q in not
-                       select new NotificationViewModel
-                       {
-                           NotificationID = q.NotificationsID,
-                           NotificationName = q.NotificationsName,
-                       };
-            foreach (var item in data)
-            {
-                AddRowToGrid(item);
-            }
-
-        }
-
-        private void AddRowToGrid(NotificationViewModel model)
-        {
-            DataGridViewRow row = (DataGridViewRow)grdNot.Rows[0].Clone();
-            row.Cells[0].Value = model.NotificationID;
-            row.Cells[1].Value = model.NotificationName;
-            grdNot.Rows.Add(row);
-        }
+             
 
         private void btnProductManagement_Click(object sender, EventArgs e)
         {

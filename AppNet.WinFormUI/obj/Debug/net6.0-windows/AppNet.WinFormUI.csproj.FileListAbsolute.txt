@@ -88,3 +88,7 @@ C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-wi
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.SelectProductFrm.resources
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.SelectStockProductFrm.resources
 C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\obj\Debug\net6.0-windows\AppNet.WinFormUI.SelectSupplierFrm.resources
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\bin\Debug\net6.0-windows\Telegram.Bot.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\bin\Debug\net6.0-windows\AppNet.Infrastructer.Notification.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.WinFormUI\bin\Debug\net6.0-windows\AppNet.Infrastructer.Notification.pdb

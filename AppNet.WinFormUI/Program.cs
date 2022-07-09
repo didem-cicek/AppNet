@@ -1,5 +1,6 @@
 using AppNet.AppService;
 using AppNet.AppServices;
+using AppNet.Infrastructer.Notification;
 using AppNet.Infrastructer.Persistence;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.DependencyInjection;
@@ -62,6 +63,7 @@ namespace AppNet.WinFormUI
             services.AddScoped<SelectProductFrm>();
             services.AddScoped<SelectSupplierFrm>();
             services.AddScoped<SelectStockProductFrm>();
+            services.AddScoped<TelegramNotification>();
 
 
             using (ServiceProvider sp = services.BuildServiceProvider()) {

@@ -1,0 +1,12 @@
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Notification\bin\Debug\net6.0\AppNet.Infrastructer.Notification.deps.json
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Notification\bin\Debug\net6.0\AppNet.Infrastructer.Notification.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Notification\bin\Debug\net6.0\AppNet.Infrastructer.Notification.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Notification\obj\Debug\net6.0\AppNet.Infrastructer.Notification.csproj.AssemblyReference.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Notification\obj\Debug\net6.0\AppNet.Infrastructer.Notification.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Notification\obj\Debug\net6.0\AppNet.Infrastructer.Notification.AssemblyInfoInputs.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Notification\obj\Debug\net6.0\AppNet.Infrastructer.Notification.AssemblyInfo.cs
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Notification\obj\Debug\net6.0\AppNet.Infrastructer.Notification.csproj.CoreCompileInputs.cache
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Notification\obj\Debug\net6.0\AppNet.Infrastructer.Notification.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Notification\obj\Debug\net6.0\refint\AppNet.Infrastructer.Notification.dll
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Notification\obj\Debug\net6.0\AppNet.Infrastructer.Notification.pdb
+C:\Users\didemcicek\Documents\GitHub\AppNet\AppNet.Infrastructer.Notification\obj\Debug\net6.0\ref\AppNet.Infrastructer.Notification.dll

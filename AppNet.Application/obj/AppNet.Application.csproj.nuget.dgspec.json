@@ -53,6 +53,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Telegram.Bot": {
+              "target": "Package",
+              "version": "[18.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -115,6 +121,10 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.5, )"
+            },
+            "Telegram.Bot": {
+              "target": "Package",
+              "version": "[18.0.0, )"
             }
           },
           "imports": [
@@ -179,6 +189,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Telegram.Bot": {
+              "target": "Package",
+              "version": "[18.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -258,6 +274,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.5, )"
+            },
+            "Telegram.Bot": {
+              "target": "Package",
+              "version": "[18.0.0, )"
             }
           },
           "imports": [

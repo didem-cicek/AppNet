@@ -49,10 +49,10 @@
             // 
             // btnAddCustomer
             // 
-            this.btnAddCustomer.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnAddCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
             this.btnAddCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddCustomer.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
-            this.btnAddCustomer.FlatAppearance.BorderSize = 3;
+            this.btnAddCustomer.FlatAppearance.BorderSize = 0;
             this.btnAddCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCustomer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAddCustomer.ForeColor = System.Drawing.Color.White;

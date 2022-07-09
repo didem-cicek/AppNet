@@ -22,9 +22,33 @@ namespace AppNet.WinFormUI
 
         }
 
-        private void txtProductSearch_TextChanged(object sender, EventArgs e)
+        private async void txtProductSearch_TextChanged(object sender, EventArgs e)
         {
+            grdProductList.Rows.Clear();
+            grdProductList.Refresh();
+            var p = (await productService.GetAll()).ToList();
+            var c = (await categoryService.GetAll()).ToList();
+            var searchProduct = (from q in p
+                                 join s in c
+                                 on q.CategoryID equals s.CategoryId
+                                 where q.ProductName.ToLower().Contains((txtProductSearch.Text).ToLower())
+                                 orderby q.ProductName ascending
+                                 select new ProductViewModel
+                                 {
+                                     ProductId = q.ProductID,
+                                     ProductName = q.ProductName,
+                                     CategorName = s.CategoryName,
+                                     Description = q.ProductDesriciption,
+                                     Time = q.ProductDate,
+                                     ModifitedDate = q.ProductModifitedDate
 
+                                 }).ToList();
+
+            foreach (var product in searchProduct)
+            {
+
+                AddRowToGrid(product);
+            }
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -88,6 +112,9 @@ namespace AppNet.WinFormUI
 
         private void ProductFrm_Load(object sender, EventArgs e)
         {
+            txtProductSearch.Text = "";
+            grdProductList.Rows.Clear();
+            grdProductList.Refresh();
             if (grdProductList.Rows.Count == 0)
             {
                 grdProductList.Rows.Clear();
@@ -135,6 +162,21 @@ namespace AppNet.WinFormUI
             row.Cells[5].Value = model.ModifitedDate;
 
             grdProductList.Rows.Add(row);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

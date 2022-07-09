@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "FVnSMCC3JrDSxGUY2BkK54AjSRoCeIXCXHJxGnQXTk5h6JLgMOX8kkEQnad+puVlJTJVm+O3IQ844AWQAEsMkg==",
+  "dgSpecHash": "Et+mf6dlopqIAn7GZTuQYaEVMm6vAsiY69W74Q180LNn2CvlUiX5U0pzRgiHqS5n5qS2KuyBqmtmjKlmWNDELw==",
   "success": true,
   "projectFilePath": "C:\\Users\\didemcicek\\Documents\\GitHub\\AppNet\\AppNet.Infrastructer.Notification\\AppNet.Infrastructer.Notification.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\didemcicek\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\didemcicek\\.nuget\\packages\\telegram.bot\\18.0.0\\telegram.bot.18.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
