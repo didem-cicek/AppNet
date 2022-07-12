@@ -96,5 +96,30 @@ namespace AppNet.WinFormUI
             grdSupplierList.Rows.Clear();
             LoadGridData();
         }
+
+        private async void txtProductSearch_TextChanged(object sender, EventArgs e)
+        {
+            var supplier = (await ss.GetAll()).ToList();
+            var stok = (await sts.GetAll()).ToList();
+            var data = from p in supplier
+                       where p.SupplierName.ToLower().Contains((txtProductSearch.Text).ToLower())
+                       select new SupplierViewModel
+                       {
+                           SupplierID = p.SupplierID,
+                           SupplierName = p.SupplierName,
+                           SupplierPhone = p.SupplierPhone,
+                           SupplierAddress = p.SupplierAddress,
+                           TaxNumber = p.SupplierTaxNumber,
+                           TaxName = p.SupplierTaxName,
+                           SupplierDebt = p.Stock == null ? 0 : p.Stock.Sum(s => s.StockTotalPrice),
+                           SupplierReceivable = p.Stock == null ? 0 : p.Stock.Sum(s => s.StockTotalPrice),
+                           Date = p.SupplierDate,
+                           ModifiedDate = p.SupplierModifitedDate,
+                       };
+            foreach (var item in data)
+            {
+                AddRowToGrid(item);
+            }
+        }
     }
 }

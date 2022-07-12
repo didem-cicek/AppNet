@@ -15,19 +15,19 @@ namespace AppNet.WinFormUI
 {
     public partial class SalesFrm : Form
     {
-        private readonly IServiceProvider sp;
-        private readonly ISalesService ss;
+        private readonly IProductService ps;
         private readonly ICustomerService cs;
-        private readonly IStockService stc;
-        private readonly IProductService p;
-        public SalesFrm(IServiceProvider sp, ISalesService ss, ICustomerService cs, IStockService stc, IProductService p)
+        private readonly IStockService sts;
+        private readonly ISalesService ss;
+        private readonly IServiceProvider sp;
+        public SalesFrm(IServiceProvider sp, IProductService ps, ICustomerService cs, IStockService sts, ISalesService ss)
         {
             InitializeComponent();
-            this.sp = sp;
-            this.ss = ss;
+            this.ps = ps;
             this.cs = cs;
-            this.stc = stc;
-            this.p = p;
+            this.sts = sts;
+            this.ss = ss;
+            this.sp = sp;
         }
 
         private void btnAddSale_Click(object sender, EventArgs e)
@@ -75,8 +75,8 @@ namespace AppNet.WinFormUI
         {
             var sales = (await ss.GetAll()).ToList();
             var customer = (await cs.GetAll()).ToList();
-            var stock = (await stc.GetAll()).ToList();
-            var product = (await p.GetAll()).ToList();
+            var stock = (await sts.GetAll()).ToList();
+            var product = (await ps.GetAll()).ToList();
             var data = from p in sales
                        join c in customer
                        on p.CustomerID equals c.CustomerID
@@ -113,6 +113,42 @@ namespace AppNet.WinFormUI
             row.Cells[7].Value = model.ModifiedDate;
 
             grdSaleList.Rows.Add(row);
+        }
+
+        private async void txtProductSearch_TextChanged(object sender, EventArgs e)
+        {
+            grdSaleList.Rows.Clear();
+            grdSaleList.Refresh();
+            var p = (await ps.GetAll()).ToList();
+            var st = (await sts.GetAll()).ToList();
+            var sa = (await ss.GetAll()).ToList();
+            var c = (await cs.GetAll()).ToList();
+            var data = (from q in p
+                                 join s in st
+                                 on q.ProductID equals s.ProductID
+                                 join sl in sa
+                                 on s.StockID equals sl.StockID
+                                 join cu in c
+                                 on sl.CustomerID equals cu.CustomerID
+                                 where cu.CustomerName.ToLower().Contains((txtProductSearch.Text).ToLower())
+                                 orderby q.ProductName ascending
+                                 select new SaleViewModel
+                                 {
+                                     SaleID = sl.SaleID,
+                                     ProductName = q.ProductName,
+                                     CustomerName = cu.CustomerName,
+                                     Piece = sl.ProductPiece,
+                                     UnitPrice = sl.SalePrice,
+                                     TotalPrice = sl.TotalPrice,
+                                     Date = sl.SaleDate,
+                                     ModifiedDate = sl.SaleModifitedDate,
+                                 }).ToList();
+            foreach (var item in data)
+            {
+                AddRowToGrid(item);
+            }
+
+           
         }
     }
 }

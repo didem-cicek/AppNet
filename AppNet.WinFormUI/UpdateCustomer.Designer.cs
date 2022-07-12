@@ -31,10 +31,8 @@
             this.grdUpdateCustomerList = new System.Windows.Forms.DataGridView();
             this.txtUpdateCustomerSearch = new System.Windows.Forms.TextBox();
             this.btnUpdatedCustomer = new System.Windows.Forms.Button();
-            this.cbbUpdateCustomer = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtUpdateCustomerDesriciption = new System.Windows.Forms.TextBox();
             this.txtUpdateCustomerTaxOffice = new System.Windows.Forms.TextBox();
             this.txtUpdateCustomerTaxNo = new System.Windows.Forms.TextBox();
@@ -51,35 +49,38 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnSearchUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdUpdateCustomerList)).BeginInit();
             this.SuspendLayout();
             // 
             // grdUpdateCustomerList
             // 
+            this.grdUpdateCustomerList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.grdUpdateCustomerList.BackgroundColor = System.Drawing.Color.White;
             this.grdUpdateCustomerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdUpdateCustomerList.Location = new System.Drawing.Point(24, 176);
+            this.grdUpdateCustomerList.Location = new System.Drawing.Point(24, 119);
             this.grdUpdateCustomerList.Name = "grdUpdateCustomerList";
             this.grdUpdateCustomerList.RowTemplate.Height = 25;
-            this.grdUpdateCustomerList.Size = new System.Drawing.Size(420, 160);
+            this.grdUpdateCustomerList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdUpdateCustomerList.Size = new System.Drawing.Size(420, 254);
             this.grdUpdateCustomerList.TabIndex = 3;
+            this.grdUpdateCustomerList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdUpdateCustomerList_CellContentClick);
             // 
             // txtUpdateCustomerSearch
             // 
-            this.txtUpdateCustomerSearch.Location = new System.Drawing.Point(198, 85);
+            this.txtUpdateCustomerSearch.Location = new System.Drawing.Point(202, 28);
             this.txtUpdateCustomerSearch.Name = "txtUpdateCustomerSearch";
             this.txtUpdateCustomerSearch.Size = new System.Drawing.Size(242, 29);
             this.txtUpdateCustomerSearch.TabIndex = 2;
+            this.txtUpdateCustomerSearch.TextChanged += new System.EventHandler(this.txtUpdateCustomerSearch_TextChanged);
             // 
             // btnUpdatedCustomer
             // 
-            this.btnUpdatedCustomer.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnUpdatedCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
             this.btnUpdatedCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdatedCustomer.FlatAppearance.BorderColor = System.Drawing.Color.SaddleBrown;
-            this.btnUpdatedCustomer.FlatAppearance.BorderSize = 3;
+            this.btnUpdatedCustomer.FlatAppearance.BorderSize = 0;
             this.btnUpdatedCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdatedCustomer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnUpdatedCustomer.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnUpdatedCustomer.ForeColor = System.Drawing.Color.White;
             this.btnUpdatedCustomer.Location = new System.Drawing.Point(786, 399);
             this.btnUpdatedCustomer.Name = "btnUpdatedCustomer";
@@ -89,46 +90,28 @@
             this.btnUpdatedCustomer.UseVisualStyleBackColor = false;
             this.btnUpdatedCustomer.Click += new System.EventHandler(this.btnUpdatedCustomer_Click);
             // 
-            // cbbUpdateCustomer
-            // 
-            this.cbbUpdateCustomer.FormattingEnabled = true;
-            this.cbbUpdateCustomer.Location = new System.Drawing.Point(198, 29);
-            this.cbbUpdateCustomer.Name = "cbbUpdateCustomer";
-            this.cbbUpdateCustomer.Size = new System.Drawing.Size(242, 29);
-            this.cbbUpdateCustomer.TabIndex = 1;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(20, 136);
+            this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
+            this.label8.Location = new System.Drawing.Point(20, 79);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(148, 21);
+            this.label8.Size = new System.Drawing.Size(135, 19);
             this.label8.TabIndex = 10;
             this.label8.Text = "Bulunan Müşteri : ";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(20, 88);
+            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(22, 31);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 21);
+            this.label7.Size = new System.Drawing.Size(101, 19);
             this.label7.TabIndex = 11;
             this.label7.Text = "Müşteri Adı : ";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(19, 31);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(122, 21);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Kriter Seçiniz : ";
             // 
             // txtUpdateCustomerDesriciption
             // 
@@ -154,11 +137,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(557, 344);
+            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(557, 349);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 21);
+            this.label1.Size = new System.Drawing.Size(83, 19);
             this.label1.TabIndex = 34;
             this.label1.Text = "Açıklama : ";
             // 
@@ -172,11 +155,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(556, 298);
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(556, 303);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 21);
+            this.label2.Size = new System.Drawing.Size(105, 19);
             this.label2.TabIndex = 35;
             this.label2.Text = "Vergi Dairesi : ";
             // 
@@ -190,11 +173,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(555, 253);
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(555, 254);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 21);
+            this.label3.Size = new System.Drawing.Size(124, 19);
             this.label3.TabIndex = 36;
             this.label3.Text = "Vergi Numarası : ";
             // 
@@ -222,74 +205,57 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(557, 206);
+            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(557, 210);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 21);
+            this.label5.Size = new System.Drawing.Size(100, 19);
             this.label5.TabIndex = 37;
             this.label5.Text = "Sevk Adresi : ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(557, 161);
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(557, 166);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 21);
+            this.label4.Size = new System.Drawing.Size(64, 19);
             this.label4.TabIndex = 38;
             this.label4.Text = "Adresi : ";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.Location = new System.Drawing.Point(557, 119);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(108, 21);
+            this.label9.Size = new System.Drawing.Size(98, 19);
             this.label9.TabIndex = 39;
             this.label9.Text = "Mail Adresi : ";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label10.Location = new System.Drawing.Point(557, 73);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(79, 21);
+            this.label10.Size = new System.Drawing.Size(71, 19);
             this.label10.TabIndex = 40;
             this.label10.Text = "Telefon : ";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label11.Location = new System.Drawing.Point(557, 31);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(110, 21);
+            this.label11.Size = new System.Drawing.Size(101, 19);
             this.label11.TabIndex = 41;
             this.label11.Text = "Müşteri Adı : ";
-            // 
-            // btnSearchUpdate
-            // 
-            this.btnSearchUpdate.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnSearchUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearchUpdate.FlatAppearance.BorderColor = System.Drawing.Color.SaddleBrown;
-            this.btnSearchUpdate.FlatAppearance.BorderSize = 3;
-            this.btnSearchUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSearchUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnSearchUpdate.Location = new System.Drawing.Point(264, 399);
-            this.btnSearchUpdate.Name = "btnSearchUpdate";
-            this.btnSearchUpdate.Size = new System.Drawing.Size(180, 40);
-            this.btnSearchUpdate.TabIndex = 13;
-            this.btnSearchUpdate.Text = "MÜŞTERİ BUL";
-            this.btnSearchUpdate.UseVisualStyleBackColor = false;
-            this.btnSearchUpdate.Click += new System.EventHandler(this.btnSearchUpdate_Click);
             // 
             // UpdateCustomer
             // 
@@ -315,12 +281,9 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.grdUpdateCustomerList);
             this.Controls.Add(this.txtUpdateCustomerSearch);
-            this.Controls.Add(this.btnSearchUpdate);
             this.Controls.Add(this.btnUpdatedCustomer);
-            this.Controls.Add(this.cbbUpdateCustomer);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UpdateCustomer";
@@ -338,10 +301,8 @@
         private DataGridView grdUpdateCustomerList;
         private TextBox txtUpdateCustomerSearch;
         private Button btnUpdatedCustomer;
-        private ComboBox cbbUpdateCustomer;
         private Label label8;
         private Label label7;
-        private Label label6;
         public TextBox txtUpdateCustomerDesriciption;
         public TextBox txtUpdateCustomerTaxOffice;
         public TextBox txtUpdateCustomerTaxNo;
@@ -358,6 +319,5 @@
         private Label label9;
         private Label label10;
         private Label label11;
-        private Button btnSearchUpdate;
     }
 }

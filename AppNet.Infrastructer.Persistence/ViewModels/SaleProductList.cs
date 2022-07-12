@@ -15,5 +15,6 @@ namespace AppNet.Infrastructer.Persistence.ViewModels
         public int Piece { get; set; }
         public decimal Price { get; set; }
         public int stockID { get; set; }
+        public int CustomerID { get; set; }
     }
 }

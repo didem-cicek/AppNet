@@ -28,106 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDeleted = new System.Windows.Forms.Button();
             this.grdDeletedList = new System.Windows.Forms.DataGridView();
             this.txtDeletedSearch = new System.Windows.Forms.TextBox();
-            this.cbbDeletedSearch = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnSearchDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdDeletedList)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnDeleted
-            // 
-            this.btnDeleted.BackColor = System.Drawing.Color.Firebrick;
-            this.btnDeleted.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeleted.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
-            this.btnDeleted.FlatAppearance.BorderSize = 3;
-            this.btnDeleted.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleted.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnDeleted.ForeColor = System.Drawing.Color.White;
-            this.btnDeleted.Location = new System.Drawing.Point(304, 325);
-            this.btnDeleted.Name = "btnDeleted";
-            this.btnDeleted.Size = new System.Drawing.Size(149, 40);
-            this.btnDeleted.TabIndex = 11;
-            this.btnDeleted.Text = "TEDARİKÇİ BUL";
-            this.btnDeleted.UseVisualStyleBackColor = false;
-            this.btnDeleted.Click += new System.EventHandler(this.btnDeleted_Click);
-            // 
             // grdDeletedList
             // 
+            this.grdDeletedList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdDeletedList.BackgroundColor = System.Drawing.Color.White;
             this.grdDeletedList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdDeletedList.Location = new System.Drawing.Point(25, 167);
+            this.grdDeletedList.Location = new System.Drawing.Point(25, 118);
             this.grdDeletedList.Name = "grdDeletedList";
             this.grdDeletedList.RowTemplate.Height = 25;
-            this.grdDeletedList.Size = new System.Drawing.Size(428, 128);
+            this.grdDeletedList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdDeletedList.Size = new System.Drawing.Size(428, 182);
             this.grdDeletedList.TabIndex = 10;
             // 
             // txtDeletedSearch
             // 
-            this.txtDeletedSearch.Location = new System.Drawing.Point(209, 77);
+            this.txtDeletedSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtDeletedSearch.Location = new System.Drawing.Point(209, 21);
             this.txtDeletedSearch.Name = "txtDeletedSearch";
-            this.txtDeletedSearch.Size = new System.Drawing.Size(244, 23);
+            this.txtDeletedSearch.Size = new System.Drawing.Size(244, 29);
             this.txtDeletedSearch.TabIndex = 9;
-            // 
-            // cbbDeletedSearch
-            // 
-            this.cbbDeletedSearch.FormattingEnabled = true;
-            this.cbbDeletedSearch.Location = new System.Drawing.Point(209, 27);
-            this.cbbDeletedSearch.Name = "cbbDeletedSearch";
-            this.cbbDeletedSearch.Size = new System.Drawing.Size(244, 23);
-            this.cbbDeletedSearch.TabIndex = 8;
+            this.txtDeletedSearch.TextChanged += new System.EventHandler(this.txtDeletedSearch_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(25, 127);
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
+            this.label3.Location = new System.Drawing.Point(25, 77);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(159, 21);
+            this.label3.Size = new System.Drawing.Size(143, 19);
             this.label3.TabIndex = 5;
             this.label3.Text = "Bulunan Tedarikçi : ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(25, 79);
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(25, 28);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 21);
+            this.label2.Size = new System.Drawing.Size(135, 19);
             this.label2.TabIndex = 6;
             this.label2.Text = "Aranacak Kelime : ";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(25, 30);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 21);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Kriter Seçiniz : ";
-            // 
             // btnSearchDelete
             // 
-            this.btnSearchDelete.BackColor = System.Drawing.Color.Firebrick;
+            this.btnSearchDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
             this.btnSearchDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearchDelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
-            this.btnSearchDelete.FlatAppearance.BorderSize = 3;
+            this.btnSearchDelete.FlatAppearance.BorderSize = 0;
             this.btnSearchDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearchDelete.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSearchDelete.ForeColor = System.Drawing.Color.White;
-            this.btnSearchDelete.Location = new System.Drawing.Point(25, 325);
+            this.btnSearchDelete.Location = new System.Drawing.Point(298, 327);
             this.btnSearchDelete.Name = "btnSearchDelete";
-            this.btnSearchDelete.Size = new System.Drawing.Size(249, 40);
+            this.btnSearchDelete.Size = new System.Drawing.Size(155, 40);
             this.btnSearchDelete.TabIndex = 11;
-            this.btnSearchDelete.Text = "BULUNAN TEDARİKÇİYİ SİL";
+            this.btnSearchDelete.Text = "SEÇİLENİ SİL";
             this.btnSearchDelete.UseVisualStyleBackColor = false;
             this.btnSearchDelete.Click += new System.EventHandler(this.btnSearchDelete_Click);
             // 
@@ -138,13 +104,10 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(479, 392);
             this.Controls.Add(this.btnSearchDelete);
-            this.Controls.Add(this.btnDeleted);
             this.Controls.Add(this.grdDeletedList);
             this.Controls.Add(this.txtDeletedSearch);
-            this.Controls.Add(this.cbbDeletedSearch);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "DeleteSupplier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TEDARİKÇİ SİL";
@@ -156,14 +119,10 @@
         }
 
         #endregion
-
-        private Button btnDeleted;
         private DataGridView grdDeletedList;
         private TextBox txtDeletedSearch;
-        private ComboBox cbbDeletedSearch;
         private Label label3;
         private Label label2;
-        private Label label1;
         private Button btnSearchDelete;
     }
 }

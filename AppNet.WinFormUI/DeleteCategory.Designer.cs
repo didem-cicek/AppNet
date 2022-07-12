@@ -39,12 +39,12 @@
             // grdDeleteList
             // 
             this.grdDeleteList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grdDeleteList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grdDeleteList.BackgroundColor = System.Drawing.Color.White;
             this.grdDeleteList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdDeleteList.Location = new System.Drawing.Point(22, 118);
             this.grdDeleteList.Name = "grdDeleteList";
             this.grdDeleteList.RowTemplate.Height = 25;
+            this.grdDeleteList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdDeleteList.Size = new System.Drawing.Size(434, 150);
             this.grdDeleteList.TabIndex = 9;
             // 

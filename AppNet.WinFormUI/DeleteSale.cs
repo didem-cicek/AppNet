@@ -22,62 +22,12 @@ namespace AppNet.WinFormUI
 
         private void DeleteSale_Load(object sender, EventArgs e)
         {
-            btnsearchdelete.Visible = false;
-            cbbDeletedSearch.Items.Clear();
-            cbbDeletedSearch.Items.Add("Sipariş ID'sine Göre");
-            cbbDeletedSearch.Items.Add("Müşteri Adına Göre");
-            cbbDeletedSearch.SelectedIndex = 0;
+           
         }
 
         private async void btnDeleted_Click(object sender, EventArgs e)
         {
-            var list = (await ss.GetAll()).ToList();
-            if (cbbDeletedSearch.SelectedItem == "Sipariş ID'sine Göre")
-            {
-                try
-                {
-                    var gridList = (from q in list
-                                    where q.SaleID == Convert.ToInt32(txtDeletedSearch.Text)
-                                    select new
-                                    {
-                                        ID = q.SaleID,
-                                        MüşteriAdı = q.Customer.CustomerName,
-                                    }).ToList();
-                    grdDeletedList.DataSource = gridList;
-                    btnsearchdelete.Visible = true;
-                }
-                catch (Exception ex)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Yazdığınız arama kelimesinde sorun bulundu, lütfen kontrol ediniz!", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-
-            }
-            else if (cbbDeletedSearch.SelectedItem == "Müşteri Adına Göre")
-            {
-                try
-                {
-                    var gridList = (from q in list
-                                    where q.Customer.CustomerName == txtDeletedSearch.Text
-                                    select new
-                                    {
-                                        ID = q.SaleID,
-                                        MüşteriAdı = q.Customer.CustomerName,
-                                    }).ToList();
-                    grdDeletedList.DataSource = gridList;
-                    btnsearchdelete.Visible = true;
-                }
-                catch (Exception ex)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Yazdığınız arama kelimesinde sorun bulundu, lütfen kontrol ediniz!", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-
-            }
-            else
-            {
-                DialogResult dialogResult = MessageBox.Show("Aradığınız sipariş bulunamamıştır!", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            
         }
 
         private void btnsearchdelete_Click(object sender, EventArgs e)
@@ -92,6 +42,28 @@ namespace AppNet.WinFormUI
             this.Close();
             grdDeletedList.DataSource = null;
             grdDeletedList.Refresh();
+        }
+
+        private async void txtDeletedSearch_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var list = (await ss.GetAll()).ToList();
+                var gridList = (from q in list
+                                where q.Customer.CustomerName.ToLower().Contains((txtDeletedSearch.Text).ToLower())
+                                orderby q.Customer.CustomerName ascending
+                                select new
+                                {
+                                    ID = q.SaleID,
+                                    MüşteriAdı = q.Customer.CustomerName,
+                                }).ToList();
+                grdDeletedList.DataSource = gridList;
+
+            }
+            catch
+            {
+                DialogResult dialogResult = MessageBox.Show("Aradığınız ürün bulunamamıştır!", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

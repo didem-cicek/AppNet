@@ -115,5 +115,40 @@ namespace AppNet.WinFormUI
 
             grdStockList.Rows.Add(row);
         }
+
+        private async void txtStockSearch_TextChanged(object sender, EventArgs e)
+        {
+            grdStockList.Rows.Clear();
+            grdStockList.Refresh();
+            var supplier = (await sup.GetAll()).ToList();
+            var stock = (await ss.GetAll()).ToList();
+            var product = (await p.GetAll()).ToList();
+            var find = (from q in stock
+                        join c in supplier
+                        on q.SupplierID equals c.SupplierID
+                        join pr in product
+                        on q.ProductID equals pr.ProductID
+                        where c.SupplierName.ToLower().Contains((txtStockSearch.Text).ToLower())
+                        orderby c.SupplierName ascending
+                        select new StockViewModel
+                        {
+                            StockID = q.StockID,
+                            ProductName = pr.ProductName,
+                            SupplierName = c.SupplierName,
+                            StockPiece = q.StockPiece,
+                            CritialStock = q.StockCritical,
+                            StockPrice = q.PurchaseUnitPrice,
+                            StockTotalPrice = q.StockTotalPrice,
+                            Date = q.StockDate,
+                            ModifiedTime = q.StockModifitedDate,
+
+                        }).ToList();
+
+            foreach (var f in find)
+            {
+
+                AddRowToGrid(f);
+            }
+        }
     }
 }

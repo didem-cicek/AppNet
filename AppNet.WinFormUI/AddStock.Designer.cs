@@ -317,7 +317,9 @@
             this.grdProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdProduct.Location = new System.Drawing.Point(25, 153);
             this.grdProduct.Name = "grdProduct";
+            this.grdProduct.ReadOnly = true;
             this.grdProduct.RowTemplate.Height = 25;
+            this.grdProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdProduct.Size = new System.Drawing.Size(615, 425);
             this.grdProduct.TabIndex = 4;
             this.grdProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProduct_CellContentClick);

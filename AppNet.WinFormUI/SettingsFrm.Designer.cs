@@ -37,14 +37,15 @@
             this.txtAddPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtServer = new System.Windows.Forms.TextBox();
+            this.not = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAddDatabase
             // 
-            this.btnAddDatabase.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnAddDatabase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
             this.btnAddDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddDatabase.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
-            this.btnAddDatabase.FlatAppearance.BorderSize = 3;
+            this.btnAddDatabase.FlatAppearance.BorderSize = 0;
             this.btnAddDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddDatabase.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAddDatabase.ForeColor = System.Drawing.Color.White;
@@ -67,11 +68,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(24, 170);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 21);
+            this.label3.Size = new System.Drawing.Size(52, 19);
             this.label3.TabIndex = 23;
             this.label3.Text = "Şifre : ";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -79,11 +80,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(24, 125);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 21);
+            this.label2.Size = new System.Drawing.Size(106, 19);
             this.label2.TabIndex = 24;
             this.label2.Text = "Kullanıcı Adı : ";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -91,11 +92,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(24, 80);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 21);
+            this.label1.Size = new System.Drawing.Size(123, 19);
             this.label1.TabIndex = 25;
             this.label1.Text = "Veri Tabanı Adı : ";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -120,11 +121,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(24, 36);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 21);
+            this.label4.Size = new System.Drawing.Size(65, 19);
             this.label4.TabIndex = 25;
             this.label4.Text = "Server : ";
             this.label4.Click += new System.EventHandler(this.label1_Click);
@@ -137,12 +138,25 @@
             this.txtServer.TabIndex = 1;
             this.txtServer.TextChanged += new System.EventHandler(this.txtAddDatabaseName_TextChanged);
             // 
+            // not
+            // 
+            this.not.AutoSize = true;
+            this.not.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.not.ForeColor = System.Drawing.Color.Red;
+            this.not.Location = new System.Drawing.Point(24, 232);
+            this.not.Name = "not";
+            this.not.Size = new System.Drawing.Size(50, 19);
+            this.not.TabIndex = 26;
+            this.not.Text = "label5";
+            this.not.Visible = false;
+            // 
             // SettingsFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(447, 304);
+            this.Controls.Add(this.not);
             this.Controls.Add(this.btnAddDatabase);
             this.Controls.Add(this.txtAddPassword);
             this.Controls.Add(this.txtAddDataBaseUser);
@@ -174,5 +188,6 @@
         public TextBox txtAddPassword;
         private Label label4;
         public TextBox txtServer;
+        private Label not;
     }
 }

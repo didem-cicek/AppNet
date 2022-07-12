@@ -1,4 +1,5 @@
 ﻿using AppNet.AppService;
+using AppNet.Infrastructer.Persistence.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,105 +14,149 @@ namespace AppNet.WinFormUI
 {
     public partial class UpdateSale : Form
     {
-        private readonly ISalesService ss;
+        private readonly IProductService ps;
         private readonly ICustomerService cs;
-        public UpdateSale(ISalesService ss, ICustomerService cs)
+        private readonly IStockService sts;
+        private readonly ISalesService ss;
+        private readonly IServiceProvider sp;
+        public UpdateSale(IServiceProvider sp, IProductService ps, ICustomerService cs, IStockService sts, ISalesService ss)
         {
             InitializeComponent();
-            this.ss = ss;
+            this.ps = ps;
             this.cs = cs;
+            this.sts = sts;
+            this.ss = ss;
+            this.sp = sp;
         }
 
-        private void UpdateSale_Load(object sender, EventArgs e)
+        private async void UpdateSale_Load(object sender, EventArgs e)
         {
-            cbbUpdateSale.Items.Clear();
-            cbbUpdateSale.Items.Add("Sipariş ID'sine Göre");
-            cbbUpdateSale.Items.Add("Müşteri Adına Göre");
-            cbbUpdateSale.SelectedIndex = 0;
+            grdUpdateSaleList.Rows.Clear();
+            grdUpdateSaleList.Refresh();
+            cbbCustomer.Items.Clear();
+            cbbName.Items.Clear();
+            cbbSale.Items.Clear();
+            cbbSize.Items.Clear();
+            var p = (await ps.GetAll()).ToList();
+            var st = (await sts.GetAll()).ToList();
+            var c = (await cs.GetAll()).ToList();
+            var customerlist= (from q in c
+                               select new
+                               {
+                                  CustomerID = q.CustomerID,
+                                  CustomerName = q.CustomerName,
+
+                               }).ToList();
+            foreach (var item in customerlist)
+            {
+                cbbCustomer.Items.Add(item.CustomerName);
+
+            }
+            var productList = (from q in p
+                               join s in st
+                               on q.ProductID equals s.ProductID
+                               where q.ProductName.ToLower() == (cbbName.Text).ToLower()
+                               select new
+                               {
+                                   color = s.Color,
+                                   size = s.Size,
+
+                               }).ToList();
+
+            foreach (var item in productList)
+            {
+                cbbColor.Items.Add(item.color);
+                cbbSize.Items.Add(item.size);
+
+            }
+            cbbSale.Items.Clear();
+            cbbSale.Items.Add("Kredi Kartı");
+            cbbSale.Items.Add("Peşin");
+
+            cbbStatus.Items.Clear();
+            cbbStatus.Items.Add("Beklemede");
+            cbbStatus.Items.Add("Ödeme Yapıldı");
+            cbbStatus.Items.Add("Sipariş Başarılı");
+            cbbStatus.Items.Add("Sipariş İptal Edildi");
+        }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+ 
+
+        private async void txtUpdateSaleSearch_TextChanged(object sender, EventArgs e)
+        {
+            var p = (await ps.GetAll()).ToList();
+            var st = (await sts.GetAll()).ToList();
+            var sa = (await ss.GetAll()).ToList();
+            var c = (await cs.GetAll()).ToList();
+            var find = (from q in p
+                                 join s in st
+                                 on q.ProductID equals s.ProductID
+                                 join sl in sa
+                                 on s.StockID equals sl.StockID
+                                 join cu in c
+                                 on sl.CustomerID equals cu.CustomerID
+                                 where cu.CustomerName.ToLower().Contains((txtUpdateSaleSearch.Text).ToLower())
+                                 orderby q.ProductName ascending
+                                 select new 
+                                 {
+                                     ÜrünID = q.ProductID,
+                                     ÜrünAdi = q.ProductName,
+                                     MüsteriAdi = cu.CustomerName,
+                                     Renk = s.Color,
+                                     Beden = s.Size,
+                                     Adet = s.StockPiece,
+                                     Fiyat = s.PurchaseUnitPrice,
+                                     ÖdemeSekli = sl.SalePaymentMethod,
+                                     Durum = sl.SaleStatus,
+                                     StokID = s.StockID,
+                                     MusteriID = sl.CustomerID,
+
+                                 }).ToList();
+
+            grdUpdateSaleList.DataSource = find;
+            
+        }
+       
+
+        private async void grdUpdateSaleList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            cbbCustomer.SelectedText = grdUpdateSaleList.CurrentRow.Cells[2].Value.ToString();
+            cbbName.SelectedText = grdUpdateSaleList.CurrentRow.Cells[1].Value.ToString();
+            cbbColor.SelectedText = grdUpdateSaleList.CurrentRow.Cells[3].Value.ToString();
+            cbbSize.SelectedText = grdUpdateSaleList.CurrentRow.Cells[4].Value.ToString();
+            cbbStatus.SelectedText = grdUpdateSaleList.CurrentRow.Cells[8].Value.ToString();
+            cbbSale.SelectedText = grdUpdateSaleList.CurrentRow.Cells[7].Value.ToString();
+            txtPiece.Text = grdUpdateSaleList.CurrentRow.Cells[5].Value.ToString();
+            txtPrice.Text = grdUpdateSaleList.CurrentRow.Cells[6].Value.ToString();
+            txtTotalPrice.Text = Convert.ToString(Convert.ToInt32(txtPiece.Text) * Convert.ToDecimal(txtPrice.Text));
+            
         }
 
-        private async void btnSearchUpdate_Click(object sender, EventArgs e)
+        private void btnUpdatedSale_Click(object sender, EventArgs e)
         {
-            var sale = (await ss.GetAll()).ToList();
-            var customer = (await cs.GetAll()).ToList();
-            if (cbbUpdateSale.SelectedItem == "Sipariş ID'sine Göre")
+            txtTotalPrice.Text = Convert.ToString(Convert.ToDecimal(txtPrice.Text) * Convert.ToInt32(txtPiece.Text));
+            try
             {
-                try
-                {
-                    var gridList = (from q in sale
-                                    join c in customer
-                                    on q.CustomerID equals c.CustomerID
-                                    where q.SaleID == Convert.ToInt32(txtUpdateSaleSearch.Text)
-                                    select new
-                                    {
-                                        ID = q.SaleID,
-                                        ÜrünAdı = q,
-                                        FirmaAdı = c.CustomerName,
-                                        Fiyat = q.ProductPiece,
-                                        Adet = q.ProductPiece,
-                                        ÖdemeŞekli = q.SalePaymentMethod,
-                                        Durum = q.SaleStatus,
-                                        Açıklama=q.SaleDesription
-
-                                    }).ToList();
-                    grdUpdateSaleList.DataSource = gridList;
-                    foreach (var i in gridList)
-                    {
-                        cbbUpdateSaleProduct.SelectedItem = i.ÜrünAdı;
-                        cbbUpdateSaleName.SelectedItem = i.FirmaAdı;
-                        cbbUpdateSalePay.SelectedItem = i.Fiyat;
-                        txtUpdateSalePiece.Text = Convert.ToString(i.Adet);
-                        cbbStatus.SelectedItem = i.ÖdemeŞekli;
-                        cbbStatus.SelectedItem = i.Durum;
-                        txtAUpdateSaleDescription.Text = i.Açıklama;
-                    }
-                }
-                catch
-                {
-                    DialogResult dialogResult = MessageBox.Show("Yazdığınız arama kelimesinde sorun bulundu, lütfen kontrol ediniz!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
+                ss.Update(Convert.ToInt32(grdUpdateSaleList.CurrentRow.Cells[0].Value), Convert.ToInt32(grdUpdateSaleList.CurrentRow.Cells[9].Value), Convert.ToInt32(grdUpdateSaleList.CurrentRow.Cells[10].Value), Convert.ToInt16(txtPiece.Text), Convert.ToDecimal(txtPrice.Text), Convert.ToDecimal(txtTotalPrice.Text), txtAUpdateSaleDescription.Text, cbbStatus.Text, cbbSale.Text);
+                DialogResult result = MessageBox.Show("Satış başarıyla güncellenmiştir.", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtAUpdateSaleDescription.Text = "";
+                txtPiece.Text = "";
+                txtPrice.Text = "";
+                txtAUpdateSaleDescription.Text = "";
+                grdUpdateSaleList.DataSource = null;
+                grdUpdateSaleList.Refresh();
+                cbbCustomer.Items.Clear();
+                cbbName.Items.Clear();
+                cbbSale.Items.Clear();
+                cbbSize.Items.Clear();
+                this.Close();
             }
-            else if (cbbUpdateSale.SelectedItem == "Müşteri Adına Göre")
+            catch (Exception ex)
             {
-                try
-                {
-                    var gridList = (from q in sale
-                                    join c in customer
-                                    on q.CustomerID equals c.CustomerID
-                                    where c.CustomerName == txtUpdateSaleSearch.Text
-                                    select new
-                                    {
-                                        ID = q.SaleID,
-                                        ÜrünAdı = q.Stock.Product.ProductName,
-                                        FirmaAdı = c.CustomerName,
-                                        Fiyat = q.ProductPiece,
-                                        Adet = q.ProductPiece,
-                                        ÖdemeŞekli = q.SalePaymentMethod,
-                                        Durum = q.SaleStatus,
-                                        Açıklama = q.SaleDesription
 
-                                    }).ToList();
-                    grdUpdateSaleList.DataSource = gridList;
-                    foreach (var i in gridList)
-                    {
-                        cbbUpdateSaleProduct.SelectedItem = i.ÜrünAdı;
-                        cbbUpdateSaleName.SelectedItem = i.FirmaAdı;
-                        cbbUpdateSalePay.SelectedItem = i.Fiyat;
-                        txtUpdateSalePiece.Text = Convert.ToString(i.Adet);
-                        cbbStatus.SelectedItem = i.ÖdemeŞekli;
-                        cbbStatus.SelectedItem = i.Durum;
-                        txtAUpdateSaleDescription.Text = i.Açıklama;
-                    }
-                }
-                catch
-                {
-                    DialogResult dialogResult = MessageBox.Show("Yazdığınız arama kelimesinde sorun bulundu, lütfen kontrol ediniz!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                DialogResult dialogResult = MessageBox.Show("Aradığınız tedarikçi bulunamamıştır!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

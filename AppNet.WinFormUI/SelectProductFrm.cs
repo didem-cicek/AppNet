@@ -46,7 +46,7 @@ namespace AppNet.WinFormUI
             var productList = (from q in p
                                join st in s
                                on q.ProductID equals st.ProductID
-                               where q.ProductName.ToUpper() == (txtProductName.Text).ToUpper()
+                               where q.ProductName.ToLower() == (txtProductName.Text).ToLower()
                                select new
                                {
                                    ProductID = q.ProductID,

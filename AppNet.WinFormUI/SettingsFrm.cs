@@ -36,19 +36,24 @@ namespace AppNet.WinFormUI
 
             if (settings != null)
             {
-                //var frm = sp.GetRequiredService<Login>();
-                //frm.ShowDialog();
-
-
+               
                 txtServer.Text = settings.Server;
                 txtAddDatabaseName.Text = settings.Database;
                 txtAddDataBaseUser.Text = settings.Username;
                 txtAddPassword.Text = settings.Password;
+                btnAddDatabase.Visible = false;
+                not.Visible = true;
+                not.Text = "Mevcut bir database vardır.";
+                txtServer.Enabled = false;
+                txtAddDatabaseName.Enabled = false;
+                txtAddDataBaseUser.Enabled = false;
+                txtAddPassword.Enabled = false;
             }
             else
             {
 
-                //}
+                
+
             }
         }
 

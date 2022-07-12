@@ -64,7 +64,7 @@ namespace AppNet.WinFormUI
             services.AddScoped<SelectSupplierFrm>();
             services.AddScoped<SelectStockProductFrm>();
             services.AddScoped<TelegramNotification>();
-
+            services.AddScoped<NewPasswordForm>();
 
             using (ServiceProvider sp = services.BuildServiceProvider()) {
                 if (settings != null && settings.Server !=null)

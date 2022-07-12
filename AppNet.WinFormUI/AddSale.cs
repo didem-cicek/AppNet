@@ -21,6 +21,7 @@ namespace AppNet.WinFormUI
         private readonly ISalesService ss;
         private readonly IServiceProvider sp;
         public int customerID;
+        public int Piece;
         public AddSale(IServiceProvider sp, IProductService ps, ICustomerService cs, IStockService sts, ISalesService ss)
         {
             InitializeComponent();
@@ -128,6 +129,31 @@ namespace AppNet.WinFormUI
             decimal TotalPrice = Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value) * Convert.ToInt16(grdList.CurrentRow.Cells[4].Value);
             ss.Add(Convert.ToInt32(grdProduct.CurrentRow.Cells[5].Value), Convert.ToInt32(customerID), Convert.ToInt16(grdList.CurrentRow.Cells[4].Value), Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value), TotalPrice, txtDesciption.Text, cbbStatus.Text, cbbAddSalePay.Text);
             DialogResult dialogResult = MessageBox.Show("Sipariş başarıyla eklenmiştir. Bir sipariş daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            var product = (await ps.GetAll()).ToList();
+            var stock = (await sts.GetAll()).ToList();
+            var dropFromStock = (from q in product
+                                 join s in stock
+                                 on q.ProductID equals s.ProductID
+                                 select new 
+                                 {
+                                     ProductID = q.ProductID,
+                                     ProductName = q.ProductName,
+                                     ProductPrice = s.PurchaseUnitPrice,
+                                     ProductPiece = s.StockPiece - Piece,
+                                     ProductDescription = q.ProductDesriciption,
+                                     TotalPrice = s.StockTotalPrice,
+                                     CritialStok = s.StockCritical,
+                                     Color = s.Color,
+                                     Size = s.Size,
+                                     StockID = s.StockID,
+                                     SupplierID =  s.SupplierID,
+
+                                 }).ToList();
+            foreach (var item in dropFromStock)
+            {
+                sts.Update(item.StockID, item.ProductPrice, item.TotalPrice, item.ProductPiece, item.CritialStok, item.Color, item.Size, item.SupplierID, item.ProductID);
+            }
+            
             if (dialogResult == DialogResult.Yes)
             {
                 txtDesciption.Text = "";
@@ -226,13 +252,14 @@ namespace AppNet.WinFormUI
                                      Price = Convert.ToDecimal(frm.txtPrice.Text),
                                      stockID = st.StockID,
                                  }).ToList();
-
+                
             txtTotalPrice.Text = Convert.ToString(Convert.ToInt32(frm.txtPiece.Text) * Convert.ToDecimal(frm.txtPrice.Text));
             foreach (var product in searchProduct)
             {
-
-                AddRowToGridProductSale(product);
-            } } catch(Exception ex)
+                    Piece = product.Piece;
+                    AddRowToGridProductSale(product);
+            } }
+            catch(Exception ex)
             {
 
             }
@@ -270,6 +297,11 @@ namespace AppNet.WinFormUI
             txtCustomerName.Text = frm.grdCustomer.CurrentRow.Cells[1].Value.ToString();
             txtCustomer.Text = frm.grdCustomer.CurrentRow.Cells[1].Value.ToString();
             customerID = Convert.ToInt32(frm.grdCustomer.CurrentRow.Cells[0].Value);
+        }
+
+        private void grdList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

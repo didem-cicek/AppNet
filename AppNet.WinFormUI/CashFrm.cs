@@ -18,60 +18,91 @@ namespace AppNet.WinFormUI
         private readonly IStockService sc;
         private readonly ISalesService ss;
         private readonly IProductService p;
+        public decimal TotalCash;
+        public int CashID;
+        public decimal debt;
+        public decimal receivable;
         public cashForm(ICashService cs, IStockService sc, ISalesService ss, IProductService p)
         {
             InitializeComponent();
             this.cs = cs;
-            this.sc = sc;
             this.ss = ss;
             this.p = p;
+            this.sc = sc;
         }
 
-        private void cashForm_Load(object sender, EventArgs e)
+        private async void cashForm_Load(object sender, EventArgs e)
         {
-            if (grdData.Rows.Count == 0)
+            
+            if (grdData.DataSource == null)
             {
-                grdData.Rows.Clear();
-                grdData.Columns.Add("CashID", "Kasa ID");
-                grdData.Columns.Add("Debt", "Borç");
-                grdData.Columns.Add("Receivable", "Alacak");
-                grdData.Columns.Add("TotalCash", "Toplam Bakiye");
-                grdData.Columns.Add("Date", "Eklenme Tarihi");
-                grdData.Columns.Add("SupplierDebt", "Güncellenme Tarihi");
-                grdData.Columns.Add("ModifiedDate", "Alacak");
-                LoadGridData();
-                grdData.Columns[0].Visible = false;
+                AddData();
+              if (grdData.Rows.Count == 0) { 
+                    grdData.Rows.Clear();
+                    grdData.Columns.Add("CashID", "Kasa ID");
+                    grdData.Columns.Add("Debt", "Borç");
+                    grdData.Columns.Add("Receivable", "Alacak");
+                    grdData.Columns.Add("TotalCash", "Toplam Bakiye");
+                    grdData.Columns.Add("Date", "Eklenme Tarihi");
+                    grdData.Columns.Add("ModifiedDate", "Güncellenme Tarihi");
+                    LoadGridData();
+                    grdData.Columns[0].Visible = false;}
+                else
+                {
+                    var cash = (await cs.GetAll()).ToList();
+                    foreach (var item in cash)
+                    {
+                        CashID = item.CashID;
+                    }
+                    cs.Remove(CashID);
+                }
+
             }
+            
         }
-        private async void LoadGridData()
+        public async void AddData()
         {
-            decimal debt = 0;
-            decimal receivable = 0;
+            grdData.Rows.Clear();
+            grdData.Refresh();
+            debt = 0;
+            receivable = 0;
             var cash = (await cs.GetAll()).ToList();
             var stock = (await sc.GetAll()).ToList();
             var sale = (await ss.GetAll()).ToList();
             var product = (await p.GetAll()).ToList();
+
             foreach (var s in stock)
             {
-                debt = s.StockTotalPrice++;
+                debt = s.StockTotalPrice + debt;
             }
             foreach (var sa in sale)
             {
-                receivable = sa.TotalPrice++;
+                receivable = sa.TotalPrice + receivable;
             }
+            TotalCash = receivable - debt;
+            cs.Add(debt, receivable, TotalCash);
+        }
+        private async void LoadGridData()
+        {
+            grdData.Rows.Clear();
+            grdData.Refresh();
+
+            var cash = (await cs.GetAll()).ToList();
+            
             var data = from p in cash
                        select new CashViewModel
                        {
                            CashID = p.CashID,
-                           Debt = debt,
-                           Receivable = receivable,
-                           TotalCash = receivable - debt,
+                           Debt = p.Debt,
+                           Receivable = p.Receivable,
+                           TotalCash = p.TotalCash,
                        };
 
             foreach (var item in data)
             {
                 AddRowToGrid(item);
             }
+            
         }
         private void AddRowToGrid(CashViewModel model)
         {

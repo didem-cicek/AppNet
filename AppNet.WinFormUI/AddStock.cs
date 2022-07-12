@@ -67,11 +67,12 @@ namespace AppNet.WinFormUI
         }
         private async void LoadGridData()
         {
+            grdProduct.Rows.Clear();
+            grdProduct.Refresh();
             var p = (await ps.GetAll()).ToList();
             var sp = (await sps.GetAll()).ToList();
             var s = (await ss.GetAll()).ToList();
-            grdProduct.Rows.Clear();
-            grdProduct.Refresh();
+            
 
             var productList = (from q in p
                                select new StockProductViewModel
@@ -95,11 +96,7 @@ namespace AppNet.WinFormUI
                                 }).ToList();
 
         }
-        private async void LoadGridStockData()
-        {
-
-            
-        }
+      
         private void AddRowToGridProduct(StockProductViewModel model)
         {
             DataGridViewRow row = (DataGridViewRow)grdProduct.Rows[0].Clone();

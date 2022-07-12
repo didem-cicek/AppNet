@@ -14,12 +14,17 @@ namespace AppNet.WinFormUI
     public partial class UpdateStock : Form
     {
         private readonly IStockService ss;
-        private readonly ISupplierService sup;
-        public UpdateStock(IStockService ss, ISupplierService sup)
+        private readonly IProductService ps;
+        private readonly ISupplierService sps;
+        private readonly IServiceProvider sp;
+        public int supllierID;
+        public UpdateStock(IStockService ss, IProductService ps, ISupplierService sps, IServiceProvider sp)
         {
             InitializeComponent();
             this.ss = ss;
-            this.sup = sup;
+            this.ps = ps;
+            this.sps = sps;
+            this.sp = sp;
         }
 
         private void cbbUpdateSupplierSearch_SelectedIndexChanged(object sender, EventArgs e)
@@ -27,8 +32,36 @@ namespace AppNet.WinFormUI
 
         }
 
-        private void txtUpdateSupplierSearch_TextChanged(object sender, EventArgs e)
+        private async void txtUpdateSupplierSearch_TextChanged(object sender, EventArgs e)
         {
+            var p = (await ps.GetAll()).ToList();
+            var st = (await ss.GetAll()).ToList();
+            var sup = (await sps.GetAll()).ToList();
+            var find = (from q in p
+                                 join s in st
+                                 on q.ProductID equals s.ProductID
+                                 join j in sup
+                                 on s.SupplierID equals j.SupplierID
+                                 where q.ProductName.ToLower().Contains((txtUpdateStockSearch.Text).ToLower())
+                                 orderby q.ProductName ascending
+                                 select new 
+                                 {
+                                     StokID = s.StockID,
+                                     ÜrünAdi = q.ProductName,
+                                     ÜrünAciklamasi = q.ProductDesriciption,
+                                     TedarikciAdi = j.SupplierName,
+                                     Renk = s.Color,
+                                     Beden = s.Size,
+                                     Adet = s.StockPiece,
+                                     BirimFiyati = s.PurchaseUnitPrice,
+                                     ToplamFiyati = s.StockTotalPrice,
+                                     TedarikciID = s.SupplierID,
+                                     ProductID = q.ProductID,
+                                     KritikStok = s.StockCritical,
+
+                                 }).ToList();
+
+            grdStockList.DataSource = find;
 
         }
 
@@ -87,85 +120,102 @@ namespace AppNet.WinFormUI
 
         }
 
-        private void UpdateStock_Load(object sender, EventArgs e)
+        private async void UpdateStock_Load(object sender, EventArgs e)
         {
-            cbbUpdateStockSearch.Items.Clear();
-            cbbUpdateStockSearch.Items.Add("Stok ID'sine Göre");
-            cbbUpdateStockSearch.Items.Add("Teadrikçi Adına Göre");
-            cbbUpdateStockSearch.SelectedIndex = 0;
+            grdStockList.DataSource = null;
+            grdStockList.Rows.Clear();
+            grdStockList.Refresh();
+            cbbUpdateSuppliers.Items.Clear();
+            cbbSize.Items.Clear();
+            cbbProduct.Items.Clear();
+            cbbColor.Items.Clear();
+            var p = (await ps.GetAll()).ToList();
+            var st = (await ss.GetAll()).ToList();
+            var sup = (await sps.GetAll()).ToList();
+            var list = (from q in sup
+                        select new
+                        {
+                            TedarilciID = q.SupplierID,
+                            TedarikciAdi = q.SupplierName,
+
+                        }).ToList();
+            foreach (var item in list)
+            {
+                cbbUpdateSuppliers.Items.Add(item.TedarikciAdi);
+
+            }
+            var product = (from q in p
+                           select new
+                           {
+                               Name = q.ProductName,
+                           }).ToList();
+            foreach (var item in product)
+            {
+                cbbProduct.Items.Add(item.Name);
+
+            }
+            
         }
 
-        private async void btnSearchUpdate_Click(object sender, EventArgs e)
+        private async void grdStockList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var stock = (await ss.GetAll()).ToList();
-            var supplier = (await sup.GetAll()).ToList();
-            if (cbbUpdateStockSearch.SelectedItem == "Stok ID'sine Göree")
-            {
-                try
-                {
-                    var gridList = (from q in stock
-                                    join c in supplier
-                                    on q.SupplierID equals c.SupplierID
-                                    where q.SupplierID == Convert.ToInt32(txtUpdateStockSearch.Text)
-                                    select new
-                                    {
-                                        ÜrünAdı = q.Product.ProductName,
-                                        Tedarikçi = c.SupplierName,
-                                        Fiyat = q.PurchaseUnitPrice,
-                                        Adet = q.StockPiece,
-                                        KritikStok = q.StockCritical,
+            cbbColor.Items.Clear();
+            cbbSize.Items.Clear();
+            cbbProduct.Text = grdStockList.CurrentRow.Cells[1].Value.ToString();
+            txtDescription.Text = grdStockList.CurrentRow.Cells[2].Value.ToString();
+            cbbUpdateSuppliers.Text = grdStockList.CurrentRow.Cells[3].Value.ToString();
+            cbbColor.Text = grdStockList.CurrentRow.Cells[4].Value.ToString();
+            cbbSize.Text = grdStockList.CurrentRow.Cells[5].Value.ToString();
+            txtUpdateStockPiece.Text = grdStockList.CurrentRow.Cells[6].Value.ToString();
+            txtUpdateStockPrice.Text = grdStockList.CurrentRow.Cells[7].Value.ToString();
+            txtUpdateCriticalStock.Text = grdStockList.CurrentRow.Cells[11].Value.ToString();
+            txtTotal.Text = (Convert.ToDecimal(txtUpdateStockPrice.Text) * Convert.ToInt32(txtUpdateStockPiece.Text)).ToString();
+            var p = (await ps.GetAll()).ToList();
+            var st = (await ss.GetAll()).ToList();
+            var productList = (from q in p
+                               join s in st
+                               on q.ProductID equals s.ProductID
+                               where q.ProductName.ToLower() == (cbbProduct.Text).ToLower()
+                               select new
+                               {
+                                   color = s.Color,
+                                   size = s.Size,
 
-                                    }).ToList();
-                    grdStockList.DataSource = gridList;
-                    foreach (var i in gridList)
-                    {
-                        txtUpdateStockName.Text = i.ÜrünAdı;
-                        cbbUpdateSuppliers.SelectedItem = i.Tedarikçi;
-                        txtUpdateStockPrice.Text = i.Fiyat.ToString();
-                        txtUpdateStockPiece.Text = i.Adet.ToString();
-                        txtUpdateCriticalStock.Text = i.KritikStok.ToString();
-                    }
-                }
-                catch
-                {
-                    DialogResult dialogResult = MessageBox.Show("Yazdığınız arama kelimesinde sorun bulundu, lütfen kontrol ediniz!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                               }).ToList();
+
+            foreach (var item in productList)
+            {
+                cbbColor.Items.Add(item.color);
+                cbbSize.Items.Add(item.size);
 
             }
-            else if (cbbUpdateStockSearch.SelectedItem == "Tedarikçi Adına Göre")
-            {
-                try
-                {
-                    var gridList = (from q in stock
-                                    where q.Supplier.SupplierName == txtUpdateStockSearch.Text
-                                    select new
-                                    {
-                                        ÜrünAdı = q.Product.ProductName,
-                                        Tedarikçi = q.Supplier.SupplierName,
-                                        Fiyat = q.PurchaseUnitPrice,
-                                        Adet = q.StockPiece,
-                                        KritikStok = q.StockCritical,
+            cbbColor.SelectedIndex = 0;
+            cbbSize.SelectedIndex = 0;
+            
 
-                                    }).ToList();
-                    grdStockList.DataSource = gridList;
-                    foreach (var i in gridList)
-                    {
-                        txtUpdateStockName.Text = i.ÜrünAdı;
-                        cbbUpdateSuppliers.SelectedItem = i.Tedarikçi;
-                        txtUpdateStockPrice.Text = i.Fiyat.ToString();
-                        txtUpdateStockPiece.Text = i.Adet.ToString();
-                        txtUpdateCriticalStock.Text = i.KritikStok.ToString();
-                    }
-                }
-                catch
-                {
-                    DialogResult dialogResult = MessageBox.Show("Yazdığınız arama kelimesinde sorun bulundu, lütfen kontrol ediniz!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
+        }
+
+        private void btnUpdatedSupplier_Click(object sender, EventArgs e)
+        {
+            try
             {
-                DialogResult dialogResult = MessageBox.Show("Aradığınız stok bulunamamıştır!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ss.Update(Convert.ToInt32(grdStockList.CurrentRow.Cells[0].Value), Convert.ToDecimal(txtUpdateStockPrice.Text), Convert.ToDecimal(txtTotal.Text), Convert.ToInt32(txtUpdateStockPiece.Text), Convert.ToInt16(txtUpdateCriticalStock.Text), cbbColor.Text, cbbSize.Text, Convert.ToInt32(grdStockList.CurrentRow.Cells[9].Value.ToString()), Convert.ToInt32(grdStockList.CurrentRow.Cells[10].Value.ToString()) );
+                DialogResult result = MessageBox.Show("Ürün başarıyla güncellenmiştir.", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTotal.Text = "";
+                txtUpdateCriticalStock.Text = "";
+                txtDescription.Text = "";
+                txtUpdateStockPiece.Text = "";
+                txtUpdateStockPrice.Text = "";
+                cbbColor.Items.Clear();
+                cbbSize.Items.Clear();
+                grdStockList.DataSource = null;
+                grdStockList.Refresh();
+                this.Close();
             }
-    }
+            catch (Exception ex)
+            {
+
+            }
+        }
     }
 }

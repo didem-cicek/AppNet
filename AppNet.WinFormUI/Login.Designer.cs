@@ -53,6 +53,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             this.SuspendLayout();
             // 
             // label1
@@ -215,6 +216,7 @@
             this.btnLoginNewPassword.TabIndex = 4;
             this.btnLoginNewPassword.Text = "Şifremi Unuttum";
             this.btnLoginNewPassword.UseVisualStyleBackColor = false;
+            this.btnLoginNewPassword.Click += new System.EventHandler(this.btnLoginNewPassword_Click);
             // 
             // label8
             // 
@@ -287,6 +289,13 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // sqlCommand1
+            // 
+            this.sqlCommand1.CommandTimeout = 30;
+            this.sqlCommand1.Connection = null;
+            this.sqlCommand1.Notification = null;
+            this.sqlCommand1.Transaction = null;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -351,5 +360,6 @@
         private Label label12;
         private Label label13;
         private NotifyIcon notifyIcon1;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
     }
 }

@@ -52,13 +52,12 @@
             this.txtDeletedSearch.Location = new System.Drawing.Point(206, 24);
             this.txtDeletedSearch.Name = "txtDeletedSearch";
             this.txtDeletedSearch.Size = new System.Drawing.Size(244, 29);
-            this.txtDeletedSearch.TabIndex = 2;
+            this.txtDeletedSearch.TabIndex = 1;
             this.txtDeletedSearch.TextChanged += new System.EventHandler(this.txtDeletedSearch_TextChanged);
             // 
             // grdDeletedList
             // 
             this.grdDeletedList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grdDeletedList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grdDeletedList.BackgroundColor = System.Drawing.Color.White;
             this.grdDeletedList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdDeletedList.Location = new System.Drawing.Point(22, 106);
@@ -66,7 +65,7 @@
             this.grdDeletedList.RowTemplate.Height = 25;
             this.grdDeletedList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdDeletedList.Size = new System.Drawing.Size(428, 188);
-            this.grdDeletedList.TabIndex = 3;
+            this.grdDeletedList.TabIndex = 2;
             // 
             // label3
             // 
@@ -94,7 +93,7 @@
             this.btnselectdel.Name = "btnselectdel";
             this.btnselectdel.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.btnselectdel.Size = new System.Drawing.Size(166, 40);
-            this.btnselectdel.TabIndex = 4;
+            this.btnselectdel.TabIndex = 3;
             this.btnselectdel.Text = "SEÇİLENİ SİL";
             this.btnselectdel.UseVisualStyleBackColor = false;
             this.btnselectdel.Click += new System.EventHandler(this.btnselectdel_Click);

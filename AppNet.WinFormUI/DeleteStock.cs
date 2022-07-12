@@ -22,60 +22,12 @@ namespace AppNet.WinFormUI
 
         private void DeleteStock_Load(object sender, EventArgs e)
         {
-            btnSearchDelete.Visible = false;
-            cbbDeleteStockSearch.Items.Clear();
-            cbbDeleteStockSearch.Items.Add("Stok ID'sine Göre");
-            cbbDeleteStockSearch.Items.Add("Tedarikçi Adına Göre");
-            cbbDeleteStockSearch.SelectedIndex = 0;
+            
         }
 
         private async void btnDeleted_Click(object sender, EventArgs e)
         {
-            var list = (await ss.GetAll()).ToList();
-            if (cbbDeleteStockSearch.SelectedItem == "Stok ID'sine Göre")
-            {
-                try
-                {
-                    var gridList = (from q in list
-                                    where q.StockID == Convert.ToInt32(txtDeleteStockSearch.Text)
-                                    select new
-                                    {
-                                        ID = q.StockID,
-                                        TedarikçiAdı = q.Supplier.SupplierName,
-                                    }).ToList();
-                    grdDeleteStockList.DataSource = gridList;
-                }
-                catch (Exception ex)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Yazdığınız arama kelimesinde sorun bulundu, lütfen kontrol ediniz!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-
-            }
-            else if (cbbDeleteStockSearch.SelectedItem == "Tedarikçi Adına Göre")
-            {
-                try
-                {
-                    var gridList = (from q in list
-                                    where q.Supplier.SupplierName == txtDeleteStockSearch.Text
-                                    select new
-                                    {
-                                        ID = q.StockID,
-                                        TedarikçiAdı = q.Supplier.SupplierName,
-                                    }).ToList();
-                    grdDeleteStockList.DataSource = gridList;
-                }
-                catch (Exception ex)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Yazdığınız arama kelimesinde sorun bulundu, lütfen kontrol ediniz!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-
-            }
-            else
-            {
-                DialogResult dialogResult = MessageBox.Show("Aradığınız stok bulunamamıştır!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+           
         }
 
         private void btnSearchDelete_Click(object sender, EventArgs e)
@@ -90,6 +42,28 @@ namespace AppNet.WinFormUI
             this.Close();
             grdDeleteStockList.DataSource = null;
             grdDeleteStockList.Refresh();
+        }
+
+        private async void txtDeleteStockSearch_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var list = (await ss.GetAll()).ToList();
+                var gridList = (from q in list
+                                where q.Supplier.SupplierName.ToLower().Contains((txtDeleteStockSearch.Text).ToLower())
+                                orderby q.Supplier.SupplierName ascending
+                                select new
+                                {
+                                    ID = q.SupplierID,
+                                    TedarikçiAdı = q.Supplier.SupplierName,
+                                }).ToList();
+                grdDeleteStockList.DataSource = gridList;
+
+            }
+            catch
+            {
+                DialogResult dialogResult = MessageBox.Show("Aradığınız tedarikçi bulunamamıştır!", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
