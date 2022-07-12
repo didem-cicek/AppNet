@@ -53,7 +53,7 @@
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.ReadOnly = true;
             this.txtProductName.Size = new System.Drawing.Size(254, 29);
-            this.txtProductName.TabIndex = 11;
+            this.txtProductName.TabIndex = 1;
             // 
             // label2
             // 
@@ -90,6 +90,7 @@
             // 
             this.cbbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbColor.FormattingEnabled = true;
+            this.cbbColor.ItemHeight = 21;
             this.cbbColor.Location = new System.Drawing.Point(154, 171);
             this.cbbColor.Name = "cbbColor";
             this.cbbColor.Size = new System.Drawing.Size(254, 29);
@@ -99,6 +100,7 @@
             // 
             this.cbbSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbSize.FormattingEnabled = true;
+            this.cbbSize.ItemHeight = 21;
             this.cbbSize.Location = new System.Drawing.Point(154, 122);
             this.cbbSize.Name = "cbbSize";
             this.cbbSize.Size = new System.Drawing.Size(254, 29);
@@ -131,7 +133,9 @@
             this.txtPiece.Location = new System.Drawing.Point(154, 222);
             this.txtPiece.Name = "txtPiece";
             this.txtPiece.Size = new System.Drawing.Size(254, 29);
-            this.txtPiece.TabIndex = 11;
+            this.txtPiece.TabIndex = 5;
+            this.txtPiece.TextChanged += new System.EventHandler(this.txtPiece_TextChanged);
+            this.txtPiece.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPiece_KeyPress);
             // 
             // label5
             // 
@@ -150,7 +154,9 @@
             this.txtPrice.Location = new System.Drawing.Point(154, 73);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(254, 29);
-            this.txtPrice.TabIndex = 11;
+            this.txtPrice.TabIndex = 2;
+            this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // label1
             // 
@@ -184,7 +190,7 @@
             this.btnAdd.Location = new System.Drawing.Point(258, 34);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(150, 40);
-            this.btnAdd.TabIndex = 8;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "ÜRÜN EKLE";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);

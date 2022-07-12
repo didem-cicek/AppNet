@@ -36,8 +36,8 @@
             this.txtAddDescription = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAddProduct = new System.Windows.Forms.Button();
-            this.cbbAddCategory = new System.Windows.Forms.ComboBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.cbbAddCategory = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -68,6 +68,7 @@
             this.txtAddProduct.Name = "txtAddProduct";
             this.txtAddProduct.Size = new System.Drawing.Size(242, 29);
             this.txtAddProduct.TabIndex = 2;
+            this.txtAddProduct.TextChanged += new System.EventHandler(this.txtAddProduct_TextChanged);
             // 
             // txtAddDescription
             // 
@@ -75,6 +76,7 @@
             this.txtAddDescription.Name = "txtAddDescription";
             this.txtAddDescription.Size = new System.Drawing.Size(243, 29);
             this.txtAddDescription.TabIndex = 3;
+            this.txtAddDescription.TextChanged += new System.EventHandler(this.txtAddDescription_TextChanged);
             // 
             // label5
             // 
@@ -108,6 +110,13 @@
             this.btnAddProduct.UseVisualStyleBackColor = false;
             this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "add.png");
+            // 
             // cbbAddCategory
             // 
             this.cbbAddCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -116,13 +125,6 @@
             this.cbbAddCategory.Name = "cbbAddCategory";
             this.cbbAddCategory.Size = new System.Drawing.Size(242, 29);
             this.cbbAddCategory.TabIndex = 1;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "add.png");
             // 
             // AddProduct
             // 

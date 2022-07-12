@@ -37,11 +37,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtUpdatedDescription = new System.Windows.Forms.TextBox();
             this.btnUpdatedProduct = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.txtUpdateProductSearch = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.grdUpdateProductList = new System.Windows.Forms.DataGridView();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grdUpdateProductList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,6 +122,13 @@
             this.btnUpdatedProduct.UseVisualStyleBackColor = false;
             this.btnUpdatedProduct.Click += new System.EventHandler(this.btnUpdateSearch_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "edit.png");
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -163,18 +170,12 @@
             this.grdUpdateProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdUpdateProductList.Location = new System.Drawing.Point(24, 116);
             this.grdUpdateProductList.Name = "grdUpdateProductList";
+            this.grdUpdateProductList.ReadOnly = true;
             this.grdUpdateProductList.RowTemplate.Height = 25;
             this.grdUpdateProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdUpdateProductList.Size = new System.Drawing.Size(373, 182);
             this.grdUpdateProductList.TabIndex = 3;
             this.grdUpdateProductList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdUpdateProductList_CellContentClick);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "edit.png");
             // 
             // UpdateProduct
             // 

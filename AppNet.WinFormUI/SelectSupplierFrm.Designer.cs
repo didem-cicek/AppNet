@@ -146,6 +146,7 @@
             this.grdSupplier.Location = new System.Drawing.Point(48, 118);
             this.grdSupplier.MultiSelect = false;
             this.grdSupplier.Name = "grdSupplier";
+            this.grdSupplier.ReadOnly = true;
             this.grdSupplier.RowTemplate.Height = 25;
             this.grdSupplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdSupplier.Size = new System.Drawing.Size(932, 284);

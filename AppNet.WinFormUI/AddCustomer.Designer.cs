@@ -70,6 +70,7 @@
             this.txtAddCustomerTaxNo.Name = "txtAddCustomerTaxNo";
             this.txtAddCustomerTaxNo.Size = new System.Drawing.Size(243, 29);
             this.txtAddCustomerTaxNo.TabIndex = 6;
+            this.txtAddCustomerTaxNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddCustomerTaxNo_KeyPress);
             // 
             // txtAddCustomerShippingAddress
             // 
@@ -77,6 +78,7 @@
             this.txtAddCustomerShippingAddress.Name = "txtAddCustomerShippingAddress";
             this.txtAddCustomerShippingAddress.Size = new System.Drawing.Size(243, 29);
             this.txtAddCustomerShippingAddress.TabIndex = 5;
+            this.txtAddCustomerShippingAddress.TextChanged += new System.EventHandler(this.txtAddCustomerShippingAddress_TextChanged);
             // 
             // txtAddCustomerAddress
             // 
@@ -84,6 +86,7 @@
             this.txtAddCustomerAddress.Name = "txtAddCustomerAddress";
             this.txtAddCustomerAddress.Size = new System.Drawing.Size(242, 29);
             this.txtAddCustomerAddress.TabIndex = 4;
+            this.txtAddCustomerAddress.TextChanged += new System.EventHandler(this.txtAddCustomerAddress_TextChanged);
             // 
             // label6
             // 
@@ -102,6 +105,7 @@
             this.txtAddCustomerName.Name = "txtAddCustomerName";
             this.txtAddCustomerName.Size = new System.Drawing.Size(242, 29);
             this.txtAddCustomerName.TabIndex = 1;
+            this.txtAddCustomerName.TextChanged += new System.EventHandler(this.txtAddCustomerName_TextChanged);
             // 
             // label5
             // 
@@ -164,6 +168,8 @@
             this.txtAddCustomerPhone.Name = "txtAddCustomerPhone";
             this.txtAddCustomerPhone.Size = new System.Drawing.Size(242, 29);
             this.txtAddCustomerPhone.TabIndex = 2;
+            this.txtAddCustomerPhone.TextChanged += new System.EventHandler(this.txtAddCustomerPhone_TextChanged);
+            this.txtAddCustomerPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddCustomerPhone_KeyPress);
             // 
             // txtAddCustomerEmail
             // 
@@ -171,6 +177,7 @@
             this.txtAddCustomerEmail.Name = "txtAddCustomerEmail";
             this.txtAddCustomerEmail.Size = new System.Drawing.Size(242, 29);
             this.txtAddCustomerEmail.TabIndex = 3;
+            this.txtAddCustomerEmail.TextChanged += new System.EventHandler(this.txtAddCustomerEmail_TextChanged);
             // 
             // label7
             // 
@@ -189,6 +196,7 @@
             this.txtAddCustomerTaxOffice.Name = "txtAddCustomerTaxOffice";
             this.txtAddCustomerTaxOffice.Size = new System.Drawing.Size(243, 29);
             this.txtAddCustomerTaxOffice.TabIndex = 7;
+            this.txtAddCustomerTaxOffice.TextChanged += new System.EventHandler(this.txtAddCustomerTaxOffice_TextChanged);
             // 
             // label8
             // 

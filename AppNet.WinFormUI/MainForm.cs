@@ -15,8 +15,7 @@ namespace AppNet.WinFormUI
         private readonly ICustomerService cs;
         private readonly IStockService ss;
         private readonly ICashService css;
-        private readonly INotificationsService n;
-        public MainForm(IProductService p, IServiceProvider sp, IReportService rs, ISalesService sss, ICustomerService cs, IStockService ss, ICashService css, INotificationsService n)
+        public MainForm(IProductService p, IServiceProvider sp, IReportService rs, ISalesService sss, ICustomerService cs, IStockService ss, ICashService css)
         {
             InitializeComponent();
             this.sp = sp;
@@ -25,7 +24,6 @@ namespace AppNet.WinFormUI
             this.cs = cs;
             this.ss = ss;
             this.css = css;
-            this.n = n;
             this.p = p;
         }
 

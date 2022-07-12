@@ -58,6 +58,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grdProduct)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -163,7 +164,9 @@
             this.grdProduct.BackgroundColor = System.Drawing.Color.White;
             this.grdProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdProduct.Location = new System.Drawing.Point(33, 159);
+            this.grdProduct.MultiSelect = false;
             this.grdProduct.Name = "grdProduct";
+            this.grdProduct.ReadOnly = true;
             this.grdProduct.RowTemplate.Height = 25;
             this.grdProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdProduct.Size = new System.Drawing.Size(615, 431);
@@ -248,6 +251,7 @@
             this.txtCustomer.ReadOnly = true;
             this.txtCustomer.Size = new System.Drawing.Size(488, 29);
             this.txtCustomer.TabIndex = 1;
+            this.txtCustomer.TextChanged += new System.EventHandler(this.txtCustomer_TextChanged);
             // 
             // addCustomer
             // 
@@ -351,7 +355,9 @@
             this.grdList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdList.GridColor = System.Drawing.Color.White;
             this.grdList.Location = new System.Drawing.Point(137, 159);
+            this.grdList.MultiSelect = false;
             this.grdList.Name = "grdList";
+            this.grdList.ReadOnly = true;
             this.grdList.RowTemplate.Height = 25;
             this.grdList.Size = new System.Drawing.Size(444, 218);
             this.grdList.TabIndex = 6;
@@ -390,6 +396,13 @@
             this.label3.Size = new System.Drawing.Size(110, 21);
             this.label3.TabIndex = 9;
             this.label3.Text = "Toplam Tutar";
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
             // 
             // AddSale
             // 
@@ -448,6 +461,6 @@
         private Label label3;
         private Label label10;
         private Label label11;
-        
+        private NotifyIcon notifyIcon1;
     }
 }

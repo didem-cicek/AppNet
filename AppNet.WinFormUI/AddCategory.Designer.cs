@@ -52,6 +52,7 @@
             this.txtCategoryName.Name = "txtCategoryName";
             this.txtCategoryName.Size = new System.Drawing.Size(242, 29);
             this.txtCategoryName.TabIndex = 1;
+            this.txtCategoryName.TextChanged += new System.EventHandler(this.txtCategoryName_TextChanged);
             // 
             // btnAddCategory
             // 

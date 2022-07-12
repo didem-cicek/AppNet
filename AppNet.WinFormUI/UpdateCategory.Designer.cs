@@ -59,13 +59,17 @@
             // 
             // grdUpdateCategory
             // 
+            this.grdUpdateCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdUpdateCategory.BackgroundColor = System.Drawing.Color.White;
             this.grdUpdateCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdUpdateCategory.Location = new System.Drawing.Point(21, 118);
             this.grdUpdateCategory.Name = "grdUpdateCategory";
+            this.grdUpdateCategory.ReadOnly = true;
             this.grdUpdateCategory.RowTemplate.Height = 25;
+            this.grdUpdateCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdUpdateCategory.Size = new System.Drawing.Size(434, 150);
             this.grdUpdateCategory.TabIndex = 3;
+            this.grdUpdateCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdUpdateCategory_CellContentClick);
             // 
             // label3
             // 

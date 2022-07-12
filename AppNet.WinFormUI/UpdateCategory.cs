@@ -1,4 +1,5 @@
 using AppNet.AppService;
+using AppNet.Domain.Validations;
 
 namespace AppNet.WinFormUI
 {
@@ -32,13 +33,26 @@ namespace AppNet.WinFormUI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            var Kategori_Adý = txtUpdateCategory.Text;
+            try {
+                Kategori_Adý.NullOrEmpty(nameof(Kategori_Adý));
+                try { 
             cs.Update(Convert.ToInt32(grdUpdateCategory.CurrentRow.Cells[0].Value), txtUpdateCategory.Text);
             DialogResult result = MessageBox.Show("Kategori baþarýyla güncellenmiþtir.", "Bilgilendirme Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtUpdateCategory.Text = "";
             txtCategorySearch.Text = "";
             grdUpdateCategory.DataSource = null;
             grdUpdateCategory.Refresh();
-            this.Close();
+            this.Close();}
+                catch (Exception ex)
+                {
+                    DialogResult dialogResult = MessageBox.Show($" {ex.Message} iþlem baþarýsýz!", "Uyarý Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (ArgumentNullException ex)
+            {
+                DialogResult dialogResult = MessageBox.Show($" {ex.ParamName} alaný boþ býrakamazsýnýz!", "Uyarý Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private async void txtCategorySearch_TextChanged(object sender, EventArgs e)
@@ -51,8 +65,8 @@ namespace AppNet.WinFormUI
                                 orderby q.CategoryName ascending
                                 select new
                                 {
-                                    CategoryID = q.CategoryId,
-                                    CategoryName = q.CategoryName,
+                                    KategoriID = q.CategoryId,
+                                    KategoriAdý = q.CategoryName,
                                 }).ToList();
                 grdUpdateCategory.DataSource = gridList;
 
@@ -61,6 +75,11 @@ namespace AppNet.WinFormUI
             {
                 DialogResult dialogResult = MessageBox.Show("Aradýðýnýz ürün bulunamamýþtýr!", "Bilgilendirme Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void grdUpdateCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtUpdateCategory.Text = grdUpdateCategory.CurrentRow.Cells[1].Value.ToString();
         }
     }
 }

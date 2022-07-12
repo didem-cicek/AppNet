@@ -1,4 +1,5 @@
 using AppNet.AppService;
+using AppNet.Domain.Validations;
 
 namespace AppNet.WinFormUI
 {
@@ -65,17 +66,29 @@ namespace AppNet.WinFormUI
         }
 
         private async void btnUpdateSearch_Click(object sender, EventArgs e)
-        {             
-            try{
-            ps.Update(Convert.ToInt32(grdUpdateProductList.CurrentRow.Cells[0].Value), updatedProductName.Text, Convert.ToInt32(cbbUpdatedCategory.SelectedValue), txtUpdatedDescription.Text);
-            DialogResult result = MessageBox.Show("Ürün baþarýyla güncellenmiþtir.", "Bilgilendirme Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            updatedProductName.Text = "";
-            txtUpdatedDescription.Text = "";
-            grdUpdateProductList.DataSource = null;
-            grdUpdateProductList.Refresh();
-            this.Close();}
-            catch (Exception ex)
+        {
+            var Ürün_Adý = updatedProductName.Text;
+            var Kategori_Adý = cbbUpdatedCategory.Text;
+            try {
+                Kategori_Adý.NullOrEmpty(nameof(Kategori_Adý));
+                Ürün_Adý.NullOrEmpty(nameof(Ürün_Adý));
+                try
+                {
+                    ps.Update(Convert.ToInt32(grdUpdateProductList.CurrentRow.Cells[0].Value), updatedProductName.Text, Convert.ToInt32(cbbUpdatedCategory.SelectedValue), txtUpdatedDescription.Text);
+                    DialogResult result = MessageBox.Show("Ürün baþarýyla güncellenmiþtir.", "Bilgilendirme Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    updatedProductName.Text = "";
+                    txtUpdatedDescription.Text = "";
+                    grdUpdateProductList.DataSource = null;
+                    grdUpdateProductList.Refresh();
+                    this.Close();}
+                catch
+                {
+                    DialogResult dialogResult = MessageBox.Show("Ürün güncellenemedi, lütfen girdiðiniz deðerlerin doðru olduðuna emin olunuz!", "Uyarý Mesajý", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                }
+            }
+            catch (ArgumentNullException ex)
             {
+                DialogResult dialogResult = MessageBox.Show($" {ex.ParamName} alaný boþ býrakamazsýnýz!", "Uyarý Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
         }

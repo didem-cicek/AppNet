@@ -1,4 +1,6 @@
 ﻿using AppNet.AppService;
+using AppNet.Domain.Validations;
+using AppNet.Infrastructer.Notification;
 using AppNet.Infrastructer.Persistence.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -6,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -126,12 +129,22 @@ namespace AppNet.WinFormUI
 
         private async void btnAddProduct_Click(object sender, EventArgs e)
         {
-            decimal TotalPrice = Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value) * Convert.ToInt16(grdList.CurrentRow.Cells[4].Value);
-            ss.Add(Convert.ToInt32(grdProduct.CurrentRow.Cells[5].Value), Convert.ToInt32(customerID), Convert.ToInt16(grdList.CurrentRow.Cells[4].Value), Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value), TotalPrice, txtDesciption.Text, cbbStatus.Text, cbbAddSalePay.Text);
-            DialogResult dialogResult = MessageBox.Show("Sipariş başarıyla eklenmiştir. Bir sipariş daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            var product = (await ps.GetAll()).ToList();
-            var stock = (await sts.GetAll()).ToList();
-            var dropFromStock = (from q in product
+            var Müşteri_Adı = txtCustomerName.Text;
+            var Ürün_Bilgisi = grdList.Rows.Count;
+            try
+            {
+                Müşteri_Adı.NullOrEmpty(nameof(Müşteri_Adı));
+                if (Ürün_Bilgisi != null) { 
+            
+                decimal TotalPrice = Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value) * Convert.ToInt16(grdList.CurrentRow.Cells[4].Value);
+                ss.Add(Convert.ToInt32(grdProduct.CurrentRow.Cells[5].Value), Convert.ToInt32(customerID), Convert.ToInt16(grdList.CurrentRow.Cells[4].Value), Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value), TotalPrice, txtDesciption.Text, cbbStatus.Text, cbbAddSalePay.Text);
+                DialogResult dialogResult = MessageBox.Show("Sipariş başarıyla eklenmiştir. Bir sipariş daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                notifyIcon1.ShowBalloonTip(1000, "Siparişiniz Başarılı", "Siparişiniz başarılı ile oluşturulmuştur. Telegram bildirimi gönderilmiştir. ", ToolTipIcon.Info);
+                var n = new TelegramNotification();
+                n.OnMessage("Yeni Bir Sipariş Oluşturuldu");
+                var product = (await ps.GetAll()).ToList();
+                var stock = (await sts.GetAll()).ToList();
+                var dropFromStock = (from q in product
                                  join s in stock
                                  on q.ProductID equals s.ProductID
                                  select new 
@@ -149,27 +162,32 @@ namespace AppNet.WinFormUI
                                      SupplierID =  s.SupplierID,
 
                                  }).ToList();
-            foreach (var item in dropFromStock)
-            {
+                foreach (var item in dropFromStock){
                 sts.Update(item.StockID, item.ProductPrice, item.TotalPrice, item.ProductPiece, item.CritialStok, item.Color, item.Size, item.SupplierID, item.ProductID);
-            }
+                }
             
-            if (dialogResult == DialogResult.Yes)
-            {
+                if (dialogResult == DialogResult.Yes)
+                {
                 txtDesciption.Text = "";
                 txtProductFind.Text = "";
                 txtTotalPrice.Text = "";
                 grdList.Rows.Clear();
-            }
-            else
-            {
+                }
+                else
+                {
                 this.Close();
+                }
+                txtDesciption.Text = "";
+                txtProductFind.Text = "";
+                txtTotalPrice.Text = "";
+                txtCustomer.Text = "";
+                grdList.Rows.Clear();}}
+            catch (ArgumentNullException ex)
+            {
+                DialogResult dialogResult = MessageBox.Show($" {ex.ParamName} alanı boş bırakamazsınız!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
-            txtDesciption.Text = "";
-            txtProductFind.Text = "";
-            txtTotalPrice.Text = "";
-            txtCustomer.Text = "";
-            grdList.Rows.Clear();
+
         }
 
         private void grdProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -302,6 +320,11 @@ namespace AppNet.WinFormUI
         private void grdList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void txtCustomer_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

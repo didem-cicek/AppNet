@@ -33,12 +33,18 @@ namespace AppNet.WinFormUI
 
         private async void cashForm_Load(object sender, EventArgs e)
         {
-            
-            if (grdData.DataSource == null)
+            var cash = (await cs.GetAll()).ToList();
+            if (cash == null)
             {
                 AddData();
-              if (grdData.Rows.Count == 0) { 
-                    grdData.Rows.Clear();
+            }
+            else
+            {
+                UpdateData();           
+               
+            }
+
+            if (grdData.Rows.Count == 0) { 
                     grdData.Columns.Add("CashID", "Kasa ID");
                     grdData.Columns.Add("Debt", "Borç");
                     grdData.Columns.Add("Receivable", "Alacak");
@@ -47,18 +53,26 @@ namespace AppNet.WinFormUI
                     grdData.Columns.Add("ModifiedDate", "Güncellenme Tarihi");
                     LoadGridData();
                     grdData.Columns[0].Visible = false;}
-                else
-                {
-                    var cash = (await cs.GetAll()).ToList();
-                    foreach (var item in cash)
-                    {
-                        CashID = item.CashID;
-                    }
-                    cs.Remove(CashID);
-                }
-
+            else
+            {
+                LoadGridData();
             }
-            
+        }
+        public async void UpdateData()
+        {
+            grdData.Rows.Clear();
+            grdData.Refresh();
+            var cash = (await cs.GetAll()).ToList();
+            var data = from p in cash
+                       select new
+                       {
+                           CashID = p.CashID,
+                       };
+            foreach (var sa in data)
+            {
+                cs.Remove(sa.CashID);
+            }
+            AddData();
         }
         public async void AddData()
         {
@@ -79,6 +93,7 @@ namespace AppNet.WinFormUI
             {
                 receivable = sa.TotalPrice + receivable;
             }
+
             TotalCash = receivable - debt;
             cs.Add(debt, receivable, TotalCash);
         }
@@ -86,7 +101,6 @@ namespace AppNet.WinFormUI
         {
             grdData.Rows.Clear();
             grdData.Refresh();
-
             var cash = (await cs.GetAll()).ToList();
             
             var data = from p in cash
@@ -96,6 +110,8 @@ namespace AppNet.WinFormUI
                            Debt = p.Debt,
                            Receivable = p.Receivable,
                            TotalCash = p.TotalCash,
+                           Date = p.CashDate,
+                           ModifiedDate= DateTime.Now,
                        };
 
             foreach (var item in data)

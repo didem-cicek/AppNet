@@ -37,6 +37,9 @@ namespace AppNet.WinFormUI
 
         private async void SelectProductFrm_Load(object sender, EventArgs e)
         {
+            txtPiece.Text = "";
+            txtProductName.Text = "";
+            txtPrice.Text = "";
             cbbSize.Items.Clear();
             cbbColor.Items.Clear();
             var frm = sp.GetRequiredService<AddSale>();
@@ -67,6 +70,26 @@ namespace AppNet.WinFormUI
         private void btnAdd_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtPiece_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
+        }
+
+        private void txtPiece_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

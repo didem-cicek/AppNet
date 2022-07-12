@@ -61,7 +61,9 @@
             this.grdDeletedList.BackgroundColor = System.Drawing.Color.White;
             this.grdDeletedList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdDeletedList.Location = new System.Drawing.Point(22, 106);
+            this.grdDeletedList.MultiSelect = false;
             this.grdDeletedList.Name = "grdDeletedList";
+            this.grdDeletedList.ReadOnly = true;
             this.grdDeletedList.RowTemplate.Height = 25;
             this.grdDeletedList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdDeletedList.Size = new System.Drawing.Size(428, 188);

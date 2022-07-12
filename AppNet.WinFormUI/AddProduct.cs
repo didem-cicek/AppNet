@@ -1,6 +1,8 @@
 using AppNet.AppService;
 using AppNet.Domain.Entities;
+using AppNet.Domain.Validations;
 using AppNet.Infrastructer.Persistence;
+using System.Globalization;
 
 namespace AppNet.WinFormUI
 {
@@ -19,6 +21,8 @@ namespace AppNet.WinFormUI
 
         private async void AddProduct_Load(object sender, EventArgs e)
         {
+            txtAddProduct.Text = "";
+            txtAddDescription.Text = "";
             var list = (await categoryService.GetAll()).ToList();
             foreach (var item in list)
             {
@@ -28,21 +32,62 @@ namespace AppNet.WinFormUI
             }
         }
 
-        private void btnAddProduct_Click(object sender, EventArgs e)
+        private async void btnAddProduct_Click(object sender, EventArgs e)
         {
-            productService.Add(Convert.ToInt32(cbbAddCategory.SelectedValue),txtAddProduct.Text, txtAddDescription.Text);
-            DialogResult dialogResult = MessageBox.Show("Ürününüz baþarýyla eklenmiþtir. Bir ürün daha eklemek ister misiniz?", "Bilgilendirme Mesajý", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (dialogResult == DialogResult.Yes)
+            var Ürün_Adý = txtAddProduct.Text;
+            var Kategori_Adý = cbbAddCategory.Text;
+            try
             {
-                txtAddProduct.Text = "";
-                txtAddDescription.Text = "";
+                Kategori_Adý.NullOrEmpty(nameof(Kategori_Adý));
+                Ürün_Adý.NullOrEmpty(nameof(Ürün_Adý));
+                try
+                {
+                    var list = (await productService.GetAll()).ToList();
+                    var find = list.FirstOrDefault(u => u.ProductName.ToLower() == txtAddProduct.Text.ToLower());
+                    if (find == null)
+                    {
+                        productService.Add(Convert.ToInt32(cbbAddCategory.SelectedValue), txtAddProduct.Text, txtAddDescription.Text);
+                        DialogResult dialogResult = MessageBox.Show("Ürününüz baþarýyla eklenmiþtir. Bir ürün daha eklemek ister misiniz?", "Bilgilendirme Mesajý", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            txtAddProduct.Text = "";
+                            txtAddDescription.Text = "";
+                        }
+                        else
+                        {
+                            this.Close();
+                        }
+                        txtAddProduct.Text = "";
+                        txtAddDescription.Text = "";
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Ürün eklenemedi, girdiðiniz ürün zaten var!", "Uyarý Mesajý", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    }
+                }
+                catch
+                {
+                    DialogResult dialogResult = MessageBox.Show("Ürün eklenemedi, lütfen girdiðiniz deðerlerin doðru olduðuna emin olunuz!", "Uyarý Mesajý", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (ArgumentNullException ex)
             {
-                this.Close();
+                DialogResult dialogResult = MessageBox.Show($" {ex.ParamName} alaný boþ býrakamazsýnýz!", "Uyarý Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
-            txtAddProduct.Text = "";
-            txtAddDescription.Text = "";
+            
+        }
+
+        private void txtAddProduct_TextChanged(object sender, EventArgs e)
+        {
+            txtAddProduct.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtAddProduct.Text);
+            txtAddProduct.SelectionStart = txtAddProduct.Text.Length;
+        }
+
+        private void txtAddDescription_TextChanged(object sender, EventArgs e)
+        {
+            txtAddDescription.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtAddDescription.Text);
+            txtAddDescription.SelectionStart = txtAddProduct.Text.Length;
         }
     }
 }

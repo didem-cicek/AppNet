@@ -82,6 +82,7 @@
             this.grdCustomer.Location = new System.Drawing.Point(33, 120);
             this.grdCustomer.MultiSelect = false;
             this.grdCustomer.Name = "grdCustomer";
+            this.grdCustomer.ReadOnly = true;
             this.grdCustomer.RowTemplate.Height = 25;
             this.grdCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdCustomer.Size = new System.Drawing.Size(932, 284);
