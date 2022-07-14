@@ -33,11 +33,12 @@ namespace AppNet.WinFormUI
                 grdData.Refresh();
                 grdData.Columns.Add("StockID", "Stok ID");
                 grdData.Columns.Add("ProductName", "Ürün Adı");
-                grdData.Columns.Add("SupplierName", "Tedarikçi Adı");
+                grdData.Columns.Add("Color", "Renk");
+                grdData.Columns.Add("Size", "Beden");
                 grdData.Columns.Add("StockPiece", "Adet");
-                grdData.Columns.Add("ProductType", "Ürün Tipi");
-                grdData.Columns.Add("CritialStock", "Kritik Stok");
                 grdData.Columns.Add("StockPrice", "Birim Fiyat");
+                grdData.Columns.Add("SupplierName", "Tedarikçi Adı");
+                grdData.Columns.Add("CritialStock", "Kritik Stok");
                 grdData.Columns.Add("StockTotalPrice", "Toplam Fiyat");
                 grdData.Columns.Add("StockDate", "Ekleme Tarihi");
                 grdData.Columns.Add("StockModifitedDate", "Düzenleme Tarihi");
@@ -59,10 +60,12 @@ namespace AppNet.WinFormUI
                        {
                            StockID = p.StockID,
                            ProductName = pr.ProductName,
-                           SupplierName = c.SupplierName,
+                           Color = p.Color,
+                           Size = p.Size,
                            StockPiece = p.StockPiece,
-                           CritialStock = p.StockCritical,
                            StockPrice = p.PurchaseUnitPrice,
+                           SupplierName = c.SupplierName,
+                           CritialStock = p.StockCritical,
                            StockTotalPrice = p.StockTotalPrice,
                            Date = p.StockDate,
                            ModifiedTime = p.StockModifitedDate,
@@ -71,19 +74,41 @@ namespace AppNet.WinFormUI
             {
                 AddRowToGrid(item);
             }
+            for (int i = 0; i <= grdData.Rows.Count - 1; i++)
+            {
+                DataGridViewCellStyle color = new DataGridViewCellStyle();
+                if (Convert.ToUInt32(grdData.Rows[i].Cells[4].Value) > Convert.ToUInt32(grdData.Rows[i].Cells[7].Value ) + 50)
+                {
+                    color.BackColor = Color.Green;
+                    color.ForeColor = Color.White;
+                } else if (Convert.ToUInt32(grdData.Rows[i].Cells[4].Value) >= Convert.ToUInt32(grdData.Rows[i].Cells[7].Value))
+                {
+                    color.BackColor = Color.Orange;
+                    color.ForeColor = Color.White;
+                }
+                else
+                {
+                    color.BackColor = Color.Red;
+                    color.ForeColor = Color.White;
+                }
+                grdData.Rows[i].DefaultCellStyle = color;
+            }
+            grdData.Refresh();
         }
         private void AddRowToGrid(StockViewModel model)
         {
             DataGridViewRow row = (DataGridViewRow)grdData.Rows[0].Clone();
             row.Cells[0].Value = model.StockID;
             row.Cells[1].Value = model.ProductName;
-            row.Cells[2].Value = model.SupplierName;
-            row.Cells[3].Value = model.StockPiece;
-            row.Cells[4].Value = model.CritialStock;
+            row.Cells[2].Value = model.Color;
+            row.Cells[3].Value = model.Size;
+            row.Cells[4].Value = model.StockPiece;
             row.Cells[5].Value = model.StockPrice;
-            row.Cells[6].Value = model.StockTotalPrice;
-            row.Cells[7].Value = model.Date;
-            row.Cells[8].Value = model.ModifiedTime;
+            row.Cells[6].Value = model.SupplierName;
+            row.Cells[7].Value = model.CritialStock;
+            row.Cells[8].Value = model.StockTotalPrice;
+            row.Cells[9].Value = model.Date;
+            row.Cells[10].Value = model.ModifiedTime;
 
 
             grdData.Rows.Add(row);

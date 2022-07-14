@@ -76,7 +76,8 @@
             this.txtPiece.Location = new System.Drawing.Point(146, 72);
             this.txtPiece.Name = "txtPiece";
             this.txtPiece.Size = new System.Drawing.Size(254, 29);
-            this.txtPiece.TabIndex = 3;
+            this.txtPiece.TabIndex = 2;
+            this.txtPiece.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPiece_KeyPress);
             // 
             // label4
             // 
@@ -113,7 +114,8 @@
             this.txtPrice.Location = new System.Drawing.Point(146, 209);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(254, 29);
-            this.txtPrice.TabIndex = 3;
+            this.txtPrice.TabIndex = 5;
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // btnAdd
             // 
@@ -147,7 +149,8 @@
             this.txtCritialStock.Location = new System.Drawing.Point(146, 254);
             this.txtCritialStock.Name = "txtCritialStock";
             this.txtCritialStock.Size = new System.Drawing.Size(254, 29);
-            this.txtCritialStock.TabIndex = 3;
+            this.txtCritialStock.TabIndex = 6;
+            this.txtCritialStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCritialStock_KeyPress);
             // 
             // txtColor
             // 
@@ -155,13 +158,15 @@
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(254, 29);
             this.txtColor.TabIndex = 3;
+            this.txtColor.TextChanged += new System.EventHandler(this.txtColor_TextChanged);
             // 
             // txtSize
             // 
             this.txtSize.Location = new System.Drawing.Point(146, 162);
             this.txtSize.Name = "txtSize";
             this.txtSize.Size = new System.Drawing.Size(254, 29);
-            this.txtSize.TabIndex = 3;
+            this.txtSize.TabIndex = 4;
+            this.txtSize.TextChanged += new System.EventHandler(this.txtSize_TextChanged);
             // 
             // SelectStockProductFrm
             // 

@@ -92,6 +92,8 @@
             this.txtUpdateSupplierPhoneNumber.Name = "txtUpdateSupplierPhoneNumber";
             this.txtUpdateSupplierPhoneNumber.Size = new System.Drawing.Size(242, 29);
             this.txtUpdateSupplierPhoneNumber.TabIndex = 5;
+            this.txtUpdateSupplierPhoneNumber.TextChanged += new System.EventHandler(this.txtUpdateSupplierPhoneNumber_TextChanged);
+            this.txtUpdateSupplierPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateSupplierPhoneNumber_KeyPress);
             // 
             // label3
             // 
@@ -157,6 +159,7 @@
             this.txtUpdateSupplierName.Name = "txtUpdateSupplierName";
             this.txtUpdateSupplierName.Size = new System.Drawing.Size(242, 29);
             this.txtUpdateSupplierName.TabIndex = 4;
+            this.txtUpdateSupplierName.TextChanged += new System.EventHandler(this.txtUpdateSupplierName_TextChanged);
             // 
             // txtUpdateSupplierAddress
             // 
@@ -165,6 +168,7 @@
             this.txtUpdateSupplierAddress.Name = "txtUpdateSupplierAddress";
             this.txtUpdateSupplierAddress.Size = new System.Drawing.Size(242, 29);
             this.txtUpdateSupplierAddress.TabIndex = 6;
+            this.txtUpdateSupplierAddress.TextChanged += new System.EventHandler(this.txtUpdateSupplierAddress_TextChanged);
             // 
             // label4
             // 
@@ -184,6 +188,8 @@
             this.txtTaxNo.Name = "txtTaxNo";
             this.txtTaxNo.Size = new System.Drawing.Size(242, 29);
             this.txtTaxNo.TabIndex = 6;
+            this.txtTaxNo.TextChanged += new System.EventHandler(this.txtTaxNo_TextChanged);
+            this.txtTaxNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTaxNo_KeyPress);
             // 
             // label5
             // 
@@ -203,6 +209,7 @@
             this.txtTaxOffice.Name = "txtTaxOffice";
             this.txtTaxOffice.Size = new System.Drawing.Size(242, 29);
             this.txtTaxOffice.TabIndex = 6;
+            this.txtTaxOffice.TextChanged += new System.EventHandler(this.txtTaxOffice_TextChanged);
             // 
             // UpdateSupplier
             // 

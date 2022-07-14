@@ -88,8 +88,8 @@ namespace AppNet.WinFormUI
                              join s in stock
                              on q.ProductID equals s.ProductID
                              orderby s.StockID descending
-                             where s.StockCritical <= s.PurchaseUnitPrice
-                             select new
+                             where s.StockPiece <= s.StockCritical
+                                select new
                              {
                                  ProductID = q.ProductID,
                                  ProductName = q.ProductName,
@@ -125,17 +125,18 @@ namespace AppNet.WinFormUI
             }
             if (critialstock == null)
             {
-                foreach (var item in critialstock)
-                {
-                    critialStok.Text = item.ProductName + "isimli üründen" + item.UnitPiece.ToString()+ " adet vardýr, adet 0 olunca satýþ durdurulacaktýr.";
-                    critialStok.ForeColor = Color.Red;
-                    break;
-                }
+                critialStok.Text = "Kritik stokda bir ürün bulunmuyor.";
+                critialStok.ForeColor = Color.Green;
             }
             else
             {
-                critialStok.Text = "Kritik stokda bir ürün bulunmuyor.";
-                critialStok.ForeColor = Color.Green;
+                
+                foreach (var item in critialstock)
+                {
+                    critialStok.Text = item.ProductName + " isimli üründen " + item.UnitPiece.ToString() + " adet vardýr,\nadet 0 olunca satýþ durdurulacaktýr.";
+                    critialStok.ForeColor = Color.Red;
+                    break;
+                }
             }
         }
         private void btnProductManagement_Click(object sender, EventArgs e)

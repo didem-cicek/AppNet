@@ -333,10 +333,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "LiveCharts.WinForms": {
-              "target": "Package",
-              "version": "[0.9.7.1, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.5, )"

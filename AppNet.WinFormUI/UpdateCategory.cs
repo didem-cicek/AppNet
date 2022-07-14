@@ -1,5 +1,6 @@
 using AppNet.AppService;
 using AppNet.Domain.Validations;
+using System.Globalization;
 
 namespace AppNet.WinFormUI
 {
@@ -80,6 +81,12 @@ namespace AppNet.WinFormUI
         private void grdUpdateCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             txtUpdateCategory.Text = grdUpdateCategory.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        private void txtUpdateCategory_TextChanged(object sender, EventArgs e)
+        {
+            txtUpdateCategory.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtUpdateCategory.Text);
+            txtUpdateCategory.SelectionStart = txtUpdateCategory.Text.Length;
         }
     }
 }

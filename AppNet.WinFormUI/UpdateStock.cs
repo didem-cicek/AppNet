@@ -1,4 +1,5 @@
 ﻿using AppNet.AppService;
+using AppNet.Domain.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -197,8 +198,24 @@ namespace AppNet.WinFormUI
 
         private void btnUpdatedSupplier_Click(object sender, EventArgs e)
         {
+            var Ürün_Adı = cbbProduct.Text;
+            var Tedarikçi_Adı = cbbUpdateSuppliers.Text;
+            var Renk = cbbColor.Text;
+            var Beden = cbbSize.Text;
+            var Fiyat = txtUpdateStockPrice.Text;
+            var Adet = txtUpdateStockPiece.Text;
+            var Kritik_Stok = txtUpdateCriticalStock.Text;
             try
             {
+                Ürün_Adı.NullOrEmpty(nameof(Ürün_Adı));
+                Tedarikçi_Adı.NullOrEmpty(nameof(Tedarikçi_Adı));
+                Fiyat.NullOrEmpty(nameof(Fiyat));
+                Beden.NullOrEmpty(nameof(Beden));
+                Renk.NullOrEmpty(nameof(Renk));
+                Adet.NullOrEmpty(nameof(Adet));
+                Kritik_Stok.NullOrEmpty(nameof(Kritik_Stok));
+
+                try{ 
                 ss.Update(Convert.ToInt32(grdStockList.CurrentRow.Cells[0].Value), Convert.ToDecimal(txtUpdateStockPrice.Text), Convert.ToDecimal(txtTotal.Text), Convert.ToInt32(txtUpdateStockPiece.Text), Convert.ToInt16(txtUpdateCriticalStock.Text), cbbColor.Text, cbbSize.Text, Convert.ToInt32(grdStockList.CurrentRow.Cells[9].Value.ToString()), Convert.ToInt32(grdStockList.CurrentRow.Cells[10].Value.ToString()) );
                 DialogResult result = MessageBox.Show("Ürün başarıyla güncellenmiştir.", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtTotal.Text = "";
@@ -211,11 +228,31 @@ namespace AppNet.WinFormUI
                 grdStockList.DataSource = null;
                 grdStockList.Refresh();
                 this.Close();
+                }
+                catch
+                {
+                    DialogResult dialogResult = MessageBox.Show("Bilinmeyen bir hata oluştu, güncelleme işleminiz başarız!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            catch (Exception ex)
+            catch (ArgumentNullException ex)
             {
-
+                DialogResult dialogResult = MessageBox.Show($" {ex.ParamName} alanı boş bırakamazsınız!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void txtUpdateStockPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
+        }
+
+        private void txtUpdateStockPiece_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtUpdateCriticalStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

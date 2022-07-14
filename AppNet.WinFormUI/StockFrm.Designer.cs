@@ -40,9 +40,12 @@
             this.grdData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdData.Location = new System.Drawing.Point(31, 39);
             this.grdData.Margin = new System.Windows.Forms.Padding(4);
+            this.grdData.MultiSelect = false;
             this.grdData.Name = "grdData";
+            this.grdData.ReadOnly = true;
             this.grdData.RowTemplate.Height = 25;
             this.grdData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grdData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdData.Size = new System.Drawing.Size(965, 300);
             this.grdData.TabIndex = 0;
             // 

@@ -60,11 +60,12 @@ namespace AppNet.WinFormUI
                 grdStockList.Refresh();
                 grdStockList.Columns.Add("StockID", "Stok ID");
                 grdStockList.Columns.Add("ProductName", "Ürün Adı");
-                grdStockList.Columns.Add("SupplierName", "Tedarikçi Adı");
+                grdStockList.Columns.Add("Color", "Renk");
+                grdStockList.Columns.Add("Size", "Beden");
                 grdStockList.Columns.Add("StockPiece", "Adet");
-                grdStockList.Columns.Add("ProductType", "Ürün Tipi");
+                grdStockList.Columns.Add("StockPrice", "Birim Fiyat");         
+                grdStockList.Columns.Add("SupplierName", "Tedarikçi Adı");
                 grdStockList.Columns.Add("CritialStock", "Kritik Stok");
-                grdStockList.Columns.Add("StockPrice", "Birim Fiyat");
                 grdStockList.Columns.Add("StockTotalPrice", "Toplam Fiyat");
                 grdStockList.Columns.Add("StockDate", "Ekleme Tarihi");
                 grdStockList.Columns.Add("StockModifitedDate", "Düzenleme Tarihi");
@@ -86,10 +87,12 @@ namespace AppNet.WinFormUI
                        {
                            StockID = p.StockID,
                            ProductName = pr.ProductName,
-                           SupplierName = c.SupplierName,
+                           Color = p.Color,
+                           Size = p.Size,
                            StockPiece = p.StockPiece,
-                           CritialStock = p.StockCritical,
                            StockPrice = p.PurchaseUnitPrice,
+                           SupplierName = c.SupplierName,
+                           CritialStock = p.StockCritical,
                            StockTotalPrice = p.StockTotalPrice,
                            Date = p.StockDate,
                            ModifiedTime = p.StockModifitedDate,
@@ -104,13 +107,15 @@ namespace AppNet.WinFormUI
             DataGridViewRow row = (DataGridViewRow)grdStockList.Rows[0].Clone();
             row.Cells[0].Value = model.StockID;
             row.Cells[1].Value = model.ProductName;
-            row.Cells[2].Value = model.SupplierName;
-            row.Cells[3].Value = model.StockPiece;
-            row.Cells[4].Value = model.CritialStock;
+            row.Cells[2].Value = model.Color;
+            row.Cells[3].Value = model.Size;
+            row.Cells[4].Value = model.StockPiece;
             row.Cells[5].Value = model.StockPrice;
-            row.Cells[6].Value = model.StockTotalPrice;
-            row.Cells[7].Value = model.Date;
-            row.Cells[8].Value = model.ModifiedTime;
+            row.Cells[6].Value = model.SupplierName;
+            row.Cells[7].Value = model.CritialStock; 
+            row.Cells[8].Value = model.StockTotalPrice;
+            row.Cells[9].Value = model.Date;
+            row.Cells[10].Value = model.ModifiedTime;
 
 
             grdStockList.Rows.Add(row);
@@ -134,10 +139,12 @@ namespace AppNet.WinFormUI
                         {
                             StockID = q.StockID,
                             ProductName = pr.ProductName,
-                            SupplierName = c.SupplierName,
+                            Color = q.Color,
+                            Size = q.Size,
                             StockPiece = q.StockPiece,
-                            CritialStock = q.StockCritical,
                             StockPrice = q.PurchaseUnitPrice,
+                            SupplierName = c.SupplierName,
+                            CritialStock = q.StockCritical,
                             StockTotalPrice = q.StockTotalPrice,
                             Date = q.StockDate,
                             ModifiedTime = q.StockModifitedDate,
@@ -149,6 +156,53 @@ namespace AppNet.WinFormUI
 
                 AddRowToGrid(f);
             }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = sp.GetRequiredService<UpdateStock>();
+            try
+            {
+                if (grdStockList.CurrentRow.Cells[1].Value.ToString() != null)
+                {
+                    frm.txtUpdateStockSearch.Text = grdStockList.CurrentRow.Cells[1].Value.ToString();
+                    frm.ShowDialog();
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                DialogResult dialogResult = MessageBox.Show("Seçim yapmadınız önce satırı seçiniz!", "Uyarı Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            }
+            grdStockList.Rows.Clear();
+            LoadGridData();
+        }
+
+        private void silToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = sp.GetRequiredService<DeleteStock>();
+            try {
+                if (grdStockList.CurrentRow.Cells[1].Value.ToString() != null) { 
+                frm.txtDeleteStockSearch.Text = grdStockList.CurrentRow.Cells[1].Value.ToString();
+                frm.ShowDialog(); }
+            }
+            catch(NullReferenceException ex)
+            {
+                DialogResult dialogResult = MessageBox.Show("Seçim yapmadınız önce satırı seçiniz!", "Uyarı Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                
+            }
+            grdStockList.Rows.Clear();
+            LoadGridData();
+        }
+
+        private void grdStockList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

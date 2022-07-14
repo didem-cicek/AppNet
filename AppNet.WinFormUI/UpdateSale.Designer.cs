@@ -61,7 +61,9 @@
             this.grdUpdateSaleList.BackgroundColor = System.Drawing.Color.White;
             this.grdUpdateSaleList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdUpdateSaleList.Location = new System.Drawing.Point(26, 133);
+            this.grdUpdateSaleList.MultiSelect = false;
             this.grdUpdateSaleList.Name = "grdUpdateSaleList";
+            this.grdUpdateSaleList.ReadOnly = true;
             this.grdUpdateSaleList.RowTemplate.Height = 25;
             this.grdUpdateSaleList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdUpdateSaleList.Size = new System.Drawing.Size(420, 250);
@@ -156,6 +158,7 @@
             this.txtPiece.Name = "txtPiece";
             this.txtPiece.Size = new System.Drawing.Size(242, 29);
             this.txtPiece.TabIndex = 8;
+            this.txtPiece.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPiece_KeyPress);
             // 
             // label5
             // 
@@ -249,6 +252,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(242, 29);
             this.txtPrice.TabIndex = 5;
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // labelSize
             // 

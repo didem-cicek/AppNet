@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchasingFrm));
             this.grdStockList = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.güncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.silToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtStockSearch = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnDeletedStock = new System.Windows.Forms.Button();
@@ -44,6 +47,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdStockList)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -53,14 +57,41 @@
             this.grdStockList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdStockList.BackgroundColor = System.Drawing.Color.White;
             this.grdStockList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdStockList.ContextMenuStrip = this.contextMenuStrip1;
             this.grdStockList.GridColor = System.Drawing.Color.Black;
             this.grdStockList.Location = new System.Drawing.Point(247, 209);
+            this.grdStockList.MultiSelect = false;
             this.grdStockList.Name = "grdStockList";
             this.grdStockList.RowHeadersVisible = false;
             this.grdStockList.RowTemplate.Height = 25;
             this.grdStockList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grdStockList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdStockList.Size = new System.Drawing.Size(1064, 389);
             this.grdStockList.TabIndex = 7;
+            this.grdStockList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdStockList_CellContentClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.güncelleToolStripMenuItem,
+            this.silToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(121, 48);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // güncelleToolStripMenuItem
+            // 
+            this.güncelleToolStripMenuItem.Name = "güncelleToolStripMenuItem";
+            this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.güncelleToolStripMenuItem.Text = "Güncelle";
+            this.güncelleToolStripMenuItem.Click += new System.EventHandler(this.güncelleToolStripMenuItem_Click);
+            // 
+            // silToolStripMenuItem
+            // 
+            this.silToolStripMenuItem.Name = "silToolStripMenuItem";
+            this.silToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.silToolStripMenuItem.Text = "Sil";
+            this.silToolStripMenuItem.Click += new System.EventHandler(this.silToolStripMenuItem_Click);
             // 
             // txtStockSearch
             // 
@@ -235,6 +266,7 @@
             this.Text = "SATIN ALMA YÖNETİMİ";
             this.Load += new System.EventHandler(this.PurchasingFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdStockList)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -245,18 +277,21 @@
 
         #endregion
 
-        private DataGridView grdStockList;
+        public DataGridView grdStockList;
         public TextBox txtStockSearch;
-        private Label label3;
+        public Label label3;
         public Button btnDeletedStock;
-        private ImageList imageList1;
+        public ImageList imageList1;
         public Button btnUpdatedStock;
         public Button btnAddStock;
-        private Panel panel1;
-        private Label label6;
-        private Panel panel3;
-        private Label label7;
-        private Label label8;
-        private Label label9;
+        public Panel panel1;
+        public Label label6;
+        public Panel panel3;
+        public Label label7;
+        public Label label8;
+        public Label label9;
+        public ContextMenuStrip contextMenuStrip1;
+        public ToolStripMenuItem güncelleToolStripMenuItem;
+        public ToolStripMenuItem silToolStripMenuItem;
     }
 }

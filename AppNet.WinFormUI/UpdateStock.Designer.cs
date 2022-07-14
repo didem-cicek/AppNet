@@ -125,6 +125,7 @@
             this.txtUpdateCriticalStock.Size = new System.Drawing.Size(242, 29);
             this.txtUpdateCriticalStock.TabIndex = 9;
             this.txtUpdateCriticalStock.TextChanged += new System.EventHandler(this.txtUpdateCriticalStock_TextChanged);
+            this.txtUpdateCriticalStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateCriticalStock_KeyPress);
             // 
             // txtUpdateStockPiece
             // 
@@ -134,6 +135,7 @@
             this.txtUpdateStockPiece.Size = new System.Drawing.Size(242, 29);
             this.txtUpdateStockPiece.TabIndex = 8;
             this.txtUpdateStockPiece.TextChanged += new System.EventHandler(this.txtUpdateStockPiece_TextChanged);
+            this.txtUpdateStockPiece.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateStockPiece_KeyPress);
             // 
             // cbbSize
             // 
@@ -165,6 +167,7 @@
             this.txtUpdateStockPrice.Size = new System.Drawing.Size(242, 29);
             this.txtUpdateStockPrice.TabIndex = 7;
             this.txtUpdateStockPrice.TextChanged += new System.EventHandler(this.txtUpdateStockPrice_TextChanged);
+            this.txtUpdateStockPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateStockPrice_KeyPress);
             // 
             // label1
             // 
@@ -357,28 +360,28 @@
 
         #endregion
 
-        private DataGridView grdStockList;
-        private TextBox txtUpdateStockSearch;
-        private Button btnUpdatedSupplier;
-        private Label label8;
-        private Label label7;
+        public DataGridView grdStockList;
+        public TextBox txtUpdateStockSearch;
+        public Button btnUpdatedSupplier;
+        public Label label8;
+        public Label label7;
         public TextBox txtUpdateCriticalStock;
         public TextBox txtUpdateStockPiece;
         public ComboBox cbbSize;
         public ComboBox cbbUpdateSuppliers;
         public TextBox txtUpdateStockPrice;
-        private Label label1;
-        private Label label5;
-        private Label label4;
-        private Label label3;
+        public Label label1;
+        public Label label5;
+        public Label label4;
+        public Label label3;
         private Label Renk;
         private Label label9;
         private Label label2;
         public ComboBox cbbColor;
-        private Label label6;
+        public Label label6;
         public TextBox txtTotal;
         public ComboBox cbbProduct;
-        private Label label10;
+        public Label label10;
         public TextBox txtDescription;
     }
 }

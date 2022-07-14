@@ -89,6 +89,7 @@ namespace AppNet.WinFormUI
             var productList = (from q in p
                                join s in st
                                on q.ProductID equals s.ProductID
+                               where s.StockPiece >= s.StockCritical
                                select new SaleProductListViewModel
                                {
                                    ProductID = q.ProductID,
@@ -134,59 +135,74 @@ namespace AppNet.WinFormUI
             try
             {
                 Müşteri_Adı.NullOrEmpty(nameof(Müşteri_Adı));
-                if (Ürün_Bilgisi != null) { 
-            
-                decimal TotalPrice = Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value) * Convert.ToInt16(grdList.CurrentRow.Cells[4].Value);
-                ss.Add(Convert.ToInt32(grdProduct.CurrentRow.Cells[5].Value), Convert.ToInt32(customerID), Convert.ToInt16(grdList.CurrentRow.Cells[4].Value), Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value), TotalPrice, txtDesciption.Text, cbbStatus.Text, cbbAddSalePay.Text);
-                DialogResult dialogResult = MessageBox.Show("Sipariş başarıyla eklenmiştir. Bir sipariş daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                notifyIcon1.ShowBalloonTip(1000, "Siparişiniz Başarılı", "Siparişiniz başarılı ile oluşturulmuştur. Telegram bildirimi gönderilmiştir. ", ToolTipIcon.Info);
-                var n = new TelegramNotification();
-                n.OnMessage("Yeni Bir Sipariş Oluşturuldu");
-                var product = (await ps.GetAll()).ToList();
-                var stock = (await sts.GetAll()).ToList();
-                var dropFromStock = (from q in product
-                                 join s in stock
-                                 on q.ProductID equals s.ProductID
-                                 select new 
-                                 {
-                                     ProductID = q.ProductID,
-                                     ProductName = q.ProductName,
-                                     ProductPrice = s.PurchaseUnitPrice,
-                                     ProductPiece = s.StockPiece - Piece,
-                                     ProductDescription = q.ProductDesriciption,
-                                     TotalPrice = s.StockTotalPrice,
-                                     CritialStok = s.StockCritical,
-                                     Color = s.Color,
-                                     Size = s.Size,
-                                     StockID = s.StockID,
-                                     SupplierID =  s.SupplierID,
+                if (Ürün_Bilgisi != null) {
 
-                                 }).ToList();
-                foreach (var item in dropFromStock){
-                sts.Update(item.StockID, item.ProductPrice, item.TotalPrice, item.ProductPiece, item.CritialStok, item.Color, item.Size, item.SupplierID, item.ProductID);
-                }
-            
-                if (dialogResult == DialogResult.Yes)
-                {
-                txtDesciption.Text = "";
-                txtProductFind.Text = "";
-                txtTotalPrice.Text = "";
-                grdList.Rows.Clear();
-                }
-                else
-                {
-                this.Close();
-                }
-                txtDesciption.Text = "";
-                txtProductFind.Text = "";
-                txtTotalPrice.Text = "";
-                txtCustomer.Text = "";
-                grdList.Rows.Clear();}}
-            catch (ArgumentNullException ex)
-            {
+                    var product = (await ps.GetAll()).ToList();
+                    var stock = (await sts.GetAll()).ToList();
+                    var dropFromStock = (from q in product
+                                         join s in stock
+                                         on q.ProductID equals s.ProductID
+                                         select new
+                                         {
+                                             ProductID = q.ProductID,
+                                             ProductName = q.ProductName,
+                                             ProductPrice = s.PurchaseUnitPrice,
+                                             ProductPiece = s.StockPiece - Piece,
+                                             ProductDescription = q.ProductDesriciption,
+                                             TotalPrice = s.StockTotalPrice,
+                                             CritialStok = s.StockCritical,
+                                             Color = s.Color,
+                                             Size = s.Size,
+                                             StockID = s.StockID,
+                                             SupplierID = s.SupplierID,
+
+                                         }).ToList();
+                    bool stockStatus = false;
+                    foreach (var item in dropFromStock)
+                    {
+                        if (item.ProductPiece <= Convert.ToInt32(grdList.CurrentRow.Cells[4].Value))
+                        {
+                            DialogResult stockResult = MessageBox.Show("Seçtiğiniz ürünün yeterli stoğu yoktur! Lütfen stok adedini kontrol ediniz!", "Uyarı Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                            stockStatus = true;
+                            break;
+                        }
+                    }
+                    if (stockStatus == false)
+                    {
+                        decimal TotalPrice = Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value) * Convert.ToInt16(grdList.CurrentRow.Cells[4].Value);
+                        ss.Add(Convert.ToInt32(grdProduct.CurrentRow.Cells[5].Value), Convert.ToInt32(customerID), Convert.ToInt16(grdList.CurrentRow.Cells[4].Value), Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value), TotalPrice, txtDesciption.Text, cbbStatus.Text, cbbAddSalePay.Text);
+                        DialogResult dialogResult = MessageBox.Show("Sipariş başarıyla eklenmiştir. Bir sipariş daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        notifyIcon1.ShowBalloonTip(1000, "Siparişiniz Başarılı", "Siparişiniz başarılı ile oluşturulmuştur. Telegram bildirimi gönderilmiştir. ", ToolTipIcon.Info);
+                        var n = new TelegramNotification();
+                        n.OnMessage("Yeni Bir Sipariş Oluşturuldu");
+
+                        foreach (var item in dropFromStock)
+                        {
+                            sts.Update(item.StockID, item.ProductPrice, item.TotalPrice, item.ProductPiece, item.CritialStok, item.Color, item.Size, item.SupplierID, item.ProductID);
+                        }
+
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            txtDesciption.Text = "";
+                            txtProductFind.Text = "";
+                            txtTotalPrice.Text = "";
+                            grdList.Rows.Clear();
+                        }
+                        else
+                        {
+                            this.Close();
+                        }
+                    }
+                    this.Close();
+                    txtDesciption.Text = "";
+                    txtProductFind.Text = "";
+                    txtTotalPrice.Text = "";
+                    txtCustomer.Text = "";
+                    grdList.Rows.Clear();}}
+                catch (ArgumentNullException ex){
                 DialogResult dialogResult = MessageBox.Show($" {ex.ParamName} alanı boş bırakamazsınız!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            }
+                }
 
         }
 
@@ -219,7 +235,7 @@ namespace AppNet.WinFormUI
             var searchProduct = (from q in p
                                  join s in st
                                  on q.ProductID equals s.ProductID
-                                 where q.ProductName.ToLower().Contains((txtProductFind.Text).ToLower())
+                                 where q.ProductName.ToLower().Contains((txtProductFind.Text).ToLower()) && s.StockPiece >= s.StockCritical
                                  orderby q.ProductName ascending
                                  select new SaleProductListViewModel
                                  {

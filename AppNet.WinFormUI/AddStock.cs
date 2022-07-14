@@ -1,4 +1,5 @@
 ﻿using AppNet.AppService;
+using AppNet.Domain.Validations;
 using AppNet.Infrastructer.Persistence.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -199,30 +200,100 @@ namespace AppNet.WinFormUI
             grdList.Rows.Add(row);
         }
 
-        private void btnStock_Click(object sender, EventArgs e)
+        private async void btnStock_Click(object sender, EventArgs e)
         {
-            decimal StockTotalPrice = Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value) * Convert.ToInt32(grdList.CurrentRow.Cells[4].Value);
-            ss.Add(Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value), StockTotalPrice, Convert.ToInt16(grdList.CurrentRow.Cells[4].Value), Convert.ToInt16(grdList.CurrentRow.Cells[6].Value), Convert.ToString(grdList.CurrentRow.Cells[2].Value), Convert.ToString(grdList.CurrentRow.Cells[3].Value),supllierID, Convert.ToInt32(grdProduct.CurrentRow.Cells[0].Value));
-            DialogResult dialogResult = MessageBox.Show("Stok başarıyla eklenmiştir. Bir stok daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (dialogResult == DialogResult.Yes)
+            var Tedarikçi_Adı = txtSupplierName.Text;
+            var Ürün_Bilgisi = grdList.Rows.Count;
+            try
             {
-                txtSupplier.Text = "";
-                txtSupplierName.Text = "";
-                txtProductFind.Text = "";
-                txtTotalPrice.Text = "";
-                grdList.Rows.Clear();
-                grdList.Refresh();
+                Tedarikçi_Adı.NullOrEmpty(nameof(Tedarikçi_Adı));
+                if (Ürün_Bilgisi == 2)
+                {
+                    var list = (await ss.GetAll()).ToList();
+                    var productList = (await ps.GetAll()).ToList();
+                    bool control = false;
+                    foreach (var item in productList)
+                    {
+                        if (item.ProductName.ToLower() == Convert.ToString(grdList.CurrentRow.Cells[1].Value).ToLower())
+                        {
+                            control = true;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    if (control == true) { 
+                    foreach (var item in list)
+                    {
+                            if (item.Color == Convert.ToString(grdList.CurrentRow.Cells[2].Value).ToLower())
+                            {
+                                if (item.Size == Convert.ToString(grdList.CurrentRow.Cells[3].Value).ToLower())
+                                {
+                                    var p = (await ps.GetAll()).ToList();
+                                    var st = (await ss.GetAll()).ToList();
+                                    var findProduct = (from q in p
+                                                       join s in st
+                                                       on q.ProductID equals s.ProductID
+                                                       where q.ProductName.ToLower() == Convert.ToString(grdList.CurrentRow.Cells[1].Value).ToLower()
+                                                       select new
+                                                       {
+                                                           StokID = s.StockID,
+                                                           ProductID = q.ProductID,
+                                                           Piece = s.StockPiece,
+                                                           SupplierID = s.SupplierID,
+                                                       }).ToList();
+                                    decimal tPrice = Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value) * Convert.ToInt32(grdList.CurrentRow.Cells[4].Value);
+                                    int tPiece = 0;
+                                    foreach (var i in findProduct)
+                                    {
+                                        tPiece = Convert.ToInt32(i.Piece) + Convert.ToInt32(grdList.CurrentRow.Cells[4].Value);
+                                        ss.Update(i.StokID, Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value), tPrice, tPiece, Convert.ToInt16(grdList.CurrentRow.Cells[6].Value), grdList.CurrentRow.Cells[2].Value.ToString(), grdList.CurrentRow.Cells[3].Value.ToString(), i.SupplierID, i.ProductID);
+                                        DialogResult stockDialog = MessageBox.Show("Var olan ürün başarıyla güncellenmiştir. Bir stok daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                        break;
+                                    }
+
+                                }
+                            }
+
+                        }
+                        
+                    }
+
+                    decimal StockTotalPrice = Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value) * Convert.ToInt32(grdList.CurrentRow.Cells[4].Value);
+                    ss.Add(Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value), StockTotalPrice, Convert.ToInt16(grdList.CurrentRow.Cells[4].Value), Convert.ToInt16(grdList.CurrentRow.Cells[6].Value), Convert.ToString(grdList.CurrentRow.Cells[2].Value), Convert.ToString(grdList.CurrentRow.Cells[3].Value), supllierID, Convert.ToInt32(grdProduct.CurrentRow.Cells[0].Value));
+                    DialogResult dialogResult = MessageBox.Show("Stok başarıyla eklenmiştir. Bir stok daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        txtSupplier.Text = "";
+                        txtSupplierName.Text = "";
+                        txtProductFind.Text = "";
+                        txtTotalPrice.Text = "";
+                        grdList.Rows.Clear();
+                        grdList.Refresh();
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+                    txtSupplier.Text = "";
+                    txtSupplierName.Text = "";
+                    txtProductFind.Text = "";
+                    txtTotalPrice.Text = "";
+                    grdList.Rows.Clear();
+                    grdList.Refresh();
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Lütfen ürün seçiniz!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+
+            catch (ArgumentNullException ex)
             {
-                this.Close();
+                DialogResult dialogResult = MessageBox.Show($" {ex.ParamName} alanı boş bırakamazsınız!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
-            txtSupplier.Text = "";
-            txtSupplierName.Text = "";
-            txtProductFind.Text = "";
-            txtTotalPrice.Text = "";
-            grdList.Rows.Clear();
-            grdList.Refresh();
         }
 
         private void grdList_CellContentClick(object sender, DataGridViewCellEventArgs e)

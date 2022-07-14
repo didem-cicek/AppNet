@@ -119,10 +119,10 @@
         }
 
         #endregion
-        private DataGridView grdDeleteStockList;
-        private TextBox txtDeleteStockSearch;
-        private Label label3;
-        private Label label2;
-        private Button btnSearchDelete;
+        public DataGridView grdDeleteStockList;
+        public TextBox txtDeleteStockSearch;
+        public Label label3;
+        public Label label2;
+        public Button btnSearchDelete;
     }
 }

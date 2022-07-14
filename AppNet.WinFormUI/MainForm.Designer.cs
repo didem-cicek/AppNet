@@ -559,11 +559,11 @@
             // critialStok
             // 
             this.critialStok.AutoSize = true;
-            this.critialStok.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.critialStok.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.critialStok.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
-            this.critialStok.Location = new System.Drawing.Point(420, 506);
+            this.critialStok.Location = new System.Drawing.Point(420, 508);
             this.critialStok.Name = "critialStok";
-            this.critialStok.Size = new System.Drawing.Size(59, 23);
+            this.critialStok.Size = new System.Drawing.Size(50, 19);
             this.critialStok.TabIndex = 15;
             this.critialStok.Text = "label8";
             // 

@@ -1,4 +1,5 @@
 ﻿using AppNet.AppService;
+using AppNet.Domain.Validations;
 using AppNet.Infrastructer.Persistence.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -137,9 +138,27 @@ namespace AppNet.WinFormUI
 
         private void btnUpdatedSale_Click(object sender, EventArgs e)
         {
+            var Ürün_Adı = cbbName.Text;
+            var Firma_Adı = cbbCustomer.Text;
+            var Fiyat = txtPrice.Text;
+            var Beden = cbbSize.Text;
+            var Renk = cbbColor.Text;
+            var Adet = txtPiece.Text;
+            var Ödeme_Şekli = cbbSale.Text;
+            var Durum = cbbStatus.Text;
             txtTotalPrice.Text = Convert.ToString(Convert.ToDecimal(txtPrice.Text) * Convert.ToInt32(txtPiece.Text));
             try
             {
+                Ürün_Adı.NullOrEmpty(nameof(Ürün_Adı));
+                Firma_Adı.NullOrEmpty(nameof(Firma_Adı));
+                Fiyat.NullOrEmpty(nameof(Fiyat));
+                Beden.NullOrEmpty(nameof(Beden));
+                Renk.NullOrEmpty(nameof(Renk));
+                Adet.NullOrEmpty(nameof(Adet));
+                Ödeme_Şekli.NullOrEmpty(nameof(Ödeme_Şekli));
+                Durum.NullOrEmpty(nameof(Durum));
+
+                try {
                 ss.Update(Convert.ToInt32(grdUpdateSaleList.CurrentRow.Cells[0].Value), Convert.ToInt32(grdUpdateSaleList.CurrentRow.Cells[9].Value), Convert.ToInt32(grdUpdateSaleList.CurrentRow.Cells[10].Value), Convert.ToInt16(txtPiece.Text), Convert.ToDecimal(txtPrice.Text), Convert.ToDecimal(txtTotalPrice.Text), txtAUpdateSaleDescription.Text, cbbStatus.Text, cbbSale.Text);
                 DialogResult result = MessageBox.Show("Satış başarıyla güncellenmiştir.", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtAUpdateSaleDescription.Text = "";
@@ -153,11 +172,31 @@ namespace AppNet.WinFormUI
                 cbbSale.Items.Clear();
                 cbbSize.Items.Clear();
                 this.Close();
+                }
+                catch
+                {
+                    DialogResult dialogResult = MessageBox.Show("Bilinmeyen bir hata oluştu, güncelleme işleminiz başarız!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            catch (Exception ex)
+            catch (ArgumentNullException ex)
             {
-
+                DialogResult dialogResult = MessageBox.Show($" {ex.ParamName} alanı boş bırakamazsınız!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void NullOrEmpty(object p)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
+        }
+
+        private void txtPiece_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

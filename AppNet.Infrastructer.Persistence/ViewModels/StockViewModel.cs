@@ -10,12 +10,12 @@ namespace AppNet.Infrastructer.Persistence.ViewModels
     {
         public int StockID { get; set; }
         public string ProductName { get; set; }
-        public string SupplierName { get; set; }
-        public int StockPiece { get; set; }
-        public short CritialStock { get; set; }
         public string Color { get; set; }
         public string Size { get; set; }
+        public int StockPiece { get; set; }
         public decimal StockPrice { get; set; }
+        public string SupplierName { get; set; }   
+        public short CritialStock { get; set; }   
         public decimal StockTotalPrice { get; set; }
         public DateTime Date { get; set; }
         public DateTime ModifiedTime { get; set; }

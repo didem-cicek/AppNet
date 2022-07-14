@@ -82,6 +82,7 @@
             this.updatedProductName.Name = "updatedProductName";
             this.updatedProductName.Size = new System.Drawing.Size(216, 27);
             this.updatedProductName.TabIndex = 5;
+            this.updatedProductName.TextChanged += new System.EventHandler(this.updatedProductName_TextChanged);
             // 
             // label5
             // 
@@ -100,6 +101,7 @@
             this.txtUpdatedDescription.Name = "txtUpdatedDescription";
             this.txtUpdatedDescription.Size = new System.Drawing.Size(216, 27);
             this.txtUpdatedDescription.TabIndex = 8;
+            this.txtUpdatedDescription.TextChanged += new System.EventHandler(this.txtUpdatedDescription_TextChanged);
             // 
             // btnUpdatedProduct
             // 

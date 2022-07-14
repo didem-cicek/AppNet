@@ -1,5 +1,6 @@
 using AppNet.AppService;
 using AppNet.Domain.Validations;
+using System.Globalization;
 
 namespace AppNet.WinFormUI
 {
@@ -80,12 +81,13 @@ namespace AppNet.WinFormUI
                     txtUpdatedDescription.Text = "";
                     grdUpdateProductList.DataSource = null;
                     grdUpdateProductList.Refresh();
-                    this.Close();}
+                    this.Close();
+                 }
                 catch
                 {
-                    DialogResult dialogResult = MessageBox.Show("Ürün güncellenemedi, lütfen girdiðiniz deðerlerin doðru olduðuna emin olunuz!", "Uyarý Mesajý", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult dialogResult = MessageBox.Show("Bilinmeyen bir hata oluþtu, güncelleme iþleminiz baþarýz!", "Uyarý Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }
+        }
             catch (ArgumentNullException ex)
             {
                 DialogResult dialogResult = MessageBox.Show($" {ex.ParamName} alaný boþ býrakamazsýnýz!", "Uyarý Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -98,6 +100,18 @@ namespace AppNet.WinFormUI
             updatedProductName.Text = grdUpdateProductList.CurrentRow.Cells[1].Value.ToString();
             cbbUpdatedCategory.Text = grdUpdateProductList.CurrentRow.Cells[2].Value.ToString();
             txtUpdatedDescription.Text = grdUpdateProductList.CurrentRow.Cells[3].Value.ToString();
+        }
+
+        private void updatedProductName_TextChanged(object sender, EventArgs e)
+        {
+            updatedProductName.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(updatedProductName.Text);
+            updatedProductName.SelectionStart = updatedProductName.Text.Length;
+        }
+
+        private void txtUpdatedDescription_TextChanged(object sender, EventArgs e)
+        {
+            txtUpdatedDescription.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtUpdatedDescription.Text);
+            txtUpdatedDescription.SelectionStart = txtUpdatedDescription.Text.Length;
         }
     }
 

@@ -1,4 +1,5 @@
 ﻿using AppNet.AppService;
+using AppNet.Domain.Validations;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -69,7 +70,23 @@ namespace AppNet.WinFormUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            this.Close();
+            var Satış_Fiyatı = txtPrice.Text;
+            var Beden = cbbSize.Text;
+            var Renk = cbbColor.Text;
+            var Adet = txtPiece.Text;
+            try
+            {
+                Satış_Fiyatı.NullOrEmpty(nameof(Satış_Fiyatı));
+                Beden.NullOrEmpty(nameof(Beden));
+                Renk.NullOrEmpty(nameof(Renk));
+                Adet.NullOrEmpty(nameof(Adet));
+                this.Close();
+            }
+            catch (ArgumentNullException ex)
+            {
+                DialogResult dialogResult = MessageBox.Show($" {ex.ParamName} alanı boş bırakamazsınız!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void txtPiece_TextChanged(object sender, EventArgs e)

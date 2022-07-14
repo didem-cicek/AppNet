@@ -14,10 +14,14 @@ namespace AppNet.WinFormUI
     public partial class DeleteStock : Form
     {
         private readonly IStockService ss;
-        public DeleteStock()
+        private readonly IProductService p;
+        private readonly ISupplierService sup;
+        public DeleteStock(IStockService ss, ISupplierService sup, IProductService p)
         {
             InitializeComponent();
             this.ss = ss;
+            this.p = p;
+            this.sup = sup;
         }
 
         private void DeleteStock_Load(object sender, EventArgs e)
@@ -48,16 +52,37 @@ namespace AppNet.WinFormUI
         {
             try
             {
-                var list = (await ss.GetAll()).ToList();
-                var gridList = (from q in list
-                                where q.Supplier.SupplierName.ToLower().Contains((txtDeleteStockSearch.Text).ToLower())
-                                orderby q.Supplier.SupplierName ascending
+                var stock = (await ss.GetAll()).ToList();
+                var product = (await p.GetAll()).ToList();
+                var supplier = (await sup.GetAll()).ToList();
+                var find = supplier.FirstOrDefault(u => u.SupplierName.ToLower() == txtDeleteStockSearch.Text.ToLower());
+                if (find != null) { 
+                var gridList = (from q in stock
+                                join w in supplier
+                                on q.SupplierID equals w.SupplierID
+                                where w.SupplierName.ToLower().Contains((txtDeleteStockSearch.Text).ToLower())
+                                orderby w.SupplierName ascending
                                 select new
                                 {
                                     ID = q.SupplierID,
                                     TedarikçiAdı = q.Supplier.SupplierName,
                                 }).ToList();
-                grdDeleteStockList.DataSource = gridList;
+                grdDeleteStockList.DataSource = gridList;}
+                else
+                {
+                   
+                    var gridList = (from q in product
+                                    join w in stock
+                                    on q.ProductID equals w.ProductID
+                                    where q.ProductName.ToLower().Contains((txtDeleteStockSearch.Text).ToLower())
+                                    orderby q.ProductName ascending
+                                    select new
+                                    {
+                                        ID = q.ProductID,
+                                        TedarikçiAdı = q.ProductName,
+                                    }).ToList();
+                    grdDeleteStockList.DataSource = gridList;
+                }
 
             }
             catch

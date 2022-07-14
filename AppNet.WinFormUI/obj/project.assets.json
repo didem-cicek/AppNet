@@ -917,7 +917,6 @@
         "dependencies": {
           "AppNet.Domain": "1.0.0",
           "AppNet.Infrastructer.Logging": "1.0.0",
-          "LiveCharts.WinForms": "0.9.7.1",
           "Microsoft.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.5",
           "Telegram.Bot": "18.0.0"
