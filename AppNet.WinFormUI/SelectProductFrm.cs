@@ -18,6 +18,8 @@ namespace AppNet.WinFormUI
         private readonly IServiceProvider sp;
         private readonly IProductService ps;
         private readonly IStockService sts;
+        public int ID { get; set; }
+        public decimal Total { get; set; }
         public SelectProductFrm(IServiceProvider sp, IProductService ps, IStockService sts)
         {
             InitializeComponent();
@@ -47,6 +49,8 @@ namespace AppNet.WinFormUI
             txtProductName.Text = frm.grdProduct.CurrentRow.Cells[1].Value.ToString();
             var p = (await ps.GetAll()).ToList();
             var s=(await sts.GetAll()).ToList();
+            var find = s.FirstOrDefault(u => u.ProductID == Convert.ToInt32(frm.grdProduct.CurrentRow.Cells[0].Value));
+            if(find != null) { 
             var productList = (from q in p
                                join st in s
                                on q.ProductID equals st.ProductID
@@ -59,17 +63,24 @@ namespace AppNet.WinFormUI
                                    size = st.Size,
 
                                }).ToList();
+
+                foreach (var item in productList.Distinct())
+                {
+                        cbbSize.Items.Add(item.size);
+                }
+
             
-            foreach (var item in productList)
+        }
+            else
             {
-                cbbColor.Items.Add(item.color);
-                cbbSize.Items.Add(item.size);
-                
+                DialogResult dialogResult = MessageBox.Show("Stokta ürün yok, satışını yapamazsınız!", "Uyarı Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();    
             }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            var frm = sp.GetRequiredService<AddSale>();
             var Satış_Fiyatı = txtPrice.Text;
             var Beden = cbbSize.Text;
             var Renk = cbbColor.Text;
@@ -80,6 +91,7 @@ namespace AppNet.WinFormUI
                 Beden.NullOrEmpty(nameof(Beden));
                 Renk.NullOrEmpty(nameof(Renk));
                 Adet.NullOrEmpty(nameof(Adet));
+                Total = Convert.ToInt32(txtPiece.Text) * Convert.ToDecimal(txtPrice.Text);
                 this.Close();
             }
             catch (ArgumentNullException ex)
@@ -107,6 +119,32 @@ namespace AppNet.WinFormUI
         private void txtPiece_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private async void cbbSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var p = (await ps.GetAll()).ToList();
+            var s = (await sts.GetAll()).ToList();
+            cbbColor.Items.Clear();
+            var List = (from q in p
+                               join st in s
+                               on q.ProductID equals st.ProductID
+                               where st.Size == (cbbSize.Text).ToLower() && q.ProductName.ToLower() == (txtProductName.Text).ToLower()
+                        select new
+                               {
+                                   ProductID = q.ProductID,
+                                   ProductName = q.ProductName,
+                                   color = st.Color,
+                                   size = st.Size,
+                                   StockID = st.StockID,
+
+                               }).ToList();
+
+            foreach (var item in List)
+            {
+                ID = item.ProductID;
+                cbbColor.Items.Add(item.color);
+            }
         }
     }
 }

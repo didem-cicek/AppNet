@@ -105,6 +105,7 @@
             this.cbbSize.Name = "cbbSize";
             this.cbbSize.Size = new System.Drawing.Size(254, 29);
             this.cbbSize.TabIndex = 13;
+            this.cbbSize.SelectedIndexChanged += new System.EventHandler(this.cbbSize_SelectedIndexChanged);
             // 
             // label4
             // 
