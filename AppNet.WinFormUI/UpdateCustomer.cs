@@ -32,7 +32,7 @@ namespace AppNet.WinFormUI
             
         }
 
-        private void btnUpdatedCustomer_Click(object sender, EventArgs e)
+        private async void btnUpdatedCustomer_Click(object sender, EventArgs e)
         {
             var Müşteri_Adı = txtUpdateCustomerName.Text;
             var Telefon_Numarası = txtUpdateCustomerPhone.Text;
@@ -52,7 +52,17 @@ namespace AppNet.WinFormUI
                 Vergi_Dairesi.NullOrEmpty(nameof(Vergi_Dairesi));
                 try
                 {
-                    cs.Update(Convert.ToInt32(grdUpdateCustomerList.CurrentRow.Cells[0].Value), txtUpdateCustomerName.Text, txtUpdateCustomerPhone.Text, txtUpdateCustomerEmail.Text, txtUpdateCustomerAddress.Text, txtUpdateCustomerShippingAddress.Text, Convert.ToInt32(txtUpdateCustomerTaxNo.Text), txtUpdateCustomerTaxOffice.Text, txtUpdateCustomerDesriciption.Text);
+                    var c = (await cs.GetAll()).ToList();
+                    decimal debt = 0;
+                    decimal receivable = 0;
+                    foreach (var item in c)
+                    {
+                        if (item.CustomerID == Convert.ToInt32(grdUpdateCustomerList.CurrentRow.Cells[0].Value)) { 
+                        debt = item.CustomerDebt;
+                        receivable = item.CustomerReceivable;}
+                    }
+
+                    cs.Update(Convert.ToInt32(grdUpdateCustomerList.CurrentRow.Cells[0].Value), txtUpdateCustomerName.Text, txtUpdateCustomerPhone.Text, txtUpdateCustomerEmail.Text, txtUpdateCustomerAddress.Text, txtUpdateCustomerShippingAddress.Text, Convert.ToInt32(txtUpdateCustomerTaxNo.Text), txtUpdateCustomerTaxOffice.Text, txtUpdateCustomerDesriciption.Text, debt, receivable);
                     DialogResult result = MessageBox.Show("Müşteri başarıyla güncellenmiştir.", "Bilgilendirme Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtUpdateCustomerName.Text = "";
                     txtUpdateCustomerPhone.Text = "";

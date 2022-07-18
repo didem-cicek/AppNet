@@ -114,6 +114,7 @@
             this.imageList1.Images.SetKeyName(6, "reports.png");
             this.imageList1.Images.SetKeyName(7, "purchasing.png");
             this.imageList1.Images.SetKeyName(8, "cash.png");
+            this.imageList1.Images.SetKeyName(9, "cash-1.png");
             // 
             // btnSuppliers
             // 
@@ -318,7 +319,7 @@
             this.btnCash.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCash.ForeColor = System.Drawing.Color.White;
             this.btnCash.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCash.ImageKey = "cash.png";
+            this.btnCash.ImageKey = "cash-1.png";
             this.btnCash.ImageList = this.imageList1;
             this.btnCash.Location = new System.Drawing.Point(-1, 516);
             this.btnCash.Name = "btnCash";
@@ -478,9 +479,8 @@
             this.lastSaleCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
             this.lastSaleCustomer.Location = new System.Drawing.Point(982, 190);
             this.lastSaleCustomer.Name = "lastSaleCustomer";
-            this.lastSaleCustomer.Size = new System.Drawing.Size(59, 23);
+            this.lastSaleCustomer.Size = new System.Drawing.Size(0, 23);
             this.lastSaleCustomer.TabIndex = 15;
-            this.lastSaleCustomer.Text = "label8";
             // 
             // label12
             // 
@@ -499,9 +499,8 @@
             this.lastCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
             this.lastCustomer.Location = new System.Drawing.Point(982, 251);
             this.lastCustomer.Name = "lastCustomer";
-            this.lastCustomer.Size = new System.Drawing.Size(59, 23);
+            this.lastCustomer.Size = new System.Drawing.Size(0, 23);
             this.lastCustomer.TabIndex = 15;
-            this.lastCustomer.Text = "label8";
             // 
             // label14
             // 
@@ -520,9 +519,8 @@
             this.lastProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
             this.lastProduct.Location = new System.Drawing.Point(982, 312);
             this.lastProduct.Name = "lastProduct";
-            this.lastProduct.Size = new System.Drawing.Size(59, 23);
+            this.lastProduct.Size = new System.Drawing.Size(0, 23);
             this.lastProduct.TabIndex = 15;
-            this.lastProduct.Text = "label8";
             // 
             // label11
             // 
@@ -563,9 +561,8 @@
             this.critialStok.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
             this.critialStok.Location = new System.Drawing.Point(420, 508);
             this.critialStok.Name = "critialStok";
-            this.critialStok.Size = new System.Drawing.Size(50, 19);
+            this.critialStok.Size = new System.Drawing.Size(0, 19);
             this.critialStok.TabIndex = 15;
-            this.critialStok.Text = "label8";
             // 
             // label9
             // 
@@ -650,9 +647,8 @@
             this.TotalCash.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(99)))), ((int)(((byte)(223)))));
             this.TotalCash.Location = new System.Drawing.Point(947, 505);
             this.TotalCash.Name = "TotalCash";
-            this.TotalCash.Size = new System.Drawing.Size(59, 23);
+            this.TotalCash.Size = new System.Drawing.Size(0, 23);
             this.TotalCash.TabIndex = 15;
-            this.TotalCash.Text = "label8";
             // 
             // MainForm
             // 

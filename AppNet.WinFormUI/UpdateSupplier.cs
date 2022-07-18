@@ -33,8 +33,19 @@ namespace AppNet.WinFormUI
                 Vergi_Numarasý.NullOrEmpty(nameof(Vergi_Numarasý));
                 Vergi_Dairesi.NullOrEmpty(nameof(Vergi_Dairesi));
 
-                try { 
-                ss.Update(Convert.ToInt32(grdSupplierList.CurrentRow.Cells[0].Value), txtUpdateSupplierName.Text, txtUpdateSupplierPhoneNumber.Text, txtUpdateSupplierAddress.Text, Convert.ToInt32(txtTaxNo.Text), txtTaxOffice.Text);
+                try {
+                    var c = (await ss.GetAll()).ToList();
+                    decimal debt = 0;
+                    decimal receivable = 0;
+                    foreach (var item in c)
+                    {
+                        if (item.SupplierID == Convert.ToInt32(grdSupplierList.CurrentRow.Cells[0].Value))
+                        {
+                            debt = item.SupplierDebt;
+                            receivable = item.SupplierReceivable;
+                        }
+                    }
+                    ss.Update(Convert.ToInt32(grdSupplierList.CurrentRow.Cells[0].Value), txtUpdateSupplierName.Text, txtUpdateSupplierPhoneNumber.Text, txtUpdateSupplierAddress.Text, Convert.ToInt32(txtTaxNo.Text), txtTaxOffice.Text, debt, receivable);
                 DialogResult result = MessageBox.Show("Tedarikçi baþarýyla güncellenmiþtir.", "Bilgilendirme Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtUpdateSupplierName.Text = "";
                 txtUpdateSupplierPhoneNumber.Text = "";

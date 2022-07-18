@@ -18,6 +18,8 @@ namespace AppNet.Domain.Entities
         public int CustomerTaxNumber { get; set; }
         public string CustomerTaxOffice { get; set; }
         public string CustomerDesription { get; set; }
+        public decimal CustomerDebt { get; set; }
+        public decimal CustomerReceivable { get; set; }
         public DateTime CustomerDate { get; set; }
         public DateTime CustomerModifitedDate { get; set; }
         public ICollection<Sale> Sales { get; set; }

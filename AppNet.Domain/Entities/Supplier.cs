@@ -15,6 +15,8 @@ namespace AppNet.Domain.Entities
         public string SupplierAddress { get; set; }
         public int  SupplierTaxNumber { get; set; }
         public string SupplierTaxName { get; set; }
+        public decimal SupplierDebt { get; set; }
+        public decimal SupplierReceivable { get; set; }
         public DateTime SupplierDate { get; set; }
         public DateTime SupplierModifitedDate { get; set; }
         public ICollection<Product> Products { get; set; }

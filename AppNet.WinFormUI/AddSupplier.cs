@@ -20,7 +20,7 @@ namespace AppNet.WinFormUI
         {
             try
             {
-                ss.Add(txtSupplierName.Text, txtSupplierPhone.Text, txtSupplierAddress.Text, Convert.ToInt32(txtTaxNumber.Text), txtTaxName.Text);
+                ss.Add(txtSupplierName.Text, txtSupplierPhone.Text, txtSupplierAddress.Text, Convert.ToInt32(txtTaxNumber.Text), txtTaxName.Text,0,0);
                 DialogResult dialogResult = MessageBox.Show("Tedarikçi baþarýyla eklenmiþtir. Bir tedarikçi daha eklemek ister misiniz?", "Bilgilendirme Mesajý", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -28,6 +28,7 @@ namespace AppNet.WinFormUI
                     txtSupplierPhone.Text = "";
                     txtSupplierAddress.Text = "";
                     txtTaxNumber.Text = "";
+                    txtTaxName.Text = "";
                 }
                 else
                 {
@@ -37,6 +38,7 @@ namespace AppNet.WinFormUI
                 txtSupplierPhone.Text = "";
                 txtSupplierAddress.Text = "";
                 txtTaxNumber.Text = "";
+                txtTaxName.Text = "";
             }
             catch
             {

@@ -55,7 +55,7 @@ namespace AppNet.WinFormUI
                     var find = list.FirstOrDefault(u => u.CustomerPhone == txtAddCustomerPhone.Text.ToLower());
                     if (find == null)
                     {
-                        cs.Add(txtAddCustomerName.Text, txtAddCustomerPhone.Text, txtAddCustomerEmail.Text, txtAddCustomerAddress.Text, txtAddCustomerShippingAddress.Text, Convert.ToInt32(txtAddCustomerTaxNo.Text), txtAddCustomerTaxOffice.Text, txtAddCustomerDesriciption.Text);
+                        cs.Add(txtAddCustomerName.Text, txtAddCustomerPhone.Text, txtAddCustomerEmail.Text, txtAddCustomerAddress.Text, txtAddCustomerShippingAddress.Text, Convert.ToInt32(txtAddCustomerTaxNo.Text), txtAddCustomerTaxOffice.Text, txtAddCustomerDesriciption.Text, 0, 0);
                         DialogResult dialogResult = MessageBox.Show("Müşteri başarıyla eklenmiştir. Bir müşteri daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         if (dialogResult == DialogResult.Yes)
                         {

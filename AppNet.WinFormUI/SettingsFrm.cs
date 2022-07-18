@@ -20,23 +20,30 @@ namespace AppNet.WinFormUI
         private readonly IDatabaseService databaseService;
         private readonly IServiceProvider sp;
         private readonly ErpDbContext db;
-        public SettingsFrm(IDatabaseService databaseService, ErpDbContext db, IServiceProvider sp)
+        private readonly ILogService ls;
+        public SettingsFrm(IDatabaseService databaseService, ErpDbContext db, IServiceProvider sp, ILogService ls)
         {
             InitializeComponent();
             this.databaseService = databaseService;
             this.db = db;
             this.sp = sp;
-
+            this.ls = ls;
         }
 
 
         private void SettingsFrm_Load(object sender, EventArgs e)
         {
             var settings = DbSettings.Load();
+            btnAddDatabase.Visible = true;
+            not.Visible = false;
+            not.Text = "Mevcut bir database vardır.";
+            txtServer.Enabled = true;
+            txtAddDatabaseName.Enabled = true;
+            txtAddDataBaseUser.Enabled = true;
+            txtAddPassword.Enabled = true;
 
-            if (settings != null)
+            if (settings != null && settings.Database!=null)
             {
-               
                 txtServer.Text = settings.Server;
                 txtAddDatabaseName.Text = settings.Database;
                 txtAddDataBaseUser.Text = settings.Username;
@@ -48,11 +55,14 @@ namespace AppNet.WinFormUI
                 txtAddDatabaseName.Enabled = false;
                 txtAddDataBaseUser.Enabled = false;
                 txtAddPassword.Enabled = false;
+
+            }
+            else if(settings.Username != null)
+            {
+                
             }
             else
             {
-
-                
 
             }
         }

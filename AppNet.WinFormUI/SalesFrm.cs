@@ -68,7 +68,7 @@ namespace AppNet.WinFormUI
                 grdSaleList.Columns.Add("Date", "Kayıt Tarihi");
                 grdSaleList.Columns.Add("ModifiedDate", "Düzenlenme Tarihi");
                 LoadGridData();
-                grdSaleList.Columns[0].Visible = false;
+                grdSaleList.Columns[0].Visible = true;
             }
         }
         private async void LoadGridData()

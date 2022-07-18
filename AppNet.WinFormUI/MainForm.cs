@@ -176,9 +176,14 @@ namespace AppNet.WinFormUI
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
+            try {
             var frm = sp.GetRequiredService<SettingsFrm>();
             frm.ShowDialog();
-            LoadGridData();
+            LoadGridData(); }
+            catch (Exception ex)
+            {
+                DialogResult dialogResult = MessageBox.Show("Yeni oluþturduðunuz için görüntüleyemiyorsunuz, programdan çýkýp tekrar girmeniz gerekmektedir.", "Uyarý Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)

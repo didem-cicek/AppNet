@@ -181,13 +181,13 @@
 
         public Button btnAddDatabase;
         public TextBox txtAddDatabaseName;
-        private Label label3;
-        private Label label2;
-        private Label label1;
+        public Label label3;
+        public Label label2;
+        public Label label1;
         public TextBox txtAddDataBaseUser;
         public TextBox txtAddPassword;
-        private Label label4;
+        public Label label4;
         public TextBox txtServer;
-        private Label not;
+        public Label not;
     }
 }

@@ -235,17 +235,17 @@
 
         #endregion
 
-        private DataGridView grdCustomerList;
+        public DataGridView grdCustomerList;
         public TextBox txtCustomerSearch;
         public Button btnDeletedCustomer;
         public Button btnUpdatedCustomer;
         public Button btnAddCustomer;
-        private ImageList imageList1;
-        private Panel panel1;
-        private Panel panel3;
-        private Label label6;
-        private Label label1;
-        private Label label4;
-        private Label label2;
+        public ImageList imageList1;
+        public Panel panel1;
+        public Panel panel3;
+        public Label label6;
+        public Label label1;
+        public Label label4;
+        public Label label2;
     }
 }

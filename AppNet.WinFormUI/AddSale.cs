@@ -25,6 +25,7 @@ namespace AppNet.WinFormUI
         private readonly IServiceProvider sp;
         public int customerID;
         public int Piece;
+        public string saleProduct = "";
         
         public AddSale(IServiceProvider sp, IProductService ps, ICustomerService cs, IStockService sts, ISalesService ss)
         {
@@ -99,7 +100,6 @@ namespace AppNet.WinFormUI
             //                   }).ToList();
            
             var i = 0;
-            var count = 0;
             var dataList = (from q in p
                                orderby q.ProductID descending
                                select new SaleProductListViewModel
@@ -179,16 +179,22 @@ namespace AppNet.WinFormUI
                     }
                     if (stockStatus == false)
                     {
-                        ss.Add(Convert.ToInt32(grdList.CurrentRow.Cells[6].Value), Convert.ToInt32(customerID), Convert.ToInt16(grdList.CurrentRow.Cells[4].Value), Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value), Convert.ToDecimal(txtTotalPrice.Text), txtDesciption.Text, cbbStatus.Text, cbbAddSalePay.Text);
+                        for (int i = 0; i < grdList.Rows.Count; i++)
+                        {
+
+                            ss.Add(Convert.ToInt32(grdList.Rows[i].Cells[6].Value), Convert.ToInt32(customerID), Convert.ToInt16(grdList.Rows[i].Cells[4].Value), Convert.ToDecimal(grdList.Rows[i].Cells[5].Value), Convert.ToDecimal(txtTotalPrice.Text), txtDesciption.Text, cbbStatus.Text, cbbAddSalePay.Text);
+                            foreach (var item in dropFromStock)
+                            {
+                                sts.Update(item.StockID, item.ProductPrice, item.TotalPrice, item.ProductPiece, item.CritialStok, item.Color, item.Size, item.SupplierID, item.ProductID);
+                            }
+                        }
+                        
+                        //ss.Add(Convert.ToInt32(grdList.CurrentRow.Cells[6].Value), Convert.ToInt32(customerID), Convert.ToInt16(grdList.CurrentRow.Cells[4].Value), Convert.ToDecimal(grdList.CurrentRow.Cells[5].Value), Convert.ToDecimal(txtTotalPrice.Text), txtDesciption.Text, cbbStatus.Text, cbbAddSalePay.Text);
                         DialogResult dialogResult = MessageBox.Show("Sipariş başarıyla eklenmiştir. Bir sipariş daha eklemek ister misiniz?", "Bilgilendirme Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         notifyIcon1.ShowBalloonTip(1000, "Siparişiniz Başarılı", "Siparişiniz başarılı ile oluşturulmuştur. Telegram bildirimi gönderilmiştir. ", ToolTipIcon.Info);
                         var n = new TelegramNotification();
                         n.OnMessage("Yeni Bir Sipariş Oluşturuldu");
-
-                        foreach (var item in dropFromStock)
-                        {
-                            sts.Update(item.StockID, item.ProductPrice, item.TotalPrice, item.ProductPiece, item.CritialStok, item.Color, item.Size, item.SupplierID, item.ProductID);
-                        }
+                        
 
                         if (dialogResult == DialogResult.Yes)
                         {

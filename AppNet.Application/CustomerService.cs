@@ -15,7 +15,7 @@ namespace AppNet.AppService
         {
             this.repository = repository;
         }
-        public Customer Add(string CustomerName, string CustomerPhone, string CustomerEmail, string CustomerAddress, string CustomerShippingAddress, int CustomerTaxNumber, string CustomerTaxOffice, string CustomerDesription)
+        public Customer Add(string CustomerName, string CustomerPhone, string CustomerEmail, string CustomerAddress, string CustomerShippingAddress, int CustomerTaxNumber, string CustomerTaxOffice, string CustomerDesription, decimal CustomerDebt, decimal CustomerReceivable)
         {
             Customer customer = new Customer()
             {
@@ -27,6 +27,8 @@ namespace AppNet.AppService
                 CustomerTaxNumber = CustomerTaxNumber,
                 CustomerTaxOffice = CustomerTaxOffice,
                 CustomerDesription = CustomerDesription,
+                CustomerDebt = CustomerDebt,
+                CustomerReceivable = CustomerReceivable,
                 CustomerDate = DateTime.Now,
                 
             };
@@ -45,7 +47,7 @@ namespace AppNet.AppService
             return true;
         }
 
-        public async Task<Customer> Update(int CustomerID, string CustomerName, string CustomerPhone, string CustomerEmail, string CustomerAddress, string CustomerShippingAddress, int CustomerTaxNumber, string CustomerTaxOffice, string CustomerDesription)
+        public async Task<Customer> Update(int CustomerID, string CustomerName, string CustomerPhone, string CustomerEmail, string CustomerAddress, string CustomerShippingAddress, int CustomerTaxNumber, string CustomerTaxOffice, string CustomerDesription, decimal CustomerDebt, decimal CustomerReceivable)
         {
             Customer customer = new Customer()
             {
@@ -58,7 +60,9 @@ namespace AppNet.AppService
                 CustomerTaxNumber = CustomerTaxNumber,
                 CustomerTaxOffice = CustomerTaxOffice,
                 CustomerDesription = CustomerDesription,
-                CustomerModifitedDate= DateTime.Now,
+                CustomerDebt = CustomerDebt,
+                CustomerReceivable = CustomerReceivable,
+                CustomerModifitedDate = DateTime.Now,
 
             };
             repository.Update(customer);

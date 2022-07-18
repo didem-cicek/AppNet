@@ -71,7 +71,7 @@ namespace AppNet.WinFormUI
                 {  var loginFrm = sp.GetRequiredService<Login>();
                     Application.Run(loginFrm);
                 } else {
-                    MessageBox.Show("Veri Tabanýnýz mevcut deðil, lütfen önce veri tabanýnýzý oluþturunuz!", "Bilgilendirme Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Veri Tabanýnýz mevcut deðil, lütfen önce veri tabanýnýzý oluþturunuz!", "Bilgilendirme Mesajý", MessageBoxButtons.OK, MessageBoxIcon.Warning);  
                     var settingFrm = sp.GetRequiredService<SettingsFrm>();
                     Application.Run(settingFrm);
                 }

@@ -18,6 +18,8 @@ namespace AppNet.WinFormUI
         private readonly ICustomerService cs;
         private readonly ISalesService ss;
         private readonly IServiceProvider sp;
+        public decimal Debt = 0;
+        public decimal Receivable = 0;
         public CustomerFrm(IServiceProvider sp, ICustomerService cs, ISalesService ss)
         {
             InitializeComponent();
@@ -52,22 +54,24 @@ namespace AppNet.WinFormUI
 
         private void CustomerFrm_Load(object sender, EventArgs e)
         {
-            if(grdCustomerList.Rows.Count == 0){ 
-            grdCustomerList.Columns.Add("CustomerID", "Müşteri ID");
-            grdCustomerList.Columns.Add("CustomerName", "Müşteri Adı");
-            grdCustomerList.Columns.Add("CustomerPhone", "Telefon Numarası");
-            grdCustomerList.Columns.Add("CustomerEmail", "E-Posta Adresi");
-            grdCustomerList.Columns.Add("CustomerAddress", "Fatura Adresi");
-            grdCustomerList.Columns.Add("CustomerShippingAddress", "Sevk Adresi");
-            grdCustomerList.Columns.Add("CustomerTaxNumber", "Vergi Numarası");
-            grdCustomerList.Columns.Add("CustomerTaxOffice", "Vergi Dairesi");
-            grdCustomerList.Columns.Add("CustomerDesription", "Açıklama");
-            grdCustomerList.Columns.Add("CustomerDebt", "Borç");
-            grdCustomerList.Columns.Add("CustomerReceivable", "Alacak");
-            grdCustomerList.Columns.Add("CustomerDate", "Ekleme Tarihi");
-            grdCustomerList.Columns.Add("CustomerModifitedDate", "Düzenleme Tarihi");
-            LoadGridData();
-            grdCustomerList.Columns[0].Visible = false;}
+            if (grdCustomerList.Rows.Count == 0)
+            {
+                grdCustomerList.Columns.Add("CustomerID", "Müşteri ID");
+                grdCustomerList.Columns.Add("CustomerName", "Müşteri Adı");
+                grdCustomerList.Columns.Add("CustomerPhone", "Telefon Numarası");
+                grdCustomerList.Columns.Add("CustomerEmail", "E-Posta Adresi");
+                grdCustomerList.Columns.Add("CustomerAddress", "Fatura Adresi");
+                grdCustomerList.Columns.Add("CustomerShippingAddress", "Sevk Adresi");
+                grdCustomerList.Columns.Add("CustomerTaxNumber", "Vergi Numarası");
+                grdCustomerList.Columns.Add("CustomerTaxOffice", "Vergi Dairesi");
+                grdCustomerList.Columns.Add("CustomerDesription", "Açıklama");
+                grdCustomerList.Columns.Add("CustomerDebt", "Borç");
+                grdCustomerList.Columns.Add("CustomerReceivable", "Alacak");
+                grdCustomerList.Columns.Add("CustomerDate", "Ekleme Tarihi");
+                grdCustomerList.Columns.Add("CustomerModifitedDate", "Düzenleme Tarihi");
+                LoadGridData();
+                grdCustomerList.Columns[0].Visible = false;
+            }
         }
         private async void LoadGridData()
         {
@@ -75,6 +79,26 @@ namespace AppNet.WinFormUI
             grdCustomerList.Refresh();
             var customer = (await cs.GetAll()).ToList();
             var sales = (await ss.GetAll()).ToList();
+            var salesData = from p in customer
+                            join s in sales
+                            on p.CustomerID equals s.CustomerID
+                            select new
+                            {
+                                CustomerID = p.CustomerID,
+                                CustomerName = p.CustomerName,
+                                CustomerPhone = p.CustomerPhone,
+                                CustomerEmail = p.CustomerEmail,
+                                CustomerAddress = p.CustomerAddress,
+                                CustomerShippingAddress = p.CustomerShippingAddress,
+                                CustomerTaxNumber = p.CustomerTaxNumber,
+                                CustomerTaxOffice = p.CustomerTaxOffice,
+                                CustomerDesription = p.CustomerDesription,
+                                Sales = s.SalePrice,
+                                Status = s.SaleStatus,
+                                CustomerDate = p.CustomerDate,
+                                CustomerModifitedDate = p.CustomerModifitedDate,
+                            };
+
             var data = from p in customer
                        select new CustomerViewModel
                        {
@@ -87,14 +111,45 @@ namespace AppNet.WinFormUI
                            CustomerTaxNumber = p.CustomerTaxNumber,
                            CustomerTaxOffice = p.CustomerTaxOffice,
                            CustomerDesription = p.CustomerDesription,
-                           CustomerDebt = p.Sales == null ? 0 : p.Sales.Sum(s=>s.SalePrice),
-                           CustomerReceivable = p.Sales == null ? 0 : p.Sales.Sum(s => s.SalePrice),
+                           CustomerDebt = 0,
+                           CustomerReceivable = 0,
                            CustomerDate = p.CustomerDate,
                            CustomerModifitedDate = p.CustomerModifitedDate,
                        };
             foreach (var item in data)
             {
                 AddRowToGrid(item);
+            }
+        }
+        private async void Data()
+        {
+            var customer = (await cs.GetAll()).ToList();
+            var sales = (await ss.GetAll()).ToList();
+            var salesData = from p in customer
+                            join s in sales
+                            on p.CustomerID equals s.CustomerID
+                            select new
+                            {
+                                CustomerID = p.CustomerID,
+                                CustomerName = p.CustomerName,
+                                CustomerPhone = p.CustomerPhone,
+                                CustomerEmail = p.CustomerEmail,
+                                CustomerAddress = p.CustomerAddress,
+                                CustomerShippingAddress = p.CustomerShippingAddress,
+                                CustomerTaxNumber = p.CustomerTaxNumber,
+                                CustomerTaxOffice = p.CustomerTaxOffice,
+                                CustomerDesription = p.CustomerDesription,
+                                Sales = s.SalePrice,
+                                Status = s.SaleStatus,
+                                CustomerDate = p.CustomerDate,
+                                CustomerModifitedDate = p.CustomerModifitedDate,
+                            };
+            foreach (var item in salesData)
+            {
+                if (grdCustomerList.CurrentRow.Cells[1].Value.ToString().ToLower() == item.CustomerName.ToLower())
+                {
+
+                }
             }
         }
         private void AddRowToGrid(CustomerViewModel model)
